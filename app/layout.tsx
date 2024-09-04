@@ -6,6 +6,7 @@ import Footer from './components/global/Footer';
 
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import "./utilities.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
 

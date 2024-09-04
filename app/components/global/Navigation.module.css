@@ -1,6 +1,16 @@
 
+.navigation {
+    text-align: center;
+    user-select: none;
+}
 .navigation ul {
-    display: flex;
+    display: inline-flex;
     list-style-type: none;
     padding: 0;
+    margin: 1em 1.5em;
+    text-align: left;
+}
+.navigation a {
+    padding: 0.5em 1em;
+    white-space: nowrap;
 }
