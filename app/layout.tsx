@@ -21,9 +21,9 @@ export default function RootLayout({
         <AnalyticsWrapper>
           <div className="site">
             <Header />
-            <main>
-              {children}
-            </main>
+
+            {children}
+
             <Footer />
           </div>
         </AnalyticsWrapper>
