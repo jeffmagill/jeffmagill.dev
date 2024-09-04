@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import Hero from "../components/global/Hero";
+import Hero from "@/app/components/global/Hero";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {

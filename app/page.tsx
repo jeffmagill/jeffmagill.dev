@@ -1,7 +1,8 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
-import Hero from "./components/global/Hero";
+import Hero from "@/app/components/global/Hero";
+import Callout from "@/app/components/global/Callout";
 
 export const metadata: Metadata = {
     title: "Andrew Magill: Web Developer",
@@ -28,6 +29,24 @@ export default function Home() {
                     width={300} height={300} 
                 />
             </Hero>
+
+            <section className={styles.serviceList}>
+                <Callout
+                    title="Implementation Management"
+                    description="I help the team prioritize and execute projects on time, within budget, and exceed expectations."
+                    icon="/icons/management.svg"
+                />
+                <Callout
+                    title="Software Engineering"
+                    description="I architect web applications, tailored to clients' needs and requirements."
+                    icon="/icons/engineering.svg"
+                />
+                <Callout
+                    title="Process Automation"
+                    description="I implement tools to allow the clients to set ambitious goals, and focus on their core business."
+                    icon="/icons/process.svg"
+                />
+            </section>
         </div>
     </main>
   );

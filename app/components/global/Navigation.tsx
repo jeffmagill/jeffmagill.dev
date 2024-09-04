@@ -6,6 +6,7 @@ const Navigation: React.FC = () => {
   return (
     <nav className={styles.navigation}>
       <ul>
+        <li><Link href="/">Home</Link></li>
         <li><Link href="/blog">Blog</Link></li>
         <li><Link href="/projects">Projects</Link></li>
         <li><Link href="//github.com/andymagill">GitHub</Link></li>

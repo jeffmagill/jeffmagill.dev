@@ -5,5 +5,12 @@
   align-items: center;
 }
 .wrapper {
+  max-width: var(--inner-width);
+  margin: auto;
+}
+.portrait {
+  
+}
+.serviceList {
   display: flex;
 }
