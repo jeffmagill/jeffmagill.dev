@@ -1,4 +1,9 @@
 
+
+import AnalyticsWrapper from './components/global/AnalyticsWrapper';
+import Header from './components/global/Header';
+import Footer from './components/global/Footer';
+
 import { Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -12,9 +17,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <div className="site">
-          {children}
-        </div>
+        <AnalyticsWrapper>
+          <div className="site">
+            <Header />
+            <main>
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </AnalyticsWrapper>
       </body>
     </html>
   );
