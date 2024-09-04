@@ -3,6 +3,10 @@
     padding: 1em 1.5em;
 }
 .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: var(--inner-width);
     margin: auto;
+    gap: 2em;
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
-import Hero from "./components/global/Hero"
+import Hero from "./components/global/Hero";
 
 export const metadata: Metadata = {
     title: "Andrew Magill: Web Developer",
