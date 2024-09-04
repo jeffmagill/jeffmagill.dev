@@ -8,8 +8,8 @@ const Callout: React.FC<{ title: string; description: string; icon: string }> = 
 }) => {
   return (
     <section className={styles.callout}>
-      <div className={styles.wrapper}>
-        <img src={icon} alt={title} />
+      <div className="{styles.wrapper} ta-center">
+        <img src={icon} alt={title} width={48} height={48} />
         <h2>{title}</h2>
         <p>{description}</p>
       </div>

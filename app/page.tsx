@@ -34,17 +34,17 @@ export default function Home() {
                 <Callout
                     title="Implementation Management"
                     description="I help the team prioritize and execute projects on time, within budget, and exceed expectations."
-                    icon="/icons/management.svg"
+                    icon="/images/icon-project.svg"
                 />
                 <Callout
                     title="Software Engineering"
                     description="I architect web applications, tailored to clients' needs and requirements."
-                    icon="/icons/engineering.svg"
+                    icon="/images/icon-engineering.svg"
                 />
                 <Callout
                     title="Process Automation"
                     description="I implement tools to allow the clients to set ambitious goals, and focus on their core business."
-                    icon="/icons/process.svg"
+                    icon="/images/icon-automation.svg"
                 />
             </section>
         </div>
