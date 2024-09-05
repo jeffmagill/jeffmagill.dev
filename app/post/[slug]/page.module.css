@@ -1,11 +1,15 @@
+
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
-.wrapper {
-  display: flex;
+.post {
+  max-width: 60ch;
+  margin: 2rem auto;
+}
+.post h1 {
+  text-align: center;
+  margin: 1.5rem auto;
+}
+.post p {
+  margin: 1.25rem auto;
 }
