@@ -1,12 +1,23 @@
-
 .hero {
-    padding: 1em 1.5em;
+  padding: 1em 1.5em;
+}
+.hero h1 {
+  display: inline;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.hero a {
+  color: inherit;
+}
+.hero :global(.heroContent) {
+  font-size: 1.5rem;
+  max-width: 36ch;
 }
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: var(--inner-width);
-    margin: auto;
-    gap: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: var(--inner-width);
+  margin: auto;
+  gap: 2em;
 }

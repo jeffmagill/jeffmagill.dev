@@ -1,31 +1,30 @@
-
 /* font size */
 .fs-xs {
-    font-size: 0.75rem;
+  font-size: 0.75rem;
 }
 .fs-sm {
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 .fs-md {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 .fs-lg {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 .fs-xl {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 .fs-xxl {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 /* alignment  */
 .ta-left {
-    text-align: left;
+  text-align: left;
 }
 .ta-center {
-    text-align: center;
+  text-align: center;
 }
 .ta-right {
-    text-align: right;
+  text-align: right;
 }

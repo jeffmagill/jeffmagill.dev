@@ -4,11 +4,13 @@
   --primary-color: #3498db;
   --secondary-color: #f1c40f;
   --text-color: #171717;
-  
+
   --mobile: 480px;
   --inner-width: 1280px;
 }
-@media (prefers-color-scheme: dark), (prefers-color-scheme: no-preference) and (environment-blending: dark), (forced-colors: dark) {
+@media (prefers-color-scheme: dark),
+  (prefers-color-scheme: no-preference) and (environment-blending: dark),
+  (forced-colors: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;

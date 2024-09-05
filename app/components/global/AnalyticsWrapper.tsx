@@ -1,18 +1,19 @@
-
 'use client';
 
 import React, { useEffect } from 'react';
 import Script from 'next/script';
 
 declare global {
-    interface Window {
-      dataLayer: any[];
-    }
+  interface Window {
+    dataLayer: any[];
+  }
 }
 
 const GTM_ID = 'GTM-XXXXXXX'; // Replace with your actual GTM ID
 
-const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   useEffect(() => {
     if (typeof window !== 'undefined' && window.dataLayer) {
       window.dataLayer.push({
@@ -25,8 +26,8 @@ const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children })
   return (
     <>
       <Script
-        id="gtm-script"
-        strategy="afterInteractive"
+        id='gtm-script'
+        strategy='afterInteractive'
         dangerouslySetInnerHTML={{
           __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

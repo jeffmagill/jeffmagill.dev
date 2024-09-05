@@ -9,7 +9,9 @@
   margin: auto;
 }
 .portrait {
-  
+  width: 100%;
+  height: auto;
+  max-width: min(50dvh, 50%);
 }
 .serviceList {
   display: flex;
