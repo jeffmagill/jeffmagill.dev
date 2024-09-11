@@ -1,0 +1,21 @@
+.main {
+  
+  @media (min-width: 480px) {
+    display: flex;
+    align-items: center;
+  }
+}
+.wrapper {
+  max-width: var(--inner-width);
+  margin: auto;
+}
+.portrait {
+  width: 100%;
+  height: auto;
+  max-width: min(50dvh, 40%);
+}
+.serviceList {
+  @media (min-width: 480px) {
+    display: flex;
+  }
+}
