@@ -22,7 +22,7 @@ export default function Home() {
             width={300}
             height={300}
           />
-          
+
           <div className='heroContent'>
             <h1>
               <strong>Hey there, I’m Andrew&nbsp;Magill.</strong> I’m a

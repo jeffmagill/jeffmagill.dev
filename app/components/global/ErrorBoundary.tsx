@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useReducer } from 'react';
 
@@ -24,7 +24,9 @@ const errorReducer = (state: State, action: Action) => {
   }
 };
 
-const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [state, dispatch] = useReducer(errorReducer, initialState);
 
   const handleError = (error: Error) => {
@@ -35,11 +37,7 @@ const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     return <div>Error occurred</div>;
   }
 
-  return (
-    <React.Fragment>
-      {children}
-    </React.Fragment>
-  );
+  return <React.Fragment>{children}</React.Fragment>;
 };
 
 export default ErrorBoundary;

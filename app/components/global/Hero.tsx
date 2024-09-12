@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Hero.module.css';
+import styles from './Hero.module.scss';
 
 const Hero: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (

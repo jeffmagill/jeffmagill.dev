@@ -1,10 +1,9 @@
-
 import React from 'react';
-import Markdown from "markdown-to-jsx";
-import getPostMetadata from "@/utils/getPostMetadata";
+import Markdown from 'markdown-to-jsx';
+import getPostMetadata from '@/utils/metadata';
 import styles from './page.module.css';
 import fs from 'fs';
-import matter from "gray-matter";
+import matter from 'gray-matter';
 
 interface Post {
   title: string;
@@ -33,13 +32,19 @@ export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata('content/blog');
   console.log(posts);
   return posts.map((post) => ({ slug: post.slug }));
-}
+};
 
-export async function generateMetadata({ params, searchParams }: { params: { slug: string }, searchParams: any }): Promise<{ title: string }> {
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: any;
+}): Promise<{ title: string }> {
   const id = params?.slug ? ' ⋅ ' + params?.slug : '';
   return {
-    title: `${id.replaceAll('_', ' ')} - Andrew Magill's Developer Blog`
-  }
+    title: `${id.replaceAll('_', ' ')} - Andrew Magill's Developer Blog`,
+  };
 }
 
 interface PostProps {
@@ -49,12 +54,12 @@ interface PostProps {
 export default function Post(props: PostProps) {
   const slug = props.params.slug;
   const post = getPostContent(slug);
-  
+
   return (
     <main>
       <article className={styles.post}>
         <Markdown>{post.content}</Markdown>
       </article>
     </main>
-  )
+  );
 }
