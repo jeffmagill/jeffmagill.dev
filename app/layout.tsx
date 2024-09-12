@@ -1,4 +1,5 @@
 import AnalyticsWrapper from './components/global/AnalyticsWrapper';
+import ErrorBoundary from '@/app/components/global/ErrorBoundary';
 import Header from './components/global/Header';
 import Footer from './components/global/Footer';
 
@@ -16,15 +17,17 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={outfit.className}>
-        <AnalyticsWrapper>
-          <div className='site'>
-            <Header />
+        <ErrorBoundary>
+          <AnalyticsWrapper>
+            <div className='site'>
+              <Header />
 
-            {children}
+              {children}
 
-            <Footer />
-          </div>
-        </AnalyticsWrapper>
+              <Footer />
+            </div>
+          </AnalyticsWrapper>
+        </ErrorBoundary>
       </body>
     </html>
   );
