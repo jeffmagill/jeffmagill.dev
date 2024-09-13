@@ -18,7 +18,7 @@ const PostList = () => {
   const posts = getPostMetadata('content/blog');
   return (
     // postList container
-    <div className={`${styles.postList} postList`} >
+    <div className={`${styles.postList} postList`}>
       {/*
         Render a PostItem component for each post using slug as key
       */}

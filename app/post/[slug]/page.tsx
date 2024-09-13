@@ -1,11 +1,11 @@
-
 import React from 'react';
 import fs from 'fs';
 import { notFound } from 'next/navigation';
 import getPostMetadata from '@/utils/metadata';
-import Hero from '@/app/components/global/Hero';
-import matter from 'gray-matter';
 import Markdown from 'markdown-to-jsx';
+import matter from 'gray-matter';
+import Hero from '@/app/components/global/Hero';
+import ShareButtons from '@/app/components/blog/ShareButtons';
 import styles from './page.module.css';
 
 interface Post {
@@ -17,7 +17,6 @@ interface Post {
 }
 
 function getPostContent(slug: string): Post {
-
   const file = 'content/blog/' + `${slug}.md`;
   let content;
 
@@ -25,8 +24,7 @@ function getPostContent(slug: string): Post {
   if (fs.existsSync(file)) {
     content = fs.readFileSync(file, 'utf8');
     console.log('File: "' + file + '" loaded.');
-  }
-  else {
+  } else {
     notFound();
   }
 
@@ -71,10 +69,14 @@ export default function Post(props: PostProps) {
     <main>
       <Hero>
         <h1>{post.title} </h1>
+        <p>by Andrew Magill</p>
+        <p>{post.description}</p>
       </Hero>
 
       <article className={styles.post}>
         <Markdown>{post.content}</Markdown>
+
+        <ShareButtons title={post.title} />
       </article>
     </main>
   );

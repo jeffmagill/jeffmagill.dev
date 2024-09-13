@@ -1,0 +1,49 @@
+// app/components/blog/ShareButtons.module.scss
+
+.shareButtonList {
+  text-align: center;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .shareButton {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+    gap: 0.5rem;
+    min-width: 1.75rem;
+    padding: 0.36rem 0 0.36rem 0.36rem;
+    border: none;
+    border-radius: 0.25rem;
+
+    background-color: #9d92a7;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1rem;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #a48a8a;
+      padding-right: 0.5rem;
+
+      span {
+        max-width: 200px;
+      }
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1rem;
+      max-width: 0;
+      transition: max-width 0.25s ease-out;
+      overflow: hidden;
+    }
+  }
+}
