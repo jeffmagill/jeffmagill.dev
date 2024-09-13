@@ -1,6 +1,6 @@
 /**
  * Home Page
- * 
+ *
  */
 
 import Image from 'next/image';
@@ -50,7 +50,7 @@ export default function Home() {
             <Link href='/projects'>some of my&nbsp;work</Link>.
           </div>
         </Hero>
-        
+
         {/* // Key Skills */}
         <section className={styles.serviceList}>
           <h2>Key Skills</h2>

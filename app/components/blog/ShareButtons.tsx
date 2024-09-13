@@ -30,7 +30,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 
   // get the current path and hostname
   let url;
-  if (path && window.location.href) {
+  if (path && typeof window !== 'undefined') {
     // url = new URL(path, window.location.href);
     url = 'https://magill.dev';
   } else {
