@@ -7,8 +7,15 @@
 }
 .post h1 {
   text-align: center;
-  margin: 1.5rem auto;
+}
+.post h2 ,
+.post h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 .post p {
-  margin: 1.25rem auto;
+  margin: 1rem auto;
+}
+.post ul {
+  padding-left: 2rem;
 }
