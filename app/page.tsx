@@ -45,21 +45,23 @@ export default function Home() {
 
         <section className={styles.serviceList}>
           <h2>Key Skills</h2>
-          <Callout
-            title='Implementation Management'
-            description='I help the team prioritize and execute projects on time, within budget, and exceed expectations.'
-            icon='/images/icon-project.svg'
-          />
-          <Callout
-            title='Software Engineering'
-            description="I architect web applications, tailored to clients' needs and requirements."
-            icon='/images/icon-engineering.svg'
-          />
-          <Callout
-            title='Process Automation'
-            description='I implement tools to allow the clients to set ambitious goals, and focus on their core business.'
-            icon='/images/icon-automation.svg'
-          />
+          <div className='wrapper'>
+            <Callout
+              title='Engineering Management'
+              description='I help teams execute engineering projects that address complex challenges and exceed expectations.'
+              icon='/images/icon-project.svg'
+            />
+            <Callout
+              title='Software Development'
+              description='I architect web applications that elegantly translate ambitious goals into scalable solutions.'
+              icon='/images/icon-engineering.svg'
+            />
+            <Callout
+              title='Process Automation'
+              description='I implement tools that enable teams to focus on their core business and strategic objectives.'
+              icon='/images/icon-automation.svg'
+            />
+          </div>
         </section>
       </div>
     </main>

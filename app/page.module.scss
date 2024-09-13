@@ -6,13 +6,27 @@
   max-width: min(50dvh, 40%);
 }
 .serviceList {
-  max-width: var(--inner-width);
-  margin: auto;
-
-  @media (min-width: 480px) {
-    display: flex;
-  }
   h2 {
-    flex-basis: 100%;
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+    width: min-content;
+    margin: auto;
+    line-height: 1.5rem;
+  }
+  :global(.wrapper) {
+    max-width: var(--inner-width);
+    margin: auto;
+
+    @media (min-width: 480px) {
+      display: flex;
+    }
+    & > * {
+      @media (min-width: 480px) {
+        flex-basis: 0;
+        flex-grow: 1;
+      }
+    }
   }
 }

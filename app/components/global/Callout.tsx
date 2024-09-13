@@ -9,11 +9,9 @@ const Callout: React.FC<{
 }> = ({ title, description, icon }) => {
   return (
     <section className={styles.callout}>
-      <div className='{styles.wrapper} ta-center'>
-        <Image src={icon} alt={title} width={64} height={64} />
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </div>
+      <Image src={icon} alt={title} width={64} height={64} />
+      <h3>{title}</h3>
+      <p>{description}</p>
     </section>
   );
 };
