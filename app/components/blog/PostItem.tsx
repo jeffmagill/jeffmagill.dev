@@ -20,19 +20,19 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
   return (
     <div className={`${styles.postItem} postItem`}>
       <Link href={`/post/${post.slug}`}>
-          <span className={`${styles.postThumb} postThumb`}>
-            <Image src={post.image} alt={post.title} width={320} height={180} />
-          </span>
+        <span className={`${styles.postThumb} postThumb`}>
+          <Image src={post.image} alt={post.title} width={320} height={180} />
+        </span>
 
-          <span className={`${styles.postDetails} postDetails`}>
-            <ul>
-                {tags.map((tag, index) => (
-                <li key={index}>{tag}</li>
-                ))}
-            </ul>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-          </span>
+        <span className={`${styles.postDetails} postDetails`}>
+          <ul>
+            {tags.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+        </span>
       </Link>
     </div>
   );
