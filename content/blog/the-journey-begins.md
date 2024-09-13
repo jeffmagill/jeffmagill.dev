@@ -2,16 +2,16 @@
 title: The Journey Begins
 description: A series of bad jokes to test my staticly-generated Next.JS blog application
 image: /images/blog/katherine-mccormack-sailboat-unsplash.jpg
-tags: testing
+tags: milestone
 last-updated: 1725542139
 created: 1725542139
 ---
 
 You might not believe it, but my life as a Web Engineer and Lead developer is an incredible adventure. It's exactly like being Indiana Jones, but I deal with browsers and code instead of whips and treasure. That means dodging the blades of cutting edge technology, navigating the machiavellian world of marketing vendors, and battling the relentless hordes of frontend frameworks.  
 
-### About time you showed up
+### It's About Time
 
-For a long time, I've been hesitant to write publically about my professional experiences. I didn't want spend time failing to reaching an audience or add a new chore to my regular routine. But as I've reflected on my career, I've since realized that there's a lot of value in sharing my professional "adventures". I hope this blog will help me meet new professionals and learn about interesting opportunities. 
+For a long time, I've been hesitant to write publicly about my professional experiences. I was afraid of failing to reaching an audience, and too busy/lazy to change my regular routine, or work toward a goal I wasn't optimistic about. But as I plan what I want to do in the future, I've realized the importance of communicating outwardly about my projects, and the value in sharing my professional "adventures". I hope this blog will help me meet new professionals and learn about interesting opportunities. 
 
 ### Fortune and Glory, Kid
 

@@ -1,8 +1,10 @@
 import React from 'react';
+import fs from 'fs';
+import { notFound } from 'next/navigation';
 import Markdown from 'markdown-to-jsx';
 import getPostMetadata from '@/utils/metadata';
+import Hero from '@/app/components/global/Hero';
 import styles from './page.module.css';
-import fs from 'fs';
 import matter from 'gray-matter';
 
 interface Post {
@@ -14,9 +16,18 @@ interface Post {
 }
 
 function getPostContent(slug: string): Post {
-  const folder = 'content/blog/';
-  const file = folder + `${slug}.md`;
-  const content = fs.readFileSync(file, 'utf8');
+
+  const file = 'content/blog/' + `${slug}.md`;
+  let content;
+
+  // If the file exists, read the file
+  if (fs.existsSync(file)) {
+    content = fs.readFileSync(file, 'utf8');
+    console.log('File: "' + file + '" loaded.');
+  }
+  else {
+    notFound();
+  }
 
   const matterResult = matter(content);
   return {
@@ -30,7 +41,8 @@ function getPostContent(slug: string): Post {
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata('content/blog');
-  return posts.map((post) => ({ slug: post.slug }));
+  const params = posts.map((post) => ({ slug: post.slug }));
+  return params;
 };
 
 export async function generateMetadata({
@@ -56,6 +68,10 @@ export default function Post(props: PostProps) {
 
   return (
     <main>
+      <Hero>
+        <h1>{post.title} </h1>
+      </Hero>
+
       <article className={styles.post}>
         <Markdown>{post.content}</Markdown>
       </article>

@@ -1,18 +1,17 @@
 ---
 title: Let's Breakdown This Site
-description: Here I will ramble on about how I built this website and all the technologies and methods I used. 
+description: Here I will ramble about what technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
-tags: testing
+tags: projects, frameworks, tools
 last-updated: 1725542139
 created: 1725542139
 ---
-
-When building my personal blog, I aimed for a fast, efficient, and maintainable platform. To achieve this, I carefully selected a combination of popular technologies and methodologies. Let's dive into the tech stack that powers my blog.
+I built this website showcase my career and projects, teach myself new technologies, and reduce my hosting costs.  I needed something fast (to build), easy (to maintain) AND cheap (to host). Contrary to popular belief, obtaining all three does NOT violate the laws of physics. To achieve this worthy goal, I  selected a robust set of modern franeworks and technologies. Let's dive into the stack:
 
 ### Frameworks
 
 -   **React:** As a versatile and component-based library, React provides a solid foundation for building dynamic user interfaces. Its declarative syntax and efficient virtual DOM make it a great choice for creating interactive web applications.
--   **Next.js:** Built on top of React, Next.js offers a full-featured framework with features like server-side rendering (SSR), static site generation (SSG), and hybrid rendering. This flexibility allows me to optimize performance based on specific content requirements.
+-   **Next.js:** Built on top of React, Next.js offers a full-featured framework with features like server-side rendering (SSR), static site generation (SSG), and hybrid rendering. This flexibility allows the app to be run in a variety of environments but, more importantly, allows static export for very cheap (Netlify, Cloudflare) or even free hosting (GitHub Pages).
 
 ### Styling & Content
 
@@ -29,4 +28,4 @@ When building my personal blog, I aimed for a fast, efficient, and maintainable 
 
 ### What was I thinking?
 
-By carefully selecting and combining these technologies and methods, I've created a blog that is fast, scalable, and easy to maintain. This tech stack provides a solid foundation for future growth and allows me to focus on creating high-quality content.
+By combining these complementary technologies and methods, I have a publishing platform that is cheap, scalable, and easy to maintain. This tech stack provides a solid foundation for future growth and allows me to focus on creating useful content.
