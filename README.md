@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# dev.magill.next
 
-## Getting Started
+# Intro
 
-First, run the development server:
+This project is a statically generated Next.JS application for my professional website at https://magill.dev. It includes a lot of features many sites might need: analytics, unit testing, static site generation, dynamic routing, social sharing, automated sitemaps, markdown content and more. Learn more about how this site works and was created, on my blog here : https://magill.dev/post/lets-breakdown-this-site.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To install, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Make sure you have Node.js version 14 or higher installed on your machine.
+2. Clone the repository: `git clone https://github.com/andymagill/dev.magill.next.git`
+3. Install the project dependencies: `npm install`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Development
 
-## Learn More
+`npm run dev`: Start the development server.
 
-To learn more about Next.js, take a look at the following resources:
+## Building
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run build`: Create a production build of the application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`npm run start`: Start the application using SSR in production mode
 
-## Deploy on Vercel
+`npm run serve`: Serve the static version using SSG in production mode
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`npm run test`: Run the tests using Vitest.
+
+## Code Formatting and Linting
+
+`npm run format`: Check the code for formatting and linting errors.
+
+`npm run fix`: Correct the code according to the project's configuration.
+
+## Technologies Used
+
+**Next.js:** A popular React-based framework for building server-side rendered (SSR) and statically generated websites and applications.
+**TypeScript:** A superset of JavaScript that adds optional static typing and other features to improve the development experience.
+**ESLint:** A static code analysis tool used to flag suspicious code and enforce coding standards.
+Prettier: A code formatter that automatically formats code to a consistent style.
+**Vitest:** A fast unit testing framework for JavaScript applications.
+**CSS Modules:** A CSS file in which all class names and animation names are scoped locally by default.

@@ -10,7 +10,8 @@
     "format": "prettier --check ./",
     "fix": "prettier --write ./",
     "test": "vitest",
-    "start": "next start"
+    "start": "next start",
+    "serve": "serve out"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
