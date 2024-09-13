@@ -1,11 +1,12 @@
+
 import React from 'react';
 import fs from 'fs';
 import { notFound } from 'next/navigation';
-import Markdown from 'markdown-to-jsx';
 import getPostMetadata from '@/utils/metadata';
 import Hero from '@/app/components/global/Hero';
-import styles from './page.module.css';
 import matter from 'gray-matter';
+import Markdown from 'markdown-to-jsx';
+import styles from './page.module.css';
 
 interface Post {
   title: string;

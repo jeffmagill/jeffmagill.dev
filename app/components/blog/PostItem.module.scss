@@ -2,12 +2,13 @@
   a {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 4%;
     text-decoration: none;
     color: inherit;
 
     @media (min-width: 480px) {
       flex-direction: row;
+      align-items: center;
     }
 
     &:hover h2 {
@@ -17,7 +18,9 @@
 }
 
 .postThumb {
-  flex-basis: 40%;
+  flex-basis: 33%;
+  aspect-ratio: 16/9;
+  overflow-y: hidden;
 
   img {
     width: 100%;
@@ -25,15 +28,17 @@
   }
 }
 .postDetails {
-  flex-basis: 60%;
+  flex-basis: 67%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   ul {
     margin: 0;
+    line-height: 1rem;
   }
   li {
-    display: inline;
+    display: inline-block;
     list-style: none;
     padding: 0;
-    outline-color: whateverss;
   }
 }
