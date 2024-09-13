@@ -78,6 +78,8 @@ export default function Post(props: PostProps) {
 
         <ShareButtons title={post.title} />
       </article>
+
+      {/* TODO: add related posts component */}
     </main>
   );
 }

@@ -47,7 +47,10 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
     // button container
     <div className={styles.shareButtonList}>
       <h3>Share This Post</h3>
-      <p>If you found this post interesting, please consider sharing this post to your social networks.</p>
+      <p>
+        If you found this post interesting, please consider sharing this post to
+        your social networks.
+      </p>
       {/*
             Render links for each platform
         */}
