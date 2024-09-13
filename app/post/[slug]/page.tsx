@@ -30,7 +30,6 @@ function getPostContent(slug: string): Post {
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata('content/blog');
-  console.log(posts);
   return posts.map((post) => ({ slug: post.slug }));
 };
 

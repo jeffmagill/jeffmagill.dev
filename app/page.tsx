@@ -23,7 +23,7 @@ export default function Home() {
             height={300}
           />
 
-          <div className='heroContent'>
+          <div className='homeIntro'>
             <h1>
               <strong>Hey there, I’m Andrew&nbsp;Magill.</strong> I’m a
               web&nbsp;engineer and lead&nbsp;developer with{' '}
@@ -44,6 +44,7 @@ export default function Home() {
         </Hero>
 
         <section className={styles.serviceList}>
+          <h2>Key Skills</h2>
           <Callout
             title='Implementation Management'
             description='I help the team prioritize and execute projects on time, within budget, and exceed expectations.'

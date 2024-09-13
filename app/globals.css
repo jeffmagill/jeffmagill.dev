@@ -6,7 +6,8 @@
   --text-color: #171717;
 
   --mobile: 480px;
-  --inner-width: 1280px;
+  --blog-width: 800px;
+  --inner-width: 1080px;
 }
 @media (prefers-color-scheme: dark),
   (prefers-color-scheme: no-preference) and (environment-blending: dark),
@@ -52,4 +53,8 @@ body {
 
 a {
   color: var(--primary-color);
+}
+
+main {
+  min-height: 75dvh;
 }

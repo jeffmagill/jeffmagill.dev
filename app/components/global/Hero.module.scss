@@ -1,17 +1,18 @@
 .hero {
-  padding: 1em 1.5em;
+
+  h1 {
+    display: inline;
+  }
+  a {
+    color: inherit;
+  }
 }
-.hero h1 {
-  display: inline;
-  font-size: inherit;
-  font-weight: inherit;
-}
-.hero a {
-  color: inherit;
-}
-.hero :global(.heroContent) {
+.hero :global(.homeIntro) {
   font-size: 1.5rem;
-  max-width: 36ch;
+  
+  h1 {
+    font-size: inherit;
+  }
 }
 .wrapper {
   display: flex;
@@ -19,13 +20,12 @@
   justify-content: center;
   flex-direction: column;
   margin: auto;
+  padding: 1.25em;
+  gap: 1.25em;
   max-width: var(--inner-width);
 
   @media (min-width: 480px) {
-    display: flex;
-    justify-content: center;
     flex-direction: row-reverse;
-    gap: 2em;
   }
 }
 .wrapper img {

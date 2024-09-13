@@ -1,12 +1,5 @@
 .main {
-  @media (min-width: 480px) {
-    display: flex;
-    align-items: center;
-  }
-}
-.wrapper {
-  max-width: var(--inner-width);
-  margin: auto;
+  
 }
 .portrait {
   width: 100%;
@@ -14,7 +7,13 @@
   max-width: min(50dvh, 40%);
 }
 .serviceList {
+  max-width: var(--inner-width);
+  margin: auto;
+
   @media (min-width: 480px) {
     display: flex;
+  }
+  h2 {
+    flex-basis: 100%;
   }
 }

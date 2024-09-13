@@ -1,6 +1,6 @@
 ---
 title: The Journey Begins
-descrition: A series of bad jokes to test my staticly-generated Next.JS blog application
+description: A series of bad jokes to test my staticly-generated Next.JS blog application
 image: /images/blog/katherine-mccormack-sailboat-unsplash.jpg
 tags: testing
 last-updated: 1725542139
