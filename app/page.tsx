@@ -19,8 +19,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className={`${styles.main} main`}>
-      <div className={`${styles.wrapper} wrapper row`}>
-        <Hero>
+      <div className={`${styles.wrapper} wrapper`}>
+        <Hero className='row'>
           {/* Portrait */}
           <Image
             src='/images/portrait-andrew-magill.jpg'

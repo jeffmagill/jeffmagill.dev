@@ -6,6 +6,12 @@
     color: inherit;
   }
 }
+.hero:global(.row) .wrapper {
+  @media (min-width: 480px) {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .hero :global(.homeIntro) {
   font-size: 1.5rem;
 
@@ -20,7 +26,7 @@
   flex-direction: column;
   margin: auto;
   padding: 1.25em;
-  gap: 1.25em;
+  gap: 3.6%;
   max-width: var(--inner-width);
 }
 .wrapper img {

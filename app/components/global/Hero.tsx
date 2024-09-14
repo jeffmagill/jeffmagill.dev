@@ -1,10 +1,18 @@
 import React from 'react';
 import styles from './Hero.module.scss';
 
-const Hero: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+// 
+interface HeroProps {
+  children: React.ReactNode;
+  className?: string; // Add this line
+}
+const Hero: React.FC<HeroProps> = ({ children, className }) => {
+  
   return (
-    <section className={styles.hero}>
-      <div className={styles.wrapper}>{children}</div>
+    <section className={`${className} ${styles.hero}`} >
+      <div className={`${styles.wrapper} wrapper`}>
+        {children}
+      </div>
     </section>
   );
 };

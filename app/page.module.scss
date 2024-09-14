@@ -1,4 +1,9 @@
 .main {
+  min-height: 0;
+}
+.wrapper {
+  max-width: var(--inner-width);
+  margin: auto;
 }
 .portrait {
   width: 100%;
