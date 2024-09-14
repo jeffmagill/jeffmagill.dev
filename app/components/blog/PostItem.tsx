@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './PostItem.module.scss';
+
 // PostItem.tsx
 interface PostItemProps {
   post: {
@@ -26,6 +27,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
 
         <span className={`${styles.postDetails} postDetails`}>
           <ul>
+            {/* TODO: Chance into buttons linking to the blog */}
             {tags.map((tag, index) => (
               <li key={index}>{tag}</li>
             ))}

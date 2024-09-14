@@ -2,7 +2,7 @@
 'use client';
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 // FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,34 +25,30 @@ interface ShareButtonsProps {
  * Renders links to share the current page on Reddit, Facebook, and LinkedIn
  */
 const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
-  const path = usePathname();
+  
+  let [url, setUrl] = useState('');
   const titleParam = encodeURIComponent(title);
 
-  // get the current path and hostname
-  let url;
-  if (path && typeof window !== 'undefined') {
-    // url = new URL(path, window.location.href);
-    url = 'https://magill.dev';
-  } else {
-    url = '';
-  }
+  // get current url
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
-  // share urls for each platform
+  // create share urls for each platform
   const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
   const linkedInLink = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
   const xTwitterLink = `http://x.com/share?url=${url}&text=${titleParam}`;
   const emailLink = `mailto:?subject=${titleParam}&body=${url}`;
 
   return (
-    // button container
+    // Button container
     <div className={styles.shareButtonList}>
       <h3>Share This Post</h3>
       <p>
-        If you found this post interesting, please consider sharing this post to
-        your social networks.
+        If you found this post interesting, please consider sharing it to your social networks.
       </p>
       {/*
-            Render links for each platform
+        Render links for each platform
         */}
       <div className={styles.wrapper}>
         <a
@@ -92,7 +88,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
           rel='noopener noreferrer'
         >
           <FontAwesomeIcon icon={faEnvelope} aria-hidden='true' />
-          <span>Share on Email</span>
+          <span>Share by Email</span>
         </a>
       </div>
     </div>

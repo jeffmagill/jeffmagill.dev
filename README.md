@@ -37,8 +37,12 @@ To install, follow these steps:
 ## Technologies Used
 
 **Next.js:** A popular React-based framework for building server-side rendered (SSR) and statically generated websites and applications.
+
 **TypeScript:** A superset of JavaScript that adds optional static typing and other features to improve the development experience.
+
 **ESLint:** A static code analysis tool used to flag suspicious code and enforce coding standards.
 Prettier: A code formatter that automatically formats code to a consistent style.
+
 **Vitest:** A fast unit testing framework for JavaScript applications.
+
 **CSS Modules:** A CSS file in which all class names and animation names are scoped locally by default.
