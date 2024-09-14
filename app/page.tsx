@@ -31,7 +31,7 @@ export default function Home() {
           />
 
           {/* Homepage Intro */}
-          <div className={`${styles.homeIntro} homeIntro`} >
+          <div className={`${styles.homeIntro} homeIntro`}>
             <h1>
               <strong>Hey there, I’m Andrew&nbsp;Magill.</strong> I’m a
               web&nbsp;engineer and lead&nbsp;developer with{' '}
@@ -52,7 +52,7 @@ export default function Home() {
         </Hero>
 
         {/* // Key Skills */}
-        <section className={`${styles.serviceList} serviceList`} >
+        <section className={`${styles.serviceList} serviceList`}>
           <h2>Key Skills</h2>
           <div className={`${styles.wrapper} wrapper row`}>
             <Callout

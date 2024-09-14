@@ -22,10 +22,9 @@ interface ShareButtonsProps {
 /**
  * ShareButtons component
  *
- * Renders links to share the current page on Reddit, Facebook, and LinkedIn
+ * Renders links to share the current page on social media
  */
 const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
-  
   let [url, setUrl] = useState('');
   const titleParam = encodeURIComponent(title);
 
@@ -45,7 +44,8 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
     <div className={styles.shareButtonList}>
       <h3>Share This Post</h3>
       <p>
-        If you found this post interesting, please consider sharing it to your social networks.
+        If you found this post interesting, please consider sharing it to your
+        social networks.
       </p>
       {/*
         Render links for each platform
@@ -95,5 +95,5 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
   );
 };
 
-// Export the ShareButtons component as the default export
+// export the component
 export default ShareButtons;
