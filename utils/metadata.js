@@ -8,8 +8,11 @@ export default function getPostMetadata(basePath) {
 
   // get the file data
   const posts = markdownPosts.map((filename) => {
+
     const fileContents = fs.readFileSync(`${basePath}/${filename}`, 'utf8');
     const matterResult = matter(fileContents);
+
+    // return the post data
     return {
       title: matterResult.data.title,
       description: matterResult.data.description,

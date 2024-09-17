@@ -24,7 +24,7 @@ export default function Home() {
           {/* Portrait */}
           <Image
             src='/images/portrait-andrew-magill.jpg'
-            alt='Andrew Magill: Web Developer'
+            alt='Andrew Magill: Web Engineer'
             className={`${styles.portrait} portrait`}
             width={300}
             height={300}
@@ -34,24 +34,24 @@ export default function Home() {
           <div className={`${styles.homeIntro} homeIntro`}>
             <h1>
               <strong>Hey there, I’m Andrew&nbsp;Magill.</strong> I’m a
-              web&nbsp;engineer and lead&nbsp;developer with{' '}
+              web&nbsp;engineer with{' '}
               <Link href='//www.linkedin.com/in/andrew-magill'>
                 deep&nbsp;experience
               </Link>{' '}
-              building <Link href='/projects'>custom&nbsp;websites</Link> and{' '}
-              <Link href='https://github.com/andymagill'>
-                web&nbsp;applications
+              building <Link href='https://github.com/andymagill'>
+                custom&nbsp;websites & applications
               </Link>
               .
             </h1>{' '}
-            I’m currently looking for{' '}
-            <Link href='/blog'>new&nbsp;challenges</Link> and interesting
-            opportunities. I built this page to showcase{' '}
-            <Link href='/projects'>some of my&nbsp;work</Link>.
+            <p>I’m currently working as lead developer at{' '}
+            <Link href='https://www.prehealth.com'>Prehealth</Link>. I love{' '}
+            <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
+            opportunities. I built this site to showcase{' '}
+            <Link href='/projects'>some of my&nbsp;work</Link>. </p>
           </div>
         </Hero>
 
-        {/* // Key Skills */}
+        {/* Key Skills */}
         <section className={`${styles.serviceList} serviceList`}>
           <h2>Key Skills</h2>
           <div className={`${styles.wrapper} wrapper row`}>

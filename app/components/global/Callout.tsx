@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import styles from './Callout.module.css';
+import styles from './Callout.module.scss';
 
 const Callout: React.FC<{
   title: string;

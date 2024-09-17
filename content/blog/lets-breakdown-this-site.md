@@ -7,7 +7,7 @@ last-updated: 1725542139
 created: 1725542139
 ---
 
-I built this website showcase my work and experiment with new technologies & platforms. I needed something fast (to build), easy (to maintain) AND cheap (to host). Contrary to the popular phrase, obtaining all three does NOT violate the prevailing theories of economics. To accomplish this, I selected a robust set of modern frameworks and technologies. Let's dive into the stack:
+I built this website showcase my work and experiment with new (to me) technologies. I needed something fast (to build), easy (to maintain) AND cheap (to host). Contrary to the popular phrase, obtaining all three does NOT violate the prevailing theories of economics. To accomplish this, I selected a robust set of modern frameworks and technologies. Let's dive into the stack:
 
 ### Frameworks
 
@@ -29,4 +29,4 @@ I built this website showcase my work and experiment with new technologies & pla
 
 ### What was I thinking?
 
-By combining these complementary technologies and methods, I have a publishing platform that is cheap, scalable, and easy to maintain. This tech stack provides a solid foundation for future growth and allows me to focus on creating useful content.
+By combining these complementary technologies and methods, I will have a publishing platform that is cheap, scalable, and easy to maintain. This tech stack provides a solid foundation for future growth and allows me to focus on creating useful content.
