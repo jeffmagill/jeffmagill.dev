@@ -9,6 +9,7 @@ import type { Metadata } from 'next';
 import styles from './page.module.scss';
 import Hero from '@/app/components/global/Hero';
 import Callout from '@/app/components/global/Callout';
+import PostList from '@/app/components/blog/PostList';
 
 // Define the metadata for the page
 export const metadata: Metadata = {
@@ -74,10 +75,15 @@ export default function Home() {
               icon='/images/icon-automation.svg'
             />
           </div>
-
-          {/* TODO: add featured posts component */}
-          {/* TODO: add recent projects component */}
         </section>
+
+        <section className={`${styles.featuredPosts} featuredPosts`}>
+
+        <h2>Featured Rants</h2>
+        <PostList maxPosts={3}/>
+        </section>
+
+        {/* TODO: add recent projects component */}
       </div>
     </main>
   );

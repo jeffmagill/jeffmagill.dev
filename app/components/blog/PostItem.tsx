@@ -32,7 +32,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
               <li key={index}>{tag}</li>
             ))}
           </ul>
-          <h2>{post.title}</h2>
+          <h3>{post.title}</h3>
           <p>{post.description}</p>
         </span>
       </Link>

@@ -2,14 +2,16 @@
   min-height: 0;
 }
 .wrapper {
-  max-width: var(--inner-width);
   margin: auto;
 }
 .portrait {
   width: 100%;
   height: auto;
   max-width: 32%;
-  margin: 0 auto;
+  
+  margin-top: 8vmin;
+  margin-left: auto;
+  margin-right: auto;
   min-width: 200px;
   align-self: flex-start;
 }
@@ -36,5 +38,12 @@
         flex-grow: 1;
       }
     }
+  }
+}
+.featuredPosts {
+  margin-top: 8vmin;
+
+  h2 {
+    text-align: center;
   }
 }
