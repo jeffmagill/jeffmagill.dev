@@ -11,16 +11,20 @@ import styles from './PostList.module.css';
 // Define the props interface
 interface PostListProps {
   tag?: string;
+  maxPosts?: number;
 }
 
 /**
  * PostList component
  *
- * Displays a list of blog posts, optionally filtered by tag
+ * Displays a list of blog posts, optionally filtered by tag and limited by maxPosts
  */
-const PostList: React.FC<PostListProps> = ({ tag }) => {
+const PostList: React.FC<PostListProps> = ({ tag = '', maxPosts = 0}) => {
   // Get the list of posts, passing the optional tag
-  const posts = getPostMetadata(tag);
+  const allPosts = getPostMetadata(tag);
+
+  // Limit the number of posts if maxPosts is provided
+  const posts = maxPosts ? allPosts.slice(0, maxPosts) : allPosts;
 
   return (
     // postList container
