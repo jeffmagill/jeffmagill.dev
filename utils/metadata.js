@@ -1,14 +1,14 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-export default function getPostMetadata(basePath) {
+export default function getPostMetadata(tag = '') {
+  const basePath = 'content/blog';
   const folder = basePath + '/';
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith('.md'));
 
   // get the file data
   const posts = markdownPosts.map((filename) => {
-
     const fileContents = fs.readFileSync(`${basePath}/${filename}`, 'utf8');
     const matterResult = matter(fileContents);
 
@@ -21,5 +21,14 @@ export default function getPostMetadata(basePath) {
       slug: filename.replace('.md', ''),
     };
   });
-  return posts;
+
+  // Filter posts by tag if a tag is provided
+  if (tag) {
+    return posts.filter(post => 
+      post.tags && typeof post.tags === 'string' && post.tags.toLowerCase().includes(tag.toLowerCase())
+    );
+  }
+  else {
+    return posts;
+  }
 }
