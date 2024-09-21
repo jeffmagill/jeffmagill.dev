@@ -24,11 +24,13 @@ export default function getPostMetadata(tag = '') {
 
   // Filter posts by tag if a tag is provided
   if (tag) {
-    return posts.filter(post => 
-      post.tags && typeof post.tags === 'string' && post.tags.toLowerCase().includes(tag.toLowerCase())
+    return posts.filter(
+      (post) =>
+        post.tags &&
+        typeof post.tags === 'string' &&
+        post.tags.toLowerCase().includes(tag.toLowerCase())
     );
-  }
-  else {
+  } else {
     return posts;
   }
 }

@@ -7,15 +7,15 @@
 }
 .portrait {
   width: 100%;
-  height: auto; 
+  height: auto;
   max-width: 32%;
   margin: 0 auto;
   min-width: 200px;
   align-self: flex-start;
 }
 .serviceList {
-  margin: 1.25rem; 
-  
+  margin: 1.25rem;
+
   h2 {
     text-align: center;
     margin-bottom: 1rem;
@@ -32,8 +32,8 @@
     }
     & > * {
       @media (min-width: 480px) {
-        flex-basis: 0; 
-        flex-grow: 1; 
+        flex-basis: 0;
+        flex-grow: 1;
       }
     }
   }

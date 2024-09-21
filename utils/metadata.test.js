@@ -13,7 +13,12 @@ describe('getPostMetadata', () => {
     vi.resetAllMocks();
 
     // Mock the file system
-    fs.readdirSync.mockReturnValue(['post1.md', 'post2.md', 'post3.md', 'notapost.txt']);
+    fs.readdirSync.mockReturnValue([
+      'post1.md',
+      'post2.md',
+      'post3.md',
+      'notapost.txt',
+    ]);
     fs.readFileSync.mockImplementation((path) => {
       if (path.includes('post1.md')) return 'content of post1';
       if (path.includes('post2.md')) return 'content of post2';

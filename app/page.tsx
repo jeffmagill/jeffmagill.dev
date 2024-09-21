@@ -38,16 +38,19 @@ export default function Home() {
               <Link href='//www.linkedin.com/in/andrew-magill'>
                 deep&nbsp;experience
               </Link>{' '}
-              building <Link href='https://github.com/andymagill'>
+              building{' '}
+              <Link href='https://github.com/andymagill'>
                 custom&nbsp;websites & applications
               </Link>
               .
             </h1>{' '}
-            <p>I’m currently working as lead developer at{' '}
-            <Link href='https://www.prehealth.com'>Prehealth</Link>. I love{' '}
-            <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
-            opportunities. I built this site to showcase{' '}
-            <Link href='/projects'>some of my&nbsp;work</Link>. </p>
+            <p>
+              I’m currently working as lead developer at{' '}
+              <Link href='https://www.prehealth.com'>Prehealth</Link>. I love{' '}
+              <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
+              opportunities. I built this site to showcase{' '}
+              <Link href='/projects'>some of my&nbsp;work</Link>.{' '}
+            </p>
           </div>
         </Hero>
 
