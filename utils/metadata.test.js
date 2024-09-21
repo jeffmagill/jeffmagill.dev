@@ -1,52 +1,69 @@
-import { describe, it, expect } from 'vitest';
-import { getPostMetadata } from './metadata';
+import { describe, it, expect, vi } from 'vitest';
+import fs from 'fs';
+import matter from 'gray-matter';
+import getPostMetadata from './metadata'; // Adjust this path as needed
+
+// Mock the fs and matter modules
+vi.mock('fs');
+vi.mock('gray-matter');
 
 describe('getPostMetadata', () => {
-  it('should return an array of post metadata', async () => {
-    const mockBasePath = '/mock/path';
-    const mockFiles = ['post1.md', 'post2.md'];
-    
-    const readdirSyncMock = vi.mock('fs', () => ({
-      readdirSync: vi.fn().mockReturnValue(mockFiles),
-    }));
-
-    const readFileSyncMock = vi.mock('fs', () => ({
-      readFileSync: vi.fn().mockImplementation(() => '# Test Post\nTitle: Test Title\nDescription: This is a test.\nImage: /test-image.jpg\nTags: tag1,tag2'),
-    }));
-
-    const result = await getPostMetadata(mockBasePath);
-
-    expect(result).toHaveLength(2);
-    expect(result[0]).toEqual({
-      title: 'Test Title',
-      description: 'This is a test.',
-      image: '/test-image.jpg',
-      tags: ['tag1', 'tag2'],
-      slug: 'post1'
-    });
-    expect(result[1]).toEqual({
-      title: 'Test Title',
-      description: 'This is a test.',
-      image: '/test-image.jpg',
-      tags: ['tag1', 'tag2'],
-      slug: 'post2'
+  it('should return correct post metadata', () => {
+    // Mock the file system
+    fs.readdirSync.mockReturnValue(['post1.md', 'post2.md', 'notapost.txt']);
+    fs.readFileSync.mockImplementation((path) => {
+      if (path.includes('post1.md')) {
+        return 'content of post1';
+      } else if (path.includes('post2.md')) {
+        return 'content of post2';
+      }
     });
 
-    expect(readdirSyncMock().mock.calls[0][0]).toBe(mockBasePath);
-    expect(readFileSyncMock().mock.calls[0][0]).toContain('/mock/path/post1.md');
-    expect(readFileSyncMock().mock.calls[1][0]).toContain('/mock/path/post2.md');
-  });
+    // Mock the matter function
+    matter.mockImplementation((content) => {
+      if (content === 'content of post1') {
+        return {
+          data: {
+            title: 'Post 1',
+            description: 'Description 1',
+            image: 'image1.jpg',
+            tags: ['tag1', 'tag2'],
+          },
+        };
+      } else if (content === 'content of post2') {
+        return {
+          data: {
+            title: 'Post 2',
+            description: 'Description 2',
+            image: 'image2.jpg',
+            tags: ['tag2', 'tag3'],
+          },
+        };
+      }
+    });
 
-  it('should handle empty directory', async () => {
-    const mockBasePath = '/empty/path';
-    
-    const readdirSyncMock = vi.mock('fs', () => ({
-      readdirSync: vi.fn().mockReturnValue([]),
-    }));
+    const result = getPostMetadata('/fake/path');
 
-    const result = await getPostMetadata(mockBasePath);
+    expect(result).toEqual([
+      {
+        title: 'Post 1',
+        description: 'Description 1',
+        image: 'image1.jpg',
+        tags: ['tag1', 'tag2'],
+        slug: 'post1',
+      },
+      {
+        title: 'Post 2',
+        description: 'Description 2',
+        image: 'image2.jpg',
+        tags: ['tag2', 'tag3'],
+        slug: 'post2',
+      },
+    ]);
 
-    expect(result).toEqual([]);
-    expect(readdirSyncMock().mock.calls[0][0]).toBe(mockBasePath);
+    // Verify that the functions were called with the correct arguments
+    expect(fs.readdirSync).toHaveBeenCalledWith('/fake/path/');
+    expect(fs.readFileSync).toHaveBeenCalledWith('/fake/path/post1.md', 'utf8');
+    expect(fs.readFileSync).toHaveBeenCalledWith('/fake/path/post2.md', 'utf8');
   });
 });
