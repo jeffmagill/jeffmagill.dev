@@ -10,13 +10,13 @@ interface PostItemProps {
     title: string;
     description: string;
     image: string;
-    tags: string[] | string | null; // Add a union type for tags
+    tags: string[] | string | null;
     slug: string;
   };
 }
 
 const PostItem: React.FC<PostItemProps> = ({ post }) => {
-  const tags = Array.isArray(post.tags) ? post.tags : [post.tags]; // Convert tags to an array if it's not already one
+  const tags = Array.isArray(post.tags) ? post.tags : [post.tags]; // Convert tags to an array
 
   return (
     <div className={`${styles.postItem} postItem`}>
@@ -27,7 +27,7 @@ const PostItem: React.FC<PostItemProps> = ({ post }) => {
 
         <span className={`${styles.postDetails} postDetails`}>
           <ul>
-            {/* TODO: Chance into buttons linking to the blog */}
+            {/* TODO: Change tags into buttons linking to the blog */}
             {tags.map((tag, index) => (
               <li key={index}>{tag}</li>
             ))}

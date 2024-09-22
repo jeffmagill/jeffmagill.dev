@@ -19,7 +19,7 @@ interface PostListProps {
  *
  * Displays a list of blog posts, optionally filtered by tag and limited by maxPosts
  */
-const PostList: React.FC<PostListProps> = ({ tag = '', maxPosts = 0}) => {
+const PostList: React.FC<PostListProps> = ({ tag = '', maxPosts = 0 }) => {
   // Get the list of posts, passing the optional tag
   const allPosts = getPostMetadata(tag);
 

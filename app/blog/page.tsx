@@ -13,12 +13,15 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <main className={styles.main}>
-      <div className={styles.wrapper}>
-        <Hero>
-          <h1>A Collection of Rants & Ramblings </h1>
-        </Hero>
-        <PostList />
-      </div>
+      <Hero>
+        <h1>A Collection of Rants & Ramblings </h1>
+      </Hero>
+
+      <section className={styles.postIndex}>
+        <div className={styles.wrapper}>
+          <PostList />
+        </div>
+      </section>
     </main>
   );
 }

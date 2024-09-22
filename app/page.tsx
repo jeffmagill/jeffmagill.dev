@@ -78,9 +78,10 @@ export default function Home() {
         </section>
 
         <section className={`${styles.featuredPosts} featuredPosts`}>
-
-        <h2>Featured Rants</h2>
-        <PostList maxPosts={3}/>
+          <div className={`${styles.wrapper} wrapper row`}>
+            <h2>Featured Rants </h2>
+            <PostList maxPosts={3} />
+          </div>
         </section>
 
         {/* TODO: add recent projects component */}

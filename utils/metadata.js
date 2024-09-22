@@ -14,10 +14,12 @@ export default function getPostMetadata(tag = '') {
 
     // return the post data
     return {
-      title: matterResult.data.title,
-      description: matterResult.data.description,
-      image: matterResult.data.image,
-      tags: matterResult.data.tags,
+      title: matterResult.data.title || '',
+      description: matterResult.data.description || '',
+      image:
+        matterResult.data.image ||
+        '/images/blog/clarissa-watson-pencil-unsplash.jpg',
+      tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
     };
   });
