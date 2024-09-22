@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Navigation from './Navigation';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
   return (

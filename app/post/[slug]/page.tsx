@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import fs from 'fs';
 import { notFound } from 'next/navigation';
 import getPostMetadata from '@/utils/metadata';
@@ -68,9 +69,11 @@ export default function Post(props: PostProps) {
   return (
     <main>
       <Hero>
-        <h1>{post.title} </h1>
-        <p>by Andrew Magill</p>
-        <p>{post.description}</p>
+        <h1 className={styles.title}>{post.title} </h1>
+        <p className={styles.description}>{post.description}</p>
+        <p className={styles.author}>
+          by <Link href='/'>Andrew Magill</Link>
+        </p>
       </Hero>
 
       <article className={styles.post}>

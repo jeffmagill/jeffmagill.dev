@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from './Navigation.module.css';
+import styles from './Navigation.module.scss';
 
 const Navigation: React.FC = () => {
   return (
-    <nav className={styles.navigation}>
+    <nav className={`${styles.navigation} navigation`}>
       <ul>
         <li>
           <Link href='/'>Home</Link>

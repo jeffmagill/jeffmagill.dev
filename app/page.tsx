@@ -23,7 +23,7 @@ export default function Home() {
       <div className={`${styles.wrapper} wrapper`}>
         <Hero className='row'>
           {/* Portrait */}
-          <Image 
+          <Image
             src='/images/portrait-andrew-magill.jpg'
             alt='Andrew Magill: Web Engineer'
             className={`${styles.portrait} portrait`}
