@@ -2,7 +2,7 @@
 title: Let's Breakdown This Site
 description: Here I will ramble about what technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
-tags: projects, frameworks, tools
+tags: portfolio, tools
 last-updated: 1727007398
 created: 1727007398
 ---

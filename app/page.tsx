@@ -89,6 +89,7 @@ export default function Home() {
         <section className={`${styles.recentPosts} recentPosts`}>
           <div className={`${styles.wrapper} wrapper`}>
             <h2>Recent Rants </h2>
+            <p>Thoughts that I may one day wonder why I bothered writing. </p>
             <PostList maxPosts={3} />
             <p>
               <Link href='/blog'>View All Posts</Link>
@@ -100,6 +101,7 @@ export default function Home() {
         <section className={`${styles.featuredProjects} featuredProjects`}>
           <div className={`${styles.wrapper} wrapper`}>
             <h2>Featured Projects </h2>
+            <p>Some of my greatest hits that were pretty cool at some point</p>
             <ProjectList maxProjects={3} />
             <p>
               <Link href='/projects'>View All Projects</Link>

@@ -5,9 +5,6 @@
   padding: 1.25rem;
   margin: 1rem auto;
 }
-.title {
-  text-align: center;
-}
 .post h2,
 .post h3 {
   margin-top: 2rem;
@@ -19,8 +16,13 @@
 .post ul {
   padding-left: 2rem;
 }
+.title {
+  text-align: center;
+}
 .description {
   font-size: 1.11rem;
+  text-align: center;
+  max-width: var(--blog-width);
 }
 .author {
   font-size: 0.9rem;

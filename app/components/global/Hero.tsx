@@ -7,9 +7,9 @@ interface HeroProps {
   children: React.ReactNode;
   className?: string; // Add this line
 }
-const Hero: React.FC<HeroProps> = ({ children, className }) => {
+const Hero: React.FC<HeroProps> = ({ children, className = '' }) => {
   return (
-    <section className={`${className} ${styles.hero}`}>
+    <section className={`${styles.hero} hero ${className}`}>
       <div className={`${styles.wrapper} wrapper`}>{children}</div>
       <HeroAnimation />
     </section>
