@@ -74,8 +74,7 @@ export default function Post(props: PostProps) {
         <h1 className={styles.title}>{post.title} </h1>
         <p className={styles.description}>{post.description}</p>
         <p className={styles.author}>
-          by <Link href='/'>Andrew Magill</Link>{' '}
-          {/* TODO: add publish date */}
+          by <Link href='/'>Andrew Magill</Link> {/* TODO: add publish date */}
         </p>
       </Hero>
 

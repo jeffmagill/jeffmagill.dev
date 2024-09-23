@@ -8,7 +8,7 @@ const Callout: React.FC<{
   icon: string;
 }> = ({ title, description, icon }) => {
   return (
-    <section className={styles.callout}>
+    <section className={`${styles.callout} callout`}>
       <Image src={icon} alt={title} width={64} height={64} />
       <h3>{title}</h3>
       <p>{description}</p>

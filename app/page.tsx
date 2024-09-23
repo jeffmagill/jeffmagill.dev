@@ -64,6 +64,10 @@ export default function Home() {
         {/* Key Skills */}
         <section className={`${styles.serviceList} serviceList`}>
           <h2>Key Skills</h2>
+          <p>
+            Here are some of my capabilities that are most impactful for to my
+            clients and projects.{' '}
+          </p>
           <div className={`${styles.wrapper} wrapper`}>
             <Callout
               title='Engineering Management'
