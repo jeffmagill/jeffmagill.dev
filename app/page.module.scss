@@ -4,19 +4,34 @@
 .wrapper {
   margin: auto;
 }
+
+.homeIntro {
+  font-size: 1.5rem;
+  flex-basis: 67%;
+
+  h1 {
+    font-size: inherit;
+  }
+  & > * {
+    display: inline;
+  }
+}
+.portraitContainer {
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  flex-basis: 32%;
+  width: 32%;
+}
 .portrait {
   width: 100%;
   height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 32%;
   min-width: 200px;
-  align-self: flex-start;
 }
 
 // Key Skills
 .serviceList {
-  margin-top: 8vmin;
+  margin-top: 6vmax;
 
   h2 {
     text-align: center;
@@ -43,15 +58,26 @@
 }
 
 // Featured Posts
-.featuredPosts {
+.recentPosts {
   margin-top: 8vmin;
 
-  h2 {
-    text-align: center;
-  }
   .wrapper {
     max-width: var(--inner-width);
     margin: 0 auto;
+
+    h2,
+    & > p {
+      text-align: center;
+    }
+  }
+  a {
+    color: inherit;
+    text-underline-offset: 0.1rem;
+    transition: text-underline-offset 0.25s;
+
+    &:hover {
+      text-underline-offset: 0.4rem;
+    }
   }
   :global(.postList) {
     flex-direction: column;
@@ -77,8 +103,29 @@
   }
 }
 
-.featuredPosts.featuredPosts.featuredPosts {
+.recentPosts.recentPosts.recentPosts {
   a {
     flex-direction: column;
+  }
+}
+
+// Recent Projects
+.featuredProjects {
+  margin-top: 2vmax;
+
+  a {
+    color: inherit;
+    text-underline-offset: 0.1rem;
+    transition: text-underline-offset 0.25s;
+
+    &:hover {
+      text-underline-offset: 0.4rem;
+    }
+  }
+  .wrapper {
+    h2,
+    & > p {
+      text-align: center;
+    }
   }
 }

@@ -1,0 +1,13 @@
+// app/projects/ProjectsPage.module.scss
+
+.projectsContainer {
+  .projectsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.25em;
+    max-width: var(--inner-width);
+    margin: 0 auto;
+    padding: 1.25em;
+  }
+}

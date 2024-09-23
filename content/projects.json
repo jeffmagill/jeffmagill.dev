@@ -1,0 +1,131 @@
+{
+  "projects": [
+    {
+      "title": "Oxlumo",
+      "summary": "Both patient and HCP branded properties needed to effectively communicate all approved public information about the drug, optimized for each audience viewed on any device.",
+      "description": "As one of four products of Alnylam Pharmaceuticals, the importance of accurate, easily accessible drug information can’t be understated. I served as the lead developer, planning a shared system architecture, developed original functionality, design implementation and content integration.",
+      "tags": ["Drupal", "Front-end", "PHP"],
+      "image": "/images/projects/oxlumohcp-efficacy-and-safety.png"
+    },
+    {
+      "title": "Alnylam Pharmaceuticals",
+      "summary": "The flagship property of this publicly traded company is an essential part of this client's online presence.",
+      "description": "A wide range of objectives and content was accommodated by a custom front end and CMS integration. My role was at times lead developer for several major updates, and supporting a team of developers doing content integration and quality assurance fixes.",
+      "tags": ["Drupal", "Front-end", "PHP"],
+      "image": "/images/projects/alnylam-com.png"
+    },
+    {
+      "title": "Trudhesa",
+      "summary": "This site was the HCP marketing and engagement component of this product's online presence.",
+      "description": "Regular compliance reviews were necessary to adhere to FDA advertisement regulations and guidelines. As lead developer, I was responsible for custom theme and module developments, responsive design implementation, and content integration.",
+      "tags": ["Front-end", "PHP", "WordPress"],
+      "image": "/images/projects/portfolio-trudhesa-hcp.png"
+    },
+    {
+      "title": "Alnylam Assist",
+      "summary": "This website represents the efforts by this Pharmaceutical company to ensure access for all patients to each of its four products.",
+      "description": "The site required robust HIPPA compliance to safely handle protected health information. Regular compliance review was necessary to adhere to FDA advertisement regulations and guidelines. As lead developer, I was responsible for custom theme and module developments, responsive design implementation, and content integration.",
+      "tags": ["Drupal", "Front-end", "PHP"],
+      "image": "/images/projects/portfolio-assist.png"
+    },
+    {
+      "title": "Greater Than One",
+      "summary": "The site was intended to be an impactful showcase of the agency's most compelling work, diverse company culture, and collaborative mindset.",
+      "description": "As lead developer on our flagship agency website, I was responsible for all functionality, design implementation, UX, and content integration.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-gto.png"
+    },
+    {
+      "title": "Spotify for Artists – Co.Lab.Events",
+      "summary": "This event promotion website represents Spotify's artist engagement operations.",
+      "description": "Built on WordPress, this site was responsible for promoting real-world networking events for recording artists. At these events, a panel of industry professionals discuss strategies and tactics to succeed in the music business. The site needed to collect RSVP’s from invitees with a user-unique link, and export audiences into 3rd party marketing tools. As the sole developer on this project, I was responsible for all front-end code, custom WordPress theme, custom plugin, and back-end application logic.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-spotify.png"
+    },
+    {
+      "title": "American Ballet Theatre",
+      "summary": "An ambitious top to bottom rebuild of this historic organization's website and online presence.",
+      "description": "As a world-leading classical ballet company, this organization needed an online presence that matched its real-world significance. Its previous platform was a custom ASP.Net CMS, with dozens of data models and decades of historical data. This data needed to be migrated intact into a custom WordPress back-end and rendered into coherent pages for users. My role on the project was integration of custom post types to store the content, custom templates to query data and render it into markup, and front-end integration of layouts, design assets, and user interface.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-abt.png"
+    },
+    {
+      "title": "Park Avenue Institutional Advisors",
+      "summary": "This Drupal website and custom theme was built to represent the investment operations of Guardian Life Insurance.",
+      "description": "This website needed to serve as a professional and credible platform for the launch of this new subsidiary. An aerial and nautical theme was chosen to represent perspective and an adventurous spirit. The upload and organization of financial documents and disclosures was a primary requirement, as part of the business’s regulatory obligations. My role on the project was building custom Drupal templates with custom responsive layout and UI.",
+      "tags": ["Drupal", "Front-end"],
+      "image": "/images/projects/portfolio-paia.jpg"
+    },
+    {
+      "title": "Atavus Football",
+      "summary": "This project was focused on improving communication around the business's unique learning development system.",
+      "description": "This unique business needed to communicate the advantages of its advanced learning development system and consulting service. The site’s dark and sharp design contained animated graphs rendered in canvas, interactive before-after animations, and other rich media. This site is based on a custom WordPress Theme front-end with integration into third-party CRM and LMS platforms. My role on the project was to build the custom layouts, themes, and animations on the front, and 3rd party API integration on the back-end.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-atavus.png"
+    },
+    {
+      "title": "The Cranemere Group",
+      "summary": "As this business expanded operations, so did the need to communicate consistently across regions and languages.",
+      "description": "This one-page site required a full front-end rebuild with multilingual WordPress theme and content migration. The tranquil design contained simple text content contained in separated pages for ease of maintenance. My role on the project was implementing multilingual content and layouts, and WordPress integration.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-cranmere.jpg"
+    },
+    {
+      "title": "Mitsubishi Tanabe Pharma America",
+      "summary": "Having won FDA approval for its ALS drug Radicava, MTPA needed a platform to communicate with patients, doctors, and caregivers.",
+      "description": "This site needed to communicate precision and compassion. Flexible layout and content features were built into the templates and WordPress CMS to allow the website to grow. My role was responsive design and layout integration, along with flexible content/template development using WordPress CPTs.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-mtpa.jpg"
+    },
+    {
+      "title": "CVS Specialty Expedite",
+      "summary": "This brochure website was commissioned to promote the business's specialty medication \"Expedite\" service.",
+      "description": "The site’s brand-consistent design needed to reassure patients with unique health challenges. A custom PHP back-end handled submission of user data into 3rd party APIs to facilitate the company’s CRM efforts. My role was development of the PHP back-end with API integration, and responsive design implementation.",
+      "tags": ["Front-end", "PHP"],
+      "image": "/images/projects/portfolio-cvs.png"
+    },
+    {
+      "title": "Ascender Studios",
+      "summary": "This unique group of developers and designers needed a unique approach to its online presence.",
+      "description": "As a developer within the business, showcasing our most impressive work was a critical goal. A one-page-site design was used to display and animate the various content areas. My role was maintaining and developing the one-page design templates driven by CPTs and front-end layouts.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-ascender.png"
+    },
+    {
+      "title": "Hello Jeffery Logo Design",
+      "summary": "Hello Jeffrey is a marketplace that connects hosts with staff specialists to make amazing and memorable events.",
+      "description": "This project was to design a logo and define a brand identity for the business. The design needed to be both accessible and sophisticated. The client chose a hand drawn champagne glass concept.",
+      "tags": ["Illustrator", "Logo Design"],
+      "image": "/images/projects/portfolio-logo-1.png"
+    },
+    {
+      "title": "PLC Construction Logo Design",
+      "summary": "The logo and brand identity for this engineering and construction firm needed to reflect competence in the industry and attention to detail.",
+      "description": "The client chose a posterized refinery concept.",
+      "tags": ["Illustrator", "Logo Design"],
+      "image": "/images/projects/portfolio-logo-2.png"
+    },
+    {
+      "title": "All-of-Us Research Program",
+      "summary": "This Drupal site with custom front-end theme was dedicated to the launch of a nationwide health research program.",
+      "description": "Multilingual Drupal powered the back-end, with custom content views for each of the seven real-world events. My role in the project was to implement the custom responsive design, which contained textual, animation, and rich media content.",
+      "tags": ["Drupal", "Front-end"],
+      "image": "/images/projects/portfolio-allofus.png"
+    },
+    {
+      "title": "L’Occitane Group Corporate Site",
+      "image": "/images/projects/portfolio-group-site.png",
+      "summary": "This custom ASP.Net website was created to communicate corporate information to prospective investors, and job applicants.",
+      "description": "ASP .Net C# is used for the site’s multi-lingual features and organization of financial documents, designed to be maintained by non-technical associates. My role was to build the front end layout and UI, with backend handling of document uploads.",
+      "tags": ["ASP.net", "C#", "Front-end"],
+      "image": "/images/projects/portfolio-group-site.png"
+    },
+    {
+      "title": "Cultural Property News",
+      "summary": "This news focused WordPress site represents the media outreach operations of the Committee for Cultural Policy (CCP).",
+      "description": "The site needed to be informative and render complex layouts, and able to be regularly maintained by non-technical associates at the client. My role on the project was to build the custom responsive designs, driven by custom elements of the Visual Composer page builder.",
+      "tags": ["Front-end", "WordPress"],
+      "image": "/images/projects/portfolio-cpn.jpg"
+    }
+  ]
+}

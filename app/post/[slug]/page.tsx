@@ -7,7 +7,7 @@ import Markdown from 'markdown-to-jsx';
 import matter from 'gray-matter';
 import Hero from '@/app/components/global/Hero';
 import ShareButtons from '@/app/components/blog/ShareButtons';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 interface Post {
   title: string;

@@ -6,10 +6,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import styles from './page.module.scss';
+
 import Hero from '@/app/components/global/Hero';
 import Callout from '@/app/components/global/Callout';
 import PostList from '@/app/components/blog/PostList';
+import ProjectList from '@/app/components/projects/ProjectList';
+
+import styles from './page.module.scss';
 
 // Define the metadata for the page
 export const metadata: Metadata = {
@@ -23,13 +26,15 @@ export default function Home() {
       <div className={`${styles.wrapper} wrapper`}>
         <Hero className='row'>
           {/* Portrait */}
-          <Image
-            src='/images/portrait-andrew-magill.jpg'
-            alt='Andrew Magill: Web Engineer'
-            className={`${styles.portrait} portrait`}
-            width={300}
-            height={300}
-          />
+          <div className={`${styles.portraitContainer} portraitContainer`}>
+            <Image
+              src='/images/portrait-andrew-magill.jpg'
+              alt='Andrew Magill: Web Engineer'
+              className={`${styles.portrait} portrait`}
+              width={300}
+              height={300}
+            />
+          </div>
 
           {/* Homepage Intro */}
           <div className={`${styles.homeIntro} homeIntro`}>
@@ -40,17 +45,18 @@ export default function Home() {
                 deep&nbsp;experience
               </Link>{' '}
               building{' '}
-              <Link href='https://github.com/andymagill'>
+              <Link href='//github.com/andymagill'>
                 custom&nbsp;websites & applications
               </Link>
               .
             </h1>{' '}
             <p>
               I’m currently working as lead developer at{' '}
-              <Link href='https://www.prehealth.com'>Prehealth</Link>. I love{' '}
+              <Link href='//www.prehealth.com'>Prehealth</Link>. I love{' '}
               <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
-              opportunities. I built this site to showcase{' '}
-              <Link href='/projects'>some of my&nbsp;work</Link>.{' '}
+              opportunities. I built this website <em>from scratch</em> to
+              showcase{' '}
+              <Link href='/projects'>some of my&nbsp;best&nbsp;work</Link>.{' '}
             </p>
           </div>
         </Hero>
@@ -58,17 +64,19 @@ export default function Home() {
         {/* Key Skills */}
         <section className={`${styles.serviceList} serviceList`}>
           <h2>Key Skills</h2>
-          <div className={`${styles.wrapper} wrapper row`}>
+          <div className={`${styles.wrapper} wrapper`}>
             <Callout
               title='Engineering Management'
               description='I help teams execute engineering projects that address complex challenges and exceed expectations.'
               icon='/images/icon-project.svg'
             />
+
             <Callout
               title='Software Development'
               description='I architect web applications that elegantly translate ambitious goals into scalable solutions.'
               icon='/images/icon-engineering.svg'
             />
+
             <Callout
               title='Process Automation'
               description='I implement tools that enable teams to focus on their core business and strategic objectives.'
@@ -77,14 +85,27 @@ export default function Home() {
           </div>
         </section>
 
-        <section className={`${styles.featuredPosts} featuredPosts`}>
-          <div className={`${styles.wrapper} wrapper row`}>
-            <h2>Featured Rants </h2>
+        {/* Recent Posts */}
+        <section className={`${styles.recentPosts} recentPosts`}>
+          <div className={`${styles.wrapper} wrapper`}>
+            <h2>Recent Rants </h2>
             <PostList maxPosts={3} />
+            <p>
+              <Link href='/blog'>View All Posts</Link>
+            </p>
           </div>
         </section>
 
-        {/* TODO: add recent projects component */}
+        {/* Featured Projects */}
+        <section className={`${styles.featuredProjects} featuredProjects`}>
+          <div className={`${styles.wrapper} wrapper`}>
+            <h2>Featured Projects </h2>
+            <ProjectList maxProjects={3} />
+            <p>
+              <Link href='/projects'>View All Projects</Link>
+            </p>
+          </div>
+        </section>
       </div>
     </main>
   );

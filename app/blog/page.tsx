@@ -15,6 +15,10 @@ export default function Projects() {
     <main className={styles.main}>
       <Hero>
         <h1>A Collection of Rants & Ramblings </h1>
+        <p>
+          I'm reluctantly betting my time that someone will find something
+          useful here.{' '}
+        </p>
       </Hero>
 
       <section className={styles.postIndex}>
