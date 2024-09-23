@@ -52,9 +52,11 @@ export async function generateMetadata({
   params: { slug: string };
   searchParams: any;
 }): Promise<{ title: string }> {
-  const id = params?.slug ? ' ⋅ ' + params?.slug : '';
+  const id = params?.slug ? params?.slug : '';
+
+  // TODO: Replace slug with title
   return {
-    title: `${id.replaceAll('_', ' ')} - Andrew Magill's Developer Blog`,
+    title: `${id.replaceAll('-', ' ')} - Andrew Magill's Developer Blog`,
   };
 }
 
@@ -72,7 +74,8 @@ export default function Post(props: PostProps) {
         <h1 className={styles.title}>{post.title} </h1>
         <p className={styles.description}>{post.description}</p>
         <p className={styles.author}>
-          by <Link href='/'>Andrew Magill</Link>
+          by <Link href='/'>Andrew Magill</Link>{' '}
+          {/* TODO: add publish date */}
         </p>
       </Hero>
 

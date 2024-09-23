@@ -21,6 +21,7 @@ export default function getPostMetadata(tag = '') {
         '/images/blog/clarissa-watson-pencil-unsplash.jpg',
       tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
+      created: matterResult.data.created,
     };
   });
 

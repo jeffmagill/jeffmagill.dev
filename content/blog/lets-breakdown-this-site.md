@@ -3,8 +3,8 @@ title: Let's Breakdown This Site
 description: Here I will ramble about what technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: projects, frameworks, tools
-last-updated: 1725542139
-created: 1725542139
+last-updated: 1727007398
+created: 1727007398
 ---
 
 I built this website showcase my work and experiment with new (to me) technologies. I needed something fast (to build), easy (to maintain) AND cheap (to host). Contrary to the popular phrase, obtaining all three does NOT violate the prevailing theories of economics. To accomplish this, I selected a robust set of modern frameworks and technologies. Let's dive into the stack:

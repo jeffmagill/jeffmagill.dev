@@ -3,8 +3,8 @@ title: The Journey Begins
 description: A series of bad jokes to test my statically-generated, markdown-driven Next.JS blog application
 image: /images/blog/katherine-mccormack-sailboat-unsplash.jpg
 tags: milestone
-last-updated: 1725542139
-created: 1725542139
+last-updated: 1726920998
+created: 1726920998
 ---
 
 You might not believe it, but my life as a Web Engineer and Lead developer is an incredible adventure. It's exactly like being Indiana Jones, but I deal with browsers and code instead of whips and treasure. That means dodging the blades of cutting edge technology, navigating the machiavellian world of marketing vendors, and battling the relentless hordes of frontend frameworks.
