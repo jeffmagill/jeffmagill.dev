@@ -43,6 +43,12 @@
     padding: var(--gap);
     max-width: var(--inner-width);
     margin: auto;
+  }
+  .calloutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin-top: var(--gap);
 
     @media (min-width: 480px) {
       flex-direction: row;
@@ -53,12 +59,6 @@
         flex-grow: 1;
       }
     }
-  }
-  .calloutContainer {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap);
-    margin-top: var(--gap);
   }
 }
 

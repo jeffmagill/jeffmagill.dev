@@ -16,8 +16,8 @@ export default function Projects() {
         <Hero>
           <h1>Web Projects and Development Work </h1>
           <p>
-            Some of the bigger and better projects that I've developed over the
-            years.
+            Some of the bigger and better projects that I&apos;ve developed over
+            the years.
           </p>
         </Hero>
 
