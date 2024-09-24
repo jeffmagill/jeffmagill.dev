@@ -5,8 +5,9 @@ import styles from './Header.module.scss';
 const Header: React.FC = () => {
   return (
     <header className={styles.header}>
+      {/* RODO: add hamburger menus for mobile
       <input type='checkbox' id='navButton' />
-      <label htmlFor='navButton'></label>
+      <label htmlFor='navButton'></label> */}
       <Navigation />
     </header>
   );

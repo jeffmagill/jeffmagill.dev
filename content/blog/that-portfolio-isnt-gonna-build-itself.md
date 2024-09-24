@@ -1,5 +1,5 @@
 ---
-title: That Portfolio is not going to build itself
+title: That Portfolio isn't gonna to build itself
 description: To build a portfolio that stands out, let's look at some of the best professionals in web development.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio, tips
@@ -11,7 +11,7 @@ In a difficult job market where your portfolio can make or break your career, cr
 
 ### Why Bother?
 
-A great portfolio isn’t your professional hype machine. It helps you stand out in a crowded job market, showing employers and clients not just what you’ve done, but how you approach problems and think through solutions. It’s like making a strong first impression without even needing to shake hands. A polished, engaging portfolio can lead to all kinds of professional opportunities—job offers, freelance gigs, even speaking engagements. It’s your chance to control the story of who you are as a developer and why people should want to work with you.
+A portfolio isn’t your professional hype machine. It helps you stand out in a crowded job market, showing employers and clients not just what you’ve done, but how you approach problems and think through solutions. It’s like making a strong first impression without even needing to shake hands. A polished, engaging portfolio can lead to all kinds of professional opportunities—job offers, freelance gigs, even speaking engagements. It’s your chance to control the story of who you are as a developer and why people should want to work with you.
 
 ### Your Experiences > Your Projects
 
@@ -27,7 +27,6 @@ Your portfolio should be a reflection of your journey as a developer. As you bui
 
 ### Related Resources
 
-- [Building a Portfolio Website: A Step-by-Step Guide](https://www.freecodecamp.org/news/building-a-portfolio-website-a-step-by-step-guide/): FreeCodeCamp offers a detailed guide on how to create a professional portfolio from scratch.
-- [10 Tips for a Killer Web Developer Portfolio](https://www.smashingmagazine.com/2020/02/web-developer-portfolio-tips/): Smashing Magazine shares essential tips for crafting an eye-catching and effective portfolio.
-- [How to Create an Impressive Web Developer Portfolio](https://www.codecademy.com/resources/blog/how-to-create-an-impressive-web-developer-portfolio/): Codecademy provides insights into showcasing your skills and projects effectively.
-- [Designing Your Developer Portfolio](https://css-tricks.com/designing-your-developer-portfolio/): Chris Coyier's take on what makes a great developer portfolio, including real examples and practical advice.
+- [How to Build a Powerful Web Developer Portfolio](https://arc.dev/talent-blog/web-developer-portfolio/): Learn how to build an impressive professional portfolio 
+- [How to Build a Personal Brand as a Developer](https://cult.honeypot.io/reads/how-to-build-a-personal-brand-as-developer/): Building a personal brand is a fulfilling and practical tactic in today’s industry. 
+- [How to Build a Web Developer Portfolio](https://brainstation.io/career-guides/how-to-build-a-web-developer-portfolio): Build a Web Developer portfolio that will help boost your brand and attract new eyeballs to your work.
