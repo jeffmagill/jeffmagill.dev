@@ -6,5 +6,5 @@
 }
 
 .postIndex {
-  margin-top: 4vmax;
+  margin-top: var(--gutter);
 }

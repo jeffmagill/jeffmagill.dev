@@ -14,9 +14,13 @@
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    padding: 9vmax 1.25em 5vmax 1.25em;
+    padding: 12vmax var(--gap) 6vmax var(--gap);
     gap: 3.6%;
     max-width: var(--inner-width);
+
+    @media (min-width: 560px) {
+      padding-top: 8vmax;
+    }
 
     img {
       margin-bottom: 2rem;

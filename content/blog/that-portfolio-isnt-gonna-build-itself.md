@@ -27,6 +27,6 @@ Your portfolio should be a reflection of your journey as a developer. As you bui
 
 ### Related Resources
 
-- [How to Build a Powerful Web Developer Portfolio](https://arc.dev/talent-blog/web-developer-portfolio/): Learn how to build an impressive professional portfolio 
-- [How to Build a Personal Brand as a Developer](https://cult.honeypot.io/reads/how-to-build-a-personal-brand-as-developer/): Building a personal brand is a fulfilling and practical tactic in today’s industry. 
+- [How to Build a Powerful Web Developer Portfolio](https://arc.dev/talent-blog/web-developer-portfolio/): Learn how to build an impressive professional portfolio
+- [How to Build a Personal Brand as a Developer](https://cult.honeypot.io/reads/how-to-build-a-personal-brand-as-developer/): Building a personal brand is a fulfilling and practical tactic in today’s industry.
 - [How to Build a Web Developer Portfolio](https://brainstation.io/career-guides/how-to-build-a-web-developer-portfolio): Build a Web Developer portfolio that will help boost your brand and attract new eyeballs to your work.

@@ -63,29 +63,31 @@ export default function Home() {
 
         {/* Key Skills */}
         <section className={`${styles.serviceList} serviceList`}>
-          <h2>Key Skills</h2>
-          <p>
-            Here are some of my capabilities that are most impactful for to my
-            clients and projects.{' '}
-          </p>
           <div className={`${styles.wrapper} wrapper`}>
-            <Callout
-              title='Engineering Management'
-              description='I help teams execute engineering projects that address complex challenges and exceed expectations.'
-              icon='/images/icon-project.svg'
-            />
+            <h2>Key Skills</h2>
+            <p>
+              Here are some of my capabilities that are most impactful for to my
+              clients and projects.{' '}
+            </p>
+            <div className={`${styles.calloutContainer} calloutContainer`}>
+              <Callout
+                title='Engineering Management'
+                description='I help teams execute engineering projects that address complex challenges and exceed expectations.'
+                icon='/images/icon-project.svg'
+              />
 
-            <Callout
-              title='Software Development'
-              description='I architect web applications that elegantly translate ambitious goals into scalable solutions.'
-              icon='/images/icon-engineering.svg'
-            />
+              <Callout
+                title='Software Development'
+                description='I architect web applications that elegantly translate ambitious goals into scalable solutions.'
+                icon='/images/icon-engineering.svg'
+              />
 
-            <Callout
-              title='Process Automation'
-              description='I implement tools that enable teams to focus on their core business and strategic objectives.'
-              icon='/images/icon-automation.svg'
-            />
+              <Callout
+                title='Process Automation'
+                description='I implement tools that enable teams to focus on their core business and strategic objectives.'
+                icon='/images/icon-automation.svg'
+              />
+            </div>
           </div>
         </section>
 
