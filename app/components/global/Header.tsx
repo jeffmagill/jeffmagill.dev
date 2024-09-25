@@ -1,15 +1,19 @@
-import Link from 'next/link';
+//  /app/components/global/Header.tsx
+import { useEffect } from 'react';
 import Navigation from './Navigation';
+import NavButton from './NavButton';
+
+// Header styles
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
   return (
-    <header className={styles.header}>
-      {/* RODO: add hamburger menus for mobile
-      <input type='checkbox' id='navButton' />
-      <label htmlFor='navButton'></label> */}
-      <Navigation />
-    </header>
+    <>
+      <header id='header' className={`${styles.header} header`}>
+        <NavButton />
+        <Navigation />
+      </header>
+    </>
   );
 };
 
