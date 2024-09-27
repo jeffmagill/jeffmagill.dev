@@ -4,7 +4,7 @@
   z-index: -1;
   flex-direction: column;
   flex-basis: calc(33.333% - var(--gap));
-  min-width: 300px;
+  min-width: 260px;
   padding: var(--gap);
   border: 1px solid #ddd;
   background-color: #eff2f5;
@@ -13,7 +13,6 @@
   @media (max-width: 800px) {
     flex-basis: calc(50% - 0.625rem);
   }
-
   @media (max-width: 480px) {
     flex-basis: 100%;
   }
@@ -31,26 +30,22 @@
   position: relative;
   z-index: -1;
 }
-
 .projectSummary {
   font-size: 1rem;
   color: #666;
   margin-bottom: 1rem;
 }
-
 .projectDescription {
   font-size: 0.9rem;
   margin-bottom: 1rem;
   flex-grow: 1;
   display: none;
 }
-
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 0.5rem;
 }
-
 .tag {
   background-color: #fff;
   color: #333;

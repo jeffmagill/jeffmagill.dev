@@ -3,6 +3,7 @@
 .wrapper {
   max-width: var(--blog-width);
   margin: auto;
+  padding: var(--gap);
 }
 
 .postIndex {

@@ -3,7 +3,7 @@
   .projectsGrid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: var(--gap);
     max-width: var(--inner-width);
     margin: var(--gap) auto;
