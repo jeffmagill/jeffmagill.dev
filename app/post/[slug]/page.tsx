@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import fs from 'fs';
 import { notFound } from 'next/navigation';
-import getPostMetadata from '@/utils/metadata';
+import { getPostMetadata, getPostContent } from '@/utils/metadata';
 import Markdown from 'markdown-to-jsx';
 import matter from 'gray-matter';
 import Hero from '@/app/components/global/Hero';
@@ -15,33 +15,19 @@ interface Post {
   content: string;
   image: string;
   tags: string;
-}
-
-function getPostContent(slug: string): Post {
-  const file = 'content/blog/' + `${slug}.md`;
-  let content;
-
-  // If the file exists, read the file
-  if (fs.existsSync(file)) {
-    content = fs.readFileSync(file, 'utf8');
-    console.log('File: "' + file + '" loaded.');
-  } else {
-    notFound();
-  }
-
-  const matterResult = matter(content);
-  return {
-    title: matterResult.data.title,
-    description: matterResult.data.description,
-    content: matterResult.content,
-    image: matterResult.data.image,
-    tags: matterResult.data.tags,
-  } as Post;
+  slug: string;
 }
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
-  const posts = getPostMetadata('content/blog');
-  const params = posts.map((post) => ({ slug: post.slug }));
+  const posts = getPostMetadata();
+  const params = posts.map(post => ({
+    title: post.title,
+    description: post.description,
+    image: post.image,
+    tags: post.tags,
+    slug: post.slug,
+    created: post.created
+  }));
   return params;
 };
 

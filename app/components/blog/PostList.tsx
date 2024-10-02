@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PostItem from './PostItem';
-import getPostMetadata from '@/utils/metadata';
+import { getPostMetadata } from '@/utils/metadata';
 import styles from './PostList.module.css';
 
 interface PostListProps {

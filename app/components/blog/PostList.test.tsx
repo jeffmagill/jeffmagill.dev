@@ -4,7 +4,7 @@ import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import PostList from './PostList';
-import getPostMetadata from '@/utils/metadata';
+import { getPostMetadata } from '@/utils/metadata';
 
 // Mock the getPostMetadata function
 vi.mock('@/utils/metadata');
@@ -23,6 +23,7 @@ interface Post {
   description: string;
   image: string;
   tags: string;
+  created: Date; 
 }
 
 describe('PostList', () => {
@@ -33,6 +34,7 @@ describe('PostList', () => {
       description: 'Description 1',
       image: 'image1.jpg',
       tags: 'javascript, react',
+      created: new Date('2022-01-01'),
     },
     {
       slug: 'post-2',
@@ -40,6 +42,7 @@ describe('PostList', () => {
       description: 'Description 2',
       image: 'image2.jpg',
       tags: 'python, django',
+      created: new Date('2024-11-21'),
     },
     {
       slug: 'post-3',
@@ -47,6 +50,7 @@ describe('PostList', () => {
       description: 'Description 3',
       image: 'image3.jpg',
       tags: 'javascript, node',
+      created: new Date('2023-04-01'),
     },
     {
       slug: 'post-4',
@@ -54,6 +58,7 @@ describe('PostList', () => {
       description: 'Description 4',
       image: 'image4.jpg',
       tags: 'ruby, rails',
+      created: new Date('2022-01-03'),
     },
     {
       slug: 'post-5',
@@ -61,6 +66,7 @@ describe('PostList', () => {
       description: 'Description 5',
       image: 'image5.jpg',
       tags: 'java, spring',
+      created: new Date('2021-02-01'),
     },
   ];
 
@@ -70,9 +76,15 @@ describe('PostList', () => {
       if (tag) {
         return mockPosts.filter((post) =>
           post.tags.toLowerCase().includes(tag.toLowerCase())
-        );
+        ).map((post) => ({
+          ...post,
+          created: new Date(), // Add this line
+        }));
       }
-      return mockPosts;
+      return mockPosts.map((post) => ({
+        ...post,
+        created: new Date(),
+      }));
     });
   });
 

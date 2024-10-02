@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import fs from 'fs';
 import matter from 'gray-matter';
-import getPostMetadata from './metadata'; // Adjust this path as needed
+import { getPostMetadata } from './metadata'; // Adjust this path as needed
 
 // Mock the fs and matter modules
 vi.mock('fs');
