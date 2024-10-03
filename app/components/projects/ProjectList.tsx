@@ -1,5 +1,5 @@
-// app/coponents/projects/ProjectList.tsx
 
+// app/coponents/projects/ProjectList.tsx
 import { promises as fs } from 'fs';
 import Project from './Project';
 
@@ -11,6 +11,7 @@ interface Project {
   description: string;
   image: string;
   tags: string[];
+  created: Date;
 }
 
 interface ProjectsData {
@@ -24,7 +25,7 @@ interface ProjectListProps {
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function ProjectList({
-  maxProjects,
+  maxProjects = 0,
 }: ProjectListProps): Promise<JSX.Element> {
   try {
     // Read the JSON file
