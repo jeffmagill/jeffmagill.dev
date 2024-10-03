@@ -1,8 +1,6 @@
-
-// app/coponents/projects/ProjectList.tsx
+// app/components/projects/ProjectList.tsx
 import { promises as fs } from 'fs';
 import Project from './Project';
-
 import styles from './ProjectList.module.scss';
 
 interface Project {
@@ -31,10 +29,21 @@ export default async function ProjectList({
     // Read the JSON file
     const fileName = process.cwd() + '/content/projects.json';
     const file = await fs.readFile(fileName, 'utf8');
+    console.log('File: "' + fileName + '" loaded. 98798');
+    // Check if file content is empty or undefined
+    if (!file) {
+      throw new Error('File: "' + fileName + '" was not loaded. 12414');
+    }
+
     const data: ProjectsData = JSON.parse(file);
 
+    // Check if projects array exists and is not empty
+    if (!data.projects || data.projects.length === 0) {
+      throw new Error('No projects found in the JSON file');
+    }
+
     // Limit the number of projects if maxProjects is provided
-    const projectsToRender = maxProjects
+    const projectsToRender = maxProjects > 0
       ? data.projects.slice(0, maxProjects)
       : data.projects;
 
@@ -53,6 +62,7 @@ export default async function ProjectList({
       <div style={{ textAlign: 'center', margin: '2rem' }}>
         <h2>OOPSIE!</h2>
         <p className='center error'>There was a problem loading projects. </p>
+        <p>{(error as Error).message}</p>
       </div>
     );
   }
