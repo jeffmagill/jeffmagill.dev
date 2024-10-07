@@ -1,10 +1,10 @@
 ---
-title: That Portfolio isn't gonna to build itself
+title: Showcasing Your Work - The Power of a Potent Portfolio
 description: To build a portfolio that stands out, let's look at some of the best professionals in web development.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio, tips
-last-updated: 1727093798
-created: 1727093798
+last-updated: 1728328104
+created: 1728328053
 ---
 
 In a difficult job market where your portfolio can make or break your career, creating a standout website is more important than ever. This isn’t just about showcasing your projects; it’s about showing how you adapt to the demanding challenges and evolving trends in your field. Let’s dive into how industry leaders like **Una Kravets**, and **Brad Frost** recommend makyou make your mark on the web while navigating the ever-changing web terrain.

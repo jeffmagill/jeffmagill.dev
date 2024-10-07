@@ -3,14 +3,14 @@ title: Let's Breakdown This Site
 description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
-last-updated: 1727007398
-created: 1727007398
+created: 1728061704
+last-updated: 1728328053
 ---
 When planning this project, I wanted a platform that could showcase my best work, and share the technologies and development methods I use. I needed something fast (to build), easy (to publish) AND cheap (to host). To accomplish this, I selected a robust foundation of technologies with these requirements in mind. Following that plan produced the website you're exploring right now – a blend of cutting-edge frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's dive into the stack: 
 
 ## Stacking the Foundation 
 
-At the heart of this website lies a powerful combination of React and Next.js. React's component-based architecture provided the perfect foundation for building a dynamic and interactive user interface. Next.js provided the backend and dev environment to build the site statically, which is required to statisfy two of the initial requirements.
+At the heart of this website lies a curated tech stack based on React and Next.js. React's component-based architecture provided the perfect foundation for building a dynamic and interactive user interface. Next.js provided the backend and dev environment to build the site statically, which is required to statisfy two of the initial requirements.
 
 For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me to write more maintainable stylesheets, while CSS Modules ensured that styles remained scoped to specific components. To manage content, I chose Markdown for its simplicity and readability. This decision allowed me to focus on writing without getting bogged down in complex formatting.
 
@@ -65,4 +65,4 @@ As I continue to develop this website, I have a handful of exciting ideas to imp
 
 On the technical side, I'm looking to enhance blogging functionality and UI. This might include features like improved search capabilities and tag-based filtering. For the project content, I'm exploring ways to create more engaging and dynamic presentations of my work.
 
-Building this website has been an interesting journey. The power and flexibility of modern web development tools has enabled me to carefully tailor the development and editing expereince. I'm excited to continue buiding it over the next few years.
+Building this website has been an interesting journey. The power and flexibility of modern web development tools has enabled me to carefully tailor the development and editing expereince. I'm curious where this site will take me, as I continue buiding it over the next few years.

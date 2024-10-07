@@ -3,8 +3,8 @@ title: Happy Birthday to My Website
 description: Let's celebrate the zeroth birthday of my website, or an excuse to test the blogging functionality of my statically-generated, Next.JS web application
 image: /images/blog/shraga-kopstein-cake-unsplash.jpg
 tags: milestone
-last-updated: 1728052676
-created: 1728052676
+created: 1727975304
+last-updated: 1728327821
 ---
 
 Happy Birthday, [my dear Website](/)! Today is a big day for you as we celebrate your re-launch, and I can’t help but feel proud of how far we’ve come together. Today marks a major milestone, for both of us. You're officially out of your awkward WordPress phase and stepping into your prime. I'm so excited to see what we can accomplish together.
