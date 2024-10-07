@@ -55,9 +55,24 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: inherit;
 }
 
 main {
   min-height: 66dvh;
+}
+
+code {
+  display: inline-block;
+}
+
+pre code {
+  display: block;
+  border: 1px solid black;
+  background-color: #333;
+  color: #CCC;
+  padding: 0.5em 1em;
+  font-family: monospace; 
+  font-size: 14px; 
+  border-radius: 0.5em;
 }

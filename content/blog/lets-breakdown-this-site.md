@@ -1,32 +1,68 @@
 ---
 title: Let's Breakdown This Site
-description: Here I will ramble about what technologies I used to build this website.
+description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
-tags: portfolio, tools
+tags: tools
 last-updated: 1727007398
 created: 1727007398
 ---
+When planning this project, I wanted a platform that could showcase my best work, and share the technologies and development methods I use. I needed something fast (to build), easy (to publish) AND cheap (to host). To accomplish this, I selected a robust foundation of technologies with these requirements in mind. Following that plan produced the website you're exploring right now – a blend of cutting-edge frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's dive into the stack: 
 
-I built this website showcase my work and experiment with new (to me) technologies. I needed something fast (to build), easy (to maintain) AND cheap (to host). Contrary to the popular phrase, obtaining all three does NOT violate the prevailing theories of economics. To accomplish this, I selected a robust set of modern frameworks and technologies. Let's dive into the stack:
+## Stacking the Foundation 
 
-### Frameworks
+At the heart of this website lies a powerful combination of React and Next.js. React's component-based architecture provided the perfect foundation for building a dynamic and interactive user interface. Next.js provided the backend and dev environment to build the site statically, which is required to statisfy two of the initial requirements.
 
-- **React:** As a versatile and component-based library, React provides a solid foundation for building dynamic user interfaces. Its declarative syntax and efficient virtual DOM make it a great choice for creating interactive web applications.
-- **Next.js:** Built on top of React, Next.js offers a full-featured framework with features like server-side rendering (SSR), static site generation (SSG), and hybrid rendering. This flexibility allows the app to be run in a variety of environments but, more importantly, allows static export for very cheap (Netlify, Cloudflare) or even free hosting (GitHub Pages).
+For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me to write more maintainable stylesheets, while CSS Modules ensured that styles remained scoped to specific components. To manage content, I chose Markdown for its simplicity and readability. This decision allowed me to focus on writing without getting bogged down in complex formatting.
 
-### Styling & Content
+## Summoning the Beast
 
-- **SASS:** Sass is a powerful CSS preprocessor that extends CSS with features like variables, nesting, and mixins. It helps me write cleaner and more maintainable stylesheets.
-- **CSS Modules:** By using CSS modules, I can avoid global namespace collisions and write more modular and reusable styles. This ensures that my styles are scoped to specific components, preventing unintended styling conflicts.
-- **Markdown:** Markdown is a lightweight markup language that's easy to write and read. I use Markdown files to store my blog content, allowing me to focus on writing without worrying about HTML formatting.
+I wanted to share some of the challenges and problems I faced when building this website, and how I tackled them. If you're diving into Next.js or similar project, you might find this useful. I faced several challenges along the way, including:
 
-### Developer Experience
+**Dynamic Routes vs. Static Generation:** These two concepts seemed at odds at first. However, with the help of Next.js's generateStaticParams function, I managed to pre-render all my blog post pages at build time, making the website lightning fast. 
 
-- **TypeScript:** TypeScript adds static typing to JavaScript, making my code more robust and easier to maintain. It helps catch potential errors early in the development process.
-- **ESLint:** ESLint is a linter that helps me enforce coding standards and identify potential issues in my JavaScript code.
-- **Prettier:** Prettier automatically formats my code according to a consistent style, ensuring that my codebase remains clean and readable.
-- **Vitest:** Vitest is a fast unit testing framework that integrates seamlessly with my Next.js project. It helps me write tests to ensure the quality and reliability of my code.
+```typescript
+export const generateStaticParams = async () => {
+  const posts = await getPostMetadata();
+  return posts.map((post) => ({ slug: post.slug }));
+};
+```
+**Async File Operations:** Synchronous file operations don't play well with Next.js static exports. Thankfully, switching to asynchronous operations with fs.promises saved the day.
 
-### What was I thinking?
+```typescript
+import { promises as fs } from 'fs';
 
-By combining these complementary technologies and methods, I will have a publishing platform that is cheap, scalable, and easy to maintain. This tech stack provides a solid foundation for future growth and allows me to focus on creating useful content.
+async function getPostContent(slug: string) {
+  const content = await fs.readFile(`content/blog/${slug}.md`, 'utf8');
+  // Process content...
+}
+```
+**TypeScript: My Frenemy:** This love-hate relationship involved wrestling with type mismatches. Being more explicit with my types (like the Post or Project interfaces) helped tame this beast:
+
+```typescript
+interface Post {
+  title: string;
+  description: string;
+  content: string;
+  image: string;
+  tags: string[];
+  created: string;
+}
+```
+**Markdown Magic & Front Matter Hero:** Rendering Markdown content as HTML involved the awesome markdown-to-jsx library. Extracting metadata from those Markdown files was made possible by the unsung hero, gray-matter.
+
+```jsx
+import matter from 'gray-matter';
+import Markdown from 'markdown-to-jsx';
+...
+const { data, content } = matter(fileContents);
+return <Markdown>{post.content}</Markdown>;
+
+```
+
+## Monumental Baby Steps
+
+As I continue to develop this website, I have a handful of exciting ideas to improve it further. My highest priority is to regularly publish interesting and informative blog content. I also hope to expand the project section of the site, showcasing more of my work in greater detail.
+
+On the technical side, I'm looking to enhance blogging functionality and UI. This might include features like improved search capabilities and tag-based filtering. For the project content, I'm exploring ways to create more engaging and dynamic presentations of my work.
+
+Building this website has been an interesting journey. The power and flexibility of modern web development tools has enabled me to carefully tailor the development and editing expereince. I'm excited to continue buiding it over the next few years.
