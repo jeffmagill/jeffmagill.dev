@@ -1,11 +1,11 @@
 .heroAnimation {
-  --grid-width: 4vw;
-  --grid-height: 4vw;
+  --grid-width: clamp(2em, 4vw, 4em);
+  --grid-height: clamp(2em, 4vw, 4em);
   --line-color: #aaaaaa;
   --dot-color: #fff;
   --dot-size: 0.5em;
-  --point-gap-width: calc(var(--grid-width) * 4);
-  --point-gap-height: calc(var(--grid-height) * 4);
+  --point-gap-width: calc(var(--grid-width) * 3.6);
+  --point-gap-height: calc(var(--grid-height) * 3);
 
   position: absolute;
   width: 100%;
@@ -18,18 +18,18 @@
   z-index: -1;
   background: linear-gradient(
     124deg,
-    #d5280e,
-    #c04a1f,
-    #c7a121,
-    #96b322,
+    #d54a0e,
+    #c06f1f,
+    #b9c721,
     #1fb037,
     #1eacb4,
     #2c21cc,
     #b90dc9,
-    #c70c85
+    #c70c50
   );
-  background-size: 1800% 1800%;
-  animation: rainbow 32s ease infinite;
+  background-size: 1600% 1600%;
+  // animation: rainbow 32s ease infinite;
+  background-position: calc(var(--progress) * -1%);
 
   &:before,
   &:after,
@@ -56,11 +56,12 @@
   &:after {
     background-image: radial-gradient(var(--dot-color) 5px, transparent 5px);
     background-size: var(--point-gap-width) var(--point-gap-height);
-    background-position: calc(var(--point-gap-width))
+    background-position: var(--point-gap-width)
       calc(var(--point-gap-height));
   }
 
   .inner {
+
     &:before,
     &:after {
       background-image: radial-gradient(
@@ -68,29 +69,30 @@
         transparent var(--dot-size)
       );
       background-size: var(--point-gap-width) var(--point-gap-height);
-      background-position: calc(var(--point-gap-width))
+      background-position: var(--point-gap-width)
         calc(var(--point-gap-height));
+      filter: blur(0.1em);
     }
 
     &:after {
-      transform: scale(1.2, 1.2);
+      transform: scale(1.33, 1.33);
     }
 
     &:before {
-      transform: scale(1.4, 1.4);
+      transform: scale(1.8, 1.8);
     }
   }
   &:after {
-    animation: 6.4s linear move infinite;
+    animation: 4s linear move infinite;
   }
 
   .inner {
     &:after {
-      animation: 3.2s linear move infinite;
+      animation: 4s linear move infinite;
     }
 
     &:before {
-      animation: 1.6s linear move infinite;
+      animation: 4s linear move infinite;
     }
   }
 }
@@ -103,17 +105,5 @@
   100% {
     background-position: calc(var(--point-gap-width) / 2)
       calc(var(--point-gap-height) / 2 * -1);
-  }
-}
-
-@keyframes rainbow {
-  0% {
-    background-position: 0% 82%;
-  }
-  50% {
-    background-position: 100% 19%;
-  }
-  100% {
-    background-position: 0% 82%;
   }
 }
