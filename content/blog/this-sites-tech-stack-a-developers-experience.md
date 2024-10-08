@@ -1,5 +1,5 @@
 ---
-title: Let's Breakdown This Site
+title: This site's Tech Stack - A Developer's Experience
 description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
@@ -18,7 +18,7 @@ For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me 
 
 I wanted to share some of the challenges and problems I faced when building this website, and how I tackled them. If you're diving into Next.js or similar project, you might find this useful. I faced several challenges along the way, including:
 
-**Dynamic Routes vs. Static Generation:** These two concepts seemed at odds at first. However, with the help of Next.js's generateStaticParams function, I managed to pre-render all my blog post pages at build time, making the website lightning fast. 
+**Dynamic Routes vs. Static Generation:** These two pillars of modern web development don't always play nice together. However, with the help of Next.js's generateStaticParams function, I managed to pre-render all my blog post pages at build time, making the website lightning fast. 
 
 ```typescript
 export const generateStaticParams = async () => {

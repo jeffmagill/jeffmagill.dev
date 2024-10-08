@@ -1,11 +1,11 @@
 .heroAnimation {
-  --gird-width: 30px;
-  --gird-height: 30px;
-  --line-color: #666;
-  --dot-color: #333;
-  --dot-size: 2px;
-  --point-gap-width: calc(var(--gird-width) * 4);
-  --point-gap-height: calc(var(--gird-height) * 4);
+  --grid-width: 4vw;
+  --grid-height: 4vw;
+  --line-color: #aaaaaa;
+  --dot-color: #fff;
+  --dot-size: 0.5em;
+  --point-gap-width: calc(var(--grid-width) * 4);
+  --point-gap-height: calc(var(--grid-height) * 4);
 
   position: absolute;
   width: 100%;
@@ -18,15 +18,15 @@
   z-index: -1;
   background: linear-gradient(
     124deg,
-    #e0290d,
-    #cd4d1f,
+    #d5280e,
+    #c04a1f,
     #c7a121,
-    #aacc20,
-    #20cb3c,
-    #1fc0c9,
+    #96b322,
+    #1fb037,
+    #1eacb4,
     #2c21cc,
-    #c00ad1,
-    #c009d1
+    #b90dc9,
+    #c70c85
   );
   background-size: 1800% 1800%;
   animation: rainbow 32s ease infinite;
@@ -46,18 +46,18 @@
   }
 
   &:before {
-    background-image: linear-gradient(var(--line-color), transparent 1px),
-      linear-gradient(to right, var(--line-color), transparent 1px);
+    background-image: linear-gradient(var(--line-color), transparent 3px),
+      linear-gradient(to right, var(--line-color), transparent 3px);
     background-size:
-      100% var(--gird-height),
-      var(--gird-width) 100%;
+      100% var(--grid-height),
+      var(--grid-width) 100%;
   }
 
   &:after {
-    background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+    background-image: radial-gradient(var(--dot-color) 5px, transparent 5px);
     background-size: var(--point-gap-width) var(--point-gap-height);
-    background-position: calc(var(--point-gap-width) / 2)
-      calc(var(--point-gap-height) / 2);
+    background-position: calc(var(--point-gap-width))
+      calc(var(--point-gap-height));
   }
 
   .inner {
@@ -68,16 +68,16 @@
         transparent var(--dot-size)
       );
       background-size: var(--point-gap-width) var(--point-gap-height);
-      background-position: calc(var(--point-gap-width) / 2)
-        calc(var(--point-gap-height) / 2);
+      background-position: calc(var(--point-gap-width))
+        calc(var(--point-gap-height));
     }
 
     &:after {
-      transform: scale(1.1, 1.1);
+      transform: scale(1.2, 1.2);
     }
 
     &:before {
-      transform: scale(1.2, 1.2);
+      transform: scale(1.4, 1.4);
     }
   }
   &:after {
