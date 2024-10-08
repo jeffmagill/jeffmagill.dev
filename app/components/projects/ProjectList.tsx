@@ -43,9 +43,8 @@ export default async function ProjectList({
     }
 
     // Limit the number of projects if maxProjects is provided
-    const projectsToRender = maxProjects > 0
-      ? data.projects.slice(0, maxProjects)
-      : data.projects;
+    const projectsToRender =
+      maxProjects > 0 ? data.projects.slice(0, maxProjects) : data.projects;
 
     return (
       <section className={styles.projectsContainer}>

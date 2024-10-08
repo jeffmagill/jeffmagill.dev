@@ -20,13 +20,13 @@ interface Post {
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata();
-  const params = posts.map(post => ({
+  const params = posts.map((post) => ({
     title: post.title,
     description: post.description,
     image: post.image,
     tags: post.tags,
     slug: post.slug,
-    created: post.created
+    created: post.created,
   }));
   return params;
 };

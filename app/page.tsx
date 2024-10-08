@@ -66,7 +66,8 @@ export default function Home() {
           <div className={`${styles.wrapper} wrapper`}>
             <h2>Key Skills</h2>
             <p>
-              Here are some of my key capabilities that deliver tangible results for my clients and projects.{' '}
+              Here are some of my key capabilities that deliver tangible results
+              for my clients and projects.{' '}
             </p>
             <div className={`${styles.calloutContainer} calloutContainer`}>
               <Callout

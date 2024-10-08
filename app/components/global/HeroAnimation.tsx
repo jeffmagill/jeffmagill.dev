@@ -8,7 +8,10 @@ interface HeroAnimationProps {
   steps?: number;
 }
 
-const HeroAnimation: React.FC<HeroAnimationProps> = ({ duration = 32, steps = 100 }) => {
+const HeroAnimation: React.FC<HeroAnimationProps> = ({
+  duration = 32,
+  steps = 100,
+}) => {
   const animationRef = useRef<HTMLDivElement>(null);
   const startTimeRef = useRef<number | null>(null);
 
@@ -16,8 +19,13 @@ const HeroAnimation: React.FC<HeroAnimationProps> = ({ duration = 32, steps = 10
     if (typeof window === 'undefined') return;
 
     const storedStartTime = localStorage.getItem('heroAnimationStartTime');
-    startTimeRef.current = storedStartTime ? Number(storedStartTime) : performance.now();
-    localStorage.setItem('heroAnimationStartTime', startTimeRef.current.toString());
+    startTimeRef.current = storedStartTime
+      ? Number(storedStartTime)
+      : performance.now();
+    localStorage.setItem(
+      'heroAnimationStartTime',
+      startTimeRef.current.toString()
+    );
 
     const animation = animationRef.current;
     if (!animation) return;
@@ -29,7 +37,7 @@ const HeroAnimation: React.FC<HeroAnimationProps> = ({ duration = 32, steps = 10
 
       const currentTime = performance.now();
       const elapsedTime = (currentTime - startTimeRef.current) / 1000; // Convert to seconds
-      const progress = (elapsedTime % duration) / duration * 100;
+      const progress = ((elapsedTime % duration) / duration) * 100;
 
       animation.style.setProperty('--progress', progress.toString());
 

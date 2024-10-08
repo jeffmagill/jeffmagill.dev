@@ -23,7 +23,7 @@ interface Post {
   description: string;
   image: string;
   tags: string;
-  created: Date; 
+  created: Date;
 }
 
 describe('PostList', () => {
@@ -74,12 +74,12 @@ describe('PostList', () => {
     vi.resetAllMocks();
     vi.mocked(getPostMetadata).mockImplementation((tag?: string) => {
       if (tag) {
-        return mockPosts.filter((post) =>
-          post.tags.toLowerCase().includes(tag.toLowerCase())
-        ).map((post) => ({
-          ...post,
-          created: new Date(), // Add this line
-        }));
+        return mockPosts
+          .filter((post) => post.tags.toLowerCase().includes(tag.toLowerCase()))
+          .map((post) => ({
+            ...post,
+            created: new Date(), // Add this line
+          }));
       }
       return mockPosts.map((post) => ({
         ...post,

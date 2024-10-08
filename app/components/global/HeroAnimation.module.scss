@@ -56,12 +56,10 @@
   &:after {
     background-image: radial-gradient(var(--dot-color) 5px, transparent 5px);
     background-size: var(--point-gap-width) var(--point-gap-height);
-    background-position: var(--point-gap-width)
-      calc(var(--point-gap-height));
+    background-position: var(--point-gap-width) calc(var(--point-gap-height));
   }
 
   .inner {
-
     &:before,
     &:after {
       background-image: radial-gradient(
@@ -69,8 +67,7 @@
         transparent var(--dot-size)
       );
       background-size: var(--point-gap-width) var(--point-gap-height);
-      background-position: var(--point-gap-width)
-        calc(var(--point-gap-height));
+      background-position: var(--point-gap-width) calc(var(--point-gap-height));
       filter: blur(0.1em);
     }
 

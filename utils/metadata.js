@@ -45,7 +45,7 @@ const getPostMetadata = (tag = '') => {
   } else {
     return posts;
   }
-}
+};
 
 const getPostContent = (slug = '') => {
   const file = 'content/blog/' + `${slug}.md`;
@@ -68,6 +68,6 @@ const getPostContent = (slug = '') => {
     image: matterResult.data.image,
     tags: matterResult.data.tags,
   };
-}
+};
 
 export { getPostMetadata, getPostContent };
