@@ -20,9 +20,9 @@
     124deg,
     #d54a0e,
     #c06f1f,
-    #b9c721,
+    #999e0d,
     #1fb037,
-    #1eacb4,
+    #1e9ea4,
     #2c21cc,
     #b90dc9,
     #c70c50
@@ -51,6 +51,7 @@
     background-size:
       100% var(--grid-height),
       var(--grid-width) 100%;
+    animation: 4s linear move infinite;
   }
 
   &:after {

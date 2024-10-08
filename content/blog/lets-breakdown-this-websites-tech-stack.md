@@ -1,6 +1,6 @@
 ---
-title: This site's Tech Stack - A Developer's Experience
-description: Here I will ramble about the tools and technologies I used to build this website.
+title: Let's Breakdown This Website's Tech Stack
+description: Here I will ramble about the tools and technologies I used to build this website. 
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
 created: 1728061704
