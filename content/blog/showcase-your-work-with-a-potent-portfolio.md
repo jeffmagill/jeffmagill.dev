@@ -2,7 +2,7 @@
 title: Showcase Your Work with a Potent Portfolio
 description: To build a portfolio that stands out, let's look at some of the popular professionals in web development.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
-tags: portfolio, tips
+tags: portfolio
 last-updated: 1728328104
 created: 1728328053
 ---

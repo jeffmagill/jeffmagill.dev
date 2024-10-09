@@ -7,7 +7,7 @@ created: 1728061704
 last-updated: 1728328053
 ---
 
-When planning this project, I wanted a platform that could showcase my best work, and share the technologies and development methods I use. I needed something fast (to build), easy (to publish) AND cheap (to host). To accomplish this, I selected a robust foundation of technologies with these requirements in mind. Following that plan produced the website you're exploring right now – a blend of cutting-edge frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's dive into the stack:
+When planning this project, I wanted a platform that could showcase my most valuable skills and best work in an impressive way. I needed something fast (to build), easy (to publish) AND cheap (to host). To accomplish this, I selected a robust foundation of technologies with these requirements in mind. Following that plan produced the website you're exploring right now – a blend of cutting-edge frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's dive into the stack:
 
 ## Stacking the Foundation
 

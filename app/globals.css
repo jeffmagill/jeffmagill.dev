@@ -5,7 +5,7 @@
   --secondary-color: #f1c40f;
   --text-color: #171717;
 
-  --gap: 1.25rem;
+  --gap: 1.5rem;
   --gutter: var(--gutter);
   --mobile: 480px;
   --tablet: 860px;
@@ -79,4 +79,6 @@ pre code {
   font-family: monospace;
   font-size: 14px;
   border-radius: 0.5em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
 }
