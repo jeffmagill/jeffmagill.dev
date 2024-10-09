@@ -1,13 +1,31 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+
+import { settings } from '@/utils/settings';
 import Hero from '@/app/components/global/Hero';
 import PostList from '@/app/components/blog/PostList';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
-  title: 'Rants & Ramblings by Andrew Magill(Web Developer)',
+const meta = {
+  title: 'Rants & Ramblings - ' + settings.title,
   description:
     'A Collection of Rants and Ramblings by web developer, Andrew Magill',
+  url: `${settings.siteUrl}/blog/`,
+};
+
+export const metadata: Metadata = {
+  title: meta.title,
+  description: meta.description,
+  openGraph: {
+    title: meta.title,
+    description: meta.description,
+    type: 'website',
+    url: meta.url,
+  },
+  twitter: {
+    title: meta.title,
+    description: meta.description,
+  },
 };
 
 export default function Projects() {

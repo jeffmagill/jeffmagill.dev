@@ -30,6 +30,7 @@ const getPostMetadata = (tag = '') => {
       tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
       created: matterResult.data.created,
+      lastUpdated: matterResult.data.lastUpdated,
     };
   });
 
@@ -67,6 +68,8 @@ const getPostContent = (slug = '') => {
     content: matterResult.content,
     image: matterResult.data.image,
     tags: matterResult.data.tags,
+    created: matterResult.data.created,
+    lastUpdated: matterResult.data.lastUpdated,
   };
 };
 

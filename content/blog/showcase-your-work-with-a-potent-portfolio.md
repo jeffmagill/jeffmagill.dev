@@ -3,8 +3,8 @@ title: Showcase Your Work with a Potent Portfolio
 description: To build a portfolio that stands out, let's look at some of the popular professionals in web development.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio
-last-updated: 1728328104
 created: 1728328053
+lastUpdated: 1728328104
 ---
 
 In a competitive job market, a strong portfolio can be your secret sauce. It's like a digital handshake, introducing you to potential employers and clients before even meeting them. Unlike a traditional resume, a portfolio lets you showcase your skills and experience in a dynamic, visual way.

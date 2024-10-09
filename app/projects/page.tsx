@@ -1,12 +1,33 @@
-import Image from 'next/image';
+/**
+ * Projects Page
+ *
+ */
 import type { Metadata } from 'next';
+
+import { settings } from '@/utils/settings';
 import Hero from '@/app/components/global/Hero';
 import ProjectList from '@/app/components/projects/ProjectList';
 import styles from './page.module.scss';
 
-export const metadata: Metadata = {
-  title: 'Andrew Magill: Web Projects and Development Work',
+const meta = {
+  title: 'Web Projects and Development Work - ' + settings.title,
   description: 'A collection of projects and development work by Andrew Magill',
+  url: `${settings.siteUrl}/projects/`,
+};
+
+export const metadata: Metadata = {
+  title: settings.title,
+  description: settings.description,
+  openGraph: {
+    title: settings.title,
+    description: settings.description,
+    type: 'website',
+    url: meta.url,
+  },
+  twitter: {
+    title: settings.title,
+    description: settings.description,
+  },
 };
 
 export default function Projects() {

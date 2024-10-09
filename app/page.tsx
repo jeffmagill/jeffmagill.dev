@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
+import { settings } from '@/utils/settings';
 import Hero from '@/app/components/global/Hero';
 import Callout from '@/app/components/global/Callout';
 import PostList from '@/app/components/blog/PostList';
@@ -16,8 +17,17 @@ import styles from './page.module.scss';
 
 // Define the metadata for the page
 export const metadata: Metadata = {
-  title: 'Andrew Magill: Web Developer',
-  description: 'Frontend Architect and Web Development Manager',
+  title: settings.title,
+  description: settings.description,
+  openGraph: {
+    title: settings.title,
+    description: settings.description,
+    type: 'website',
+  },
+  twitter: {
+    title: settings.title,
+    description: settings.description,
+  },
 };
 
 export default function Home() {
@@ -29,7 +39,7 @@ export default function Home() {
           <div className={`${styles.portraitContainer} portraitContainer`}>
             <Image
               src='/images/portrait-andrew-magill.jpg'
-              alt='Andrew Magill: Web Engineer'
+              alt={settings.title}
               className={`${styles.portrait} portrait`}
               width={300}
               height={300}
@@ -55,7 +65,8 @@ export default function Home() {
               <Link href='//www.prehealth.com'>Prehealth</Link>. I love{' '}
               <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
               opportunities. I built this website{' '}
-              <a href="/post/lets-breakdown-this-website">from scratch</a> to showcase{' '}
+              <a href='/post/lets-breakdown-this-website'>from scratch</a> to
+              showcase{' '}
               <Link href='/projects'>some of my&nbsp;best&nbsp;work</Link>.{' '}
             </p>
           </div>

@@ -1,10 +1,10 @@
 ---
 title: Let's Breakdown This Website's Tech Stack
-description: Here I will ramble about the tools and technologies I used to build this website. 
+description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
 created: 1728061704
-last-updated: 1728328053
+lastUpdated: 1728328053
 ---
 
 When planning this project, I wanted a platform that could showcase my most valuable skills and best work in an impressive way. I needed something fast (to build), easy (to publish) AND cheap (to host). To accomplish this, I selected a robust foundation of technologies with these requirements in mind. Following that plan produced the website you're exploring right now – a blend of cutting-edge frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's dive into the stack:

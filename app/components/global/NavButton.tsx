@@ -35,7 +35,7 @@ const NavButton: React.FC = () => {
     if (inputRef.current) {
       inputRef.current.checked = false;
     }
-    
+
     // Reset the header space
     const header = document.getElementById('header');
     if (header) {
@@ -45,10 +45,10 @@ const NavButton: React.FC = () => {
 
   return (
     <>
-      <input 
-        className={styles.navButton} 
-        type='checkbox' 
-        id='navButton' 
+      <input
+        className={styles.navButton}
+        type='checkbox'
+        id='navButton'
         ref={inputRef}
       />
       <label className={styles.navButtonIcon} htmlFor='navButton'>
