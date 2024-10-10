@@ -1,10 +1,13 @@
-import Image from 'next/image';
+/**
+ * Blog Page
+ *
+ */
 import type { Metadata } from 'next';
 
 import { settings } from '@/utils/settings';
 import Hero from '@/app/components/global/Hero';
 import PostList from '@/app/components/blog/PostList';
-import styles from './page.module.css';
+import styles from './page.module.scss';
 
 const meta = {
   title: 'Rants & Ramblings - ' + settings.title,
