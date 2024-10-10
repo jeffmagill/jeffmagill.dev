@@ -1,9 +1,9 @@
 .heroAnimation {
-  --grid-width: clamp(2em, 4vw, 4em);
-  --grid-height: clamp(2em, 4vw, 4em);
+  --grid-width: max(3em, 10vmin);
+  --grid-height: max(3em, 10vmin);
   --line-color: #aaaaaa;
   --dot-color: #fff;
-  --dot-size: 0.5em;
+  --dot-size: 0.4em;
   --point-gap-width: calc(var(--grid-width) * 3);
   --point-gap-height: calc(var(--grid-height) * 3);
 
@@ -55,7 +55,8 @@
   }
 
   &:after {
-    background-image: radial-gradient(var(--dot-color) 5px, transparent 5px);
+    transform: translateZ(-100%);
+    background-image: radial-gradient(var(--dot-color) calc(var(--dot-size)*0.8), transparent calc(var(--dot-size)*0.8));
     background-size: var(--point-gap-width) var(--point-gap-height);
     background-position: var(--point-gap-width) calc(var(--point-gap-height));
   }
@@ -63,21 +64,27 @@
   .inner {
     &:before,
     &:after {
+      background-size: var(--point-gap-width) var(--point-gap-height);
+      background-position: var(--point-gap-width) calc(var(--point-gap-height));
+    }
+
+    &:after {
+      background-image: radial-gradient(
+        var(--dot-color) calc(var(--dot-size)*2),
+        transparent calc(var(--dot-size)*2)
+      );
+      transform: scale(2, 2);
+      filter: blur(0.25em);
+      opacity: 0.8;
+    }
+
+    &:before {
       background-image: radial-gradient(
         var(--dot-color) var(--dot-size),
         transparent var(--dot-size)
       );
-      background-size: var(--point-gap-width) var(--point-gap-height);
-      background-position: var(--point-gap-width) calc(var(--point-gap-height));
-      filter: blur(0.1em);
-    }
-
-    &:after {
-      transform: scale(1.33, 1.33);
-    }
-
-    &:before {
-      transform: scale(1.88, 1.88);
+      transform: scale(1.4, 1.4);
+      filter: blur(0.15em);
     }
   }
   &:after {
