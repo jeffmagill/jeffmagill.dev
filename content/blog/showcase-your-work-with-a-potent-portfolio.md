@@ -1,6 +1,6 @@
 ---
 title: Showcase Your Work with a Potent Portfolio
-description: Let's take a look at what it takes to build an interesting, effective portfolio, with some advice from somve development leaders. 
+description: Let's take a look at what it takes to build an interesting, effective portfolio, with some advice from somve development leaders.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio
 created: 1728328053

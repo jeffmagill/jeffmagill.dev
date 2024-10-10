@@ -56,7 +56,10 @@
 
   &:after {
     transform: translateZ(-100%);
-    background-image: radial-gradient(var(--dot-color) calc(var(--dot-size)*0.8), transparent calc(var(--dot-size)*0.8));
+    background-image: radial-gradient(
+      var(--dot-color) calc(var(--dot-size) * 0.8),
+      transparent calc(var(--dot-size) * 0.8)
+    );
     background-size: var(--point-gap-width) var(--point-gap-height);
     background-position: var(--point-gap-width) calc(var(--point-gap-height));
   }
@@ -70,8 +73,8 @@
 
     &:after {
       background-image: radial-gradient(
-        var(--dot-color) calc(var(--dot-size)*2),
-        transparent calc(var(--dot-size)*2)
+        var(--dot-color) calc(var(--dot-size) * 2),
+        transparent calc(var(--dot-size) * 2)
       );
       transform: scale(2, 2);
       filter: blur(0.25em);

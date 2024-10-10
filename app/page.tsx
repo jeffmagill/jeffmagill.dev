@@ -64,9 +64,10 @@ export default function Home() {
               I’m currently working as lead developer at{' '}
               <Link href='//www.prehealth.com'>Prehealth</Link>. I love{' '}
               <Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
-              opportunities. I built <a href='/post/lets-breakdown-this-website'>this website</a>{' '}
-              <a href='//github.com/andymagill/dev.magill.next'>from scratch</a> to
-              showcase{' '}
+              opportunities. I built{' '}
+              <a href='/post/lets-breakdown-this-website'>this website</a>{' '}
+              <a href='//github.com/andymagill/dev.magill.next'>from scratch</a>{' '}
+              to showcase{' '}
               <Link href='/projects'>some of my&nbsp;best&nbsp;work</Link>.{' '}
             </p>
           </div>

@@ -70,7 +70,7 @@ describe('ProjectList', () => {
     ],
   };
 
-  // TODO: repair this test
+  // TODO: repair these test
 
   // it('renders all projects when maxProjects is not provided', async () => {
   //   vi.mocked(fs.promises.readFile).mockResolvedValue(JSON.stringify(mockProjects));
@@ -92,8 +92,7 @@ describe('ProjectList', () => {
     vi.mocked(fs.promises.readFile).mockRejectedValue(
       new Error('File read error')
     );
-    const { debug } = render(await ProjectList({}));
-    debug();
+    render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')
@@ -102,8 +101,7 @@ describe('ProjectList', () => {
 
   it('renders error message when JSON parsing fails', async () => {
     vi.mocked(fs.promises.readFile).mockResolvedValue('Invalid JSON');
-    const { debug } = render(await ProjectList({}));
-    debug();
+    render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')
@@ -114,8 +112,7 @@ describe('ProjectList', () => {
     vi.mocked(fs.promises.readFile).mockResolvedValue(
       JSON.stringify({ projects: [] })
     );
-    const { debug } = render(await ProjectList({}));
-    debug();
+    render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')
