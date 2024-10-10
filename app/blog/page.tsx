@@ -4,7 +4,7 @@
  */
 import type { Metadata } from 'next';
 
-import { settings } from '@/utils/settings';
+import { settings } from '@/utils/settings.mjs';
 import Hero from '@/app/components/global/Hero';
 import PostList from '@/app/components/blog/PostList';
 import styles from './page.module.scss';

@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-import { settings } from '@/utils/settings';
+import { settings } from '@/utils/settings.mjs';
 import Hero from '@/app/components/global/Hero';
 import Callout from '@/app/components/global/Callout';
 import PostList from '@/app/components/blog/PostList';

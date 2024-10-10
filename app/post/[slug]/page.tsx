@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getPostMetadata, getPostContent } from '@/utils/metadata';
 import Markdown from 'markdown-to-jsx';
 
-import { settings } from '@/utils/settings';
+import { settings } from '@/utils/settings.mjs';
 import Hero from '@/app/components/global/Hero';
 import ShareButtons from '@/app/components/blog/ShareButtons';
 import styles from './page.module.scss';

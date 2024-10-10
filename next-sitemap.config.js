@@ -1,8 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
-import { settings } from './utils/settings.mjs';
 
 module.exports = {
-  siteUrl: process.env.SITE_URL || settings.siteUrl,
+  siteUrl: process.env.SITE_URL || 'https://magill.dev',
   generateIndexSitemap: false,
   generateRobotsTxt: true,
 };
