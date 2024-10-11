@@ -7,12 +7,14 @@
 
 import fs from 'fs';
 import matter from 'gray-matter';
+import { notFound } from 'next/navigation';
 
 import { settings } from '@/utils/settings.mjs';
 
+const basePath = 'content/blog';
+
 const getPostMetadata = (tag = '') => {
   // get the list of posts
-  const basePath = 'content/blog';
   const folder = basePath + '/';
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith('.md'));
@@ -26,10 +28,7 @@ const getPostMetadata = (tag = '') => {
     return {
       title: matterResult.data.title + ' - ' + settings.siteTitle ,
       description: matterResult.data.description || '',
-      image:
-        matterResult.data.image ? 
-          settings.siteUrl + matterResult.data.image : 
-          settings.siteUrl + settings.defaultImage,
+      image: matterResult.data.image ,
       tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
       url: settings.siteUrl + '/post/' + filename.replace('.md', ''),
@@ -53,13 +52,13 @@ const getPostMetadata = (tag = '') => {
 };
 
 const getPostContent = (slug = '') => {
-  const file = 'content/blog/' + `${slug}.md`;
+  const file = basePath + `/${slug}.md`;
   let content;
 
   // If the file exists, read the file
   if (fs.existsSync(file)) {
     content = fs.readFileSync(file, 'utf8');
-    console.log('File: "' + file + '" loaded.');
+    console.log('File: "' + file + '" successfully loaded.');
   } else {
     console.log('File: "' + file + '" not found.');
     notFound();
@@ -70,9 +69,7 @@ const getPostContent = (slug = '') => {
     title: matterResult.data.title,
     description: matterResult.data.description,
     content: matterResult.content,
-    image: matterResult.data.image ? 
-      settings.siteUrl + matterResult.data.image : 
-      settings.siteUrl + settings.defaultImage,
+    image: matterResult.data.image,
     tags: matterResult.data.tags,
     url: settings.siteUrl + '/post/' + slug,
     created: matterResult.data.created,

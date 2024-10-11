@@ -1,9 +1,16 @@
+/**
+ * Post Page
+ *  
+ * @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+ * @see https://nextjs.org/docs/app/api-reference/functions/generate-static-params
+ *
+ */
 import React from 'react';
 import Link from 'next/link';
-import { getPostMetadata, getPostContent } from '@/utils/metadata';
 import Markdown from 'markdown-to-jsx';
 
 import { settings } from '@/utils/settings.mjs';
+import { getPostMetadata, getPostContent } from '@/utils/metadata';
 import Hero from '@/app/components/global/Hero';
 import ShareButtons from '@/app/components/blog/ShareButtons';
 import styles from './page.module.scss';
@@ -77,7 +84,7 @@ export async function generateMetadata({
       url: post.url,
       images: [
         {
-          url: post.image,
+          url: settings.siteUrl + post.image,
           alt: 'Preview of ' + post.title,
         },
       ],
@@ -90,7 +97,7 @@ export async function generateMetadata({
       description: post.description,
       images: [
         {
-          url: post.image,
+          url: settings.siteUrl + post.image,
           alt: 'Preview of ' + post.title,
         },
       ],
