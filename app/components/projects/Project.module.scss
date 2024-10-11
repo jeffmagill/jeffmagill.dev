@@ -6,8 +6,8 @@
   flex-basis: calc(33.333% - var(--gap));
   min-width: 260px;
   padding: var(--gap);
-  border: 1px solid #ddd;
-  background-color: #eff2f5;
+  border: 1px solid var(--line-color);
+  background-color: var(--backgroundToo);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 
   @media (max-width: 800px) {
@@ -32,7 +32,6 @@
 }
 .projectSummary {
   font-size: 1rem;
-  color: #666;
   margin-bottom: 1rem;
 }
 .projectDescription {
@@ -47,8 +46,7 @@
   gap: 0.5rem;
 }
 .tag {
-  background-color: #fff;
-  color: #333;
+  background-color: var(--backgroundToo);
   padding: 0.1rem 0.5rem;
   border-radius: 999px;
   font-size: 0.8rem;

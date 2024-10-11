@@ -1,9 +1,11 @@
 :root {
   --background: #fefefe;
+  --backgroundToo: #eff2f5;
   --foreground: #171717;
   --primary-color: #3498db;
   --secondary-color: #f1c40f;
   --text-color: #171717;
+  --line-color: #dddddd;
 
   --gap: 1.5rem;
   --gutter: var(--gutter);
@@ -17,6 +19,7 @@
   (forced-colors: dark) {
   :root {
     --background: #0a0a0a;
+    --backgroundToo: #100d0a;
     --foreground: #ededed;
     --primary-color: #2ecc71;
     --secondary-color: #e67e73;
@@ -72,7 +75,7 @@ code {
 
 pre code {
   display: block;
-  border: 1px solid black;
+  border: 1px solid var(--foreground);
   background-color: #333;
   color: #ccc;
   padding: 0.5em 1em;
@@ -81,4 +84,5 @@ pre code {
   border-radius: 0.5em;
   margin-left: 1.5em;
   margin-right: 1.5em;
+  overflow: scroll;
 }

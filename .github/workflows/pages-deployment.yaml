@@ -22,6 +22,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: magill.dev
+          branch: main
+          projectName: dev-magill-next
           directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

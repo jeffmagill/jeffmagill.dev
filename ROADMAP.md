@@ -7,6 +7,7 @@
 - [x] Create a featured posts section
 - [ ] Implement a related posts feature
 - [x] Add social media sharing buttons for blog posts
+- [ ] Add social API for better sharing on mobile
 
 ## User Interaction
 

@@ -8,6 +8,8 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
+import { settings } from '@/utils/settings.mjs';
+
 const getPostMetadata = (tag = '') => {
   // get the list of posts
   const basePath = 'content/blog';
@@ -22,13 +24,15 @@ const getPostMetadata = (tag = '') => {
 
     // return the post data
     return {
-      title: matterResult.data.title || '',
+      title: matterResult.data.title + ' - ' + settings.siteTitle ,
       description: matterResult.data.description || '',
       image:
-        matterResult.data.image ||
-        '/images/blog/clarissa-watson-pencil-unsplash.jpg',
+        matterResult.data.image ? 
+          settings.siteUrl + matterResult.data.image : 
+          settings.siteUrl + settings.defaultImage,
       tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
+      url: settings.siteUrl + '/post/' + filename.replace('.md', ''),
       created: matterResult.data.created,
       lastUpdated: matterResult.data.lastUpdated,
     };
@@ -66,8 +70,11 @@ const getPostContent = (slug = '') => {
     title: matterResult.data.title,
     description: matterResult.data.description,
     content: matterResult.content,
-    image: matterResult.data.image,
+    image: matterResult.data.image ? 
+      settings.siteUrl + matterResult.data.image : 
+      settings.siteUrl + settings.defaultImage,
     tags: matterResult.data.tags,
+    url: settings.siteUrl + '/post/' + slug,
     created: matterResult.data.created,
     lastUpdated: matterResult.data.lastUpdated,
   };

@@ -34,7 +34,7 @@
     display: none;
   }
   svg {
-    color: white;
+    color: var(--background);
     transform: rotate(0deg);
     transition: transform 0.25s;
   }

@@ -15,6 +15,7 @@ interface Post {
   image: string;
   tags: string;
   slug: string;
+  url: string;
   created: string;
   lastUpdated: string;
 }
@@ -27,6 +28,7 @@ interface Post {
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata();
   const params = posts.map((post) => ({
+    title: post.title,
     slug: post.slug,
   }));
   return params;
@@ -64,21 +66,15 @@ export async function generateMetadata({
 }> {
   const id = params?.slug ? params?.slug : '';
   const post = await getPostContent(id);
-
-  const meta = {
-    title: post.title + ' - ' + settings.title,
-    url: `${settings.siteUrl}/post/${id}`,
-  };
-
-  // TODO: Replace slug with title
+  
   return {
-    title: meta.title,
+    title: post.title,
     description: post.description,
-    url: meta.url,
+    url: post.url,
     openGraph: {
-      title: meta.title,
+      title: post.title,
       description: post.description,
-      url: meta.url,
+      url: post.url,
       images: [
         {
           url: post.image,
@@ -90,7 +86,7 @@ export async function generateMetadata({
       modifiedTime: post.lastUpdated,
     },
     twitter: {
-      title: meta.title,
+      title: post.title,
       description: post.description,
       images: [
         {
