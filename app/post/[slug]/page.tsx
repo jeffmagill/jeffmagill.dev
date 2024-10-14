@@ -74,14 +74,19 @@ export async function generateMetadata({
   const id = params?.slug ? params?.slug : '';
   const post = await getPostContent(id);
 
+  const meta = {
+    title: post.title + ' - ' + settings.title,
+    url: `${settings.siteUrl}/projects/`,
+  };
+
   return {
-    title: post.title,
+    title: meta.title,
     description: post.description,
-    url: post.url,
+    url: meta.url,
     openGraph: {
-      title: post.title,
+      title: meta.title,
       description: post.description,
-      url: post.url,
+      url: meta.url,
       images: [
         {
           url: settings.siteUrl + post.image,
@@ -93,7 +98,7 @@ export async function generateMetadata({
       modifiedTime: post.lastUpdated,
     },
     twitter: {
-      title: post.title,
+      title: meta.title,
       description: post.description,
       images: [
         {

@@ -72,7 +72,7 @@ describe('getPostMetadata', () => {
 
     expect(result).toEqual([
       {
-        title: 'Post 1 - ' + settings.title,
+        title: 'Post 1',
         description: 'Description 1',
         image: 'image1.jpg',
         tags: 'javascript, react',
@@ -82,7 +82,7 @@ describe('getPostMetadata', () => {
         lastUpdated: 0,
       },
       {
-        title: 'Post 2 - ' + settings.title,
+        title: 'Post 2',
         description: 'Description 2',
         image: 'image2.jpg',
         tags: 'python, django',
@@ -92,7 +92,7 @@ describe('getPostMetadata', () => {
         lastUpdated: 0,
       },
       {
-        title: 'Post 3 - ' + settings.title,
+        title: 'Post 3',
         description: 'Description 3',
         image: 'image3.jpg',
         tags: 'javascript, node',
@@ -112,7 +112,7 @@ describe('getPostMetadata', () => {
 
     expect(result).toEqual([
       {
-        title: 'Post 1 - ' + settings.title,
+        title: 'Post 1',
         description: 'Description 1',
         image: 'image1.jpg',
         tags: 'javascript, react',
@@ -122,7 +122,7 @@ describe('getPostMetadata', () => {
         lastUpdated: 0,
       },
       {
-        title: 'Post 3 - ' + settings.title,
+        title: 'Post 3',
         description: 'Description 3',
         image: 'image3.jpg',
         tags: 'javascript, node',
@@ -150,15 +150,15 @@ describe('getPostMetadata', () => {
     const result = getPostMetadata('JAVASCRIPT');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1 - ' + settings.title);
-    expect(result[1].title).toBe('Post 3 - ' + settings.title);
+    expect(result[0].title).toBe('Post 1');
+    expect(result[1].title).toBe('Post 3');
   });
 
   it('should match partial tags', () => {
     const result = getPostMetadata('java');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1 - ' + settings.title);
-    expect(result[1].title).toBe('Post 3 - ' + settings.title);
+    expect(result[0].title).toBe('Post 1');
+    expect(result[1].title).toBe('Post 3');
   });
 });

@@ -16,11 +16,11 @@ const meta = {
 };
 
 export const metadata: Metadata = {
-  title: settings.title,
-  description: settings.description,
+  title: meta.title,
+  description: meta.description,
   openGraph: {
-    title: settings.title,
-    description: settings.description,
+    title: meta.title,
+    description: meta.description,
     type: 'website',
     url: meta.url,
   },

@@ -26,7 +26,7 @@ const getPostMetadata = (tag = '') => {
 
     // return the post data
     return {
-      title: matterResult.data.title + ' - ' + settings.title,
+      title: matterResult.data.title,
       description: matterResult.data.description || '',
       image: matterResult.data.image,
       tags: matterResult.data.tags || '',
@@ -58,7 +58,6 @@ const getPostContent = (slug = '') => {
   // If the file exists, read the file
   if (fs.existsSync(file)) {
     content = fs.readFileSync(file, 'utf8');
-    console.log('File: "' + file + '" successfully loaded.');
   } else {
     console.log('File: "' + file + '" not found.');
     notFound();
