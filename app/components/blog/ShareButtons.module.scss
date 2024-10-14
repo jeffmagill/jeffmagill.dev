@@ -20,7 +20,7 @@
     border: none;
     border-radius: 0.25rem;
 
-    color: inherit;
+    color: var(--foreground);
     font-size: 1.25rem;
     line-height: 1rem;
     text-decoration: none;
@@ -29,7 +29,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #eff2f5;
+      background-color: var(--backgroundToo);
       padding-right: 0.5rem;
 
       span {

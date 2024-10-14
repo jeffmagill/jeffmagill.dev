@@ -26,7 +26,7 @@ const getPostMetadata = (tag = '') => {
 
     // return the post data
     return {
-      title: matterResult.data.title + ' - ' + settings.siteTitle ,
+      title: matterResult.data.title + ' - ' + settings.title ,
       description: matterResult.data.description || '',
       image: matterResult.data.image ,
       tags: matterResult.data.tags || '',

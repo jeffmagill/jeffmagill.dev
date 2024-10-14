@@ -5,8 +5,9 @@
   --primary-color: #3498db;
   --secondary-color: #f1c40f;
   --text-color: #171717;
-  --line-color: #dddddd;
+  --line-color: rgb(123 117 114 / 30%);
   --alwaysWhite: #fefefe;
+  --alwaysBlack: #171717;
 
   --gap: 1.5rem;
   --gutter: var(--gutter);
@@ -20,13 +21,13 @@
   (forced-colors: dark) {
   :root {
     --background: #0a0a0a;
-    --backgroundToo: #303336;
+    --backgroundToo: #25282b;
     --foreground: #ededed;
     --primary-color: #2ecc71;
     --secondary-color: #e67e73;
     --text-color: #ffffff;
-    --line-color: #615963;
     --alwaysWhite: #fefefe;
+    --alwaysBlack: #171717;
   }
   html {
     color-scheme: dark;

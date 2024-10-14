@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import fs from 'fs';
 import matter from 'gray-matter';
-import { getPostMetadata } from './metadata'; // Adjust this path as needed
+import { getPostMetadata } from './metadata';
+import { settings } from './settings.mjs';
 
 // Mock the fs and matter modules
 vi.mock('fs');
@@ -34,6 +35,8 @@ describe('getPostMetadata', () => {
             description: 'Description 1',
             image: 'image1.jpg',
             tags: 'javascript, react',
+            created: 0,
+            lastUpdated: 0
           },
         };
       }
@@ -44,6 +47,8 @@ describe('getPostMetadata', () => {
             description: 'Description 2',
             image: 'image2.jpg',
             tags: 'python, django',
+            created: 0,
+            lastUpdated: 0
           },
         };
       }
@@ -54,6 +59,8 @@ describe('getPostMetadata', () => {
             description: 'Description 3',
             image: 'image3.jpg',
             tags: 'javascript, node',
+            created: 0,
+            lastUpdated: 0
           },
         };
       }
@@ -65,25 +72,34 @@ describe('getPostMetadata', () => {
 
     expect(result).toEqual([
       {
-        title: 'Post 1',
+        title: 'Post 1 - ' + settings.title,
         description: 'Description 1',
         image: 'image1.jpg',
         tags: 'javascript, react',
         slug: 'post1',
+        url: settings.siteUrl + '/post/post1',
+        created: 0,
+        lastUpdated: 0
       },
       {
-        title: 'Post 2',
+        title: 'Post 2 - ' + settings.title,
         description: 'Description 2',
         image: 'image2.jpg',
         tags: 'python, django',
         slug: 'post2',
+        url: settings.siteUrl + '/post/post2',
+        created: 0,
+        lastUpdated: 0
       },
       {
-        title: 'Post 3',
+        title: 'Post 3 - ' + settings.title,
         description: 'Description 3',
         image: 'image3.jpg',
         tags: 'javascript, node',
         slug: 'post3',
+        url: settings.siteUrl + '/post/post3',
+        created: 0,
+        lastUpdated: 0
       },
     ]);
 
@@ -96,18 +112,24 @@ describe('getPostMetadata', () => {
 
     expect(result).toEqual([
       {
-        title: 'Post 1',
+        title: 'Post 1 - ' + settings.title,
         description: 'Description 1',
         image: 'image1.jpg',
         tags: 'javascript, react',
         slug: 'post1',
+        url: settings.siteUrl + '/post/post1',
+        created: 0,
+        lastUpdated: 0
       },
       {
-        title: 'Post 3',
+        title: 'Post 3 - ' + settings.title,
         description: 'Description 3',
         image: 'image3.jpg',
         tags: 'javascript, node',
         slug: 'post3',
+        url: settings.siteUrl + '/post/post3',
+        created: 0,
+        lastUpdated: 0
       },
     ]);
 
@@ -128,15 +150,15 @@ describe('getPostMetadata', () => {
     const result = getPostMetadata('JAVASCRIPT');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1');
-    expect(result[1].title).toBe('Post 3');
+    expect(result[0].title).toBe('Post 1 - ' + settings.title );
+    expect(result[1].title).toBe('Post 3 - ' + settings.title );
   });
 
   it('should match partial tags', () => {
     const result = getPostMetadata('java');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1');
-    expect(result[1].title).toBe('Post 3');
+    expect(result[0].title).toBe('Post 1 - ' + settings.title );
+    expect(result[1].title).toBe('Post 3 - ' + settings.title );
   });
 });
