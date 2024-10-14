@@ -21,4 +21,10 @@
   max-width: 100%;
   float: left;
   margin-right: 0.25rem;
+
+  @media (prefers-color-scheme: dark),
+    (prefers-color-scheme: no-preference) and (environment-blending: dark),
+    (forced-colors: dark) {
+    filter: contrast(0%) brightness(2);
+  }
 }

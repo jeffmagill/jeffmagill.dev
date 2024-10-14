@@ -26,9 +26,9 @@ const getPostMetadata = (tag = '') => {
 
     // return the post data
     return {
-      title: matterResult.data.title + ' - ' + settings.title ,
+      title: matterResult.data.title + ' - ' + settings.title,
       description: matterResult.data.description || '',
-      image: matterResult.data.image ,
+      image: matterResult.data.image,
       tags: matterResult.data.tags || '',
       slug: filename.replace('.md', ''),
       url: settings.siteUrl + '/post/' + filename.replace('.md', ''),

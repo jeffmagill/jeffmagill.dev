@@ -36,7 +36,7 @@ describe('getPostMetadata', () => {
             image: 'image1.jpg',
             tags: 'javascript, react',
             created: 0,
-            lastUpdated: 0
+            lastUpdated: 0,
           },
         };
       }
@@ -48,7 +48,7 @@ describe('getPostMetadata', () => {
             image: 'image2.jpg',
             tags: 'python, django',
             created: 0,
-            lastUpdated: 0
+            lastUpdated: 0,
           },
         };
       }
@@ -60,7 +60,7 @@ describe('getPostMetadata', () => {
             image: 'image3.jpg',
             tags: 'javascript, node',
             created: 0,
-            lastUpdated: 0
+            lastUpdated: 0,
           },
         };
       }
@@ -79,7 +79,7 @@ describe('getPostMetadata', () => {
         slug: 'post1',
         url: settings.siteUrl + '/post/post1',
         created: 0,
-        lastUpdated: 0
+        lastUpdated: 0,
       },
       {
         title: 'Post 2 - ' + settings.title,
@@ -89,7 +89,7 @@ describe('getPostMetadata', () => {
         slug: 'post2',
         url: settings.siteUrl + '/post/post2',
         created: 0,
-        lastUpdated: 0
+        lastUpdated: 0,
       },
       {
         title: 'Post 3 - ' + settings.title,
@@ -99,7 +99,7 @@ describe('getPostMetadata', () => {
         slug: 'post3',
         url: settings.siteUrl + '/post/post3',
         created: 0,
-        lastUpdated: 0
+        lastUpdated: 0,
       },
     ]);
 
@@ -119,7 +119,7 @@ describe('getPostMetadata', () => {
         slug: 'post1',
         url: settings.siteUrl + '/post/post1',
         created: 0,
-        lastUpdated: 0
+        lastUpdated: 0,
       },
       {
         title: 'Post 3 - ' + settings.title,
@@ -129,7 +129,7 @@ describe('getPostMetadata', () => {
         slug: 'post3',
         url: settings.siteUrl + '/post/post3',
         created: 0,
-        lastUpdated: 0
+        lastUpdated: 0,
       },
     ]);
 
@@ -150,15 +150,15 @@ describe('getPostMetadata', () => {
     const result = getPostMetadata('JAVASCRIPT');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1 - ' + settings.title );
-    expect(result[1].title).toBe('Post 3 - ' + settings.title );
+    expect(result[0].title).toBe('Post 1 - ' + settings.title);
+    expect(result[1].title).toBe('Post 3 - ' + settings.title);
   });
 
   it('should match partial tags', () => {
     const result = getPostMetadata('java');
 
     expect(result).toHaveLength(2);
-    expect(result[0].title).toBe('Post 1 - ' + settings.title );
-    expect(result[1].title).toBe('Post 3 - ' + settings.title );
+    expect(result[0].title).toBe('Post 1 - ' + settings.title);
+    expect(result[1].title).toBe('Post 3 - ' + settings.title);
   });
 });

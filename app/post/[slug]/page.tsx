@@ -1,6 +1,6 @@
 /**
  * Post Page
- *  
+ *
  * @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata
  * @see https://nextjs.org/docs/app/api-reference/functions/generate-static-params
  *
@@ -73,7 +73,7 @@ export async function generateMetadata({
 }> {
   const id = params?.slug ? params?.slug : '';
   const post = await getPostContent(id);
-  
+
   return {
     title: post.title,
     description: post.description,
