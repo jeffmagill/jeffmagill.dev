@@ -4,7 +4,6 @@
   --foreground: #171717;
   --primary-color: #3498db;
   --secondary-color: #f1c40f;
-  --text-color: #171717;
   --line-color: rgb(123 117 114 / 30%);
   --alwaysWhite: #fefefe;
   --alwaysBlack: #171717;
@@ -25,7 +24,6 @@
     --foreground: #ededed;
     --primary-color: #2ecc71;
     --secondary-color: #e67e73;
-    --text-color: #ffffff;
     --alwaysWhite: #fefefe;
     --alwaysBlack: #171717;
   }
@@ -45,7 +43,7 @@ body {
 }
 
 body {
-  color: var(--text-color);
+  color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
