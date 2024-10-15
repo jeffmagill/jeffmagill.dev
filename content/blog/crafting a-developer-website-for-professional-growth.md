@@ -1,6 +1,6 @@
 ---
-title: Building a Website for Professional Advancement 
-description: Let's take a look at what makes an interesting, effective portfolio, with some advice from some development leaders.
+title: Crafting a Developer Website For Professional Growth
+description: Let's take a look at what makes an interesting, effective, professional developer website, with some advice from some engineering leaders.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio
 created: 1728328053
@@ -17,11 +17,11 @@ A good professional website should not just show your best projects in a portfol
 
 ### Storytelling And Your Personal Brand
 
-A professional blog is your chance to tell your story—think of it as your origin story, minus the radioactive spider bite. It's where your projects, creativity, and personality collide. As **[Brad Frost](https://bradfrost.com/blog/post/write-on-your-own-website/)**, creator of [Atomic Design](https://atomicdesign.bradfrost.com/), writes: _"Writing on your own website associates your thoughts and ideas with you as a person."_ A great professional blog how you think, how you solve problems, and why you're the kind of developer people want to collaborate with.
+A professional blog is your chance to tell your story—think of it as your origin story, minus the radioactive spider bite. It's where your projects, creativity, and personality collide. As **[Brad Frost](https://bradfrost.com/blog/post/write-on-your-own-website/)**, creator of [Atomic Design](https://atomicdesign.bradfrost.com/), writes: _"Writing on your own website associates your thoughts and ideas with you as a person."_ A great professional blog shows how you think, how you solve problems, and why you're the kind of developer people want to collaborate with.
 
 ### The Self-Closing Tag
 
-Your website should reflect your journey as a professional. As you build and maintain it, focus on incorporating current trends, addressing relevant challenges, and telling your unique story. With a thoughtful approach, your portfolio can become a powerful tool in showcasing not just what you do, but how well you can do it.
+Your website should reflect your journey as a developer. As you build and maintain it, focus on incorporating current trends, addressing relevant challenges, and telling your unique story. With a thoughtful approach, your portfolio can become a powerful tool in showcasing not just what you do, but how well you can do it.
 
 These ideas, along with the resources below helped shape my thoughts on how I would build [my website](/) and [work portfolio](/projects).
 
