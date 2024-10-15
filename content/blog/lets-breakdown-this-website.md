@@ -19,7 +19,8 @@ For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me 
 
 I wanted to share some of the challenges and problems I faced when building this website, and how I tackled them. If you're diving into Next.js or similar project, you might find this useful. I faced several challenges along the way, including:
 
-### Dynamic Routes vs. Static Generation:  
+### Dynamic Routes vs. Static Generation:
+
 These two pillars of modern web development don't always play nice together. However, with the help of Next.js's generateStaticParams function, I managed to pre-render all my blog post pages at build time, making the website lightning fast.
 
 ```typescript
@@ -31,9 +32,10 @@ export const generateStaticParams = async () => {
 
 **More Details:**  
 [https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes](https://nextjs.org/docs/app/building-your-application/routing/dynamic-routes)  
-[https://nextjs.org/docs/app/building-your-application/deploying/static-exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)  
+[https://nextjs.org/docs/app/building-your-application/deploying/static-exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
 
-### Async File Operations:  
+### Async File Operations:
+
 Synchronous file operations don't play well with Next.js static exports. Thankfully, switching to asynchronous operations with fs.promises saved the day.
 
 ```typescript
@@ -46,9 +48,10 @@ async function getPostContent(slug: string) {
 ```
 
 **More Details:**  
-[https://vercel.com/guides/loading-static-file-nextjs-api-route](https://vercel.com/guides/loading-static-file-nextjs-api-route)  
+[https://vercel.com/guides/loading-static-file-nextjs-api-route](https://vercel.com/guides/loading-static-file-nextjs-api-route)
 
-### TypeScript, My Frenemy:  
+### TypeScript, My Frenemy:
+
 This love-hate relationship involved wrestling with type mismatches. Being more explicit with my types (like the Post or Project interfaces) helped tame this beast:
 
 ```typescript
@@ -61,10 +64,12 @@ interface Post {
   created: string;
 }
 ```
-**More Details:**  
-[https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)  
 
-### Markdown Magic & Front Matter Hero:  
+**More Details:**  
+[https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html)
+
+### Markdown Magic & Front Matter Hero:
+
 Rendering Markdown content as HTML involved the awesome markdown-to-jsx library. Extracting metadata from those Markdown files was made possible by the unsung hero, gray-matter.
 
 ```jsx
@@ -75,9 +80,10 @@ const { data, content } = matter(fileContents);
 return <Markdown>{post.content}</Markdown>;
 
 ```
+
 **More Details:**  
 [https://frontmatter.codes/docs](https://frontmatter.codes/docs)  
-[https://www.markdownguide.org/getting-started/](https://www.markdownguide.org/getting-started/)  
+[https://www.markdownguide.org/getting-started/](https://www.markdownguide.org/getting-started/)
 
 ## Monumental Baby Steps
 

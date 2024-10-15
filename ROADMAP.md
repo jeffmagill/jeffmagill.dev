@@ -10,7 +10,6 @@
 - [ ] Add social API for better sharing on mobile
 - [ ] Create an RSS feed for automated syndication
 
-
 ## User Interaction
 
 - [ ] Implement a newsletter subscription feature
