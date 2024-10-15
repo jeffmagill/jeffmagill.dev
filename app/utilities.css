@@ -1,21 +1,21 @@
 /* font size */
 .fs-xs {
-  font-size: 0.75rem;
+  font-size: 0.75em;
 }
 .fs-sm {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 .fs-md {
-  font-size: 1rem;
+  font-size: 1.11em;
 }
 .fs-lg {
-  font-size: 1.25rem;
+  font-size: 1.25em;
 }
 .fs-xl {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 .fs-xxl {
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 /* alignment  */

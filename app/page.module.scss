@@ -6,7 +6,7 @@
 }
 
 .homeIntro {
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 4.6vw, 2rem);
   flex-basis: 67%;
 
   h1 {

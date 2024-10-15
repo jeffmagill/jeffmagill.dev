@@ -21,8 +21,8 @@
     border-radius: 0.25rem;
 
     color: var(--foreground);
-    font-size: 1.25rem;
-    line-height: 1rem;
+    font-size: 1.25em;
+    line-height: 1;
     text-decoration: none;
     text-align: center;
     white-space: nowrap;
@@ -39,7 +39,7 @@
 
     span {
       display: inline-block;
-      font-size: 0.875rem;
+      font-size: 0.875em;
       max-width: 0;
       transition: max-width 0.25s;
       overflow: hidden;
