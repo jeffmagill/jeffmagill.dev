@@ -29,8 +29,8 @@
 
 - [ ] Implement structured data (schema.org)
 - [x] Automate XML sitemap creation
+- [ ] Automate Google News sitemap creating
 - [ ] Optimize meta tags and descriptions
-- [ ] Implement canonical URLs
 
 ## Accessibility Enhancements
 
@@ -68,5 +68,5 @@
 - [x] Add unit testing with vitest
 - [ ] Expand unit testing for components
 - [ ] Add end-to-end testing
-- [ ] Implement continuous integration and deployment (CI/CD)
+- [x] Implement continuous integration and deployment (CI/CD)
 - [x] Regular cross-browser and device testing
