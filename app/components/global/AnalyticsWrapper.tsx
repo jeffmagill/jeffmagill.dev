@@ -3,13 +3,15 @@
 import React, { useEffect } from 'react';
 import Script from 'next/script';
 
+import { settings } from '@/utils/settings.mjs';
+
 declare global {
   interface Window {
     dataLayer: any[];
   }
 }
 
-const GTM_ID = 'GTM-XXXXXXX'; // Replace with your actual GTM ID
+const GTM_ID = settings.gtmId;
 
 const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
