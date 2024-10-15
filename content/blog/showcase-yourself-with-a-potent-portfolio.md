@@ -1,6 +1,6 @@
 ---
 title: Showcase Yourself with a Potent Portfolio
-description: Let's take a look at what it takes to build an interesting, effective portfolio, with some advice from some development leaders.
+description: Let's take a look at what makes an interesting, effective portfolio, with some advice from some development leaders.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio
 created: 1728328053
@@ -17,7 +17,7 @@ A good portfolio should not just show your best projects, it's also about sharin
 
 Your portfolio is your chance to tell your story—think of it as your origin story, minus the radioactive spider bite. It's where your projects, creativity, and personality collide. As **[Brad Frost](https://bradfrost.com/blog/post/write-on-your-own-website/)**, creator of [Atomic Design](https://atomicdesign.bradfrost.com/), writes: "Writing on your own website associates your thoughts and ideas with you as a person." A great portfolio shows how you think, how you solve problems, and why you're the kind of developer people want to collaborate with.
 
-### The Closing Tag
+### Self-Closing Tag
 
 Your portfolio should reflect your journey as a professional developer. As you build and maintain it, focus on incorporating current trends, addressing relevant challenges, and telling your unique story. With a thoughtful approach, your portfolio can become a powerful tool in showcasing not just what you do, but how well you can do it.
 

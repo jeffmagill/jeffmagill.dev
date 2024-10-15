@@ -23,10 +23,22 @@ export const metadata: Metadata = {
     title: settings.title,
     description: settings.description,
     type: 'website',
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + settings.title,
+      },
+    ],
   },
   twitter: {
     title: settings.title,
     description: settings.description,
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + settings.title,
+      },
+    ],
   },
 };
 

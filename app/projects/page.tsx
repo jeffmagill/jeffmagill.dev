@@ -13,6 +13,7 @@ const meta = {
   title: 'Web Projects and Development Work - ' + settings.title,
   description: 'A collection of projects and development work by Andrew Magill',
   url: `${settings.siteUrl}/projects/`,
+  image: settings.siteThumb,
 };
 
 export const metadata: Metadata = {
@@ -23,10 +24,22 @@ export const metadata: Metadata = {
     description: meta.description,
     type: 'website',
     url: meta.url,
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + meta.title,
+      },
+    ],
   },
   twitter: {
     title: settings.title,
     description: settings.description,
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + meta.title,
+      },
+    ],
   },
 };
 

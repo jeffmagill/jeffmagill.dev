@@ -76,7 +76,7 @@ export async function generateMetadata({
 
   const meta = {
     title: post.title + ' - ' + settings.title,
-    url: `${settings.siteUrl}/projects/`,
+    url: `${settings.siteUrl}/post/${id}/`,
   };
 
   return {

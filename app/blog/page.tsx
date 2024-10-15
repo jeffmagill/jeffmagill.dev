@@ -24,10 +24,22 @@ export const metadata: Metadata = {
     description: meta.description,
     type: 'website',
     url: meta.url,
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + meta.title,
+      },
+    ],
   },
   twitter: {
     title: meta.title,
     description: meta.description,
+    images: [
+      {
+        url: settings.siteUrl + settings.siteThumb,
+        alt: 'Preview of ' + meta.title,
+      },
+    ],
   },
 };
 
