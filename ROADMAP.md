@@ -8,6 +8,8 @@
 - [ ] Implement a related posts feature
 - [x] Add social media sharing buttons for blog posts
 - [ ] Add social API for better sharing on mobile
+- [ ] Create an RSS feed for automated syndication
+
 
 ## User Interaction
 
