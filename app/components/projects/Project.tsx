@@ -20,6 +20,7 @@ export default function Project({
   return (
     <div className={styles.projectCard}>
       <div className={styles.projectImageContainer}>
+        {/* TODO: Link to more project details */}
         <Image
           src={image}
           alt={title}

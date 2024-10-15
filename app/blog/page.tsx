@@ -54,6 +54,7 @@ export default function Projects() {
         </p>
       </Hero>
 
+      {/* TODO: Make post index design consistent with homepage */}
       <section className={styles.postIndex}>
         <div className={styles.wrapper}>
           <PostList />

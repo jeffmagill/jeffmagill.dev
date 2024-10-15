@@ -52,6 +52,7 @@ const NavButton: React.FC = () => {
         ref={inputRef}
       />
       <label className={styles.navButtonIcon} htmlFor='navButton'>
+        {/* TODO: change the mobile button to something more recognizable */}
         <FontAwesomeIcon icon={faDirections} />
       </label>
     </>
