@@ -49,6 +49,8 @@ export default function Home() {
         <Hero className='row'>
           {/* Portrait */}
           <div className={`${styles.portraitContainer} portraitContainer`}>
+            {/* TODO: Create slideshow of Portraits  */}
+            {/* TODO: Add intro video */}
             <Image
               src='/images/portrait-andrew-magill.jpg'
               alt={settings.title}
