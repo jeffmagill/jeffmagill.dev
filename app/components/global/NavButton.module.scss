@@ -60,11 +60,11 @@
   }
   ~ nav {
     background-color: var(--background);
-    color: inherit;
+    color: var(--foreground);
 
     @media (min-width: 640px) {
       background: transparent;
-      color: var(--background);
+      color: var(--alwaysWhite);
     }
   }
 }
