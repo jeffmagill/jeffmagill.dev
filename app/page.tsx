@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className={`${styles.main} main`}>
-      <div className={`${styles.wrapper} wrapper`}>
+      <div className={`${styles.mainWrapper} mainWrapper}`}>
         <Hero className='row'>
           {/* Portrait */}
           <div className={`${styles.portraitContainer} portraitContainer`}>

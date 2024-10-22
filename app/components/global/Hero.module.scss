@@ -8,6 +8,15 @@
   }
   a {
     color: inherit;
+
+    text-underline-offset: 0.2rem;
+    text-decoration: underline;
+    transition: text-underline-offset 0.2s;
+
+    &:hover {
+      text-underline-offset: 0.5rem;
+      text-decoration: underline;
+    }
   }
   .wrapper {
     display: flex;
@@ -19,7 +28,7 @@
     gap: 3.6%;
     max-width: var(--inner-width);
 
-    @media (min-width: 560px) {
+    @media (min-width: 640px) {
       padding-top: 8vmax;
     }
 

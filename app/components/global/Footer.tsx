@@ -11,8 +11,9 @@ const Footer: React.FC = () => {
 
         <div className='{styles.copyright} ta-center fs-xs'>
           <p>
-            Copyright © {new Date().getFullYear()}, { settings.title }. All other
-            copyrighted materials are property of their respective copyright holders.
+            Copyright © {new Date().getFullYear()}, {settings.title}. All other
+            copyrighted materials are property of their respective copyright
+            holders.
           </p>
         </div>
       </div>

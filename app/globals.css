@@ -77,14 +77,14 @@ code {
 
 pre code {
   display: block;
+  position: relative;
   border: 1px solid var(--foreground);
-  background-color: #333;
-  color: #ccc;
+  background-color: #393331;
+  scrollbar-color: #dfe5e5 #393331;
+  color: #dfe5e5;
   padding: 0.5em 1em;
   font-family: monospace;
   font-size: 14px;
-  border-radius: 0.5em;
   margin-left: 1.5em;
   margin-right: 1.5em;
-  overflow: scroll;
 }

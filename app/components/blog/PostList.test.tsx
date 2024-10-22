@@ -23,7 +23,9 @@ interface Post {
   description: string;
   image: string;
   tags: string;
+  url: string;
   created: Date;
+  lastUpdated: Date;
 }
 
 describe('PostList', () => {
@@ -34,7 +36,9 @@ describe('PostList', () => {
       description: 'Description 1',
       image: 'image1.jpg',
       tags: 'javascript, react',
+      url: 'post-1',
       created: new Date('2022-01-01'),
+      lastUpdated: new Date('2022-01-02'),
     },
     {
       slug: 'post-2',
@@ -42,7 +46,9 @@ describe('PostList', () => {
       description: 'Description 2',
       image: 'image2.jpg',
       tags: 'python, django',
+      url: 'post-2',
       created: new Date('2024-11-21'),
+      lastUpdated: new Date('2024-12-02'),
     },
     {
       slug: 'post-3',
@@ -50,7 +56,9 @@ describe('PostList', () => {
       description: 'Description 3',
       image: 'image3.jpg',
       tags: 'javascript, node',
+      url: 'post-3',
       created: new Date('2023-04-01'),
+      lastUpdated: new Date('2022-04-02'),
     },
     {
       slug: 'post-4',
@@ -58,7 +66,9 @@ describe('PostList', () => {
       description: 'Description 4',
       image: 'image4.jpg',
       tags: 'ruby, rails',
+      url: 'post-4',
       created: new Date('2022-01-03'),
+      lastUpdated: new Date('2022-01-03'),
     },
     {
       slug: 'post-5',
@@ -66,7 +76,9 @@ describe('PostList', () => {
       description: 'Description 5',
       image: 'image5.jpg',
       tags: 'java, spring',
+      url: 'post-5',
       created: new Date('2021-02-01'),
+      lastUpdated: new Date('2022-01-03'),
     },
   ];
 
@@ -78,12 +90,16 @@ describe('PostList', () => {
           .filter((post) => post.tags.toLowerCase().includes(tag.toLowerCase()))
           .map((post) => ({
             ...post,
-            created: new Date(), // Add this line
+            url: post.slug,
+            created: new Date(),
+            lastUpdated: new Date(),
           }));
       }
       return mockPosts.map((post) => ({
         ...post,
+        url: post.slug,
         created: new Date(),
+        lastUpdated: new Date(),
       }));
     });
   });
