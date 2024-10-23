@@ -124,7 +124,7 @@ export default function Home() {
             <p>Thoughts that I may one day wonder why I bothered writing. </p>
             <PostList maxPosts={3} />
             <p>
-              <Link href='/blog'>View All Posts</Link>
+              <Link href='/blog'>View All Blog Posts</Link>
             </p>
           </div>
         </section>

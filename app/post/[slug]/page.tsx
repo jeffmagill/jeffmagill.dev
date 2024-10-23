@@ -119,7 +119,7 @@ export default function Post(props: PostProps) {
   const post = getPostContent(slug);
 
   return (
-    <main>
+    <main className={styles.main}>
       <Hero>
         <h1 className={styles.title}>{post.title} </h1>
         <p className={styles.description}>{post.description}</p>

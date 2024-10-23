@@ -1,9 +1,13 @@
 .main {
+  :global(.hero) :global(.wrapper) {
+    max-width: var(--inner-width);
+  }
 }
 .post {
   max-width: var(--blog-width);
   padding: var(--gap);
   margin: 1rem auto;
+  line-height: 1.75em;
 }
 .post h2,
 .post h3 {
@@ -22,7 +26,6 @@
 .description {
   font-size: 1.11em;
   text-align: center;
-  max-width: var(--blog-width);
 }
 .author {
   font-size: 0.9em;
