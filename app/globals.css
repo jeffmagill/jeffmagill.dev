@@ -71,20 +71,25 @@ main {
   min-height: 66dvh;
 }
 
+pre,
+code {
+  font-family: monospace;
+  font-size: 0.88rem;
+}
+
 code {
   display: inline-block;
+  background-color: var(--backgroundToo);
+  padding: 0 0.5em;
 }
 
 pre code {
   display: block;
   position: relative;
-  border: 1px solid var(--foreground);
+  padding: 0.5em 1em;
+
+  line-height: 1.5;
+  color: #dfe5e5;
   background-color: #393331;
   scrollbar-color: #dfe5e5 #393331;
-  color: #dfe5e5;
-  padding: 0.5em 1em;
-  font-family: monospace;
-  font-size: 14px;
-  margin-left: 1.5em;
-  margin-right: 1.5em;
 }
