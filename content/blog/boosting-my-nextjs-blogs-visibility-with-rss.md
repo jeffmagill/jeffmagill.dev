@@ -13,11 +13,11 @@ RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and c
 
 RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. I plan to use this capability to [cross-post my content](https://dev.to/help/writing-editing-scheduling#Cross-posting-Content) to the developer community site, [Dev.to](https://dev.to). This should be a good method to gain some exposure and boost my online presence—because let’s face it, shouting into the void isn’t exactly effective.
 
-That is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
+This is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
 
 ### The Right Tools
 
-To integrate RSS into my static NextJS blog, I'll use the `rss` npm library to generate an RSS feed. It's a straightforward tool that simplifies the process and integrates seamlessly with my project. This way, I can focus on creating content instead of wrestling with complicated setups or maintenance headaches.
+I'll use the `rss` npm library to generate an RSS feed into my static NextJS blog. It's a straightforward library that simplifies the process and integrates seamlessly with my project. This way, I can focus on creating content instead of wrestling with XML schemas or other maintenance headaches.
 
 Now, let’s get down to configuring that shiny new RSS feed of ours.
 
@@ -34,7 +34,7 @@ HUZZAH! I am now one step closer to becoming an RSS wizard.
 ```javascript
 import { Rss } from 'rss';
 import { settings } from '@/utils/settings.mjs'; // site settings
-import { getPostMetadata } from '@/utils/metadata'; // post retrieval utility function
+import { getPostMetadata } from '@/utils/metadata'; // post utility function
 
 const getPostFeed = (posts = []) => {
   // set feed values from site settings
@@ -44,6 +44,7 @@ const getPostFeed = (posts = []) => {
     site_url: settings.siteUrl,
     feed_url: `${settings.siteUrl}/feed/posts.xml`,
     language: 'en',
+    date: new Date(),
   });
 
   // Get post data
@@ -55,7 +56,7 @@ const getPostFeed = (posts = []) => {
       title: post.title,
       guid: `${settings.siteUrl}/post/${post.slug}`,
       url: `${settings.siteUrl}/post/${post.slug}`,
-      date: post.date,
+      date: post.created,
       description: post.description,
       author: post.author || settings.author,
       categories: post.categories || [],
