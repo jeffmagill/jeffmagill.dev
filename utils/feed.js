@@ -33,7 +33,7 @@ const getPostFeed = (posts = []) => {
       date: post.created,
       description: post.description,
       author: post.author || settings.author,
-      categories: post.tags.split(",") || [],
+      categories: post.tags.split(',') || [],
     });
   });
 

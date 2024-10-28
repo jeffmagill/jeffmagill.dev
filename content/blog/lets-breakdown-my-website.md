@@ -93,7 +93,8 @@ On the technical side, I'm looking to [enhance blogging functionality](https://g
 
 Building this website has been an interesting journey. The power and flexibility of modern web development tools has enabled me to carefully tailor the development and editing expereince. I'm curious where this site will take me, as I continue buiding it over the next few years.
 
-### Related Links 
+### Related Links
+
 - [Deploying Static Exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports#configuration) from NextJS.org
-- [TypeScript in 5 Minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) from TypeScriptLang.org 
+- [TypeScript in 5 Minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) from TypeScriptLang.org
 - [Introduction to Markdown](https://www.writethedocs.org/guide/writing/markdown/) from WriteTheDocs.Org
