@@ -34,6 +34,7 @@ HUZZAH! I am now one step closer to becoming an RSS wizard.
 ```javascript
 import { Rss } from 'rss';
 import { settings } from '@/utils/settings.mjs'; // site settings
+import { getPostMetadata } from '@/utils/metadata'; // post retrieval utility function
 
 const getPostFeed = (posts = []) => {
   // set feed values from site settings
@@ -66,12 +67,12 @@ const getPostFeed = (posts = []) => {
 export { getPostFeed };
 ```
 
-You can checkout my most recent version of that on [GitHub](https://github.com/andymagill/dev.magill.next/blob/master/app/feed/%5Btype%5D/route.tsx). Someday I'll create a unit test for that function, pinky swear, but for now...
+You can checkout my most recent version of that utility function in [this site's repo on GitHub](https://github.com/andymagill/dev.magill.next/blob/master/utils/feed.js). Someday I'll create a unit test for that function, pinky swear, but for now...
 
 3. **Route the Feed**: Let's "feed" our blog data to an API route.tsx
 
 ```javascript
-import { getPostFeed } from '@/utils/feed.mjs';
+import { getPostFeed } from '@/utils/feed.mjs'; // the feed utility function from above
 
 export async function GET() {
   const feed = await getPostFeed();
@@ -82,7 +83,7 @@ export async function GET() {
 }
 ```
 
-You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/utils/feed.js) of this in the project repo.
+_Easy peasy lemon squeezy_, as the kids like to say. You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/app/feed/%5Btype%5D/route.tsx) of this includes a [dynamic route segment](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes) to serve different versions of the post feed.
 
 4. **Build for Production**: Finally, lets run the build process to kick out my jams :
 
