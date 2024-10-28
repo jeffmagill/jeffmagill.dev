@@ -12,27 +12,23 @@ export async function GET(
   request: Request,
   { params }: { params: { type: string } }
 ) {
-  const type = params.type;
-
-  let response: Response;
-
-  if (type === 'posts.xml') {
+  if (params.type === 'posts.xml') {
+    // Serve up the RSS feed
     const feed = getPostFeed();
-    response = new Response(feed.xml(), {
+    return new Response(feed.xml(), {
       headers: {
         'Content-Type': 'application/rss+xml; charset=utf-8',
       },
     });
-  } else if (type === 'posts.json') {
+  } else if (params.type === 'posts.json') {
+    // Serve up posts as JSON
     const posts = getPostMetadata();
-    response = new Response(JSON.stringify(posts), {
+    return new Response(JSON.stringify(posts), {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
     });
   } else {
-    response = new Response('Not Found', { status: 404 });
+    return new Response('Not Found', { status: 404 });
   }
-
-  return response;
 }

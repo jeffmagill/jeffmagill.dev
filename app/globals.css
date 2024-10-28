@@ -86,7 +86,7 @@ code {
 pre code {
   display: block;
   position: relative;
-  padding: 0.5em 1em;
+  padding: 0.75em 1em;
   overflow: auto;
 
   line-height: 1.5;

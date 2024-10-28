@@ -11,9 +11,9 @@ RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and c
 
 ### Reach and Discoverability
 
-RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. This capability is still relevant today, as bloggers and businesses alike scramble to boost their online presence and audience engagement—because let’s face it, shouting into the void isn’t exactly effective.
+RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. I plan to use this capability to [cross-post my content](https://dev.to/help/writing-editing-scheduling#Cross-posting-Content) to the developer community site, [Dev.to](https://dev.to). This should be a good method to gain some exposure and boost my online presence—because let’s face it, shouting into the void isn’t exactly effective.
 
-RSS is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
+That is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
 
 ### The Right Tools
 

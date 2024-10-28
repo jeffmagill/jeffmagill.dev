@@ -17,7 +17,8 @@ const getPostFeed = (posts = []) => {
     feed_url: `${settings.siteUrl}/feed/posts.xml`,
     language: 'en',
     copyright:
-      'All rights reserved ' + new Date().getFullYear() + ' ' + settings.title,
+      'All rights reserved, ' + new Date().getFullYear() + ' ' + settings.title,
+    pubDate: new Date(),
   });
 
   // get the post data
@@ -29,13 +30,14 @@ const getPostFeed = (posts = []) => {
       title: post.title,
       guid: `${settings.siteUrl}/post/${post.slug}`,
       url: `${settings.siteUrl}/post/${post.slug}`,
-      date: post.date,
+      date: post.created,
       description: post.description,
       author: post.author || settings.author,
       categories: post.categories || [],
     });
   });
 
+  // return the feed
   return feed;
 };
 
