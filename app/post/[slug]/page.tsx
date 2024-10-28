@@ -35,7 +35,6 @@ interface Post {
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = getPostMetadata();
   const params = posts.map((post) => ({
-    title: post.title,
     slug: post.slug,
   }));
   return params;
@@ -124,8 +123,9 @@ export default function Post(props: PostProps) {
         <h1 className={styles.title}>{post.title} </h1>
         <p className={styles.description}>{post.description}</p>
         <p className={styles.author}>
-          by <Link href='/'>Andrew Magill</Link> {/* TODO: add publish date */}
+          by <Link href='/'>Andrew Magill</Link>
         </p>
+        {/* TODO: add publish date */}
       </Hero>
 
       <article className={styles.post}>

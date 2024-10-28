@@ -1,10 +1,3 @@
-/**
- * @name getPostMetadata
- * @description Get all post metadata
- * @param {string} tag
- * @returns {Post[]}
- */
-
 import fs from 'fs';
 import matter from 'gray-matter';
 import { notFound } from 'next/navigation';
@@ -13,6 +6,12 @@ import { settings } from '@/utils/settings.mjs';
 
 const basePath = 'content/blog';
 
+/**
+ * @name getPostMetadata
+ * @description Get all post metadata
+ * @param {string} tag
+ * @returns {Post[]}
+ */
 const getPostMetadata = (tag = '') => {
   // get the list of posts
   const folder = basePath + '/';
@@ -51,6 +50,12 @@ const getPostMetadata = (tag = '') => {
   }
 };
 
+/**
+ * @name getPostContent
+ * @description Get content for a specific post
+ * @param {string} slug
+ * @returns {Post}
+ */
 const getPostContent = (slug = '') => {
   const file = basePath + `/${slug}.md`;
   let content;

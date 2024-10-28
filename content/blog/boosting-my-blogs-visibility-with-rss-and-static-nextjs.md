@@ -7,24 +7,24 @@ created: 1729665414
 lastUpdated: 1729665414
 ---
 
-RSS (Really Simple Syndication) remains a useful tool for bloggers and content creators looking to expand the visibility of their content. By implementing RSS in my static NextJS blog, I hope to enhance my website's reach and simplify a wider distribution of my content. Let’s dive into the benefits of RSS and how I sprinkled it onto my blog like confetti at a party.
+RSS (Really Simple Syndication) is still a handy tool for publishers, content creators, and bloggers who want to boost their visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
 
 ### Reach and Discoverability
 
-RSS is the go-to solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. This capability is especially relevant today, as bloggers and businesses alike scramble to boost their online presence and actually engage with their target audience—because let’s face it, shouting into the void isn’t exactly effective.
+RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. This capability is somehow still relevant today, as bloggers and businesses alike scramble to boost their online presence and audience engagement—because let’s face it, shouting into the void isn’t exactly effective.
 
 RSS is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
 
-### Choosing the Right Tools
+### The Right Tools
 
-For my static NextJS blog, I'll use the `feed` npm library to generate an RSS feed. It's a straightforward tool that simplifies the process and integrates seamlessly with my project. This way, I can focus on creating content instead of wrestling with complicated setups or maintenance headaches.
+To integrate RSS into my static NextJS blog, I'll use the `rss` npm library to generate an RSS feed. It's a straightforward tool that simplifies the process and integrates seamlessly with my project. This way, I can focus on creating content instead of wrestling with complicated setups or maintenance headaches.
 
 Now, let’s get down to configuring that shiny new RSS feed of ours.
 
-1. **Setup**: First things first, install the `feed` library :
+1. **Setup**: First things first, let's install the `rss` library :
 
 ```bash
-npm install feed
+npm install rss
 ```
 
 HUZZAH! I am now one step closer to becoming an RSS wizard.
@@ -32,68 +32,67 @@ HUZZAH! I am now one step closer to becoming an RSS wizard.
 2. **Generate Feed Content**: Now, let’s create a utility function to generate our feed content
 
 ```javascript
-import { Feed } from 'feed';
+import { Rss } from 'rss';
 import { settings } from '@/utils/settings.mjs';
 
-export function generateRssFeed(posts) {
-  const feed = new Feed({
+const getPostFeed = (posts = []) => {
+  // set feed values
+  const feed = new Rss({
     title: settings.title,
     description: settings.description,
-    id: settings.site_url,
-    link: settings.site_url,
+    site_url: settings.siteUrl,
+    feed_url: `${settings.siteUrl}/feed/posts.xml`,
     language: 'en',
-    feedLinks: {
-      rss2: `${settings.site_url}/rss/feed.xml`,
-    },
   });
 
-  posts.forEach((post) => {
-    feed.addItem({
+  // Get post data
+  const posts = getPostMetadata();
+
+  posts.map((post) => {
+    // add post data to feed
+    feed.item({
       title: post.title,
+      guid: `${settings.siteUrl}/post/${post.slug}`,
+      url: `${settings.siteUrl}/post/${post.slug}`,
+      date: post.date,
       description: post.description,
-      id: `${settings.site_url}/post/${post.slug}`,
-      link: `${settings.site_url}/post/${post.slug}`,
-      date: post.created,
+      author: post.author || settings.author,
+      categories: post.categories || [],
     });
   });
 
   return feed;
-}
+};
+export { getPostFeed };
 ```
 
 Someday I'll create a unit test for that, pinky swear, but for now...
 
-3. **Write the XML file**: Let's "feed" our blog metadata to the generation function within `getStaticProps` of our index page:
+3. **Route the Feed**: Let's "feed" our blog data to an API route.tsx
 
-   ```javascript
-   import fs from 'fs';
-   import { generateRssFeed } from '@/utils/feed.mjs';
+```javascript
+import { getPostFeed } from '@/utils/feed.mjs';
 
-   export async function getStaticProps() {
-     const posts = await getPostMetadata();
-     const feed = generateRssFeed(posts);
+export async function GET() {
+  const feed = await getPostFeed();
 
-     fs.writeFileSync('./public/rss/feed.xml', feed.rss2());
-
-     return {
-       props: {
-         posts,
-       },
-     };
-   }
-   ```
+  return new Response(JSON.stringify(feed.xml()), {
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+  });
+}
+```
 
 4. **Build for Production**: Finally, lets run the build process to kick out my jams :
 
-   ```bash
-   npm run build
-   ```
+```bash
+npm run build
+```
 
-   New posts and content changes will now show up in the feed.xml file, which can be checked into the project's repo or remotely generated.
+New posts and content changes will now show up in the feed.xml file, which can be checked into the project's repo or remotely generated.
 
 ## The Closing Tag
 
-So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, am I right? Using the `feed` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this RSS setup will help me reach an audience without resorting to smoke signals or carrier pigeons. After all, in our current age of information overload, every little bit of exposure helps.
+So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, am I right? Using the `rss` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this RSS setup will help me reach an audience without resorting to smoke signals or carrier pigeons. After all, in our current age of information overload, every little bit of exposure helps.
 
 ### Related Links
 
