@@ -19,7 +19,7 @@
   (prefers-color-scheme: no-preference) and (environment-blending: dark),
   (forced-colors: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0c0c0c;
     --backgroundToo: #25282b;
     --foreground: #ededed;
     --primary-color: #2ecc71;
@@ -87,9 +87,10 @@ pre code {
   display: block;
   position: relative;
   padding: 0.5em 1em;
+  overflow: auto;
 
   line-height: 1.5;
   color: #dfe5e5;
-  background-color: #393331;
-  scrollbar-color: #dfe5e5 #393331;
+  background-color: #2c2928;
+  scrollbar-color: #dfe5e5 #2c2928;
 }

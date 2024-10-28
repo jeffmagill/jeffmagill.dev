@@ -1,5 +1,5 @@
 ---
-title: Boosting My Blog’s Visibility with RSS and Static NextJS
+title: Boosting My NextJS Blog’s Visibility with RSS
 description: Let's explore how RSS can boost reach and discoverability in modern blogging as I share how I chose to integrate it into my static NextJS site.
 image: /images/blog/mr-cup-fabien-barral-newspapers-unsplash.jpg
 tags: methods
@@ -7,11 +7,11 @@ created: 1729665414
 lastUpdated: 1729665414
 ---
 
-RSS (Really Simple Syndication) is still a handy tool for publishers, content creators, and bloggers who want to boost their visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
+RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and creators to boost their content's visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
 
 ### Reach and Discoverability
 
-RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. This capability is somehow still relevant today, as bloggers and businesses alike scramble to boost their online presence and audience engagement—because let’s face it, shouting into the void isn’t exactly effective.
+RSS is the standard solution for content syndication on the web, allowing content to be shared across multiple websites and social media channels with minimal effort. This capability is still relevant today, as bloggers and businesses alike scramble to boost their online presence and audience engagement—because let’s face it, shouting into the void isn’t exactly effective.
 
 RSS is just one method to help prevent my content from getting lost in the digital abyss. Content aggregators can expose my posts to potential readers who probably will not stumble on my blog through other means. This gives my site extra exposure and potential backlinks that could boost SEO credibility. It’s a win-win!
 
@@ -33,10 +33,10 @@ HUZZAH! I am now one step closer to becoming an RSS wizard.
 
 ```javascript
 import { Rss } from 'rss';
-import { settings } from '@/utils/settings.mjs';
+import { settings } from '@/utils/settings.mjs'; // site settings
 
 const getPostFeed = (posts = []) => {
-  // set feed values
+  // set feed values from site settings
   const feed = new Rss({
     title: settings.title,
     description: settings.description,
@@ -66,7 +66,7 @@ const getPostFeed = (posts = []) => {
 export { getPostFeed };
 ```
 
-Someday I'll create a unit test for that, pinky swear, but for now...
+You can checkout my most recent version of that on [GitHub](https://github.com/andymagill/dev.magill.next/blob/master/app/feed/%5Btype%5D/route.tsx). Someday I'll create a unit test for that function, pinky swear, but for now...
 
 3. **Route the Feed**: Let's "feed" our blog data to an API route.tsx
 
@@ -82,13 +82,15 @@ export async function GET() {
 }
 ```
 
+You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/utils/feed.js) of this in the project repo.
+
 4. **Build for Production**: Finally, lets run the build process to kick out my jams :
 
 ```bash
 npm run build
 ```
 
-New posts and content changes will now show up in the feed.xml file, which can be checked into the project's repo or remotely generated.
+New posts and content changes will now show up in [the feed.xml](/feed/posts.xml). Excelsior!
 
 ## The Closing Tag
 
