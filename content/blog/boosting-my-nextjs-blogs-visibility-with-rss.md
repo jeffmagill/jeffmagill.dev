@@ -92,7 +92,7 @@ _Easy peasy lemon squeezy_, as the kids like to say. You can see my [latest impl
 npm run build
 ```
 
-New posts and content changes will now show up in [the feed.xml](/feed/posts.xml). Excelsior!
+New posts and content changes will now show up in [the feed.xml](https://magill.dev/feed/posts.xml). Excelsior!
 
 ## The Closing Tag
 

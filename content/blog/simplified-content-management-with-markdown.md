@@ -9,7 +9,7 @@ lastUpdated: 1729665414
 
 As long as content exists, content management will be a relevant factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?
 
-One tool that has gained popularity for simplifying this process is Markdown. In this post, we'll discuss the benefits of using Markdown and how you can incorporate it into your projects. I even use it for this very article on [my own blog ](/blog)!
+One tool that has gained popularity for simplifying this process is Markdown. In this post, we'll discuss the benefits of using Markdown and how you can incorporate it into your projects. I even use it for this very article on [my own blog ](https://magill.dev/blog)!
 
 ### Benefits of Using Markdown
 
@@ -35,7 +35,7 @@ If you're building a new site, consider using static site generators that suppor
 
 ### The Closing tag
 
-Markdown offers numerous advantages for anyone looking to simplify their content management process. Its simplicity, portability, and compatibility with 3rd party platforms, make it an invaluable tool in various contexts. I've written a little more about [how I've implemented Markdown](/post/lets-breakdown-this-website) on my own site. If any of this sounds interesting, maybe it is time to consider using in your own projects.
+Markdown offers numerous advantages for anyone looking to simplify their content management process. Its simplicity, portability, and compatibility with 3rd party platforms, make it an invaluable tool in various contexts. I've written a little more about [how I've implemented Markdown](https://magill.dev/post/lets-breakdown-this-website) on my own site. If any of this sounds interesting, maybe it is time to consider using in your own projects.
 
 ### Related Links
 

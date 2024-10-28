@@ -7,13 +7,13 @@ created: 1728061704
 lastUpdated: 1728328053
 ---
 
-When planning the implementation of [my new website](/), I wanted something that could showcase my work experience in an impressive way. To accomplish this effectively, I selected a robust foundation of technologies designed to provide a platform that is fast (to build), easy (to publish) AND cheap (to host). Executing that plan produced [Magill.Dev](https://magill.dev) – a blend of modern frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's take a deep dive into the tech stack:
+When planning the implementation of [my new website](https://magill.dev/), I wanted something that could showcase my work experience in an impressive way. To accomplish this effectively, I selected a robust foundation of technologies designed to provide a platform that is fast (to build), easy (to publish) AND cheap (to host). Executing that plan produced [Magill.Dev](https://magill.dev) – a blend of modern frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's take a deep dive into the tech stack:
 
 ## Stacking the Foundation
 
 At the heart of this website lies a curated tech stack based on React and Next.js. React's component-based architecture is great for building a dynamic and interactive user interface. Next.js provided the backend and dev environment to build the site statically, which helps statisfy two of our initial requirements.
 
-For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me to write more maintainable stylesheets, while CSS Modules ensured that styles remained neatly scoped to specific components. To manage content, I chose [Markdown](/simplified-content-management-with-markdown) for its simplicity and readability. This decision allowed me to focus on writing without getting bogged down in complex formatting.
+For styling, I opted for a combination of SASS and CSS Modules. SASS allowed me to write more maintainable stylesheets, while CSS Modules ensured that styles remained neatly scoped to specific components. To manage content, I chose [Markdown](https://magill.dev/simplified-content-management-with-markdown) for its simplicity and readability. This decision allowed me to focus on writing without getting bogged down in complex formatting.
 
 ## Summoning the Beast
 
@@ -87,7 +87,7 @@ return <Markdown>{post.content}</Markdown>;
 
 ## Monumental Baby Steps
 
-As I continue to develop this website, I have a handful of exciting ideas to improve it further. My highest priority is to regularly publish [interesting and informative blog content](/blog). I also hope to expand the [project section](/projects) of the site, showcasing more of my work in greater detail.
+As I continue to develop this website, I have a handful of exciting ideas to improve it further. My highest priority is to regularly publish [interesting and informative blog content](https://magill.dev/blog). I also hope to expand the [project section](https://magill.dev/projects) of the site, showcasing more of my work in greater detail.
 
 On the technical side, I'm looking to [enhance blogging functionality](https://github.com/andymagill/dev.magill.next/blob/master/ROADMAP.md) and UI. This might include features like improved search capabilities and tag-based filtering. For the project content, I'm exploring ways to create more engaging and dynamic presentations of my work.
 

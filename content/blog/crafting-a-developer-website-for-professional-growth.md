@@ -7,7 +7,7 @@ created: 1728328053
 lastUpdated: 1728328104
 ---
 
-A professional website has become a tried-and-true method for developers and engineers to showcase their skills and experience. When [building my website](/post/lets-breakdown-this-website), I thought it could be a worthy exercise to examine what makes a great professional website. There are endless examples of beautiful portfolios, and informative weblogs to offer insight and inspiration, but what's really interesting for employers and clients?
+A professional website has become a tried-and-true method for developers and engineers to showcase their skills and experience. When [building my website](https://magill.dev/post/lets-breakdown-this-website), I thought it could be a worthy exercise to examine what makes a great professional website. There are endless examples of beautiful portfolios, and informative weblogs to offer insight and inspiration, but what's really interesting for employers and clients?
 
 In a competitive job market, a strong portfolio can be your secret sauce. It's like a digital handshake, introducing you to potential employers and clients before even meeting them. Unlike a traditional resume, a portfolio lets you showcase your skills and experience in a dynamic, visual way. A polished, engaging portfolio can lead to all kinds of professional opportunities: job offers, consulting work, or freelance gigs. It's your chance to control the story of who you are as a developer and why people should want to work with you.
 
@@ -23,7 +23,7 @@ A professional blog is your chance to tell your story—think of it as your orig
 
 Your website should reflect your journey as a developer. As you build and maintain it, focus on incorporating current trends, addressing relevant challenges, and telling your unique story. With a thoughtful approach, your portfolio can become a powerful tool in showcasing not just what you do, but how well you can do it.
 
-These ideas, along with the resources below helped shape my thoughts on how I would build [my website](/) and [work portfolio](/projects).
+These ideas, along with the resources below helped shape my thoughts on how I would build [my website](https://magill.dev/) and [work portfolio](https://magill.dev/projects).
 
 ### Related Resources
 
