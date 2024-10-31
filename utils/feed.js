@@ -1,6 +1,6 @@
 import Rss from 'rss';
 import { settings } from '@/utils/settings.mjs';
-import { getPostMetadata } from '@/utils/metadata';
+import { getPosts } from '@/utils/posts';
 
 /**
  * @name getPostFeed
@@ -22,7 +22,7 @@ const getPostFeed = (posts = []) => {
   });
 
   // get the post data
-  posts = posts.length > 0 ? posts : getPostMetadata();
+  posts = posts.length > 0 ? posts : getPosts();
 
   posts.map((post) => {
     // add the post to the feed

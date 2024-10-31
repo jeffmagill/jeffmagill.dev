@@ -4,10 +4,11 @@ import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import PostList from './PostList';
-import { getPostMetadata } from '@/utils/metadata';
+import { getSlugs, getPost } from '@/utils/posts';
+import { Post as PostType } from '@/utils/types';
 
-// Mock the getPostMetadata function
-vi.mock('@/utils/metadata');
+// Mock the getSlugs and getPost functions
+vi.mock('@/utils/posts');
 
 // Mock the PostItem component
 vi.mock('./PostItem', () => ({
@@ -16,111 +17,111 @@ vi.mock('./PostItem', () => ({
   ),
 }));
 
-// Define the Post interface
-interface Post {
-  slug: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string;
-  url: string;
-  created: Date;
-  lastUpdated: Date;
-}
-
 describe('PostList', () => {
-  const mockPosts: Post[] = [
+  const mockPosts: PostType[] = [
     {
-      slug: 'post-1',
       title: 'Post 1',
       description: 'Description 1',
-      image: 'image1.jpg',
-      tags: 'javascript, react',
-      url: 'post-1',
-      created: new Date('2022-01-01'),
-      lastUpdated: new Date('2022-01-02'),
+      content: 'Content 1',
+      image: '/images/post1.jpg',
+      tags: 'tag1, tag2',
+      slug: 'post-1',
+      url: 'http://localhost/post/post-1',
+      created: '2023-01-01',
+      lastUpdated: '2023-01-02',
     },
     {
-      slug: 'post-2',
       title: 'Post 2',
       description: 'Description 2',
-      image: 'image2.jpg',
-      tags: 'python, django',
-      url: 'post-2',
-      created: new Date('2024-11-21'),
-      lastUpdated: new Date('2024-12-02'),
+      content: 'Content 2',
+      image: '/images/post2.jpg',
+      tags: 'tag2, tag3',
+      slug: 'post-2',
+      url: 'http://localhost/post/post-2',
+      created: '2023-01-03',
+      lastUpdated: '2023-01-04',
     },
     {
-      slug: 'post-3',
       title: 'Post 3',
       description: 'Description 3',
-      image: 'image3.jpg',
-      tags: 'javascript, node',
-      url: 'post-3',
-      created: new Date('2023-04-01'),
-      lastUpdated: new Date('2022-04-02'),
-    },
-    {
-      slug: 'post-4',
-      title: 'Post 4',
-      description: 'Description 4',
-      image: 'image4.jpg',
-      tags: 'ruby, rails',
-      url: 'post-4',
-      created: new Date('2022-01-03'),
-      lastUpdated: new Date('2022-01-03'),
-    },
-    {
-      slug: 'post-5',
-      title: 'Post 5',
-      description: 'Description 5',
-      image: 'image5.jpg',
-      tags: 'java, spring',
-      url: 'post-5',
-      created: new Date('2021-02-01'),
-      lastUpdated: new Date('2022-01-03'),
+      content: 'Content 3',
+      image: '/images/post3.jpg',
+      tags: 'tag1, tag3',
+      slug: 'post-3',
+      url: 'http://localhost/post/post-3',
+      created: '2023-01-05',
+      lastUpdated: '2023-01-06',
     },
   ];
 
   beforeEach(() => {
-    vi.resetAllMocks();
-    vi.mocked(getPostMetadata).mockImplementation((tag?: string) => {
+    vi.mocked(getSlugs).mockImplementation((tag) => {
       if (tag) {
         return mockPosts
-          .filter((post) => post.tags.toLowerCase().includes(tag.toLowerCase()))
-          .map((post) => ({
-            ...post,
-            url: post.slug,
-            created: new Date(),
-            lastUpdated: new Date(),
-          }));
+          .filter((post) => post.tags.includes(tag))
+          .map((post) => post.slug);
       }
-      return mockPosts.map((post) => ({
-        ...post,
-        url: post.slug,
-        created: new Date(),
-        lastUpdated: new Date(),
-      }));
+      return mockPosts.map((post) => post.slug);
+    });
+
+    vi.mocked(getPost).mockImplementation((slug) => {
+      return mockPosts.find((post) => post.slug === slug) as PostType;
     });
   });
 
-  it('renders all posts when no props are provided', () => {
-    render(<PostList />);
+  it('renders filtered posts when a tag is provided', async () => {
+    const tag = 'tag1';
+    const maxPosts = 0;
 
-    expect(screen.getAllByTestId('post-item')).toHaveLength(5);
-    expect(screen.getByText('Post 1')).toBeDefined();
-    expect(screen.getByText('Post 5')).toBeDefined();
+    // Render the component
+    const { container } = await render(
+      <PostList tag={tag} maxPosts={maxPosts} />
+    );
+
+    // Wait for the component to resolve and update the DOM
+    await screen.findAllByTestId('post-item');
+
+    // Assert the rendered output
+    const postItems = container.querySelectorAll('[data-testid="post-item"]');
+    expect(postItems).toHaveLength(2);
+    expect(postItems[0]).toHaveTextContent('Post 3');
+    expect(postItems[1]).toHaveTextContent('Post 1');
   });
-  // TODO: test renders filtered posts when a tag is provided
 
-  // TODO: test limits the number of posts when maxPosts is provided
+  it('limits the number of posts when maxPosts is provided', async () => {
+    const tag = '';
+    const maxPosts = 2;
 
-  // TODO: test applies both tag filtering and maxPosts limit
+    // Render the component
+    const { container } = await render(
+      <PostList tag={tag} maxPosts={maxPosts} />
+    );
 
-  it('applies the correct CSS classes', () => {
-    const { container } = render(<PostList />);
+    // Wait for the component to resolve and update the DOM
+    await screen.findAllByTestId('post-item');
 
-    const postListContainer = container.firstChild as HTMLElement;
-    expect(postListContainer.classList.contains('postList')).toBe(true);
+    // Assert the rendered output
+    const postItems = container.querySelectorAll('[data-testid="post-item"]');
+    expect(postItems).toHaveLength(2);
+    expect(postItems[0]).toHaveTextContent('Post 3');
+    expect(postItems[1]).toHaveTextContent('Post 2');
+  });
+
+  it('applies both tag filtering and maxPosts limit', async () => {
+    const tag = 'tag2';
+    const maxPosts = 1;
+
+    // Render the component
+    const { container } = await render(
+      <PostList tag={tag} maxPosts={maxPosts} />
+    );
+
+    // Wait for the component to resolve and update the DOM
+    await screen.findAllByTestId('post-item');
+
+    // Assert the rendered output
+    const postItems = container.querySelectorAll('[data-testid="post-item"]');
+    expect(postItems).toHaveLength(1);
+    expect(postItems[0]).toHaveTextContent('Post 2');
   });
 });

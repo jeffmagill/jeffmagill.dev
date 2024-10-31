@@ -25,7 +25,7 @@ These two pillars of modern web development don't always play nice together. How
 
 ```typescript
 export const generateStaticParams = async () => {
-  const posts = await getPostMetadata();
+  const posts = getSlugs();
   return posts.map((post) => ({ slug: post.slug }));
 };
 ```

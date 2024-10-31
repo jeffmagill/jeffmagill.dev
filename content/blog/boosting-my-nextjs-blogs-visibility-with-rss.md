@@ -34,7 +34,7 @@ HUZZAH! I am now one step closer to becoming an RSS wizard.
 ```javascript
 import { Rss } from 'rss';
 import { settings } from '@/utils/settings.mjs'; // site settings
-import { getPostMetadata } from '@/utils/metadata'; // post utility function
+import { getPosts } from '@/utils/posts'; // post utility function
 
 const getPostFeed = (posts = []) => {
   // set feed values from site settings
@@ -48,7 +48,7 @@ const getPostFeed = (posts = []) => {
   });
 
   // Get post data
-  const posts = getPostMetadata();
+  const posts = getPosts();
 
   posts.map((post) => {
     // add post data to feed
@@ -76,7 +76,7 @@ You can checkout my most recent version of that utility function in [this site's
 import { getPostFeed } from '@/utils/feed.mjs'; // the feed utility function from above
 
 export async function GET() {
-  const feed = await getPostFeed();
+  const feed = getPostFeed();
 
   return new Response(JSON.stringify(feed.xml()), {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },

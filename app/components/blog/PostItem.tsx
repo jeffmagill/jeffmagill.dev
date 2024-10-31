@@ -3,16 +3,10 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './PostItem.module.scss';
+import { Post as PostType } from '@/utils/types';
 
-// PostItem.tsx
 interface PostItemProps {
-  post: {
-    title: string;
-    description: string;
-    image: string;
-    tags: string[] | string | null;
-    slug: string;
-  };
+  post: PostType;
 }
 
 const PostItem: React.FC<PostItemProps> = ({ post }) => {

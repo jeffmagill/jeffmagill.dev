@@ -10,22 +10,11 @@ import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
 import { settings } from '@/utils/settings.mjs';
-import { getPostMetadata, getPostContent } from '@/utils/metadata';
+import { getPost, getSlugs } from '@/utils/posts';
+import { Post as PostType } from '@/utils/types';
 import Hero from '@/app/components/global/Hero';
 import ShareButtons from '@/app/components/blog/ShareButtons';
 import styles from './page.module.scss';
-
-interface Post {
-  title: string;
-  description: string;
-  content: string;
-  image: string;
-  tags: string;
-  slug: string;
-  url: string;
-  created: string;
-  lastUpdated: string;
-}
 
 /**
  * Generate the static routes at build time.
@@ -33,9 +22,9 @@ interface Post {
  * @see https://nextjs.org/docs/app/api-reference/functions/generate-static-params
  */
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
-  const posts = getPostMetadata();
-  const params = posts.map((post) => ({
-    slug: post.slug,
+  const slugs = getSlugs();
+  const params = slugs.map((slug) => ({
+    slug,
   }));
   return params;
 };
@@ -70,12 +59,11 @@ export async function generateMetadata({
     images: { url: string; alt: string }[];
   };
 }> {
-  const id = params?.slug ? params?.slug : '';
-  const post = await getPostContent(id);
+  const post: PostType = getPost(params.slug) as PostType;
 
   const meta = {
     title: post.title + ' - ' + settings.title,
-    url: `${settings.siteUrl}/post/${id}/`,
+    url: `${settings.siteUrl}/post/${params.slug}/`,
   };
 
   return {
@@ -113,9 +101,9 @@ interface PostProps {
   params: { slug: string };
 }
 
-export default function Post(props: PostProps) {
+export default async function Post(props: PostProps) {
   const slug = props.params.slug;
-  const post = getPostContent(slug);
+  const post: PostType = getPost(slug) as PostType;
 
   return (
     <main className={styles.main}>
