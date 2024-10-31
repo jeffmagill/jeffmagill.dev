@@ -32,10 +32,14 @@
   font-size: 1.11em;
   text-align: center;
 }
+.publishDate {
+  font-size: 0.8em;
+  white-space: nowrap;
+}
 .author {
   font-size: 0.9em;
   white-space: nowrap;
-
+  
   a {
     text-decoration: none;
 

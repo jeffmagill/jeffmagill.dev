@@ -70,29 +70,11 @@ describe('ProjectList', () => {
     ],
   };
 
-  // TODO: repair these test
-
-  // it('renders all projects when maxProjects is not provided', async () => {
-  //   vi.mocked(fs.promises.readFile).mockResolvedValue(JSON.stringify(mockProjects));
-  //   const { debug } = render(await ProjectList({}));
-  //   debug();
-  //   const projectElements = await screen.findAllByTestId('project');
-  //   expect(projectElements.length).toBe(4);
-  // });
-
-  // it('limits the number of projects rendered when maxProjects is provided', async () => {
-  //   vi.mocked(fs.promises.readFile).mockResolvedValue(JSON.stringify(mockProjects));
-  //   const { debug } = render(await ProjectList({ maxProjects: 2 }));
-  //   debug();
-  //   const projectElements = await screen.findAllByTestId('project');
-  //   expect(projectElements.length).toBe(2);
-  // });
-
   it('renders error message when file reading fails', async () => {
     vi.mocked(fs.promises.readFile).mockRejectedValue(
       new Error('File read error')
     );
-    render(await ProjectList({}));
+    await render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')
@@ -101,7 +83,7 @@ describe('ProjectList', () => {
 
   it('renders error message when JSON parsing fails', async () => {
     vi.mocked(fs.promises.readFile).mockResolvedValue('Invalid JSON');
-    render(await ProjectList({}));
+    await render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')
@@ -112,7 +94,7 @@ describe('ProjectList', () => {
     vi.mocked(fs.promises.readFile).mockResolvedValue(
       JSON.stringify({ projects: [] })
     );
-    render(await ProjectList({}));
+    await render(await ProjectList({}));
     expect(await screen.findByText('OOPSIE!')).toBeDefined();
     expect(
       await screen.findByText('There was a problem loading projects.')

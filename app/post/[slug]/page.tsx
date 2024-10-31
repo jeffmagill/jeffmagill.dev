@@ -105,6 +105,13 @@ export default async function Post(props: PostProps) {
   const slug = props.params.slug;
   const post: PostType = getPost(slug) as PostType;
 
+  // Format the publish date
+  const publishDate = new Date(Number(post.created) * 1000).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   return (
     <main className={styles.main}>
       <Hero>
@@ -113,7 +120,9 @@ export default async function Post(props: PostProps) {
         <p className={styles.author}>
           by <Link href='/'>Andrew Magill</Link>
         </p>
-        {/* TODO: add publish date */}
+        <p className={styles.publishDate}>
+          Published on <time dateTime={post.created}>{publishDate}</time>
+        </p>
       </Hero>
 
       <article className={styles.post}>

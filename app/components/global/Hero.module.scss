@@ -25,7 +25,7 @@
     flex-direction: column;
     margin: auto;
     padding: 5rem var(--gap) 6vmax var(--gap);
-    gap: 3.6%;
+    gap: max(0.4rem, 3.6%);
     max-width: var(--inner-width);
 
     @media (min-width: 640px) {
