@@ -46,3 +46,18 @@ Prettier: A code formatter that automatically formats code to a consistent style
 **Vitest:** A fast unit testing framework for JavaScript applications.
 
 **CSS Modules:** A CSS file in which all class names and animation names are scoped locally by default.
+
+
+## Contribution Guidelines
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch`
+3. Make your changes and commit them: `git commit -m 'Add new feature'`
+4. Push to the branch: `git push origin feature-branch`
+5. Create a pull request.
+
+## Project Structure
+- `app/components`: Contains all React components.
+- `app/pages`: Contains all Next.js pages.
+- `utils`: Contains utility functions.
+- `public`: Contains static file assets
+- `content`: Contains site content.
