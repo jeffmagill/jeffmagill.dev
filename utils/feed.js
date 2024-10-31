@@ -28,10 +28,10 @@ const getPostFeed = (posts = []) => {
     // add the post to the feed
     feed.item({
       title: post.title,
+      description: post.content,
       guid: `${settings.siteUrl}/post/${post.slug}`,
       url: `${settings.siteUrl}/post/${post.slug}`,
       date: post.created,
-      description: post.description,
       author: post.author || settings.author,
       categories: post.tags.split(',') || [],
     });
