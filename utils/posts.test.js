@@ -72,7 +72,11 @@ describe('getPost', () => {
       },
     };
 
-    setupMocks(['test-post.md'], mockPostContent, mockMatterResultMissingFields);
+    setupMocks(
+      ['test-post.md'],
+      mockPostContent,
+      mockMatterResultMissingFields
+    );
 
     const slug = 'test-post';
     const post = getPost(slug);
@@ -117,7 +121,9 @@ describe('getPosts', () => {
     };
 
     setupMocks(mockFiles, mockPostContent, mockMatterResult);
-    vi.mocked(matter).mockReturnValueOnce(mockMatterResult).mockReturnValueOnce(mockMatterResultAnotherPost);
+    vi.mocked(matter)
+      .mockReturnValueOnce(mockMatterResult)
+      .mockReturnValueOnce(mockMatterResultAnotherPost);
 
     const posts = getPosts();
     expect(posts).toEqual([
