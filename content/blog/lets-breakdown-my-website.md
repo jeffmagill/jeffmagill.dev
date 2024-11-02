@@ -3,8 +3,8 @@ title: Let's Breakdown This Website's Tech Stack
 description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
-created: 1728061704
-lastUpdated: 1728328053
+created: 1729914553
+lastUpdated: 
 ---
 
 When planning the implementation of [my new website](https://magill.dev/), I wanted something that could showcase my work experience in an impressive way. To accomplish this effectively, I selected a robust foundation of technologies designed to provide a platform that is fast (to build), easy (to publish) AND cheap (to host). Executing that plan produced [Magill.Dev](https://magill.dev) – a blend of modern frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's take a deep dive into the tech stack:
