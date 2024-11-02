@@ -30,38 +30,27 @@ const formatDate = (timestamp: string): string | null => {
  * @param lastUpdated - Unix timestamp for last update
  * @returns Object containing display text and formatted date
  */
-const getDisplayDateInfo = (created: string, lastUpdated: string) => {
-  // Format both dates
-  const publishDate = formatDate(created);
-  const modifiedDate = formatDate(lastUpdated);
-
-  let displayDateTime: string;
-  let displayText: string;
-  let displayDate: string | null;
-
-  // Determine which date to show based on update status
-  if (lastUpdated && lastUpdated > created) {
-    displayDateTime = lastUpdated;
-    displayText = 'Updated on';
-    displayDate = modifiedDate;
-  } else if (created) {
-    displayDateTime = created;
-    displayText = 'Published on';
-    displayDate = publishDate;
-  } else {
-    // Fallback to current date if no dates exist
-    const currentDate = new Date().toISOString();
-    displayDateTime = currentDate;
-    displayText = 'Published on';
-    displayDate = formatDate(currentDate);
-  }
-
-  return { displayDateTime, displayText, displayDate };
+const getPostDate = (created: string, lastUpdated: string) => {
+  // Get current ISO timestamp for fallback
+  const now = new Date().toISOString();
+  
+  // Check if post was updated and update is newer than creation
+  const isUpdated = lastUpdated && lastUpdated > created;
+  
+  // Return object with all display properties:
+  // - displayDateTime: ISO timestamp to show (update/create/current date)
+  // - displayText: Label to show ("Updated on" or "Published on")
+  // - displayDate: Formatted date string for display
+  return {
+    displayDateTime: isUpdated ? lastUpdated : created || now,
+    displayText: isUpdated ? 'Updated on' : 'Published on',
+    displayDate: formatDate(isUpdated ? lastUpdated : created || now)
+  };
 };
 
 interface PostDateProps {
   created: string;
-  lastUpdated: string;
+  lastUpdated?: string;
 }
 
 /**
@@ -72,9 +61,9 @@ interface PostDateProps {
  */
 export default function PostDate({ created, lastUpdated }: PostDateProps) {
   // Get display date information
-  const { displayDateTime, displayText, displayDate } = getDisplayDateInfo(
+  const { displayDateTime, displayText, displayDate } = getPostDate(
     created,
-    lastUpdated
+    lastUpdated ?? ''
   );
 
   return (

@@ -3,8 +3,8 @@ title: Crafting a Developer Website For Professional Growth
 description: Let's take a look at what makes an interesting, effective, professional developer website, with some advice from some engineering leaders.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
 tags: portfolio
-created: 1728328053
-lastUpdated: 1728328104
+created: 1730118613
+lastUpdated: 
 ---
 
 A professional website has become a tried-and-true method for developers and engineers to showcase their skills and experience. When [building my website](https://magill.dev/post/lets-breakdown-this-website), I thought it could be a worthy exercise to examine what makes a great professional website. There are endless examples of beautiful portfolios, and informative weblogs to offer insight and inspiration, but what's really interesting for employers and clients?
