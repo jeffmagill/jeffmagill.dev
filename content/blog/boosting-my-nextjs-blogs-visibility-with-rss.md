@@ -3,8 +3,8 @@ title: Boosting My NextJS Blog’s Visibility with RSS
 description: Let's explore how RSS can boost reach and discoverability in modern blogging as I share how I chose to integrate it into my static NextJS site.
 image: /images/blog/mr-cup-fabien-barral-newspapers-unsplash.jpg
 tags: methods
-created: 1739665414
-lastUpdated: 1729665414
+created: 1730319553
+lastUpdated: 1730496973
 ---
 
 RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and creators to boost their content's visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
