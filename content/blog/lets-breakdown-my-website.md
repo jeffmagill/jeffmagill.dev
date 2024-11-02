@@ -4,7 +4,7 @@ description: Here I will ramble about the tools and technologies I used to build
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
 tags: tools
 created: 1729914553
-lastUpdated: 
+lastUpdated:
 ---
 
 When planning the implementation of [my new website](https://magill.dev/), I wanted something that could showcase my work experience in an impressive way. To accomplish this effectively, I selected a robust foundation of technologies designed to provide a platform that is fast (to build), easy (to publish) AND cheap (to host). Executing that plan produced [Magill.Dev](https://magill.dev) – a blend of modern frameworks, thoughtful design choices, and solutions to real-world development challenges. Let's take a deep dive into the tech stack:

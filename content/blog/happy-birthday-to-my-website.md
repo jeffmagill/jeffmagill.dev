@@ -4,7 +4,7 @@ description: Let's celebrate the zeroth birthday of my website, or an excuse to 
 image: /images/blog/shraga-kopstein-cake-unsplash.jpg
 tags: milestone
 created: 1729732753
-lastUpdated: 
+lastUpdated:
 ---
 
 Happy Birthday, [my dear Website](https://magill.dev/)! Today is a big day for you as we celebrate your re-launch, and I can’t help but feel proud of how far we’ve come together. Today marks a major milestone, for both of us. You're officially out of your awkward WordPress phase and stepping into your prime. I'm so excited to see what we can accomplish together.

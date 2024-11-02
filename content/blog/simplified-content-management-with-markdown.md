@@ -4,7 +4,7 @@ description: Let's discuss the benefits of using Markdown for simplified content
 image: /images/blog/kelly-sikkema-markers-unsplash.jpg
 tags: tools
 created: 1730255413
-lastUpdated: 
+lastUpdated:
 ---
 
 As long as content exists, content management will be a relevant factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?

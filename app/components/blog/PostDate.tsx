@@ -33,10 +33,10 @@ const formatDate = (timestamp: string): string | null => {
 const getPostDate = (created: string, lastUpdated: string) => {
   // Get current ISO timestamp for fallback
   const now = new Date().toISOString();
-  
+
   // Check if post was updated and update is newer than creation
   const isUpdated = lastUpdated && lastUpdated > created;
-  
+
   // Return object with all display properties:
   // - displayDateTime: ISO timestamp to show (update/create/current date)
   // - displayText: Label to show ("Updated on" or "Published on")
@@ -44,7 +44,7 @@ const getPostDate = (created: string, lastUpdated: string) => {
   return {
     displayDateTime: isUpdated ? lastUpdated : created || now,
     displayText: isUpdated ? 'Updated on' : 'Published on',
-    displayDate: formatDate(isUpdated ? lastUpdated : created || now)
+    displayDate: formatDate(isUpdated ? lastUpdated : created || now),
   };
 };
 
