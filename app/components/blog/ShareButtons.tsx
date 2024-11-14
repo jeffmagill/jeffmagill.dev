@@ -10,7 +10,7 @@ import {
   faFacebook,
   faLinkedin,
   faXTwitter,
-  faReddit 
+  faReddit,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -81,15 +81,15 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
         >
           <FontAwesomeIcon icon={faXTwitter} aria-hidden='true' />
           <span>Share on X</span>
-        </a>        
+        </a>
 
         <a
           className={styles.shareButton}
           href={redditLink}
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener noreferrer'
         >
-          <FontAwesomeIcon icon={faReddit} aria-hidden="true" />
+          <FontAwesomeIcon icon={faReddit} aria-hidden='true' />
           <span>Share on Reddit</span>
         </a>
 

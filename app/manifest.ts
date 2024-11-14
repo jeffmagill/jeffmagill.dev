@@ -1,6 +1,6 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 import { settings } from '@/utils/settings.mjs';
- 
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: settings.title,
@@ -17,10 +17,10 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/x-icon',
       },
       {
-        src: "/icon.png",
-        sizes: "512x512",
-        type: "image/png"
-      }
+        src: '/icon.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
     ],
-  }
+  };
 }
