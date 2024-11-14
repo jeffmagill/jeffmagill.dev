@@ -75,6 +75,6 @@ By leveraging Next.js's built-in support for web manifests, we can create a more
 
 ### Related Links
 
- - [Web app manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest) from MDN
- - [Generate a Manifest file](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest#generate-a-manifest-file) from Next.js
- - [App Icon Metadata](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons) from Next.js
+- [Web app manifests](https://developer.mozilla.org/en-US/docs/Web/Manifest) from MDN
+- [Generate a Manifest file](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest#generate-a-manifest-file) from Next.js
+- [App Icon Metadata](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons) from Next.js
