@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import AnalyticsWrapper from './components/global/AnalyticsWrapper';
 import ErrorBoundary from '@/app/components/global/ErrorBoundary';
 import Header from './components/global/Header';
@@ -8,6 +9,10 @@ import './globals.css';
 import './utilities.css';
 
 const outfit = Outfit({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  robots: 'index,follow',
+};
 
 export default function RootLayout({
   children,
