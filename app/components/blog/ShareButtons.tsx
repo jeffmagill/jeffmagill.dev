@@ -10,6 +10,7 @@ import {
   faFacebook,
   faLinkedin,
   faXTwitter,
+  faReddit 
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
@@ -37,6 +38,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
   const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
   const linkedInLink = `https://www.linkedin.com/shareArticle?mini=true&url=${url}`;
   const xTwitterLink = `http://x.com/share?url=${url}&text=${titleParam}`;
+  const redditLink = `https://reddit.com/submit?url=${url}&title=${titleParam}`;
   const emailLink = `mailto:?subject=${titleParam}&body=${url}`;
 
   return (
@@ -79,6 +81,16 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
         >
           <FontAwesomeIcon icon={faXTwitter} aria-hidden='true' />
           <span>Share on X</span>
+        </a>        
+
+        <a
+          className={styles.shareButton}
+          href={redditLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faReddit} aria-hidden="true" />
+          <span>Share on Reddit</span>
         </a>
 
         <a
