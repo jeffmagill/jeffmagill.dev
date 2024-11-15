@@ -58,7 +58,12 @@ export default async function ProjectList({
   } catch (error) {
     console.error('Error reading or parsing JSON:', error);
     return (
-      <div style={{ textAlign: 'center', margin: '2rem' }}>
+      <div
+        style={{
+          textAlign: 'center',
+          margin: '2rem',
+        }}
+      >
         <h2>OOPSIE!</h2>
         <p className='center error'>There was a problem loading projects. </p>
         <p>{(error as Error).message}</p>

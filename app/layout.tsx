@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import type { Metadata } from 'next';
 import AnalyticsWrapper from './components/global/AnalyticsWrapper';
 import ErrorBoundary from '@/app/components/global/ErrorBoundary';
