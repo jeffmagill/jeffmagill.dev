@@ -1,5 +1,5 @@
 ---
-title: Generate a web app manifest with Next.js
+title: Generate a Web App Manifest with Next.js
 description: Let's explore how to automate the generation of a web app manifest in a Next.js project, and how this simple JSON file can help enhance your web app's appearance and branding.
 image: /images/blog/app-icon-mage.jpg
 tags: metadata, nextjs, webdev
@@ -57,21 +57,19 @@ Ready to get your hands dirty? Let’s dive into creating a [generated web app m
 
    The example code above uses placeholder content, but you can easily add logic to pull in details from elsewhere in your application. You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/app/manifest.ts) of this on github, where I use a `settings` object that was already available for other functionality.
 
-   Here’s where it gets even better—Next.js will automagically detect your `manifest.ts` or `manifest.js` file and add the appropriate `<link>` tag to your HTML's `<head>`. It’s like magic, but without the rabbits and top hats.
+   But wait, it gets even better—Next.js will _automagically_ detect your `manifest.ts` or `manifest.js` file and add the appropriate `<link>` tag to your HTML's `<head>`. It’s like magic, but without the rabbits and top hats.
 
 2. **Add Icon Files**:
-   Now, let’s place the icon files directly in the `app` directory. Next.js will [automagically detect these files](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons#image-files-ico-jpg-png) and generate the necessary `<link>` elements in the `<head>` of your application. You can use various file types including `.ico`, `.jpg`, `.jpeg`, `.png`, and `.svg`. Just make sure they’re high quality—nobody likes an ugly icon!
+   Now, let’s place the icon files directly in the `app` directory. Next.js will [detect these files](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons#image-files-ico-jpg-png) and generate the necessary `<link>` elements in the `<head>` of your application. You can use various file types including `.ico`, `.jpg`, `.jpeg`, `.png`, and `.svg`. Just make sure they’re high quality—nobody likes an ugly icon!
 
    If you need to create something quick and easy, I recommend the [generator on favicon.io](https://favicon.io/favicon-generator/) to create the actual icon files. If you want something super fancy, you can have a Next.js actually [generate the icon images](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/app-icons#generate-icons-using-code-js-ts-tsx) for you. Pretty cool, but out-of-scope for my purposes.
 
-3. **Test Your Implementation**:
+3. **Test Your Changes**:
    Finally, build and run your Next.js application. If you've done your job well, this will be very boring. Take a peek in the developer tools to verify that the manifest and icons are being served correctly. If everything looks good, congratulations! You’ve just leveled up your web app.
 
-## Conclusion
+## The Closing Tag
 
-I started this task simply because I wanted to add a favicon to [my professional website](https://magill.dev), and ended up in a rabbit hole of web manifests and PWA functionality. By using a generated web app manifest in my Next.js site, I can reinforce my visual branding and provide a more similar experience to native apps. This approach allows me to customize my manifest easily while ensuring that all necessary details are readily available for users who use it.
-
-By leveraging Next.js's built-in support for web manifests, we can create a more engaging and accessible web application. Next.js's automatic handling of manifest and icon metadata simplifies the whole process, reducing the potential for errors and making it easier to implement more interesting PWA features in a Next.js project.
+I started this task simply because I wanted to update the favicon on [my professional website](https://magill.dev), and I somehow ended up in a rabbit hole of web manifests and PWA functionality. By using a generated web app manifest in my Next.js site, I can reinforce my visual branding and provide a more similar experience to native apps. Next.js's built-in support for web manifests allows me to customize the manifest easily while creating a more engaging and accessible web application. Next.js's automatic handling of manifest and icon metadata simplifies the whole process, reducing the potential for human errors and laying the ground-work for more interesting PWA features (to be continued).
 
 ### Related Links
 
