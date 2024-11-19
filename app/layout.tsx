@@ -13,29 +13,29 @@ import './utilities.css';
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  robots: 'index,follow',
+	robots: 'index,follow',
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en'>
-      <body className={outfit.className}>
-        <ErrorBoundary>
-          <AnalyticsWrapper>
-            <div className='site'>
-              <Header />
+	return (
+		<html lang='en'>
+			<body className={outfit.className}>
+				<ErrorBoundary>
+					<AnalyticsWrapper>
+						<div className='site'>
+							<Header />
 
-              {children}
+							{children}
 
-              <Footer />
-            </div>
-          </AnalyticsWrapper>
-        </ErrorBoundary>
-      </body>
-    </html>
-  );
+							<Footer />
+						</div>
+					</AnalyticsWrapper>
+				</ErrorBoundary>
+			</body>
+		</html>
+	);
 }

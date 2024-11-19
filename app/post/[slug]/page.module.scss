@@ -1,50 +1,50 @@
 .main {
-  :global(.hero) :global(.wrapper) {
-    max-width: var(--inner-width);
-  }
+	:global(.hero) :global(.wrapper) {
+		max-width: var(--inner-width);
+	}
 }
 .post {
-  max-width: var(--blog-width);
-  padding: var(--gap);
-  margin: 1rem auto;
-  line-height: 1.75em;
+	max-width: var(--blog-width);
+	padding: var(--gap);
+	margin: 1rem auto;
+	line-height: 1.75em;
 }
 .post h2,
 .post h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+	margin-top: 2rem;
+	margin-bottom: 0.75rem;
 }
 .post p {
-  margin: 1rem auto;
+	margin: 1rem auto;
 }
 .post ul,
 .post ol {
-  padding-left: var(--gap);
+	padding-left: var(--gap);
 }
 .post div > pre code {
-  margin-left: var(--gap);
-  margin-right: var(--gap);
+	margin-left: var(--gap);
+	margin-right: var(--gap);
 }
 .title {
-  text-align: center;
+	text-align: center;
 }
 .description {
-  font-size: 1.11em;
-  text-align: center;
+	font-size: 1.11em;
+	text-align: center;
 }
 .publishDate {
-  font-size: 0.8em;
-  white-space: nowrap;
+	font-size: 0.8em;
+	white-space: nowrap;
 }
 .author {
-  font-size: 0.9em;
-  white-space: nowrap;
+	font-size: 0.9em;
+	white-space: nowrap;
 
-  a {
-    text-decoration: none;
+	a {
+		text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }

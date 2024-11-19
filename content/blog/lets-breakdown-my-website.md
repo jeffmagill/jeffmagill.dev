@@ -25,8 +25,8 @@ These two pillars of modern web development don't always play nice together. How
 
 ```typescript
 export const generateStaticParams = async () => {
-  const posts = getSlugs();
-  return posts.map((post) => ({ slug: post.slug }));
+	const posts = getSlugs();
+	return posts.map((post) => ({ slug: post.slug }));
 };
 ```
 
@@ -42,8 +42,8 @@ Synchronous file operations are too slow for a lot of scenarios, including Next.
 import { promises as fs } from 'fs';
 
 async function getPostContent(slug: string) {
-  const content = await fs.readFile(`content/blog/${slug}.md`, 'utf8');
-  // Process content...
+	const content = await fs.readFile(`content/blog/${slug}.md`, 'utf8');
+	// Process content...
 }
 ```
 
@@ -56,12 +56,12 @@ This love-hate relationship involved wrestling with type mismatches. Being more 
 
 ```typescript
 interface Post {
-  title: string;
-  description: string;
-  content: string;
-  image: string;
-  tags: string[];
-  created: string;
+	title: string;
+	description: string;
+	content: string;
+	image: string;
+	tags: string[];
+	created: string;
 }
 ```
 

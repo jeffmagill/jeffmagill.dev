@@ -3,119 +3,119 @@
 // TODO: add reduced motion media query and styles
 
 .heroAnimation {
-  --grid-width: max(3em, 10vmin);
-  --grid-height: max(3em, 10vmin);
-  --line-color: #aaaaaa;
-  --dot-color: #fff;
-  --dot-size: 0.4em;
-  --point-gap-width: calc(var(--grid-width) * 3);
-  --point-gap-height: calc(var(--grid-height) * 3);
+	--grid-width: max(3em, 10vmin);
+	--grid-height: max(3em, 10vmin);
+	--line-color: #aaaaaa;
+	--dot-color: #fff;
+	--dot-size: 0.4em;
+	--point-gap-width: calc(var(--grid-width) * 3);
+	--point-gap-height: calc(var(--grid-height) * 3);
 
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background: linear-gradient(
-    124deg,
-    #d54a0e,
-    #c06f1f,
-    #999e0d,
-    #1fb037,
-    #1e9ea4,
-    #2c21cc,
-    #b90dc9,
-    #c70c50
-  );
-  background-size: 1600% 1600%;
-  // animation: rainbow 32s ease infinite;
-  background-position: calc(var(--progress) * -1%);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	background: linear-gradient(
+		124deg,
+		#d54a0e,
+		#c06f1f,
+		#999e0d,
+		#1fb037,
+		#1e9ea4,
+		#2c21cc,
+		#b90dc9,
+		#c70c50
+	);
+	background-size: 1600% 1600%;
+	// animation: rainbow 32s ease infinite;
+	background-position: calc(var(--progress) * -1%);
 
-  &:before,
-  &:after,
-  .inner:before,
-  .inner:after {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    mix-blend-mode: overlay;
-  }
+	&:before,
+	&:after,
+	.inner:before,
+	.inner:after {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		mix-blend-mode: overlay;
+	}
 
-  &:before {
-    background-image: linear-gradient(var(--line-color), transparent 3px),
-      linear-gradient(to right, var(--line-color), transparent 3px);
-    background-size:
-      100% var(--grid-height),
-      var(--grid-width) 100%;
-    animation: 4s linear move infinite;
-  }
+	&:before {
+		background-image: linear-gradient(var(--line-color), transparent 3px),
+			linear-gradient(to right, var(--line-color), transparent 3px);
+		background-size:
+			100% var(--grid-height),
+			var(--grid-width) 100%;
+		animation: 4s linear move infinite;
+	}
 
-  &:after {
-    transform: translateZ(-100%);
-    background-image: radial-gradient(
-      var(--dot-color) calc(var(--dot-size) * 0.8),
-      transparent calc(var(--dot-size) * 0.8)
-    );
-    background-size: var(--point-gap-width) var(--point-gap-height);
-    background-position: var(--point-gap-width) calc(var(--point-gap-height));
-  }
+	&:after {
+		transform: translateZ(-100%);
+		background-image: radial-gradient(
+			var(--dot-color) calc(var(--dot-size) * 0.8),
+			transparent calc(var(--dot-size) * 0.8)
+		);
+		background-size: var(--point-gap-width) var(--point-gap-height);
+		background-position: var(--point-gap-width) calc(var(--point-gap-height));
+	}
 
-  .inner {
-    &:before,
-    &:after {
-      background-size: var(--point-gap-width) var(--point-gap-height);
-      background-position: var(--point-gap-width) calc(var(--point-gap-height));
-    }
+	.inner {
+		&:before,
+		&:after {
+			background-size: var(--point-gap-width) var(--point-gap-height);
+			background-position: var(--point-gap-width) calc(var(--point-gap-height));
+		}
 
-    &:after {
-      background-image: radial-gradient(
-        var(--dot-color) calc(var(--dot-size) * 2),
-        transparent calc(var(--dot-size) * 2)
-      );
-      transform: scale(2, 2);
-      filter: blur(0.25em);
-      opacity: 0.8;
-    }
+		&:after {
+			background-image: radial-gradient(
+				var(--dot-color) calc(var(--dot-size) * 2),
+				transparent calc(var(--dot-size) * 2)
+			);
+			transform: scale(2, 2);
+			filter: blur(0.25em);
+			opacity: 0.8;
+		}
 
-    &:before {
-      background-image: radial-gradient(
-        var(--dot-color) var(--dot-size),
-        transparent var(--dot-size)
-      );
-      transform: scale(1.4, 1.4);
-      filter: blur(0.15em);
-    }
-  }
-  &:after {
-    animation: 4s linear move infinite;
-  }
+		&:before {
+			background-image: radial-gradient(
+				var(--dot-color) var(--dot-size),
+				transparent var(--dot-size)
+			);
+			transform: scale(1.4, 1.4);
+			filter: blur(0.15em);
+		}
+	}
+	&:after {
+		animation: 4s linear move infinite;
+	}
 
-  .inner {
-    &:after {
-      animation: 4s linear move infinite;
-    }
+	.inner {
+		&:after {
+			animation: 4s linear move infinite;
+		}
 
-    &:before {
-      animation: 4s linear move infinite;
-    }
-  }
+		&:before {
+			animation: 4s linear move infinite;
+		}
+	}
 }
 
 @keyframes move {
-  0% {
-    background-position: calc(var(--point-gap-width) / 2)
-      calc(var(--point-gap-height) / 2);
-  }
-  100% {
-    background-position: calc(var(--point-gap-width) / 2 * -1)
-      calc(var(--point-gap-height) / 2 * -1);
-  }
+	0% {
+		background-position: calc(var(--point-gap-width) / 2)
+			calc(var(--point-gap-height) / 2);
+	}
+	100% {
+		background-position: calc(var(--point-gap-width) / 2 * -1)
+			calc(var(--point-gap-height) / 2 * -1);
+	}
 }

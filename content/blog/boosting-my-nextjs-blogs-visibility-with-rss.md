@@ -37,33 +37,33 @@ import { settings } from '@/utils/settings.mjs'; // site settings
 import { getPosts } from '@/utils/posts'; // post utility function
 
 const getPostFeed = (posts = []) => {
-  // set feed values from site settings
-  const feed = new Rss({
-    title: settings.title,
-    description: settings.description,
-    site_url: settings.siteUrl,
-    feed_url: `${settings.siteUrl}/feed/posts.xml`,
-    language: 'en',
-    date: new Date(),
-  });
+	// set feed values from site settings
+	const feed = new Rss({
+		title: settings.title,
+		description: settings.description,
+		site_url: settings.siteUrl,
+		feed_url: `${settings.siteUrl}/feed/posts.xml`,
+		language: 'en',
+		date: new Date(),
+	});
 
-  // Get post data
-  const posts = getPosts();
+	// Get post data
+	const posts = getPosts();
 
-  posts.map((post) => {
-    // add post data to feed
-    feed.item({
-      title: post.title,
-      guid: `${settings.siteUrl}/post/${post.slug}`,
-      url: `${settings.siteUrl}/post/${post.slug}`,
-      date: post.created,
-      description: post.description,
-      author: post.author || settings.author,
-      categories: post.categories || [],
-    });
-  });
+	posts.map((post) => {
+		// add post data to feed
+		feed.item({
+			title: post.title,
+			guid: `${settings.siteUrl}/post/${post.slug}`,
+			url: `${settings.siteUrl}/post/${post.slug}`,
+			date: post.created,
+			description: post.description,
+			author: post.author || settings.author,
+			categories: post.categories || [],
+		});
+	});
 
-  return feed;
+	return feed;
 };
 export { getPostFeed };
 ```
@@ -76,11 +76,11 @@ You can checkout my most recent version of that utility function in [this site's
 import { getPostFeed } from '@/utils/feed.mjs'; // the feed utility function from above
 
 export async function GET() {
-  const feed = getPostFeed();
+	const feed = getPostFeed();
 
-  return new Response(JSON.stringify(feed.xml()), {
-    headers: { 'Content-Type': 'application/json; charset=utf-8' },
-  });
+	return new Response(JSON.stringify(feed.xml()), {
+		headers: { 'Content-Type': 'application/json; charset=utf-8' },
+	});
 }
 ```
 

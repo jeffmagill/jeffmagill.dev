@@ -7,14 +7,14 @@ import NavButton from './NavButton';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
-  return (
-    <>
-      <header id='header' className={`${styles.header} header`}>
-        <NavButton />
-        <Navigation />
-      </header>
-    </>
-  );
+	return (
+		<>
+			<header id='header' className={`${styles.header} header`}>
+				<NavButton />
+				<Navigation />
+			</header>
+		</>
+	);
 };
 
 export default Header;
