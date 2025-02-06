@@ -16,7 +16,7 @@ In my latest project, I'll set up a full-stack multi-environment deployment pipe
 <img alt="But Why?" width="320" src="/images/blog/but-why.jpg#right" >
 For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform provides a valuable resource for stakeholder reviews, facilitating regular feedback and deeper collaboration. This setup allows me to push changes where they are needed, and automagically perform any steps required for each environment. I shake my head when I think about all the time I wasted doing this manually.
 
-## Designing My Pipeline
+## Laying the Pipeline
 
 I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. If you've ever mistakenly pushed the wrong files to the wrong server, you understand how helpful this is. 
 
@@ -28,7 +28,7 @@ Conditional job execution allowed workflows to run differently depending on the 
 
 One key benefit of this approach is access control. By granting developers access to specific branches, they automatically gain the ability to trigger deployments to the corresponding environments. Instead of juggling individual logins or shared credentials for each environment's hosting platform, I could manage access at the repository branch level. This not only streamlined onboarding and offboarding but also significantly improved security.
 
-## Deployment Workflow Structure
+## Workflow Procedure
 
 Workflows are triggered by pushes to the relevant branches. In my workflow, a push to develop triggers the staging deployment, and a push to main triggers the production deployment.
 
