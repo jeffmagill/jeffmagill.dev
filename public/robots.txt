@@ -4,6 +4,3 @@ Allow: /
 
 # Host
 Host: https://magill.dev
-
-# Sitemaps
-Sitemap: https://magill.dev/sitemap.xml
