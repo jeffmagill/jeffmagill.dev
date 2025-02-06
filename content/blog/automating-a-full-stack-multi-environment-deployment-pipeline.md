@@ -1,5 +1,5 @@
 ---
-title: Automating a Full-Stack Multi-Environment Deployment Pipeline
+title: Automating a Full-Stack, Multi-Environment Deployment Pipeline
 description: Let's figure out how to automate the deployment of a full stack project using tailored configurations for different environments, without increasing developer workload or technical debt
 image: /images/blog/quinten-de-graaf-pipelines.jpg
 tags: devops, cicd, automation, webdev
@@ -7,20 +7,20 @@ created: 1738864468
 lastUpdated:
 ---
 
-I have a confession to make, I am not great at remembering all the different deployment checks and publishing chores for each of my projects. It's embarrassing, I know. Now that the aire has been cleared, let's find a way to compensate for my shortcomings.
+I have a confession to make, I am terrible at remembering all the different deployment checks and publishing chores for each of my projects. It's embarrassing, I know. Now that the aire has been cleared, let's find a way to compensate for my shortcomings.
 
 In my latest project, I'll set up a full-stack multi-environment deployment pipeline using [GitHub Actions](https://github.com/features/actions). This has been so incredibly useful, I decided to share some details about why I chose this configuration and the benefits of this approach:
 
 ## But Why?
 
 <img alt="But Why?" width="300" src="/images/blog/but-why.jpg#right" >
-For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform is a great tool, and a valuable resource for stakeholder reviews, allowing regular  feedback during all phases of implementation. This facilitates managing stakeholder expectations and early identification of potential issues.
+For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform provides a valuable resource for stakeholder reviews, facilitating regular feedback and deeper collaboration. This setup allow me to push changes where they are needed, and automagically perform any steps required for each environment. I shake my head when I think about all the time I wasted doing this manually.
 
 ## Designing My Pipeline
 
-I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. I shake my head when I think about all the time I wasted doing this manually.
+I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. If you've ever mistakenly pushed the wrong files to the wrong server, you understand how helpful this is. 
 
-To control each environment independently, we can use environment-specific configurations. My staging environment uses a separate database, different API keys, and its own settings. GitHub Actions made handling these environment variables and secrets simple. I used repository secrets for sensitive information and environment variables for things that varied between environments, like [feature flags and API endpoints](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization).
+To control each environment independently, we can use environment-specific configurations. My staging environment uses a separate database, different API keys, and its own settings. GitHub Actions repository secrets simplify automating anything that varies between environments, like [feature flags and API endpoints](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
 
 Conditional job execution allowed workflows to run differently depending on the branch. Staging can run a full suite of tests, providing confidence in the stability of the codebase. Production only gets a quick smoke test. To make it easier to inspect and debug code in the browser console, I disabled minification and enabled sourcemaps for the front-end on the staging environment. On production, minification was enabled to optimize performance and debug logging disabled to prevent accidental leaking of sensitive user data.
 
@@ -94,9 +94,9 @@ jobs:
 
 ## To be continued...
 
-This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments much easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are lots of ways I plan on building on this in the future.
+This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments much easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
 
 ### Related Links
 
 - [Official Documentation:](https://docs.github.com/en/actions) From Github
-- [Using secrets in GitHub Actions:](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) From Github
+- [Using secrets in GitHub Codespaces:](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization) From Github
