@@ -19,6 +19,11 @@ const meta = {
 export const metadata: Metadata = {
 	title: meta.title,
 	description: meta.description,
+	alternates: {
+		types: {
+			'application/rss+xml': `${settings.siteUrl}/feed/posts.xml`,
+		},
+	},
 	openGraph: {
 		title: meta.title,
 		description: meta.description,
