@@ -94,7 +94,7 @@ jobs:
 
 ## To be continued...
 
-This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
+This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments easier and faster, freeing me up for other stuff. Because everything is baked into the pipeline, I don't need to remember all the minutiae and procedures required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
 
 ### Related Links
 
