@@ -3,7 +3,7 @@ title: Automating a Full-Stack Multi-Environment Deployment Pipeline
 description: Let's figure out how to automate the deployment of a full stack project using tailored configurations for different environments, without increasing developer workload or technical debt
 image: /images/blog/quinten-de-graaf-pipelines.jpg
 tags: devops, cicd, automation, webdev
-created: 1731610486
+created: 1738864468
 lastUpdated:
 ---
 
@@ -13,16 +13,16 @@ In my latest project, I'll set up a full-stack multi-environment deployment pipe
 
 ## But Why?
 
-<img className="post-inline-image" alt="But Why?" width="300" src="/images/blog/but-why.jpg#right" >
-For my project, I needed a safe space to test code changes before they went live. Local development is great, but can be a pain for applications hosted on multiple environments. Staging is also a valuable platform for stakeholder reviews, allowing crucial feedback during all phases of implementation. This facilitates managing stakeholder expectations and early identification of potential issues.
+<img alt="But Why?" width="300" src="/images/blog/but-why.jpg#right" >
+For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform is a great tool, and a valuable resource for stakeholder reviews, allowing regular  feedback during all phases of implementation. This facilitates managing stakeholder expectations and early identification of potential issues.
 
 ## Designing My Pipeline
 
-I organized my repository with separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions to deploy both front and backend to their respective servers. I shake my head when I think about all the time I wasted doing this manually.
+I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. I shake my head when I think about all the time I wasted doing this manually.
 
-To control each environment independently, we can use environment-specific configurations. My staging environment uses a separate database, different API keys, and its own settings. GitHub Actions made handling these environment variables and secrets simple. I used repository secrets for sensitive information and environment variables for things that varied between environments, like API endpoints.
+To control each environment independently, we can use environment-specific configurations. My staging environment uses a separate database, different API keys, and its own settings. GitHub Actions made handling these environment variables and secrets simple. I used repository secrets for sensitive information and environment variables for things that varied between environments, like [feature flags and API endpoints](https://docs.github.com/en/codespaces/managing-codespaces-for-your-organization/managing-development-environment-secrets-for-your-repository-or-organization).
 
-Conditional job execution allowed workflows to run differently depending on the branch. Staging can run a full suite of tests, providing confidence in the stability of the codebase. Production only gets a quick smoke test. To make it easier to inspect and debug code in the browser console, I disabled minification and enabled sourcemaps on the staging environment for the front-end. On production, minification was enabled to optimize performance and debug logging disabled to prevent accidental leaking of sensitive user data.
+Conditional job execution allowed workflows to run differently depending on the branch. Staging can run a full suite of tests, providing confidence in the stability of the codebase. Production only gets a quick smoke test. To make it easier to inspect and debug code in the browser console, I disabled minification and enabled sourcemaps for the front-end on the staging environment. On production, minification was enabled to optimize performance and debug logging disabled to prevent accidental leaking of sensitive user data.
 
 ## Access Control
 
@@ -32,7 +32,7 @@ One key benefit of this approach is access control. By granting developers acces
 
 Workflows are triggered by pushes to the relevant branches. In my workflow, a push to develop triggers the staging deployment, and a push to main triggers the production deployment.
 
-The front-end build process uses `npm run build` which runs the Vite build process for the front end, but other build tools will also work here. On staging we add the `--config vite.dev.config.js` flag to customize build options. The back-end build uses a generic `composer install` action, which could be customized further.
+The front-end build process uses `npm run build` which runs the front-end build process (which is defined in package.json, silly). On staging, we can specify separate configuration files, with the `--config dev.config.js` flag to customize build process more precisely. This back-end build uses a generic `composer install` action, which [could be customized further](https://github.com/ramsey/composer-install).
 
 Here's a more detailed snippet, tying it all together:
 
@@ -65,8 +65,8 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ##.###.##.###
-        username: ftpuser
-        password: ${{ secrets.ftp_password }}
+        username: frontuser
+        password: ${{ secrets.front_ftp_password }}
         protocol: ftps
         local-dir: ./front/
         server-dir: /front/
@@ -85,8 +85,8 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ##.###.##.###
-        username: ftpuser
-        password: ${{ secrets.ftp_password }}
+        username: backuser
+        password: ${{ secrets.back_ftp_password }}
         protocol: ftps
         local-dir: ./back/
         server-dir: /back/
@@ -94,7 +94,7 @@ jobs:
 
 ## To be continued...
 
-This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments much easier and faster, freeing me up for other stuff. I no longer need to remember all the processes and details required to safely publish projects that use this approach. There are lots of ways I plan on building on this in the future.
+This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments much easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are lots of ways I plan on building on this in the future.
 
 ### Related Links
 
