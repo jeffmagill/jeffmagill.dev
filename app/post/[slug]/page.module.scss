@@ -28,7 +28,9 @@
 
 .post img {
 	display: inline-block;
-	margin-left: calc(67% - 50vw); // centering hack on mobile
+}
+.post img[width='320'] {
+	margin-left: calc(50% - 160vw); // centering hack on mobile
 }
 @media (min-width: 480px) {
 	.post img[src*='#left'] {

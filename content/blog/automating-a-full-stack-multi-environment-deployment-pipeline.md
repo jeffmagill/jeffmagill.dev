@@ -13,8 +13,8 @@ In my latest project, I'll set up a full-stack multi-environment deployment pipe
 
 ## But Why?
 
-<img alt="But Why?" width="300" src="/images/blog/but-why.jpg#right" >
-For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform provides a valuable resource for stakeholder reviews, facilitating regular feedback and deeper collaboration. This setup allow me to push changes where they are needed, and automagically perform any steps required for each environment. I shake my head when I think about all the time I wasted doing this manually.
+<img alt="But Why?" width="320" src="/images/blog/but-why.jpg#right" >
+For my project, I needed a safe space to test code changes before they went live. Local development has it's place, but you know it can be a pain for applications hosted on multiple environments. A staging platform provides a valuable resource for stakeholder reviews, facilitating regular feedback and deeper collaboration. This setup allows me to push changes where they are needed, and automagically perform any steps required for each environment. I shake my head when I think about all the time I wasted doing this manually.
 
 ## Designing My Pipeline
 
@@ -94,7 +94,7 @@ jobs:
 
 ## To be continued...
 
-This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments much easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
+This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments easier and faster, freeing me up for other stuff. I no longer need to remember all the details and processes required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
 
 ### Related Links
 
