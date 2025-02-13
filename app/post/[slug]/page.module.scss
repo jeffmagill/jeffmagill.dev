@@ -22,15 +22,16 @@
 	padding-left: var(--gap);
 }
 .post div > pre code {
-	margin-left: var(--gap);
-	margin-right: var(--gap);
+	@media (min-width: 480px) {
+		margin-left: var(--gap);
+		margin-right: var(--gap);
+	}
 }
-
 .post img {
 	display: inline-block;
 }
 .post img[width='320'] {
-	margin-left: calc(50% - 160vw); // centering hack on mobile
+	margin-left: calc(50% - 160px); // centering hack on mobile
 }
 @media (min-width: 480px) {
 	.post img[src*='#left'] {
