@@ -23,7 +23,7 @@ Row Level Security in PostgreSQL is powerful enough to handle even complex relat
 
 ## 1. Create Policies for Clinicians
 
-Let’s say each patient has a `clinician_id` column, and there’s a many-to-many relationship between clinicians and patients managed through a `clinicians_patients` join table. You want clinicians to only see their own patients. Here's how we get there:
+Let’s say there’s a many-to-many relationship between clinicians and patients managed through a `clinicians_patients` join table. We want clinicians to only see their own patients, but not others. Here's how we can get there:
 
 ```sql
 CREATE POLICY clinician_patient_access ON patients
@@ -36,7 +36,7 @@ CREATE POLICY clinician_patient_access ON patients
   ));
 ```
 
-This policy says: “If the `clinician_id` matches the current user’s name, let them SELECT or UPDATE.” (Yes, you’ll need to make sure your app sets up users in PostgreSQL with usernames matching `clinician_id`, or use session variables. More on that in a second.)
+This policy works by checking if the `clinician_id` in the `clinicians_patients` join table matches the current user's session variable. To make this work, your application must set the `app.current_user` session variable to the clinician's ID upon authentication (more on that in a second).
 
 ## 2. Enable RLS on Your Tables
 
@@ -64,10 +64,10 @@ This ensures all access follows your RLS policies, even for privileged users. In
 
 ## 3. Serverless Gotchas
 
-Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or nerd magic. We'll need to establish [PostgreSQL session variables](https://www.postgresql.org/docs/current/runtime-config-client.html) (like `SET SESSION "app.current_user" = 'clinician123';`) at the start of each connection. Our app’s authentication layer should handle this — _don’t trust anyone!_. But we're cool, here's the deets: 
+Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or nerd magic. We'll need to establish [PostgreSQL session variables](https://www.postgresql.org/docs/current/runtime-config-client.html) at the start of each connection. Our app’s authentication layer should handle this — _don’t trust anyone!_. But since we're cool, here's the deets: 
 
 ### Set the PostgreSQL Session Variable:**  
-   In your app, set the user session after successfully establishing a connection:
+In your app, set the user session after successfully establishing a connection:
 
 ```javascript
 // Node.js example with pg library
