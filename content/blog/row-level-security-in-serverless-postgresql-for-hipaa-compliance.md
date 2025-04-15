@@ -31,6 +31,8 @@ ALTER TABLE patients ENABLE ROW LEVEL SECURITY;
 
 Congratulations, you’ve just hired a beefy database bouncer! But right now, he’s letting everyone in. Let’s fix that.
 
+Row Level Security in PostgreSQL is powerful enough to handle even complex relationships like many-to-many mappings between clinicians and patients. By leveraging join tables and smart policies, you can ensure HIPAA compliance while maintaining a scalable and secure database structure. We'll have 3 tables; `patients`, `clinicians`, and `clinicians_patients`.
+
 ### Create Policies for Clinicians
 
 Let’s say each patient has a `clinician_id` column, and there’s a many-to-many relationship between clinicians and patients managed through a `clinicians_patients` join table. You want clinicians to only see their own patients. Here's how we get there:
@@ -62,33 +64,7 @@ Now, not even the table owner can bypass your policies. (Take that, creepy snoop
 
 Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or nerd magic. We'll need to establish [PostgreSQL session variables](https://www.postgresql.org/docs/current/runtime-config-client.html) (like `SET SESSION "app.current_user" = 'clinician123';`) at the start of each connection. Our app’s authentication layer should handle this — _don’t trust anyone!_. But since you are cool, here's the deets: 
 
-### The Setup
-
-Row Level Security in PostgreSQL is powerful enough to handle even complex relationships like many-to-many mappings between clinicians and patients. By leveraging join tables and smart policies, you can ensure HIPAA compliance while maintaining a scalable and secure database structure. We'll have 3 tables; `patients`, `clinicians`, and `clinicians_patients`.
-
-### Step 1: Enable RLS
-
-```sql
-ALTER TABLE patients ENABLE ROW LEVEL SECURITY;
-ALTER TABLE patients FORCE ROW LEVEL SECURITY;
-```
-
-### Step 2: Create Clinician Policy
-
-To enforce access control, create a policy that uses the `clinicians_patients` join table to determine which rows a clinician can access:
-
-```sql
-CREATE POLICY clinician_patient_access ON patients
-  FOR SELECT, UPDATE
-  USING (EXISTS (
-    SELECT 1
-    FROM clinicians_patients
-    WHERE clinicians_patients.patient_id = patients.id
-      AND clinicians_patients.clinician_id = current_setting('app.current_user')::int
-  ));
-```
-
-### Step 3: Set the User Session Variable:**  
+### Set the PostgreSQL Session Variable:**  
    In your app, set the user session after successfully establishing a connection:
 
 ```javascript
