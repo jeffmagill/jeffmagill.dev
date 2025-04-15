@@ -21,19 +21,11 @@ And yeah, it’s a HIPAA win: RLS helps you enforce the “minimum necessary” 
 
 Here’s how you can set up RLS in a serverless PostgreSQL environment (think Neon, Supabase, or AWS Aurora Serverless). I’ll assume you already have a `patients` table, because if you don’t, I'm not sure why you are still here.
 
-### Enable RLS on Your Table
-
-First, you need to tell PostgreSQL to actually care about row-level access. By default, it’s blissfully ignorant.
-
-```sql
-ALTER TABLE patients ENABLE ROW LEVEL SECURITY;
-```
-
-Congratulations, you’ve just hired a beefy database bouncer! But right now, he’s letting everyone in. Let’s fix that.
+### Shared Policies Using Many-to-Many Relationships
 
 Row Level Security in PostgreSQL is powerful enough to handle even complex relationships like many-to-many mappings between clinicians and patients. By leveraging join tables and smart policies, you can ensure HIPAA compliance while maintaining a scalable and secure database structure. We'll have 3 tables; `patients`, `clinicians`, and `clinicians_patients`.
 
-### Create Policies for Clinicians
+### 1. Create Policies for Clinicians
 
 Let’s say each patient has a `clinician_id` column, and there’s a many-to-many relationship between clinicians and patients managed through a `clinicians_patients` join table. You want clinicians to only see their own patients. Here's how we get there:
 
@@ -50,19 +42,30 @@ CREATE POLICY clinician_patient_access ON patients
 
 This policy says: “If the `clinician_id` matches the current user’s name, let them SELECT or UPDATE.” (Yes, you’ll need to make sure your app sets up users in PostgreSQL with usernames matching `clinician_id`, or use session variables. More on that in a second.)
 
-### 4. One RLS Policy to Rule Them All
+## 2. Enable RLS on Your Table
 
-By default, superusers and table owners can bypass RLS. In a serverless setup, you want to make sure naughty users aren’t sneaking around the rules.
+First, you need to tell PostgreSQL to actually care about row-level access. By default, it’s blissfully ignorant.
+
+```sql
+ALTER TABLE patients ENABLE ROW LEVEL SECURITY;
+```
+
+Congratulations, you’ve just hired a beefy database bouncer! But right now, he’s letting everyone in. Let’s fix that.
+
+### One RLS Policy to Rule Them All
+
+By default, superusers and table owners can bypass RLS, which can be risky in serverless setups where connections are shared. To lock down access, use:
 
 ```sql
 ALTER TABLE patients FORCE ROW LEVEL SECURITY;
 ```
 
-Now, not even the table owner can bypass your policies. (Take that, creepy snoopers.)
+This ensures all access follows your RLS policies, even for privileged users. In serverless environments, this step is crucial to protect sensitive data and maintain compliance. Now, not even the table owner can bypass your policies. (Take that, creepy snoopers.)
 
-### 5. Serverless Gotchas
 
-Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or nerd magic. We'll need to establish [PostgreSQL session variables](https://www.postgresql.org/docs/current/runtime-config-client.html) (like `SET SESSION "app.current_user" = 'clinician123';`) at the start of each connection. Our app’s authentication layer should handle this — _don’t trust anyone!_. But since you are cool, here's the deets: 
+## 3. Serverless Gotchas
+
+Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or nerd magic. We'll need to establish [PostgreSQL session variables](https://www.postgresql.org/docs/current/runtime-config-client.html) (like `SET SESSION "app.current_user" = 'clinician123';`) at the start of each connection. Our app’s authentication layer should handle this — _don’t trust anyone!_. But we're cool, here's the deets: 
 
 ### Set the PostgreSQL Session Variable:**  
    In your app, set the user session after successfully establishing a connection:
