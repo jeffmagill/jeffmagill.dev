@@ -15,7 +15,7 @@ If you’re building a patient-focused web app and you’re not thinking about H
 
 Row Level Security (RLS) is PostgreSQL’s way of saying, “Welcome, but stay in your assigned space.” Your users become kinda like guests in a hotel, only if door locks were as cool as SQL policies. RLS lets you centralize your access logic, so you can focus on giving your guests a great experience. 
 
-And yeah, it’s a HIPAA win: RLS helps you enforce the “minimum necessary” access rule, so you’re not handing out master  keys when someone just needs access to one room.
+And yeah, it’s a HIPAA win: RLS helps you enforce the “minimum necessary” access rule, so you’re not handing out master keys when someone just needs access to one room.
 
 ## Getting your Hands Dirty with Serverless PostgreSQL
 
@@ -33,7 +33,7 @@ Congratulations, you’ve just hired a beefy database bouncer! But right now, he
 
 ### Create Policies for Clinicians
 
-Let’s say each patient has a `clinician_id` column. You want clinicians to only see their own patients. Here’s how you do it:
+Let’s say each patient has a `clinician_id` column, and there’s a many-to-many relationship between clinicians and patients managed through a `clinicians_patients` join table. You want clinicians to only see their own patients. Here's how we get there:
 
 ```sql
 CREATE POLICY clinician_patient_access ON patients
@@ -47,8 +47,6 @@ CREATE POLICY clinician_patient_access ON patients
 ```
 
 This policy says: “If the `clinician_id` matches the current user’s name, let them SELECT or UPDATE.” (Yes, you’ll need to make sure your app sets up users in PostgreSQL with usernames matching `clinician_id`, or use session variables. More on that in a second.)
-
-This lets anyone with the `auditor` role see all rows, but not change a thing. If they want to update, they’ll have to go back to accounting.
 
 ### 4. One RLS Policy to Rule Them All
 
@@ -76,6 +74,8 @@ ALTER TABLE patients FORCE ROW LEVEL SECURITY;
 ```
 
 ### Step 2: Create Clinician Policy
+
+To enforce access control, create a policy that uses the `clinicians_patients` join table to determine which rows a clinician can access:
 
 ```sql
 CREATE POLICY clinician_patient_access ON patients
