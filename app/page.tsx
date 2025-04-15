@@ -75,7 +75,7 @@ export default function Home() {
 							.
 						</h1>{' '}
 						<p>
-							I’m currently looking for new opportunities. I love{' '}
+							I’m currently looking for{' '}
 							<Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
 							opportunities. I built{' '}
 							<a href='/post/lets-breakdown-this-website'>this website</a>{' '}
