@@ -2,21 +2,20 @@
 title: Row Level Security in Serverless PostgreSQL for HIPAA Compliance
 description: Row Level Security in PostgreSQL isn’t just a neat trick-it’s a practical, scalable way to keep your pharma web app HIPAA-compliant without losing your mind
 image: /images/blog/marcos-mayer-locks.jpg
-tags: serverless, hipaa, postrgresql, webdev
+tags: serverless, hipaa, postgresql, webdev
 created: 1744729263
 lastUpdated:
 ---
-# Row Level Security in Serverless PostgreSQL for HIPAA Compliance
 
-It's time to revisit everyones two favorite topics, Row Level Security (RLS) and HIPAA compliance. I'm here to give the people what they want, so here is my take on how to create a safe and orderly place for your legally-protected patient data to live. 
+It's time to revisit everyone's two favorite topics, Row Level Security (RLS) and HIPAA compliance. I'm here to give the people what they want, so here is my take on how to create a safe and orderly place for your legally-protected patient data to live. 
 
-If you’re building a patient focused web app and you’re not thinking about HIPAA compliance, you haven't seen the [https://www.ama-assn.org/practice-management/hipaa/hipaa-violations-enforcement#:~:text=HIPAA%20violation:%20Unknowing,imprisonment%20up%20to%201%20year.](penalty structure for violations). For the rest of us, protecting patient data isn’t just a checkbox—it’s a survival skill. 
+If you’re building a patient-focused web app and you’re not thinking about HIPAA compliance, you haven't seen the [penalty structure for violations](https://www.ama-assn.org/practice-management/hipaa/hipaa-violations-enforcement#:~:text=HIPAA%20violation:%20Unknowing,imprisonment%20up%20to%201%20year.). For the rest of us, protecting patient data isn’t just a checkbox—it’s a survival skill. 
 
 ## What the Heck is Row Level Security, and Why Should You Care?
 
 Row Level Security (RLS) is PostgreSQL’s way of saying, “Welcome, but stay in your assigned space.” Your users become kinda like guests in a hotel, only if door locks were as cool as SQL policies. RLS lets you centralize your access logic, so you can focus on giving your guests a great experience. 
 
-And yeah, it’s a HIPAA win: RLS helps you enforce the “minimum necessary” access rule, so you’re not handing out all the keys when someone just needs access to one room.
+And yeah, it’s a HIPAA win: RLS helps you enforce the “minimum necessary” access rule, so you’re not handing out master  keys when someone just needs access to one room.
 
 ## Getting your Hands Dirty with Serverless PostgreSQL
 
@@ -37,9 +36,14 @@ Congratulations, you’ve just hired a beefy database bouncer! But right now, he
 Let’s say each patient has a `clinician_id` column. You want clinicians to only see their own patients. Here’s how you do it:
 
 ```sql
-CREATE POLICY clinician_access ON patients
+CREATE POLICY clinician_patient_access ON patients
   FOR SELECT, UPDATE
-  USING (clinician_id = current_user::text);
+  USING (EXISTS (
+    SELECT 1
+    FROM clinicians_patients
+    WHERE clinicians_patients.patient_id = patients.id
+      AND clinicians_patients.clinician_id = current_setting('app.current_user')::int
+  ));
 ```
 
 This policy says: “If the `clinician_id` matches the current user’s name, let them SELECT or UPDATE.” (Yes, you’ll need to make sure your app sets up users in PostgreSQL with usernames matching `clinician_id`, or use session variables. More on that in a second.)
@@ -62,8 +66,7 @@ Serverless PostgreSQL is stateless, so we can’t rely on sticky sessions or ner
 
 ### The Setup
 
-- **Table:** `patients`
-- **Columns:** `id`, `name`, `dob`, `clinician_id`
+Row Level Security in PostgreSQL is powerful enough to handle even complex relationships like many-to-many mappings between clinicians and patients. By leveraging join tables and smart policies, you can ensure HIPAA compliance while maintaining a scalable and secure database structure. We'll have 3 tables; `patients`, `clinicians`, and `clinicians_patients`.
 
 ### Step 1: Enable RLS
 
@@ -75,19 +78,34 @@ ALTER TABLE patients FORCE ROW LEVEL SECURITY;
 ### Step 2: Create Clinician Policy
 
 ```sql
-CREATE POLICY clinician_policy ON patients
+CREATE POLICY clinician_patient_access ON patients
   FOR SELECT, UPDATE
-  TO dr_smith, dr_jones
-  USING (clinician_id = current_setting('app.current_user'));
+  USING (EXISTS (
+    SELECT 1
+    FROM clinicians_patients
+    WHERE clinicians_patients.patient_id = patients.id
+      AND clinicians_patients.clinician_id = current_setting('app.current_user')::int
+  ));
 ```
 
-**Step 3: Set the user session variable when connecting:**  
-   In your app, after establishing a connection:
+### Step 3: Set the User Session Variable:**  
+   In your app, set the user session after successfully establishing a connection:
 
 ```javascript
 // Node.js example with pg library
-await client.query('SET SESSION "app.current_user" = $1', [userId]);
+const { Client } = require('pg');
+
+async function setSessionVariable(userId) {
+  const client = new Client({ connectionString: process.env.DATABASE_URL });
+  
+  // Set the session variable for the current user
+  await client.query('SET SESSION "app.current_user" = $1', [userId]);
+}
 ```
+
+### Is All That Really Necessary?
+
+Setting session variables at the start of each connection makes sure that user-specific context, based the current user's ID and role, is explicitly defined. This context is critical for enforcing RLS policies, which depend on session variables to determine which rows a user can access. Without session variables, the database would lack the necessary context to apply access controls, potentially leading to unauthorized data exposure or errors.
 
 ## Conclusion
 
@@ -98,4 +116,4 @@ With some thoughtful RLS policies, we can let PostgreSQL do the heavy lifting, w
 **Further Reading:**  
 - [PostgreSQL RLS Documentation](https://www.postgresql.org/docs/current/ddl-rowsecurity.html)  
 - [HIPAA Security Rule Summary (HHS.gov)](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)  
-- [Serverless PostgreSQL Providers: Neon, Supabase, AWS Aurora](https://neon.tech/), [https://supabase.com/](https://supabase.com/), [https://aws.amazon.com/rds/aurora/serverless/](https://aws.amazon.com/rds/aurora/serverless/)
+- Serverless PostgreSQL Providers: [Neon](https://neon.tech/), [Supabase](https://supabase.com/), [AWS Aurora](https://aws.amazon.com/rds/aurora/serverless/)
