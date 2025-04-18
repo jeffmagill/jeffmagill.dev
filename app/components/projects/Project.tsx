@@ -18,8 +18,8 @@ export default function Project({
 	tags,
 }: ProjectProps) {
 	return (
-		<div className={styles.projectCard}>
-			<div className={styles.projectImageContainer}>
+		<div className={`${styles.projectCard} projectCard`}>
+			<div className={`${styles.projectImageContainer} projectImageContainer`}>
 				{/* TODO: Link to more project details */}
 				<Image
 					src={image}

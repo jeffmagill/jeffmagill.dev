@@ -51,7 +51,6 @@
 		},
 		{
 			"title": "L’Occitane Group Corporate Site",
-			"image": "/images/projects/portfolio-group-site.png",
 			"summary": "This custom ASP.Net website was created to communicate corporate information to prospective investors, and job applicants.",
 			"description": "ASP .Net C# is used for the site’s multi-lingual features and organization of financial documents, designed to be maintained by non-technical associates. My role was to build the front end layout and UI, with backend handling of document uploads.",
 			"tags": ["ASP.net", "C#", "Front-end"],

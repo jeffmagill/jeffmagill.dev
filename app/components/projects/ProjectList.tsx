@@ -17,25 +17,27 @@ interface ProjectsData {
 }
 
 interface ProjectListProps {
+	file?: string;
 	maxProjects?: number;
 }
 
 export const revalidate = 3600; // Revalidate every hour
 
 export default async function ProjectList({
+	file = '',
 	maxProjects = 0,
 }: ProjectListProps): Promise<JSX.Element> {
 	try {
 		// Read the JSON file
-		const fileName = process.cwd() + '/content/projects.json';
-		const file = await fs.readFile(fileName, 'utf8');
-		console.log('File: "' + fileName + '" loaded. 98798');
+		const fileName = process.cwd() + '/content/projects'+file+'.json';
+		const fileContent = await fs.readFile(fileName, 'utf8');
+		console.log('File: "' + fileName + '" loaded.');
 		// Check if file content is empty or undefined
-		if (!file) {
+		if (!fileContent) {
 			throw new Error('File: "' + fileName + '" was not loaded. 12414');
 		}
 
-		const data: ProjectsData = JSON.parse(file);
+		const data: ProjectsData = JSON.parse(fileContent);
 
 		// Check if projects array exists and is not empty
 		if (!data.projects || data.projects.length === 0) {
@@ -47,8 +49,8 @@ export default async function ProjectList({
 			maxProjects > 0 ? data.projects.slice(0, maxProjects) : data.projects;
 
 		return (
-			<section className={styles.projectsContainer}>
-				<div className={styles.projectsGrid}>
+			<section className={`${styles.projectsContainer} projectsContainer`}>
+				<div className={`${styles.projectsGrid} projectsGrid`}>
 					{projectsToRender.map((project, index) => (
 						<Project key={index} {...project} />
 					))}

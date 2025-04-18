@@ -61,6 +61,14 @@ export default function Projects() {
 						<ProjectList />
 					</div>
 				</section>
+
+				{/* Archive */}
+				<section className={`${styles.archive} archive`}>
+					<div className={`${styles.wrapper} wrapper`}>
+						<h2 className='text-center mx-auto'>Archive</h2>
+						<ProjectList file='-archive' />
+					</div>
+				</section>
 			</div>
 		</main>
 	);

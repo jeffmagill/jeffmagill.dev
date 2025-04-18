@@ -9,7 +9,7 @@
 	--alwaysBlack: #171717;
 
 	--gap: 1.5rem;
-	--gutter: var(--gutter);
+	--gutter: 1.5rem;
 	--mobile: 480px;
 	--tablet: 860px;
 	--blog-width: 800px;
