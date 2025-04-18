@@ -9,7 +9,7 @@ lastUpdated: 1744987245
 
 As long as content exists, content management will be a relevant factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?
 
-One tool that has gained popularity for simplifying this process is Markdown. In this post, we'll discuss the benefits of using Markdown and how you can incorporate it into your projects. I'm such a fan, that I wrote this very article in Markdown for[my own blog ](https://magill.dev/blog)!
+One tool that has gained popularity for simplifying this process is Markdown. In this post, we'll discuss the benefits of using Markdown and how you can incorporate it into your projects. I'm such a fan, that I wrote this very article in Markdown for [my own blog ](https://magill.dev/blog)!
 
 ### Benefits of Using Markdown
 
@@ -54,7 +54,7 @@ When I'm using ChatGPT or Claude to help draft content (like [this article](http
 
 ### The Closing tag
 
-Look, I'm not saying Markdown will change your life or make you a better person or anything. But it would be silly to ignore the advantages Markdown offers for simplifing content formatting and management. Its simplicity, portability, and compatibility with 3rd party platforms, make it an useful tool in various contexts. I've written a little more about [how I've implemented Markdown](https://magill.dev/post/lets-breakdown-this-website) on my own site. If any of this sounds interesting, maybe it is time to consider using in your own projects.
+Look, I'm not saying Markdown will change your life or make you a better person or anything. But it would be silly to ignore the advantages Markdown offers for content formatting and management. Its simplicity, portability, and compatibility with 3rd party platforms, make it an useful tool in various contexts. I've written a little more about [how I've implemented Markdown](https://magill.dev/post/lets-breakdown-this-website) on my own site. If any of this sounds interesting, maybe it is time to consider using in your own projects.
 
 ### Related Links
 
