@@ -8,11 +8,15 @@
 }
 .archive {
 	margin: var(--gutter) auto;
+	padding-top: var(--gutter);
 	display: none;
 
 	h2 {
 		text-align: center;
-		margin: var(--gutter) auto;
+	}
+	p {
+		text-align: center;
+		margin-bottom: calc(var(--gutter) * 2);
 	}
 	:global(.projectsGrid) {
 		align-items: center;
@@ -20,12 +24,13 @@
 		z-index: 1;
 	}
 	:global(.projectCard) {
+		padding: 0;
 		background-color: transparent;
 		border: 0 none;
-		padding: 0;
 
 		:global(.projectImageContainer) {
 			margin-bottom: 0;
+			border-radius: 0;
 
 			img {
 				width: 100%;
@@ -33,6 +38,7 @@
 				object-fit: cover;
 				object-position: top;
 				aspect-ratio: 4 / 3;
+				border-radius: 4%;
 			}
 		}
 

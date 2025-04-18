@@ -17,6 +17,9 @@
 .post p {
 	margin: 1rem auto;
 }
+.post strong {
+	font-weight: 600;
+}
 .post ul,
 .post ol {
 	padding-left: var(--gap);

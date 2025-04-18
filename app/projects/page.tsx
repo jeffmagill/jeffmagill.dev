@@ -65,7 +65,10 @@ export default function Projects() {
 				{/* Archive */}
 				<section className={`${styles.archive} archive`}>
 					<div className={`${styles.wrapper} wrapper`}>
-						<h2 className='text-center mx-auto'>Archive</h2>
+						<h2 className='text-center mx-auto'>Project Archive</h2>
+						<p className='text-center mx-auto'>
+							Cool stuff I worked on &apos;back in the day&apos;.
+						</p>
 						<ProjectList file='-archive' />
 					</div>
 				</section>
