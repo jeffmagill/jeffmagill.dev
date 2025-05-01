@@ -25,7 +25,7 @@
 	}
   }
   .projectImageContainer {
-	box-shadow: inset 0px 0px 3vmax rgba(0, 0, 0, 1);
+	box-shadow: inset 0px 0px 3vmax var(--backgroundToo);
 	margin-bottom: calc(var(--gap) / 2);
 	overflow: hidden;
   }
