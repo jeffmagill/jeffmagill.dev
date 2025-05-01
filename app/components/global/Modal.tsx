@@ -42,9 +42,7 @@ const Modal: React.FC<ModalProps> = ({
     
     // Ensure we clean up properly
     return () => {
-      if (isOpen) {
-        document.body.style.overflow = originalOverflow;
-      }
+      document.body.style.overflow = originalOverflow;
     };
   }, [isOpen]);
   

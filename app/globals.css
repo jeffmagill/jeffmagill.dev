@@ -1,5 +1,6 @@
 :root {
 	--background: #fefefe;
+	--background-transparent:rgba(254, 254, 254, 0.5);
 	--backgroundToo: #eff2f5;
 	--foreground: #171717;
 	--primary-color: #3498db;
