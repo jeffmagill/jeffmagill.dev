@@ -42,7 +42,9 @@
   height: auto;
   object-fit: cover;
   border-radius: .25rem;
-  max-height: 36vh;
+  max-height: 50vh;
+  object-position: top;
+  max-height: 50vh;
   
   @media (min-width: 640px) {
     max-height: calc(100vh - 9rem);

@@ -27,24 +27,41 @@ const Modal: React.FC<ModalProps> = ({
 }) => {
   const [isMounted, setIsMounted] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const modalBodyRef = useRef<HTMLDivElement>(null);
 
   // Handle body scroll locking
   useEffect(() => {
     setIsMounted(true);
     
-    // Store original body style
-    const originalOverflow = document.body.style.overflow;
-    
     if (isOpen) {
-      // Prevent scrolling on body when modal is open
-      document.body.style.overflow = 'hidden';
+      // Save the current scroll position before locking
+      const scrollY = window.scrollY;
+      
+      // Add class to body to prevent scrolling
+      document.body.classList.add('modal-open');
+      
+      // Store the scroll position as a data attribute
+      document.body.style.top = `-${scrollY}px`;
+      
+      return () => {
+        // Remove the class when modal closes
+        document.body.classList.remove('modal-open');
+        
+        // Reset the body position
+        document.body.style.top = '';
+        
+        // Restore scroll position
+        window.scrollTo(0, scrollY);
+      };
     }
-    
-    // Ensure we clean up properly
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
   }, [isOpen]);
+  
+  // Reset modal content scroll position when modal opens with new content
+  useEffect(() => {
+    if (isOpen && modalBodyRef.current) {
+      modalBodyRef.current.scrollTop = 0;
+    }
+  }, [isOpen, children]);
   
   // Handle ESC key for closing
   useEffect(() => {
@@ -101,7 +118,7 @@ const Modal: React.FC<ModalProps> = ({
           </button>
         )}
         
-        <div className={styles.modalBody}>
+        <div className={styles.modalBody} ref={modalBodyRef}>
           {children}
         </div>
       </div>
