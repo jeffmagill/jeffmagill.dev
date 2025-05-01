@@ -89,7 +89,7 @@ useEffect(() => {
 
 ### Accessibility Concerns
 
-It's tempting to pretend accesibility doesn't exist, but we dont need the unwanted attention from regulators. Here we can set ARIA attributes help screen readers understand the purpose and state of the modal:
+It's tempting to pretend accessibility doesn't exist, but we don't want visually impaired users to grab their pitchforks and threaten our livelihood. Instead, we can just set ARIA attributes to help screen readers understand the purpose and state of the modal:
 
 ```tsx
 <div 
