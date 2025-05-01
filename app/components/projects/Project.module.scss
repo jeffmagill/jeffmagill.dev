@@ -1,7 +1,7 @@
 .projectCard {
 	display: flex;
 	position: relative;
-	z-index: -1;
+	z-index: 0;
 	flex-direction: column;
 	flex-basis: calc(33.333% - var(--gap));
 	min-width: 260px;
@@ -9,12 +9,19 @@
 	border: 1px solid var(--line-color);
 	background-color: var(--backgroundToo);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 
 	@media (max-width: 800px) {
 		flex-basis: calc(50% - 0.625rem);
 	}
 	@media (max-width: 480px) {
 		flex-basis: 100%;
+	}
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 	}
 }
 .projectImageContainer {
@@ -28,7 +35,7 @@
 	height: auto;
 	object-fit: cover;
 	position: relative;
-	z-index: -1;
+	z-index: 1;
 }
 .projectSummary {
 	font-size: 1rem;
@@ -50,4 +57,92 @@
 	padding: 0.1rem 0.5rem;
 	border-radius: 999px;
 	font-size: 0.8rem;
+}
+
+// Modal specific styles
+.projectModalContent {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	height: 100%;
+	align-items: center;
+}
+
+.projectModalImage {
+	width: 100%;
+
+	.fullImage {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: .25rem;
+		max-height: calc(100vh - 9rem);
+	}
+}
+
+.projectModalInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	overflow-y: auto; // Make this section scrollable
+	max-height: 50vh; // Limit height on mobile to ensure scrolling works
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground) var(--background);
+    margin-right: 0.5rem;
+}
+
+.projectModalSummary {
+	font-size: 1.1rem;
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+}
+
+.projectModalDescription {
+	line-height: 1.6;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	p {
+		margin-bottom: 1rem;
+	}
+
+	ul, ol {
+		margin-left: 1.5rem;
+		margin-bottom: 1rem;
+	}
+}
+
+.projectModalTags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+
+	.tag {
+		background-color: var(--foreground);
+		color: var(--background);
+	}
+}
+
+// Responsive adjustments for the modal content
+@media (min-width: 768px) {
+	.projectModalContent {
+		flex-direction: row;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.projectModalImage {
+		flex: 2;
+		height: 100%;
+		overflow: hidden;
+	}
+
+	.projectModalInfo {
+		flex: 3;
+		max-height: calc(90vh - 5rem); // Taller on desktop
+	}
 }

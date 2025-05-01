@@ -55,7 +55,7 @@ export default function Projects() {
 					</p>
 				</Hero>
 
-				{/* All Projects */}
+				{/* Projects */}
 				<section className={`${styles.allProjects} allProjects`}>
 					<div className={`${styles.wrapper} wrapper`}>
 						<ProjectList />
