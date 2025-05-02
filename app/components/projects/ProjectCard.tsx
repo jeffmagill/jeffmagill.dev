@@ -36,13 +36,6 @@ export default function ProjectCard({
       </div>
       <h3>{title}</h3>
       <p className={styles.projectSummary}>{summary}</p>
-      <div className={styles.tags}>
-        {tags.map((tag, tagIndex) => (
-          <span key={tagIndex} className={styles.tag}>
-            {tag}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }

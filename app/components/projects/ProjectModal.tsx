@@ -33,11 +33,6 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
         </div>
         <div className={styles.projectModalInfo}>
           <h2 className={styles.projectModalTitle}>{project.title}</h2>
-          <p className={styles.projectModalSummary}>{project.summary}</p>
-          <div
-            className={styles.projectModalDescription}
-            dangerouslySetInnerHTML={{ __html: project.description }}
-          />
           <div className={styles.projectModalTags}>
             {project.tags.map((tag, tagIndex) => (
               <span key={tagIndex} className={styles.tag}>
@@ -45,6 +40,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
               </span>
             ))}
           </div>
+          <p className={styles.projectModalSummary}>{project.summary}</p>
+          <div
+            className={styles.projectModalDescription}
+            dangerouslySetInnerHTML={{ __html: project.description }}
+          />
         </div>
       </div>
     </Modal>
