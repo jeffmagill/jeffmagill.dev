@@ -25,7 +25,7 @@ export interface ProjectsData {
   projects: Project[];
 }
 
-export interface ProjectListProps {
+export interface ProjectListContainerProps {
   file?: string;
   maxProjects?: number;
 }

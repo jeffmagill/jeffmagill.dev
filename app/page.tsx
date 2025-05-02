@@ -11,7 +11,7 @@ import { settings } from '@/utils/settings.mjs';
 import Hero from '@/app/components/global/Hero';
 import Callout from '@/app/components/global/Callout';
 import PostList from '@/app/components/blog/PostList';
-import ProjectList from '@/app/components/projects/ProjectList';
+import ProjectListContainer from '@/app/components/projects/ProjectListContainer';
 
 import styles from './page.module.scss';
 
@@ -133,7 +133,7 @@ export default function Home() {
 					<div className={`${styles.wrapper} wrapper`}>
 						<h2>Featured Projects </h2>
 						<p>Some of my greatest hits that were pretty cool at some point</p>
-						<ProjectList maxProjects={3} />
+						<ProjectListContainer maxProjects={3} />
 						<p>
 							<Link href='/projects'>View All Projects</Link>
 						</p>

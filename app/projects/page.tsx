@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 
 import { settings } from '@/utils/settings.mjs';
 import Hero from '@/app/components/global/Hero';
-import ProjectList from '@/app/components/projects/ProjectList';
+import ProjectListContainer from '@/app/components/projects/ProjectListContainer';
 import styles from './page.module.scss';
 
 const meta = {
@@ -58,7 +58,7 @@ export default function Projects() {
 				{/* Projects */}
 				<section className={`${styles.allProjects} allProjects`}>
 					<div className={`${styles.wrapper} wrapper`}>
-						<ProjectList />
+						<ProjectListContainer />
 					</div>
 				</section>
 
@@ -69,7 +69,7 @@ export default function Projects() {
 						<p className='text-center mx-auto'>
 							Cool stuff I worked on &apos;back in the day&apos;.
 						</p>
-						<ProjectList file='-archive' />
+						<ProjectListContainer file='-archive' />
 					</div>
 				</section>
 			</div>

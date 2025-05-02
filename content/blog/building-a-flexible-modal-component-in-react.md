@@ -1,19 +1,19 @@
 ---
 title: Building a Flexible Modal Component in React
 description: Learn how to create a flexible, accessible modal dialog component in React that can be used across your application.
-image: /images/blog/sigmund-recycle-unsplash.jpg
+image: /images/blog/modal-example.png
 tags: react, components, accessibility
 created: 1745302800
 lastUpdated:
 ---
 
-Modal popups are a very common UI pattern that adds a lot of utility to modern web apps. Unfortunately for developers like us, that means we need to master all the technical complexities associated with them. What seems like a simple popup window actually involves a lot of intricate concerns: accessibility, responsive design, keyboard navigation, scroll management, and more. 
+Modal popups are a very common UI pattern that adds a lot of utility to modern web apps. Unfortunately for developers like us, that means we need to master all the technical complexities associated with them. What seems like a simple popup window actually involves a lot of intricate details: accessibility, responsive design, keyboard navigation, scroll management, and more. 
 
-For my current project, I wanted to build something that could be reused throughout the application rather than reinventing the wheel each time. In this post, I'll walk through how I created a flexible, reusable modal component that can render content, forms, or whatever else I need to show.
+For my current project, I needed something that could be reused throughout the application rather than reinventing the wheel each time. In this post, I'll walk through how I created a flexible, reusable modal component that can render content, forms, or whatever else I need to show, on any device.
 
 ## What exactly do we need here?
 
-I needed a way to display detailed information without navigating users away from the current page. The solution should be versatile enough to handle various use cases: terms and conditions, newsletter signups, contact forms, or notification alerts.
+A modal is best used to focus the user's attention on specific elements without navigating users away from the current page. The solution should be versatile enough to handle various use cases: terms and conditions, newsletter signups, contact forms, or notification alerts.
 
 My wishlist looks something like this:
 
@@ -140,54 +140,45 @@ For modals with a lot of content, we want the modal itself to scroll while keepi
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: var(--background);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
 }
-
 .modalInfo {
   overflow-y: auto;
   max-height: calc(90vh - 5rem);
 }
 ```
 
-This keeps your header visible while users scroll through that novel-length privacy policy. The close button stays put, so users can escape when they inevitably get bored.
+This keeps your header visible while users scroll through that novel-length privacy policy. The header and close button stays put, so users can escape when they inevitably get bored.
 
-## Using the Modal in Practice
+## Using the Modal
 
-The most immediate need was for simply displaying detailed information. When users click an item, a modal opens with additional content:
+Here we can see the modal in it's natural habitat. When users click on a thumbnail, the modal provides a seamless way to display additional details: 
 
 ```tsx
-function Item({ title, description, image }) {
+function Thumbnail({ title, description, image }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <div className="itemCard" onClick={() => setIsModalOpen(true)}>
+      <div className="thumbnail" onClick={() => setIsModalOpen(true)}>
         <Image src={image} alt={title} />
-        <h3>{title}</h3>
-        <p>{description}</p>
       </div>
 
-      <Modal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)}
-        showHeader={false}
-        size="large"
-      >
-        <div className="itemModalContent">
-          <div className="itemModalImage">
-            <Image src={image} alt={title} priority={isModalOpen} />
-          </div>
-          <div className="itemModalInfo">
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <div className="itemModalDetails">
-              {/* Additional content */}
+      {isModalOpen && (
+        <Modal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)}
+        >
+          <div className="itemModalContent">
+            <div className="itemModalImage">
+              <Image src={image} alt={title} />
+            </div>
+            <div className="itemModalInfo">
+              <h2>{title}</h2>
+              <p>{description}</p>
             </div>
           </div>
-        </div>
-      </Modal>
+        </Modal>
+      )}
     </>
   );
 }
@@ -195,10 +186,10 @@ function Item({ title, description, image }) {
 
 ### For Forms and Signups
 
-Need to collect some user data without sending them to another page? Same modal, different outfit:
+Let's imagine we want to collect some user data without sending them to another page? Same modal, different outfit:
 
 ```tsx
-function ContactModal() {
+function Contact() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -206,16 +197,15 @@ function ContactModal() {
       <button onClick={() => setIsModalOpen(true)}>
         Get in Touch
       </button>
-
-      <Modal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)}
-        title="Contact Us"
-        showHeader={true}
-        size="medium"
-      >
-        <ContactForm onSubmit={() => setIsModalOpen(false)} />
-      </Modal>
+      {isModalOpen && (
+        <Modal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)}
+          title="Contact Us"
+        >
+          <ContactForm onSubmit={() => setIsModalOpen(false)} />
+        </Modal>
+      )}
     </>
   );
 }
@@ -225,7 +215,7 @@ function ContactModal() {
 
 The true value of this approach comes when you need to add new functionality. Instead of building specialized modals for each use case, you can reuse this component with different props and content. This ensures consistency, maintains accessibility standards, and lets you focus on more important things.
 
-Whether you're showing off your best cat photos, collecting emails nobody wants to give you, or displaying important notifications, a well-built modal makes life better for everyone involved - especially future you, who doesn't have to build it again.
+Whether you're showing off your best cat photos, collecting emails nobody wants to give you, or display legal text no one wants to read, a well-built modal makes life better for everyone involved - especially future you, who doesn't have to build it again.
 
 ### Related Links
 

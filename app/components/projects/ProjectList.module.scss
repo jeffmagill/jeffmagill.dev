@@ -1,11 +1,11 @@
-// app/projects/ProjectList.module.scss
-.projectsContainer {
-	.projectsGrid {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: var(--gap);
-		max-width: var(--inner-width);
-		margin: var(--gap) auto;
-	}
+.projectList {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.projectListInner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  justify-content: center;
 }
