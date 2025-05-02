@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDirections } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import styles from './NavButton.module.scss';
 
 const NavButton: React.FC = () => {
@@ -53,7 +53,7 @@ const NavButton: React.FC = () => {
 			/>
 			<label className={styles.navButtonIcon} htmlFor='navButton'>
 				{/* TODO: change the mobile button to something more recognizable */}
-				<FontAwesomeIcon icon={faDirections} />
+				<FontAwesomeIcon icon={faBars} />
 			</label>
 		</>
 	);

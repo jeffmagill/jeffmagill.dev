@@ -155,7 +155,7 @@ This keeps your header visible while users scroll through that novel-length priv
 
 ## Using the Modal in Practice
 
-The most immediate application was for displaying detailed information. When users click an item, a modal opens with additional content:
+The most immediate need was for simply displaying detailed information. When users click an item, a modal opens with additional content:
 
 ```tsx
 function Item({ title, description, image }) {

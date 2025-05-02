@@ -72,9 +72,6 @@ a {
 	color: inherit;
 	text-decoration: underline;
 }
-a:hover {
-	text-decoration: none;
-}
 
 main {
 	min-height: 66dvh;
