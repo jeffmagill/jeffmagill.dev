@@ -31,7 +31,7 @@ vi.mock('react', async () => {
         return ['https://test.example.com/post/test', vi.fn()];
       }
       // For any other state, use the real implementation
-      return actual.useState(initialValue);
+      return (actual as typeof import('react')).useState(initialValue);
     }
   };
 });
