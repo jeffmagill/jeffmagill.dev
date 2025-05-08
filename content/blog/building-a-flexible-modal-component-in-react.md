@@ -7,7 +7,7 @@ created: 1746201655
 lastUpdated:
 ---
 
-Modal popups are a very common UI pattern that adds a lot of utility to modern web apps. Unfortunately for developers like us, that means we need to master all the technical complexities associated with them. What seems like a simple popup window actually involves a lot of intricate details: accessibility, responsive design, keyboard navigation, scroll management, and more. 
+Modal popups are a very common UI pattern that adds a lot of utility to modern web apps. Unfortunately for developers like us, that means we need to master all the technical complexities associated with them. What seems like a simple popup window actually involves a lot of intricate details: accessibility, responsive design, keyboard navigation, scroll management, and more.
 
 For my current project, I needed something that could be reused throughout the application rather than reinventing the wheel each time. In this post, I'll walk through how we can creat a flexible, reusable modal component that can render content, forms, or whatever else I need to show, on any device.
 
@@ -36,33 +36,31 @@ Using React's functional components and hooks approach, the basic structure look
 
 ```tsx
 const Modal = ({ isOpen, onClose, title, children }) => {
-  // State and refs go here, along with my hopes and dreams
+	// State and refs go here, along with my hopes and dreams
 
-  return (
-    <div 
-      className={`modalOverlay ${isOpen ? 'open' : ''}`}
-      onClick={handleOutsideClick}
-      role="dialog"
-      aria-modal="true"
-    >
-      <div className={`modalContent`}>
-          <div className="modalHeader">
-            {title && <h2>{title}</h2>}
-            <button 
-              className="closeButton"
-              onClick={onClose}
-              aria-label="Close modal"
-            >
-              <CloseIcon />
-            </button>
-          </div>
-                
-        <div className="modalBody">
-          {children}
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div
+			className={`modalOverlay ${isOpen ? 'open' : ''}`}
+			onClick={handleOutsideClick}
+			role='dialog'
+			aria-modal='true'
+		>
+			<div className={`modalContent`}>
+				<div className='modalHeader'>
+					{title && <h2>{title}</h2>}
+					<button
+						className='closeButton'
+						onClick={onClose}
+						aria-label='Close modal'
+					>
+						<CloseIcon />
+					</button>
+				</div>
+
+				<div className='modalBody'>{children}</div>
+			</div>
+		</div>
+	);
 };
 ```
 
@@ -72,27 +70,27 @@ When a modal opens, you want to prevent the underlying page from scrolling. This
 
 ```tsx
 useEffect(() => {
-  if (isOpen) {
-    // Save the current scroll position before locking
-    const scrollY = window.scrollY;
-    
-    // Add class to body to prevent scrolling
-    document.body.classList.add('modal-open');
-    
-    // Store the scroll position as a data attribute
-    document.body.style.top = `-${scrollY}px`;
-    
-    return () => {
-      // Remove the class when modal closes
-      document.body.classList.remove('modal-open');
-      
-      // Reset the body position
-      document.body.style.top = '';
-      
-      // Restore scroll position
-      window.scrollTo(0, scrollY);
-    };
-  }
+	if (isOpen) {
+		// Save the current scroll position before locking
+		const scrollY = window.scrollY;
+
+		// Add class to body to prevent scrolling
+		document.body.classList.add('modal-open');
+
+		// Store the scroll position as a data attribute
+		document.body.style.top = `-${scrollY}px`;
+
+		return () => {
+			// Remove the class when modal closes
+			document.body.classList.remove('modal-open');
+
+			// Reset the body position
+			document.body.style.top = '';
+
+			// Restore scroll position
+			window.scrollTo(0, scrollY);
+		};
+	}
 }, [isOpen]);
 ```
 
@@ -101,14 +99,14 @@ useEffect(() => {
 It's tempting to pretend accessibility doesn't exist, but we don't want visually impaired users to grab their pitchforks and threaten our livelihood. Instead, we can just set ARIA attributes to help screen readers understand the purpose and state of the modal:
 
 ```tsx
-<div 
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby={title ? "modal-title" : undefined}
-  // ...other attributes
+<div
+	role='dialog'
+	aria-modal='true'
+	aria-labelledby={title ? 'modal-title' : undefined}
+	// ...other attributes
 >
-  {title && <h2 id="modal-title">{title}</h2>}
-  // ...content
+	{title && <h2 id='modal-title'>{title}</h2>}
+	// ...content
 </div>
 ```
 
@@ -121,19 +119,19 @@ import { createPortal } from 'react-dom';
 
 const Modal = ({ isOpen, onClose, children, ...props }) => {
   const [isMounted, setIsMounted] = useState(false);
-  
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   const modalContent = (
     // Modal JSX structure here
   );
-  
+
   if (!isMounted) {
     return null;
   }
-  
+
   return createPortal(modalContent, document.body);
 };
 ```
@@ -146,13 +144,13 @@ For modals with a lot of content, we want the modal content to scroll while keep
 
 ```scss
 .modalHeader {
-  position: sticky;
-  top: 0;
-  z-index: 10;
+	position: sticky;
+	top: 0;
+	z-index: 10;
 }
 .modalInfo {
-  overflow-y: auto;
-  max-height: calc(100% - 5rem);
+	overflow-y: auto;
+	max-height: calc(100% - 5rem);
 }
 ```
 
@@ -168,49 +166,46 @@ const modalBodyRef = useRef(null);
 
 // Reset scroll position when modal opens with new content
 useEffect(() => {
-  if (isOpen && modalBodyRef.current) {
-    modalBodyRef.current.scrollTop = 0;
-  }
+	if (isOpen && modalBodyRef.current) {
+		modalBodyRef.current.scrollTop = 0;
+	}
 }, [isOpen, children]);
 
 // Then in your JSX, attach the ref:
-<div className="modalBody" ref={modalBodyRef}>
-  {children}
-</div>
+<div className='modalBody' ref={modalBodyRef}>
+	{children}
+</div>;
 ```
 
 ## Using the Modal
 
-Here we can see the component in it's natural habitat. When users click on a thumbnail, the modal provides a seamless way to display additional details: 
+Here we can see the component in it's natural habitat. When users click on a thumbnail, the modal provides a seamless way to display additional details:
 
 ```tsx
 function Thumbnail({ title, description, image }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-  return (
-    <>
-      <div className="thumbnail" onClick={() => setIsModalOpen(true)}>
-        <Image src={image} alt={title} />
-      </div>
+	return (
+		<>
+			<div className='thumbnail' onClick={() => setIsModalOpen(true)}>
+				<Image src={image} alt={title} />
+			</div>
 
-      {isModalOpen && (
-        <Modal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)}
-        >
-          <div className="itemModalContent">
-            <div className="itemModalImage">
-              <Image src={image} alt={title} />
-            </div>
-            <div className="itemModalInfo">
-              <h2>{title}</h2>
-              <p>{description}</p>
-            </div>
-          </div>
-        </Modal>
-      )}
-    </>
-  );
+			{isModalOpen && (
+				<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+					<div className='itemModalContent'>
+						<div className='itemModalImage'>
+							<Image src={image} alt={title} />
+						</div>
+						<div className='itemModalInfo'>
+							<h2>{title}</h2>
+							<p>{description}</p>
+						</div>
+					</div>
+				</Modal>
+			)}
+		</>
+	);
 }
 ```
 
@@ -220,24 +215,22 @@ Let's imagine we want to collect some user data without sending them to another 
 
 ```tsx
 function Contact() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
-  return (
-    <>
-      <button onClick={() => setIsModalOpen(true)}>
-        Get in Touch
-      </button>
-      {isModalOpen && (
-        <Modal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)}
-          title="Contact Us"
-        >
-          <ContactForm onSubmit={() => setIsModalOpen(false)} />
-        </Modal>
-      )}
-    </>
-  );
+	return (
+		<>
+			<button onClick={() => setIsModalOpen(true)}>Get in Touch</button>
+			{isModalOpen && (
+				<Modal
+					isOpen={isModalOpen}
+					onClose={() => setIsModalOpen(false)}
+					title='Contact Us'
+				>
+					<ContactForm onSubmit={() => setIsModalOpen(false)} />
+				</Modal>
+			)}
+		</>
+	);
 }
 ```
 

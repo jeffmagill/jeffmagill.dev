@@ -7,132 +7,137 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import styles from './Modal.module.scss';
 
 interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  title?: string;
-  children: React.ReactNode;
-  size?: 'small' | 'medium' | 'large';
-  closeOnOutsideClick?: boolean;
-  showHeader?: boolean;
+	isOpen: boolean;
+	onClose: () => void;
+	title?: string;
+	children: React.ReactNode;
+	size?: 'small' | 'medium' | 'large';
+	closeOnOutsideClick?: boolean;
+	showHeader?: boolean;
 }
 
 const Modal: React.FC<ModalProps> = ({
-  isOpen,
-  onClose,
-  title,
-  children,
-  size = 'medium',
-  closeOnOutsideClick = true,
-  showHeader = true,
+	isOpen,
+	onClose,
+	title,
+	children,
+	size = 'medium',
+	closeOnOutsideClick = true,
+	showHeader = true,
 }) => {
-  const [isMounted, setIsMounted] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
-  const modalBodyRef = useRef<HTMLDivElement>(null);
+	const [isMounted, setIsMounted] = useState(false);
+	const modalRef = useRef<HTMLDivElement>(null);
+	const modalBodyRef = useRef<HTMLDivElement>(null);
 
-  // Handle body scroll locking
-  useEffect(() => {
-    setIsMounted(true);
-    
-    if (isOpen) {
-      // Save the current scroll position before locking
-      const scrollY = window.scrollY;
-      
-      // Add class to body to prevent scrolling
-      document.body.classList.add('modal-open');
-      
-      // Store the scroll position as a data attribute
-      document.body.style.top = `-${scrollY}px`;
-      
-      return () => {
-        // Remove the class when modal closes
-        document.body.classList.remove('modal-open');
-        
-        // Reset the body position
-        document.body.style.top = '';
-        
-        // Restore scroll position
-        window.scrollTo(0, scrollY);
-      };
-    }
-  }, [isOpen]);
-  
-  // Reset modal content scroll position when modal opens with new content
-  useEffect(() => {
-    if (isOpen && modalBodyRef.current) {
-      modalBodyRef.current.scrollTop = 0;
-    }
-  }, [isOpen, children]);
-  
-  // Handle ESC key for closing
-  useEffect(() => {
-    if (isOpen) {
-      const handleEscKey = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          onClose();
-        }
-      };
-      
-      document.addEventListener('keydown', handleEscKey);
-      return () => {
-        document.removeEventListener('keydown', handleEscKey);
-      };
-    }
-  }, [isOpen, onClose]);
+	// Handle body scroll locking
+	useEffect(() => {
+		setIsMounted(true);
 
-  const handleOutsideClick = (e: React.MouseEvent) => {
-    if (closeOnOutsideClick && modalRef.current && e.target === modalRef.current) {
-      onClose();
-    }
-  };
+		if (isOpen) {
+			// Save the current scroll position before locking
+			const scrollY = window.scrollY;
 
-  const modalContent = (
-    <div 
-      className={`${styles.modalOverlay} ${isOpen ? styles.open : ''}`} 
-      ref={modalRef}
-      onClick={handleOutsideClick}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby={title && showHeader ? "modal-title" : undefined}
-    >
-      <div className={`${styles.modalContent} ${styles[size] || ''}`}>
-        {showHeader && (
-          <div className={styles.modalHeader}>
-            {title && <h2 id="modal-title" className={styles.modalTitle}>{title}</h2>}
-            <button 
-              className={styles.closeButton} 
-              onClick={onClose}
-              aria-label="Close modal"
-            >
-              <FontAwesomeIcon icon={faTimes} />
-            </button>
-          </div>
-        )}
-        
-        {!showHeader && (
-          <button 
-            className={`${styles.closeButton} ${styles.floatingClose}`} 
-            onClick={onClose}
-            aria-label="Close modal"
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
-        )}
-        
-        <div className={styles.modalBody} ref={modalBodyRef}>
-          {children}
-        </div>
-      </div>
-    </div>
-  );
+			// Add class to body to prevent scrolling
+			document.body.classList.add('modal-open');
 
-  if (!isMounted) {
-    return null;
-  }
+			// Store the scroll position as a data attribute
+			document.body.style.top = `-${scrollY}px`;
 
-  return createPortal(
-    modalContent,
-    document.body
-  );
+			return () => {
+				// Remove the class when modal closes
+				document.body.classList.remove('modal-open');
+
+				// Reset the body position
+				document.body.style.top = '';
+
+				// Restore scroll position
+				window.scrollTo(0, scrollY);
+			};
+		}
+	}, [isOpen]);
+
+	// Reset modal content scroll position when modal opens with new content
+	useEffect(() => {
+		if (isOpen && modalBodyRef.current) {
+			modalBodyRef.current.scrollTop = 0;
+		}
+	}, [isOpen, children]);
+
+	// Handle ESC key for closing
+	useEffect(() => {
+		if (isOpen) {
+			const handleEscKey = (event: KeyboardEvent) => {
+				if (event.key === 'Escape') {
+					onClose();
+				}
+			};
+
+			document.addEventListener('keydown', handleEscKey);
+			return () => {
+				document.removeEventListener('keydown', handleEscKey);
+			};
+		}
+	}, [isOpen, onClose]);
+
+	const handleOutsideClick = (e: React.MouseEvent) => {
+		if (
+			closeOnOutsideClick &&
+			modalRef.current &&
+			e.target === modalRef.current
+		) {
+			onClose();
+		}
+	};
+
+	const modalContent = (
+		<div
+			className={`${styles.modalOverlay} ${isOpen ? styles.open : ''}`}
+			ref={modalRef}
+			onClick={handleOutsideClick}
+			role='dialog'
+			aria-modal='true'
+			aria-labelledby={title && showHeader ? 'modal-title' : undefined}
+		>
+			<div className={`${styles.modalContent} ${styles[size] || ''}`}>
+				{showHeader && (
+					<div className={styles.modalHeader}>
+						{title && (
+							<h2 id='modal-title' className={styles.modalTitle}>
+								{title}
+							</h2>
+						)}
+						<button
+							className={styles.closeButton}
+							onClick={onClose}
+							aria-label='Close modal'
+						>
+							<FontAwesomeIcon icon={faTimes} />
+						</button>
+					</div>
+				)}
+
+				{!showHeader && (
+					<button
+						className={`${styles.closeButton} ${styles.floatingClose}`}
+						onClick={onClose}
+						aria-label='Close modal'
+					>
+						<FontAwesomeIcon icon={faTimes} />
+					</button>
+				)}
+
+				<div className={styles.modalBody} ref={modalBodyRef}>
+					{children}
+				</div>
+			</div>
+		</div>
+	);
+
+	if (!isMounted) {
+		return null;
+	}
+
+	return createPortal(modalContent, document.body);
 };
 
 export default Modal;

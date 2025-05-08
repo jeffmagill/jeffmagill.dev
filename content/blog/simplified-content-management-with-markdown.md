@@ -25,24 +25,25 @@ Markdown works seamlessly with version control systems like Git. This compatibil
 ### Where Markdown Shines Brightest
 
 **Documentation**  
-Markdown is a great way to format technical information in README files, project documentation, and user guides. Its clarity makes it ideal for maintaining accessible documentation that can grow alongside your project. It's natively supported on GitHub, Confluence, Google Docs, Notion, and many more knowledgebase management platforms. If ya can't beat em, adopt their tech policies. 
+Markdown is a great way to format technical information in README files, project documentation, and user guides. Its clarity makes it ideal for maintaining accessible documentation that can grow alongside your project. It's natively supported on GitHub, Confluence, Google Docs, Notion, and many more knowledgebase management platforms. If ya can't beat em, adopt their tech policies.
 
 **Blogging**  
-Many blogging platforms support Markdown, enabling a streamlined writing process for your posts. In fact, this very [blog post](https://magill.dev/post/simplified-content-management-with-markdown) was crafted using Markdown! By integrating it into my blogging workflow, I can create content quickly while enjoying instant formatting feedback. 
+Many blogging platforms support Markdown, enabling a streamlined writing process for your posts. In fact, this very [blog post](https://magill.dev/post/simplified-content-management-with-markdown) was crafted using Markdown! By integrating it into my blogging workflow, I can create content quickly while enjoying instant formatting feedback.
 
 ### Markdown with Metadata
 
-If you are concerned about being limited to blobs of formatted text, I would remind you about Frontmatter for markdown.  Frontmatter allows you to append structured data to to the top of your markdown content, for stashing all sorts of useful info. Tags, publication dates, author info, or whatever:
+If you are concerned about being limited to blobs of formatted text, I would remind you about Frontmatter for markdown. Frontmatter allows you to append structured data to to the top of your markdown content, for stashing all sorts of useful info. Tags, publication dates, author info, or whatever:
 
 ```markdown
 ---
-title: "Best Article Ever"
-date: "2025-04-18"
-author: "Yours Truly"
-tags: ["markdown", "tech", "rants"]
-image: "images/amazing-picture.jpg"
+title: 'Best Article Ever'
+date: '2025-04-18'
+author: 'Yours Truly'
+tags: ['markdown', 'tech', 'rants']
+image: 'images/amazing-picture.jpg'
 featured: true
 ---
+
 Your actual content starts _here..._
 ```
 
@@ -50,7 +51,7 @@ Your actual content starts _here..._
 
 Let's talk about the elephant in the room—AI is everywhere these days, and guess what? It absolutely LOVES Markdown. AI needs structured but flexible ways to understand and generate content, and Markdown hits that sweet spot perfectly. Unlike more complex formats like HTML or XML, Markdown strikes a useful balance.
 
-When I'm using ChatGPT or Claude to help draft content (like [this article](https://magill.dev/post/row-level-security-in-serverless-postgresql-for-hipaa-compliance)), I ask for Markdown output. Because I can drop it straight into my workflow without playing a game of "fix the formatting." Plus, most AI tools are trained on tons of Markdown documentation, so they understand the syntax better than any human. 
+When I'm using ChatGPT or Claude to help draft content (like [this article](https://magill.dev/post/row-level-security-in-serverless-postgresql-for-hipaa-compliance)), I ask for Markdown output. Because I can drop it straight into my workflow without playing a game of "fix the formatting." Plus, most AI tools are trained on tons of Markdown documentation, so they understand the syntax better than any human.
 
 ### The Closing tag
 

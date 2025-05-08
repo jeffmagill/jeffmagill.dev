@@ -50,7 +50,8 @@
 	}
 
 	&:before {
-		background-image: linear-gradient(var(--line-color), transparent 3px),
+		background-image:
+			linear-gradient(var(--line-color), transparent 3px),
 			linear-gradient(to right, var(--line-color), transparent 3px);
 		background-size:
 			100% var(--grid-height),

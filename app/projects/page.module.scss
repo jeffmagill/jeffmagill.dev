@@ -21,7 +21,7 @@
 		align-items: center;
 		position: relative;
 		z-index: 1;
-		gap: calc(var(--gap) / 2) calc(var(--gap) / 1.5 );
+		gap: calc(var(--gap) / 2) calc(var(--gap) / 1.5);
 	}
 	:global(.projectCard) {
 		padding: 0;

@@ -18,7 +18,7 @@ For my project, I needed a safe space to test code changes before they went live
 
 ## Laying the Pipeline
 
-I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. If you've ever mistakenly pushed the wrong files to the wrong server, you understand how helpful this is. 
+I organized my repository into separate branches to accommodate each environment: main for production and develop for staging. Don't forget, this is a full-stack app, with front and backend hosted on different environments. This pipeline uses two Sync-to-FTP actions with separate credentials to deploy both front and backend to their respective servers. If you've ever mistakenly pushed the wrong files to the wrong server, you understand how helpful this is.
 
 To control each environment independently, we can use environment-specific configurations. My staging environment uses a separate database, different API keys, and its own settings. GitHub Actions repository secrets simplify automating anything that varies between environments, like [feature flags and API endpoints](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions).
 
@@ -94,7 +94,7 @@ jobs:
 
 ## To be continued...
 
-This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments easier and faster, freeing me up for other stuff. Because everything is baked into the pipeline, I don't need to remember all the minutiae and procedures required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish. 
+This multi-environment deployment pipeline has been working great. The simplified access control and the ability to customize build processes for each environment have made deployments easier and faster, freeing me up for other stuff. Because everything is baked into the pipeline, I don't need to remember all the minutiae and procedures required to safely publish projects that use this approach. There are endless ways this approach could be adapted to other projects, and I'm eager to explore what else these methods can accomplish.
 
 ### Related Links
 
