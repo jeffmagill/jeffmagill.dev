@@ -1,9 +1,10 @@
 // app/components/blog/PostList.tsx
 
 import React from 'react';
-import { getSlugs, getPost } from '@/utils/posts';
 import { Post as PostType } from '@/utils/types';
+import { FC } from 'react';
 import PostItem from './PostItem';
+import postService from '@/utils/PostService';
 import styles from './PostList.module.css';
 
 interface PostListProps {
@@ -12,8 +13,8 @@ interface PostListProps {
 }
 
 const PostList = ({ tag = '', maxPosts = 0 }: PostListProps) => {
-	const slugs = getSlugs(tag);
-	const postData: PostType[] = slugs.map((slug) => getPost(slug));
+	const slugs = postService.getSlugs(tag);
+	const postData: PostType[] = slugs.map((slug) => postService.getPost(slug));
 
 	// Sort posts by created date (newest first)
 	const sortedPosts = postData.sort((a, b) => {

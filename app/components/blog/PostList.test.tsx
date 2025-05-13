@@ -1,14 +1,20 @@
-// PostList.test.tsx
+/**
+ * @vitest-environment jsdom
+ */
 
-import React from 'react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import PostList from './PostList';
-import { getSlugs, getPost } from '@/utils/posts';
+import postService from '@/utils/PostService';
 import { Post as PostType } from '@/utils/types';
 
-// Mock the getSlugs and getPost functions
-vi.mock('@/utils/posts');
+// Mock PostService
+vi.mock('@/utils/PostService', () => ({
+  default: {
+    getSlugs: vi.fn(),
+    getPost: vi.fn(),
+  },
+}));
 
 // Mock the PostItem component
 vi.mock('./PostItem', () => ({
@@ -55,7 +61,7 @@ describe('PostList', () => {
 	];
 
 	beforeEach(() => {
-		vi.mocked(getSlugs).mockImplementation((tag) => {
+		vi.mocked(postService.getSlugs).mockImplementation((tag) => {
 			if (tag) {
 				return mockPosts
 					.filter((post) => post.tags.includes(tag))
@@ -64,7 +70,7 @@ describe('PostList', () => {
 			return mockPosts.map((post) => post.slug);
 		});
 
-		vi.mocked(getPost).mockImplementation((slug) => {
+		vi.mocked(postService.getPost).mockImplementation((slug) => {
 			return mockPosts.find((post) => post.slug === slug) as PostType;
 		});
 	});

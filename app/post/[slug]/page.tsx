@@ -9,9 +9,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { settings } from '@/utils/settings.mjs';
-import { getPost, getSlugs } from '@/utils/posts';
+import postService from '@/utils/PostService';
 import { Post as PostType } from '@/utils/types';
 import Hero from '@/app/components/global/Hero';
 import PostDate from '@/app/components/blog/PostDate';
@@ -25,7 +27,7 @@ import styles from './page.module.scss';
  * @returns Array of slug objects for static path generation
  */
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
-	const slugs = getSlugs();
+	const slugs = postService.getSlugs();
 	return slugs.map((slug) => ({ slug }));
 };
 
@@ -42,7 +44,7 @@ export async function generateMetadata({
 }: {
 	params: { slug: string };
 }) {
-	const post: PostType = getPost(params.slug) as PostType;
+	const post: PostType = postService.getPost(params.slug) as PostType;
 
 	const meta = {
 		title: `${post.title} - ${settings.title}`,
@@ -92,7 +94,7 @@ interface PostProps {
  */
 export default async function Post(props: PostProps) {
 	const slug = props.params.slug;
-	const post: PostType = getPost(slug) as PostType;
+	const post: PostType = postService.getPost(slug) as PostType;
 
 	// Handle author display with fallback to settings
 	const displayAuthor = (post as any)?.author ?? settings.author;

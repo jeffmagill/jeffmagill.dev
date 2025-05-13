@@ -1,6 +1,7 @@
 import Rss from 'rss';
 import { settings } from '@/utils/settings.mjs';
-import { getPosts } from '@/utils/posts';
+import pkg from 'next/package.json';
+import postService from '@/utils/PostService';
 
 /**
  * @name getPostFeed
@@ -22,7 +23,7 @@ const getPostFeed = (posts = []) => {
 	});
 
 	// get the post data
-	posts = posts.length > 0 ? posts : getPosts();
+	posts = posts.length > 0 ? posts : postService.getPosts();
 
 	posts.map((post) => {
 		// add the post to the feed

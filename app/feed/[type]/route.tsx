@@ -1,5 +1,6 @@
+import { NextResponse } from 'next/server';
+import postService from '@/utils/PostService';
 import { getPostFeed } from '@/utils/feed';
-import { getPosts } from '@/utils/posts';
 
 export const generateStaticParams = async (): Promise<{ type: string }[]> => {
 	const params = ['posts.xml', 'posts.json'].map((type) => ({
@@ -22,7 +23,7 @@ export async function GET(
 		});
 	} else if (params.type === 'posts.json') {
 		// Serve up posts as JSON
-		const posts = getPosts();
+		const posts = postService.getPosts();
 		return new Response(JSON.stringify(posts), {
 			headers: {
 				'Content-Type': 'application/json; charset=utf-8',
