@@ -25,6 +25,7 @@ export interface ProjectsData {
 	projects: Project[];
 }
 
+// Improved props interface following Interface Segregation Principle
 export interface ProjectListContainerProps {
 	file?: string;
 	maxProjects?: number;

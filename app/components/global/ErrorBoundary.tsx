@@ -1,43 +1,53 @@
 'use client';
 
-import React, { useReducer } from 'react';
+import React, { Component, ErrorInfo } from 'react';
+import ErrorDisplay from './ErrorDisplay';
+
+interface Props {
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
+}
 
 interface State {
-	hasError: boolean;
+  hasError: boolean;
+  error?: Error;
 }
 
-interface Action {
-	type: 'SET_ERROR';
-	error: Error;
+/**
+ * Error boundary component that catches JavaScript errors in its child component tree
+ * and displays a fallback UI instead of crashing the application.
+ * Now uses the ErrorDisplay component for consistent error presentation.
+ */
+class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): State {
+    // Update state so the next render will show the fallback UI
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+    // You can log the error to an error reporting service
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
+  }
+
+  render(): React.ReactNode {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return this.props.fallback || (
+        <ErrorDisplay 
+          title="Something Went Wrong" 
+          message="We encountered an unexpected error." 
+          details={this.state.error?.message} 
+        />
+      );
+    }
+
+    return this.props.children;
+  }
 }
-
-const initialState: State = {
-	hasError: false,
-};
-
-const errorReducer = (state: State, action: Action) => {
-	switch (action.type) {
-		case 'SET_ERROR':
-			return { hasError: true };
-		default:
-			return state;
-	}
-};
-
-const ErrorBoundary: React.FC<{ children: React.ReactNode }> = ({
-	children,
-}) => {
-	const [state, dispatch] = useReducer(errorReducer, initialState);
-
-	const handleError = (error: Error) => {
-		dispatch({ type: 'SET_ERROR', error });
-	};
-
-	if (state.hasError) {
-		return <div>Error occurred</div>;
-	}
-
-	return <React.Fragment>{children}</React.Fragment>;
-};
 
 export default ErrorBoundary;
