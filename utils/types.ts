@@ -18,7 +18,6 @@ export interface Project {
 	description: string;
 	image: string;
 	tags: string[];
-	created: Date;
 }
 
 export interface ProjectsData {
