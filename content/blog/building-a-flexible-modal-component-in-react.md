@@ -4,7 +4,7 @@ description: Learn how to create a flexible, accessible modal dialog component i
 image: /images/blog/modal-example.png
 tags: react, components, accessibility
 created: 1746201655
-lastUpdated:
+lastUpdated: 1747238853
 ---
 
 Modal popups are a very common UI pattern that adds a lot of utility to modern web apps. Unfortunately for developers like us, that means we need to master all the technical complexities associated with them. What seems like a simple popup window actually involves a lot of intricate details: accessibility, responsive design, keyboard navigation, scroll management, and more.
