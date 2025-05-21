@@ -14,7 +14,7 @@ export default async function ProjectListContainer({
 	try {
 		// Use the ProjectService to load the projects
 		const data = await ProjectService.loadProjects(file);
-		
+
 		// Limit the number of projects if maxProjects is provided
 		const projectsToRender =
 			maxProjects > 0 ? data.projects.slice(0, maxProjects) : data.projects;
@@ -28,10 +28,10 @@ export default async function ProjectListContainer({
 	} catch (error) {
 		// Use the ErrorDisplay component for error handling
 		return (
-			<ErrorDisplay 
-				title="OOPSIE!" 
-				message="There was a problem loading projects." 
-				details={(error as Error).message} 
+			<ErrorDisplay
+				title='OOPSIE!'
+				message='There was a problem loading projects.'
+				details={(error as Error).message}
 			/>
 		);
 	}

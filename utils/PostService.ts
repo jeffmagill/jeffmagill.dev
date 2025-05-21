@@ -7,48 +7,48 @@ import { MatterContentParser } from './MatterContentParser';
 const BLOG_PATH = 'content/blog';
 
 export class PostService implements IPostService {
-  constructor(
-    private repository: IPostRepository,
-    private parser: IContentParser
-  ) {}
+	constructor(
+		private repository: IPostRepository,
+		private parser: IContentParser
+	) {}
 
-  getPost(slug: string): Post {
-    const fileContent = this.repository.getPostContent(slug);
-    const { content, data } = this.parser.parseContent(fileContent);
+	getPost(slug: string): Post {
+		const fileContent = this.repository.getPostContent(slug);
+		const { content, data } = this.parser.parseContent(fileContent);
 
-    return {
-      content,
-      title: data.title,
-      description: data.description || '',
-      image: data.image || '',
-      tags: data.tags || '',
-      slug: slug,
-      url: `${settings.siteUrl}/post/${slug}`,
-      created: data.created,
-      lastUpdated: data.lastUpdated || data.created,
-    };
-  }
+		return {
+			content,
+			title: data.title,
+			description: data.description || '',
+			image: data.image || '',
+			tags: data.tags || '',
+			slug: slug,
+			url: `${settings.siteUrl}/post/${slug}`,
+			created: data.created,
+			lastUpdated: data.lastUpdated || data.created,
+		};
+	}
 
-  getSlugs(tag = ''): string[] {
-    const slugs = this.repository.getAllPostSlugs();
-    
-    if (tag) {
-      return slugs.filter((slug) => {
-        const { tags } = this.getPost(slug);
-        return tags
-          .split(',')
-          .map((t) => t.trim())
-          .includes(tag);
-      });
-    }
+	getSlugs(tag = ''): string[] {
+		const slugs = this.repository.getAllPostSlugs();
 
-    return slugs;
-  }
+		if (tag) {
+			return slugs.filter((slug) => {
+				const { tags } = this.getPost(slug);
+				return tags
+					.split(',')
+					.map((t) => t.trim())
+					.includes(tag);
+			});
+		}
 
-  getPosts(slugs?: string[]): Post[] {
-    const slugsToUse = slugs || this.getSlugs();
-    return slugsToUse.map((slug) => this.getPost(slug));
-  }
+		return slugs;
+	}
+
+	getPosts(slugs?: string[]): Post[] {
+		const slugsToUse = slugs || this.getSlugs();
+		return slugsToUse.map((slug) => this.getPost(slug));
+	}
 }
 
 // Create and export the default instance

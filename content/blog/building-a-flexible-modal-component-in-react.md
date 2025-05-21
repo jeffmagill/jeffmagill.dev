@@ -33,6 +33,7 @@ The foundation of any component is its structure, so here are the key parts we n
 4. **Close Button**: Always accessible, whether in the header or floating
 
 ### Why Not Use the Native Dialog Element?
+
 You might be wondering why we're avoiding the HTML `<dialog>` element here. While it offers built-in modal functionality, custom implementations give us more direct control over styling, positioning, and animations. The native dialog can also behave inconsistently across browsers, particularly with focus management and keyboard navigation. By rolling our own with divs and portals, we maintain complete control over the user experience, ensuring our modal works exactly as designed in all environments.
 
 Using a custom approach with React's functional components and hooks approach, the basic structure looks something like this:

@@ -10,10 +10,10 @@ import { Post as PostType } from '@/utils/types';
 
 // Mock PostService
 vi.mock('@/utils/PostService', () => ({
-  default: {
-    getSlugs: vi.fn(),
-    getPost: vi.fn(),
-  },
+	default: {
+		getSlugs: vi.fn(),
+		getPost: vi.fn(),
+	},
 }));
 
 // Mock the PostItem component

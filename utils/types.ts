@@ -32,29 +32,29 @@ export interface ProjectListContainerProps {
 
 // New interfaces for SOLID compliant post handling
 export interface PostContent {
-  content: string;
-  data: {
-    title: string;
-    description?: string;
-    image?: string;
-    tags?: string;
-    created: string;
-    lastUpdated?: string;
-    [key: string]: any;
-  };
+	content: string;
+	data: {
+		title: string;
+		description?: string;
+		image?: string;
+		tags?: string;
+		created: string;
+		lastUpdated?: string;
+		[key: string]: any;
+	};
 }
 
 export interface IContentParser {
-  parseContent(content: string): PostContent;
+	parseContent(content: string): PostContent;
 }
 
 export interface IPostRepository {
-  getPostContent(slug: string): string;
-  getAllPostSlugs(): string[];
+	getPostContent(slug: string): string;
+	getAllPostSlugs(): string[];
 }
 
 export interface IPostService {
-  getPost(slug: string): Post;
-  getSlugs(tag?: string): string[];
-  getPosts(slugs?: string[]): Post[];
+	getPost(slug: string): Post;
+	getSlugs(tag?: string): string[];
+	getPosts(slugs?: string[]): Post[];
 }
