@@ -2,7 +2,7 @@
 
 # Intro
 
-This project is a TypeScript/React/Next.JS portfolio and statically generated blogging application for my professional website at https://magill.dev. It includes everything this: analytics, unit testing, static site generation, dynamic routing, social sharing, automated sitemaps, RSS feed, markdown content and more. Learn more about how this site works and was created, on my blog here : https://magill.dev/post/lets-breakdown-this-site.
+This project is a TypeScript/React/Next.JS portfolio and statically generated blogging application for my professional website at https://magill.dev. Features include: analytics, unit testing, static site generation, dynamic routing, social sharing, automated sitemaps, RSS feed, markdown content parsing, and more. Learn more about how this site works and was created, on my blog here : https://magill.dev/post/lets-breakdown-this-site.
 
 ## Installation
 
