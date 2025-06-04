@@ -28,6 +28,8 @@ To install, follow these steps:
 
 `npm run test`: Run the tests using Vitest.
 
+`npm run analyze`: Run the Next.JS Build Analyzer.
+
 ## Code Formatting and Linting
 
 `npm run format`: Check the code for formatting and linting errors.
@@ -41,11 +43,31 @@ To install, follow these steps:
 **TypeScript:** A superset of JavaScript that adds optional static typing and other features to improve the development experience.
 
 **ESLint:** A static code analysis tool used to flag suspicious code and enforce coding standards.
-Prettier: A code formatter that automatically formats code to a consistent style.
+
+**Prettier:** A code formatter that automatically formats code to a consistent style.
 
 **Vitest:** A fast unit testing framework for JavaScript applications.
 
 **CSS Modules:** A CSS file in which all class names and animation names are scoped locally by default.
+
+**SASS:** A CSS preprocessor that adds power and elegance to the basic language, used for more maintainable stylesheets.
+
+**Markdown:** Used for blog content and documentation, with [gray-matter](https://www.npmjs.com/package/gray-matter) for frontmatter parsing and [markdown-to-jsx](https://www.npmjs.com/package/markdown-to-jsx) for rendering Markdown as React components.
+
+**RSS Feed:** The [`rss`](https://www.npmjs.com/package/rss) library is used to generate an RSS feed for blog posts, improving discoverability and syndication.
+
+**next-sitemap:** Automatically generates a sitemap for SEO optimization.
+
+**@fortawesome/react-fontawesome:** Provides scalable vector icons for UI.
+
+**@next/bundle-analyzer:** A tool for visualizing the size of output files with an interactive zoomable treemap.  
+_Run `npm run analyze` to generate a bundle report after building._
+
+**Jest DOM & Testing Library:** For improved assertions and React component testing.
+
+**Serve:** Used to serve the static build output locally.
+
+**Wrangler:** For managing Cloudflare Workers (if used for deployment or edge functions).
 
 ## Contribution Guidelines
 
@@ -57,6 +79,7 @@ Prettier: A code formatter that automatically formats code to a consistent style
 
 ## Project Structure
 
+- `app`: Contains the React App.
 - `app/components`: Contains all React components.
 - `app/pages`: Contains all Next.js pages.
 - `utils`: Contains utility functions.
