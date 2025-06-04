@@ -1,8 +1,13 @@
-/** @type {import('next').NextConfig} */
+import createBundleAnalyzer from '@next/bundle-analyzer';
 
+const withBundleAnalyzer = createBundleAnalyzer({
+    enabled: process.env.ANALYZE === 'true',
+});
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-	output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
-	images: { unoptimized: true },
+    output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+    images: { unoptimized: true },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

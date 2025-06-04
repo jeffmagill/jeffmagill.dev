@@ -11,7 +11,8 @@
 		"fix": "prettier --write ./",
 		"test": "vitest",
 		"start": "next start",
-		"serve": "serve out"
+		"serve": "serve out",
+		"analyze": "ANALYZE=true npm run build"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.6.0",
@@ -29,6 +30,7 @@
 		"serve": "^14.2.3"
 	},
 	"devDependencies": {
+		"@next/bundle-analyzer": "^15.3.3",
 		"@testing-library/dom": "^10.4.0",
 		"@testing-library/jest-dom": "^6.6.2",
 		"@testing-library/react": "^16.0.1",
