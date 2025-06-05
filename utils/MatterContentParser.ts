@@ -1,3 +1,6 @@
+// Parses Markdown content with frontmatter using gray-matter.
+// Returns validated post data for use in blog and content features.
+
 import matter from 'gray-matter';
 import { IContentParser, PostContent } from './types';
 

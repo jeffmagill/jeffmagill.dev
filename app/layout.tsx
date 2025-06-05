@@ -1,3 +1,7 @@
+// Root layout for Next.js application.
+// Handles global providers, error boundaries, and site-wide structure.
+// This is the entry point for all pages and wraps the app with Analytics, Header, Footer, etc.
+
 // app/layout.tsx
 
 import type { Metadata } from 'next';

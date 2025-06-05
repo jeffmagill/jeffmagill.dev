@@ -1,3 +1,6 @@
+// Next.js configuration file.
+// Integrates @next/bundle-analyzer for bundle size analysis and configures static export for production builds.
+
 import createBundleAnalyzer from '@next/bundle-analyzer';
 
 const withBundleAnalyzer = createBundleAnalyzer({

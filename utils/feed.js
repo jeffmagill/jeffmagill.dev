@@ -1,3 +1,6 @@
+// Generates an RSS feed for blog posts using the 'rss' library.
+// This utility pulls post data and outputs a standards-compliant RSS XML feed for syndication.
+
 import Rss from 'rss';
 import { settings } from '@/utils/settings.mjs';
 import pkg from 'next/package.json';

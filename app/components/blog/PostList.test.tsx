@@ -1,4 +1,9 @@
 /**
+ * Vitest test suite for the PostList component.
+ * Uses React Testing Library and mocks PostService and PostItem for isolated testing.
+ */
+
+/**
  * @vitest-environment jsdom
  */
 
