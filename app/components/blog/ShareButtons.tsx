@@ -58,6 +58,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 					href={facebookLink}
 					target='_blank'
 					rel='noopener noreferrer'
+					data-share-platform='facebook'
 				>
 					<FontAwesomeIcon icon={faFacebook} aria-hidden='true' />
 					<span>Share on Facebook</span>
@@ -68,6 +69,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 					href={linkedInLink}
 					target='_blank'
 					rel='noopener noreferrer'
+					data-share-platform='linkedin'
 				>
 					<FontAwesomeIcon icon={faLinkedin} aria-hidden='true' />
 					<span>Share on LinkedIn</span>
@@ -78,6 +80,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 					href={xTwitterLink}
 					target='_blank'
 					rel='noopener noreferrer'
+					data-share-platform='twitter'
 				>
 					<FontAwesomeIcon icon={faXTwitter} aria-hidden='true' />
 					<span>Share on X</span>
@@ -88,6 +91,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 					href={redditLink}
 					target='_blank'
 					rel='noopener noreferrer'
+					data-share-platform='reddit'
 				>
 					<FontAwesomeIcon icon={faReddit} aria-hidden='true' />
 					<span>Share on Reddit</span>
@@ -98,6 +102,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ title }) => {
 					href={emailLink}
 					target='_blank'
 					rel='noopener noreferrer'
+					data-share-platform='email'
 				>
 					<FontAwesomeIcon icon={faEnvelope} aria-hidden='true' />
 					<span>Share by Email</span>
