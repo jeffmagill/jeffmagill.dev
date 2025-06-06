@@ -47,9 +47,9 @@ export default function Projects() {
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'CollectionPage',
-		'name': meta.title,
-		'description': meta.description,
-		'url': meta.url,
+		name: meta.title,
+		description: meta.description,
+		url: meta.url,
 	};
 	return (
 		<main className={styles.main}>

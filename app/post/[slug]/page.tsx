@@ -100,29 +100,29 @@ export default async function Post(props: PostProps) {
 	const displayAuthor = (post as any)?.author ?? settings.author;
 
 	const jsonLd = {
-		"@context": "https://schema.org",
-		"@type": "Article",
-		"headline": post.title,
-		"description": post.description,
-		"image": `${settings.siteUrl}${post.image}`,
-		"author": {
-			"@type": "Person",
-			"name": displayAuthor
+		'@context': 'https://schema.org',
+		'@type': 'Article',
+		headline: post.title,
+		description: post.description,
+		image: `${settings.siteUrl}${post.image}`,
+		author: {
+			'@type': 'Person',
+			name: displayAuthor,
 		},
-		"datePublished": post.created,
-		"dateModified": post.lastUpdated || post.created,
-		"url": `${settings.siteUrl}/post/${slug}/`,
-		"mainEntityOfPage": {
-			"@type": "WebPage",
-			"@id": `${settings.siteUrl}/post/${slug}/`
-		}
+		datePublished: post.created,
+		dateModified: post.lastUpdated || post.created,
+		url: `${settings.siteUrl}/post/${slug}/`,
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `${settings.siteUrl}/post/${slug}/`,
+		},
 	};
 
 	return (
 		<main className={styles.main}>
 			{/* JSON-LD structured data for SEO */}
 			<script
-				type="application/ld+json"
+				type='application/ld+json'
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 			<Hero>

@@ -52,19 +52,19 @@ export default function Projects() {
 	const jsonLd = {
 		'@context': 'https://schema.org',
 		'@type': 'Blog',
-		'name': meta.title,
-		'description': meta.description,
-		'url': meta.url,
-		'publisher': {
+		name: meta.title,
+		description: meta.description,
+		url: meta.url,
+		publisher: {
 			'@type': 'Person',
-			'name': settings.author,
+			name: settings.author,
 		},
 	};
 	return (
 		<main className={styles.main}>
 			{/* JSON-LD structured data for SEO */}
 			<script
-				type="application/ld+json"
+				type='application/ld+json'
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 			/>
 
