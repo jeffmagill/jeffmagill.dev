@@ -2,7 +2,7 @@
 title: Boosting My NextJS Blog’s Visibility with RSS
 description: Let's explore how RSS can boost reach and discoverability in modern blogging as I share how I chose to integrate it into my static NextJS site.
 image: /images/blog/mr-cup-fabien-barral-newspapers-unsplash.jpg
-tags: methods
+tags: rss, seo, nextjs
 created: 1730496973
 lastUpdated:
 ---
