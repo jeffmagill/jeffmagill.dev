@@ -99,8 +99,32 @@ export default async function Post(props: PostProps) {
 	// Handle author display with fallback to settings
 	const displayAuthor = (post as any)?.author ?? settings.author;
 
+	const jsonLd = {
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"headline": post.title,
+		"description": post.description,
+		"image": `${settings.siteUrl}${post.image}`,
+		"author": {
+			"@type": "Person",
+			"name": displayAuthor
+		},
+		"datePublished": post.created,
+		"dateModified": post.lastUpdated || post.created,
+		"url": `${settings.siteUrl}/post/${slug}/`,
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": `${settings.siteUrl}/post/${slug}/`
+		}
+	};
+
 	return (
 		<main className={styles.main}>
+			{/* JSON-LD structured data for SEO */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<Hero>
 				<h1 className={styles.title}>{post.title}</h1>
 				<p className={styles.description}>{post.description}</p>

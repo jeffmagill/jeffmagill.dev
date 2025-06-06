@@ -44,8 +44,21 @@ export const metadata: Metadata = {
 };
 
 export default function Projects() {
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'CollectionPage',
+		'name': meta.title,
+		'description': meta.description,
+		'url': meta.url,
+	};
 	return (
 		<main className={styles.main}>
+			{/* JSON-LD structured data for SEO */}
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
+
 			<div className={styles.wrapper}>
 				<Hero>
 					<h1>Web Projects and Development Work </h1>
