@@ -2,7 +2,7 @@
 title: Simplified Content Management with Markdown for Bots and Humans
 description: Let's discuss the benefits of using Markdown for simplified content management. Incorporate Markdown into your projects, from documentation to blogging, to enhance your content workflow
 image: /images/blog/kelly-sikkema-markers-unsplash.jpg
-tags: markdown, tools
+tags: markdown, content management, tools
 created: 1730255413
 lastUpdated: 1744987245
 ---

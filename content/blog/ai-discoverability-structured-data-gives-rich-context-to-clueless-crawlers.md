@@ -52,7 +52,7 @@ Repeat this pattern for other content: blog indexes, FAQs, whatever. Just keep t
 
 ## Conclusion
 
-I am not sure there is a way to reliably show up in AI overviews, but if you want bots to crawl your content effectively, you'll need to jump through some micro-schema hoops. So audit your site, drop in those schemas wherever you can, and help the bots give you back some ~~traffic~~ credit for your ~~content~~ effort.
+I am not sure there is a way to reliably show up in AI overviews, but if you want bots to crawl your content effectively, you'll need to jump through some micro-schema hoops. So, go audit your site, drop in those schemas wherever you can, and help the bots give you back some ~~traffic~~ credit for your ~~content~~ effort.
 
 ---
 

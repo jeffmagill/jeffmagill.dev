@@ -2,7 +2,7 @@
 title: Happy Birthday to My Website
 description: Let's celebrate the zeroth birthday of my website, or an excuse to test the blogging functionality of my statically-generated, Next.JS web application
 image: /images/blog/shraga-kopstein-cake-unsplash.jpg
-tags: milestone
+tags: milestone, portfolio, update
 created: 1729732753
 lastUpdated:
 ---
