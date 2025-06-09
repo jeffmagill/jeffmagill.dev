@@ -50,6 +50,44 @@ export default function Post({ post }) {
 
 Repeat this pattern for other content: blog indexes, FAQs, whatever. Just keep the schema close to the content. We can do this "dangerously" because I'm the only author. You'll need better precautions if you have user-generated content.
 
+## Example: Structured Data for a Product Page
+
+Structured data isn't just for articles and authors—it's useful for e-commerce and product listings too. For example, you could help search engines and AI understand your product details, pricing, and availability by embedding a Product schema:
+
+```tsx
+// app/product/[slug]/page.tsx
+
+export default function Product({ product }) {
+	return (
+		<>
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						'@context': 'https://schema.org',
+						'@type': 'Product',
+						name: product.name,
+						image: product.images,
+						description: product.description,
+						brand: { '@type': 'Brand', name: product.brand },
+						offers: {
+							'@type': 'Offer',
+							priceCurrency: product.currency,
+							price: product.price,
+							availability: 'https://schema.org/InStock',
+							url: `https://example.com/product/${product.slug}`,
+						},
+					}),
+				}}
+			/>
+			// Product content
+		</>
+	);
+}
+```
+
+This approach helps AI and search engines display rich product snippets, improving discoverability and reach of your content. Adapt the schema to and match the available data and suit your purpose.
+
 ## Conclusion
 
 I am not sure there is a way to reliably show up in AI overviews, but if you want bots to crawl your content effectively, you'll need to jump through some micro-schema hoops. So, go audit your site, drop in those schemas wherever you can, and help the bots give you back some ~~traffic~~ credit for your ~~content~~ effort.
