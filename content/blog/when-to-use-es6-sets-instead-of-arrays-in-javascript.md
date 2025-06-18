@@ -4,7 +4,7 @@ description: ES6 Sets are the right choice over traditional arrays for unique va
 image: /images/blog/new-set-closeup.jpg
 tags: JavaScript, ES6, Sets, Arrays
 created: 1750255285
-lastUpdated:
+lastUpdated: 1750275732
 ---
 
 If you've been writing JavaScript for a while, you probably reach for arrays by default when you need a list of things. They're familiar, flexible, and work for just about everything. But ES6 Sets provide an alternate collection that works best in in certain situations, like when uniqueness or large dataset performance is critical. Let's look closer at when it makes sense to use a Set instead of an array, and why both have their place in your projects.
@@ -21,11 +21,9 @@ const tags = new Set(['apple', 'banana', 'apple']);
 console.log([...tags]); // [ 'apple', 'banana' ]
 ```
 
-### Easy Existence Checks
+### Easy Existence Checks & Iteration
 
-Checking if a value exists in an array (`arr.includes(value)`) is a linear operation that traverses and examines values, which can be slow for large lists. Sets use a hash-based structure, so lookup with `.has(value)` [is much quicker](https://github.com/anvaka/set-vs-object).
-
-### Iteration
+Checking if a value exists in an array (`arr.includes(value)`) is a linear operation that traverses and examines values, which can be slow for large lists. Sets use a hash-based structure, so lookup with `.has(value)` [is much quicker](https://github.com/anvaka/set-vs-object). 
 
 Iterating over a Set is just as easy as iterating over an array, but you're guaranteed to only see unique values.
 
@@ -53,6 +51,30 @@ const intersection = a.intersection(b); // Set {2, 3}
 // Difference
 const difference = a.difference(b); // Set {1}
 ```
+
+### Sets in Reactive State Management
+
+Sets are especially useful in reactive state management scenarios, such as with React's `useState` or similar hooks. When you need to track a collection of unique items (like selected IDs, toggled filters, or active tags), Sets simplify logic and improve performance for add/remove operations and existence checks.
+
+For example, toggling selection in a React component:
+
+```js
+const [selectedIds, setSelectedIds] = useState(new Set());
+
+function toggleId(id) {
+  setSelectedIds(prev => {
+    const next = new Set(prev);
+    if (next.has(id)) {
+      next.delete(id);
+    } else {
+      next.add(id);
+    }
+    return next;
+  });
+}
+```
+
+This approach ensures uniqueness, avoids array deduplication, and makes toggling efficient even for large sets of data.
 
 ### Limitations
 
