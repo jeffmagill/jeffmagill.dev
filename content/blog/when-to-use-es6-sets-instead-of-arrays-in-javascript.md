@@ -11,7 +11,7 @@ If you've been writing JavaScript for a while, you probably reach for arrays by 
 
 ### Uniqueness & Deduplication
 
-Arrays allow duplicates, which means you may need extra logic to handle repeat values. Sets on the other hand, guarantee that every value is unique—no manual steps for de-duplication are necessary. 
+Arrays allow duplicates, which means you may need extra logic to handle repeat values. Sets on the other hand, guarantee that every value is unique—no manual steps for de-duplication are necessary.
 
 ```js
 const arr = ['apple', 'banana', 'apple'];
@@ -32,7 +32,7 @@ Iterating over a Set is just as easy as iterating over an array, but you're guar
 ```js
 const uniqueTags = new Set(['js', 'es6', 'js']);
 for (const tag of uniqueTags) {
-  console.log(tag); // 'js', 'es6'
+	console.log(tag); // 'js', 'es6'
 }
 ```
 
@@ -57,6 +57,7 @@ const difference = a.difference(b); // Set {1}
 ### Limitations
 
 While Sets offer unique advantages, arrays are still preferable in many scenarios:
+
 - **Indexing & Ordering:** Arrays maintain the order of elements and allow direct access by index (e.g., `arr[2]`). Sets do not support index-based access.
 - **Advanced Methods:** Arrays have methods like `map`, `filter`, `reduce`, and `sort` that are not available on Sets. If you need to transform or aggregate data, arrays are often more convenient.
 - **Serialization & Compatibility:** Arrays can be easily serialized to JSON, while Sets require conversion first. Many libraries and APIs expect arrays, not Sets. Conversion adds brittle 'glue-code' to integrations.
@@ -68,6 +69,7 @@ Sets are a valuable tool when you need to guarantee uniqueness or need fast look
 ---
 
 ### Related Links
+
 - [MDN Web Docs: Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
 - [MDN Web Docs: Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [JavaScript.info: Map and Set](https://javascript.info/map-set)
