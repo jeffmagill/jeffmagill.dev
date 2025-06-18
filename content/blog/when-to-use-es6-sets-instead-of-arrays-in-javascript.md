@@ -38,7 +38,7 @@ for (const tag of uniqueTags) {
 
 ### Advanced Usage
 
-Modern JavaScript (ES2023+) now includes built-in methods for set operations, making union, intersection, and difference much simpler:
+Modern JavaScript (ES2023+) now includes built-in methods for set operations, making unions, intersections, and logic based filtering much simpler:
 
 ```js
 const a = new Set([1, 2, 3]);
@@ -52,9 +52,6 @@ const intersection = a.intersection(b); // Set {2, 3}
 
 // Difference
 const difference = a.difference(b); // Set {1}
-
-// Filtering
-const even = new Set([...a].filter(x => x % 2 === 0)); // Set {2}
 ```
 
 ### Limitations
