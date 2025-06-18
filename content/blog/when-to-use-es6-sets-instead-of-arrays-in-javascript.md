@@ -58,12 +58,12 @@ const difference = new Set([...a].filter(x => !b.has(x))); // Set {1}
 
 While Sets offer unique advantages, arrays are still preferable in many scenarios:
 - **Indexing & Ordering:** Arrays maintain the order of elements and allow direct access by index (e.g., `arr[2]`). Sets do not support index-based access.
-- **Advanced Methods:** Arrays have set of methods like `map`, `filter`, `reduce`, and `sort` that are not available on Sets. If you need to transform or aggregate data, arrays are often more convenient.
+- **Advanced Methods:** Arrays have methods like `map`, `filter`, `reduce`, and `sort` that are not available on Sets. If you need to transform or aggregate data, arrays are often more convenient.
 - **Serialization & Compatibility:** Arrays can be easily serialized to JSON, while Sets require conversion first. Many libraries and APIs expect arrays, not Sets. Conversion adds brittle 'glue-code' to integrations.
 
 ## The Closing Tag
 
-Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual interation. Reach for the right tool and you will produce code that's both efficient and clear.
+Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual manipulation. Reach for the right tool and you will produce code that's both efficient and clear.
 
 ---
 
