@@ -4,7 +4,7 @@ description: Let's discuss the benefits of using Markdown for simplified content
 image: /images/blog/kelly-sikkema-markers-unsplash.jpg
 tags: Markdown, CMS, JAMstack
 created: 1730255413
-lastUpdated: 1744987245
+lastUpdated: 1750271104
 ---
 
 As long as content exists, content management will be a important factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?

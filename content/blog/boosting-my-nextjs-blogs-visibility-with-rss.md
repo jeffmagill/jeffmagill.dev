@@ -4,7 +4,7 @@ description: Let's explore how RSS can boost reach and discoverability in modern
 image: /images/blog/mr-cup-fabien-barral-newspapers-unsplash.jpg
 tags: RSS, SEO, NextJS
 created: 1730496973
-lastUpdated:
+lastUpdated: 1750274104
 ---
 
 RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and creators to boost their content's visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
@@ -94,9 +94,51 @@ npm run build
 
 New posts and content changes will now show up in [the feed.xml](https://magill.dev/feed/posts.xml). Excelsior!
 
+### Next.js Dynamic Routing for RSS Feeds
+
+Let’s see how the RSS feed is actually served in my Next.js app, using a dynamic API route. Here’s a simplified version of my `app/feed/[type]/route.tsx` file:
+
+```typescript
+import { NextResponse } from 'next/server';
+import postService from '@/utils/PostService';
+import { getPostFeed } from '@/utils/feed';
+
+export const generateStaticParams = async (): Promise<{ type: string }[]> => {
+  const params = ['posts.xml', 'posts.json'].map((type) => ({ type }));
+  return params;
+};
+
+export async function GET(
+  request: Request,
+  { params }: { params: { type: string } }
+) {
+  if (params.type === 'posts.xml') {
+    // Serve up the RSS feed
+    const feed = getPostFeed();
+    return new Response(feed.xml(), {
+      headers: {
+        'Content-Type': 'application/rss+xml; charset=utf-8',
+      },
+    });
+  } else if (params.type === 'posts.json') {
+    // Serve up posts as JSON
+    const posts = postService.getPosts();
+    return new Response(JSON.stringify(posts), {
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+      },
+    });
+  } else {
+    return new Response('Not Found', { status: 404 });
+  }
+}
+```
+
+This route handles requests for both `/feed/posts.xml` (RSS) and `/feed/posts.json` (raw article data). When a request is made, it generates the RSS feed using the utility function and returns it with the correct content type. This approach leverages Next.js’s file-based routing and makes it easy to add or modify feed formats in the future (_im looking at you emerging AI protocols_).
+
 ## The Closing Tag
 
-So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, am I right? Using the `rss` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this RSS setup will help me reach an audience without resorting to smoke signals or carrier pigeons. After all, in our current age of information overload, every little bit of exposure helps.
+So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, _am I right?_ Using the `rss` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this setup will help me reach an audience without resorting to smoke signals or carrier pigeons. After all, in our current age of information overload, every little bit of exposure helps.
 
 ### Related Links
 
