@@ -7,14 +7,14 @@ created: 1730255413
 lastUpdated: 1744987245
 ---
 
-As long as content exists, content management will be a relevant factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?
+As long as content exists, content management will be a important factor for online publishers, bloggers and developers, alike. Some tools like no-code platforms level the playing field with big applications that can render content in endless ways. But what if we didn't need a big application to format our content?
 
 One tool that has gained popularity for simplifying this process is Markdown. In this post, we'll discuss the benefits of using Markdown and how you can incorporate it into your projects. I'm such a fan, that I wrote this very article in Markdown for [my own blog ](https://magill.dev/blog)!
 
 ### Benefits of Using Markdown
 
 **Simplicity and Ease of Use**  
-Markdown can be as simple and user-friendly as plain text, making it easy to learn and implement. The straightforward syntax lets you focus on writing rather than wrestling with formatting. This eliminates those moments of "it looked different on my computer" when sharing documents.
+Markdown can be as simple and user-friendly as plain text, making it easy to learn and implement. The straightforward syntax lets you focus on writing rather than wrestling with formatting. This eliminates those moments of "it looked different on my computer" that comes from abstracting presentation from content.
 
 **Drag It Anywhere Without Breaking**  
 One of Markdown's standout features is portability. Since Markdown _is_ plain text, it can be easily stored and transmitted across platforms and tools without losing structure or formatting. This helps avoid the compatibility headaches often encountered with more complex formats like those from MS Office and Google Docs.
@@ -25,14 +25,14 @@ Markdown works seamlessly with version control systems like Git. This compatibil
 ### Where Markdown Shines Brightest
 
 **Documentation**  
-Markdown is a great way to format technical information in README files, project documentation, and user guides. Its clarity makes it ideal for maintaining accessible documentation that can grow alongside your project. It's natively supported on GitHub, Confluence, Google Docs, Notion, and many more knowledgebase management platforms. If ya can't beat em, adopt their tech policies.
+Markdown is a great way to format technical information in README files, project documentation, and user guides. Its clarity makes it ideal for maintaining accessible documentation that can grow alongside your project. It's natively supported on GitHub, Confluence, Google Docs, Notion, and many more knowledgebase management platforms. _If ya can't beat em, use their tech stack_, I always say (not really).
 
 **Blogging**  
 Many blogging platforms support Markdown, enabling a streamlined writing process for your posts. In fact, this very [blog post](https://magill.dev/post/simplified-content-management-with-markdown) was crafted using Markdown! By integrating it into my blogging workflow, I can create content quickly while enjoying instant formatting feedback.
 
 ### Markdown with Metadata
 
-If you are concerned about being limited to blobs of formatted text, I would remind you about Frontmatter for markdown. Frontmatter allows you to append structured data to to the top of your markdown content, for stashing all sorts of useful info. Tags, publication dates, author info, or whatever:
+If you are concerned about being limited to blobs of formatted text, I would remind you about [grey matter](https://www.npmjs.com/package/gray-matter) for markdown. Grey matter allows you to append structured data to to the top of your markdown content, for stashing all sorts of useful info. Tags, publication dates, author info, or whatever:
 
 ```markdown
 ---
@@ -44,7 +44,7 @@ image: 'images/amazing-picture.jpg'
 featured: true
 ---
 
-Your actual content starts _here..._
+Your awesome content _starts here..._
 ```
 
 ### Markdown & AI Are Like Peanut Butter & Bananas
@@ -55,7 +55,7 @@ When I'm using ChatGPT or Claude to help draft content (like [this article](http
 
 ### The Closing tag
 
-Look, I'm not saying Markdown will change your life or make you a better person or anything. But it would be silly to ignore the advantages Markdown offers for content formatting and management. Its simplicity, portability, and compatibility with 3rd party platforms, make it an useful tool in various contexts. I've written a little more about [how I've implemented Markdown](https://magill.dev/post/lets-breakdown-this-website) on my own site. If any of this sounds interesting, maybe it is time to consider using in your own projects.
+Look, I'm not saying Markdown will change your life or make you a better person or anything. But it would be silly to ignore the advantages Markdown offers for content formatting and management. Its simplicity, portability, and compatibility with 3rd party platforms, make it an useful tool in a lot of situations. I've written a little more about [how I've implemented Markdown](https://magill.dev/post/lets-breakdown-this-website) on my [blog](https://magill.dev/). If any of this sounds interesting, maybe it is time to consider using in your own projects.
 
 ### Related Links
 
