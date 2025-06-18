@@ -49,7 +49,7 @@ Your awesome content _starts here..._
 
 ### Markdown & AI Are Like Peanut Butter & Bananas
 
-Let's talk about the elephant in the room—AI is everywhere these days, and guess what? It absolutely LOVES Markdown. AI needs structured but flexible ways to understand and generate content, and Markdown hits that sweet spot perfectly. Unlike more complex formats like HTML or XML, Markdown strikes a useful balance.
+Let's talk about the elephant in the room: AI, and guess what? AI does a great job working with Markdown. AI needs structured but flexible ways to understand and generate content, and Markdown hits that sweet spot perfectly. Unlike more complex formats like HTML or XML, Markdown strikes a useful balance.
 
 When I'm using ChatGPT or Claude to help draft content (like [this article](https://magill.dev/post/row-level-security-in-serverless-postgresql-for-hipaa-compliance)), I ask for Markdown output. Because I can drop it straight into my workflow without playing a game of "fix the formatting." Plus, most AI tools are trained on tons of Markdown documentation, so they understand the syntax better than any human.
 
