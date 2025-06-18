@@ -18,6 +18,7 @@ import { Post as PostType } from '@/utils/types';
 import Hero from '@/app/components/global/Hero';
 import PostDate from '@/app/components/blog/PostDate';
 import ShareButtons from '@/app/components/blog/ShareButtons';
+import ListenButton from '@/app/components/blog/ListenButton';
 import styles from './page.module.scss';
 
 /**
@@ -134,6 +135,7 @@ export default async function Post(props: PostProps) {
 				<p className={styles.publishDate}>
 					<PostDate created={post.created} lastUpdated={post.lastUpdated} />
 				</p>
+				<ListenButton text={post.content} />
 			</Hero>
 
 			<article className={styles.post}>
