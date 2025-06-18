@@ -38,20 +38,23 @@ for (const tag of uniqueTags) {
 
 ### Advanced Usage
 
-Using the spread operator and the filter method can help perform rule-based manipulations and mathematical set operations :
+Modern JavaScript (ES2023+) now includes built-in methods for set operations, making union, intersection, and difference much simpler:
 
 ```js
 const a = new Set([1, 2, 3]);
 const b = new Set([2, 3, 4]);
 
 // Union
-const union = new Set([...a, ...b]); // Set {1, 2, 3, 4}
+const union = a.union(b); // Set {1, 2, 3, 4}
 
 // Intersection
-const intersection = new Set([...a].filter(x => b.has(x))); // Set {2, 3}
+const intersection = a.intersection(b); // Set {2, 3}
 
 // Difference
-const difference = new Set([...a].filter(x => !b.has(x))); // Set {1}
+const difference = a.difference(b); // Set {1}
+
+// Filtering
+const even = new Set([...a].filter(x => x % 2 === 0)); // Set {2}
 ```
 
 ### Limitations
