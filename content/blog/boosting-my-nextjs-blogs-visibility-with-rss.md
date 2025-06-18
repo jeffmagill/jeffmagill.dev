@@ -4,7 +4,7 @@ description: Let's explore how RSS can boost reach and discoverability in modern
 image: /images/blog/mr-cup-fabien-barral-newspapers-unsplash.jpg
 tags: RSS, SEO, NextJS
 created: 1730496973
-lastUpdated: 1750274104
+lastUpdated: 1750274194
 ---
 
 RSS (Really Simple Syndication) is a useful tool for publishers, bloggers, and creators to boost their content's visibility. By adding RSS to my static NextJS blog, I’m hoping to expand my website's reach and make it easier to share my content with a broader audience. So, let’s explore the benefits of RSS and how I’ve sprinkled it on my blog like confetti at a party!
@@ -21,15 +21,7 @@ I'll use the `rss` npm library to generate an RSS feed into my static NextJS blo
 
 Now, let’s get down to configuring that shiny new RSS feed of ours.
 
-1. **Setup**: First things first, let's install the `rss` library :
-
-```bash
-npm install rss
-```
-
-HUZZAH! I am now one step closer to becoming an RSS wizard.
-
-2. **Generate Feed Content**: Now, let’s create a utility function to generate our feed content
+**Generate Feed Content**: To start, we can create a utility function to generate our feed content
 
 ```javascript
 import { Rss } from 'rss';
@@ -70,7 +62,7 @@ export { getPostFeed };
 
 You can checkout my most recent version of that utility function in [this site's repo on GitHub](https://github.com/andymagill/dev.magill.next/blob/master/utils/feed.js). Someday I'll create a unit test for that function, pinky swear, but for now...
 
-3. **Route the Feed**: Let's "feed" our blog data to an API route.tsx
+**Route the Feed**: Then, we can "feed" our blog data into an API route.tsx
 
 ```javascript
 import { getPostFeed } from '@/utils/feed.mjs'; // the feed utility function from above
@@ -86,13 +78,13 @@ export async function GET() {
 
 _Easy peasy lemon squeezy_, as the kids like to say. You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/app/feed/%5Btype%5D/route.tsx) of this includes a [dynamic route segment](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes) to serve different versions of the post feed.
 
-4. **Build for Production**: Finally, lets run the build process to kick out my jams :
+**Build for Production**: Finally, lets run the build process to kick out the jams :
 
 ```bash
 npm run build
 ```
 
-New posts and content changes will now show up in [the feed.xml](https://magill.dev/feed/posts.xml). Excelsior!
+New posts and content changes will now auto-magically show up in [the feed.xml](https://magill.dev/feed/posts.xml). Excelsior!
 
 ### Next.js Dynamic Routing for RSS Feeds
 
@@ -138,7 +130,7 @@ This route handles requests for both `/feed/posts.xml` (RSS) and `/feed/posts.js
 
 ## The Closing Tag
 
-So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, _am I right?_ Using the `rss` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this setup will help me reach an audience without resorting to smoke signals or carrier pigeons. After all, in our current age of information overload, every little bit of exposure helps.
+So, I’ve finally implemented RSS in my NextJS blog—because who doesn’t want to dive into the exciting world of content syndication, _am I right?_ Using the `rss` library to generate the feed at build-time was fairly straight-forward. As I publish fresh content, fingers crossed that this setup will help me reach an audience without resorting to begging or spamming. 
 
 ### Related Links
 
