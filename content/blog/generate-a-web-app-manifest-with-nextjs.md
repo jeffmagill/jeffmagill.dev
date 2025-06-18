@@ -2,7 +2,7 @@
 title: Generate a Web App Manifest with Next.js
 description: Let's explore how to automate the generation of a web app manifest in a Next.js project, and how this simple JSON file can help enhance your web app's appearance and branding.
 image: /images/blog/app-icon-mage.jpg
-tags: metadata, nextjs, webdev
+tags: Metadata, NextJS, PWA
 created: 1731610486
 lastUpdated:
 ---

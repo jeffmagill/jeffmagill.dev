@@ -2,7 +2,7 @@
 title: Row Level Security in Serverless PostgreSQL for HIPAA Compliance
 description: Row Level Security in PostgreSQL isn’t just a neat trick-it’s a practical, scalable way to keep your pharma web app HIPAA-compliant without losing your mind
 image: /images/blog/marcos-mayer-locks.jpg
-tags: serverless, hipaa, postgresql, webdev
+tags: Serverless, HIPAA, PostgreSQL
 created: 1744729263
 lastUpdated:
 ---

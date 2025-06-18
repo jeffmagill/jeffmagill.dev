@@ -2,7 +2,7 @@
 title: Building a Flexible Modal Component in React
 description: Learn how to create a flexible, accessible modal dialog component in React that can be used across your application.
 image: /images/blog/modal-example.jpg
-tags: react, components, accessibility
+tags: React, Components, Accessibility, a11y
 created: 1746201655
 lastUpdated: 1747238853
 ---

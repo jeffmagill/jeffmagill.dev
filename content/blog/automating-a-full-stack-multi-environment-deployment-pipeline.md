@@ -2,7 +2,7 @@
 title: Automating a Full-Stack, Multi-Environment Deployment Pipeline
 description: Let's figure out how to automate the deployment of a full stack project using tailored configurations for different environments, without increasing developer workload or technical debt
 image: /images/blog/quinten-de-graaf-pipelines.jpg
-tags: devops, cicd, automation, webdev
+tags: Devops, CICD, Automation
 created: 1738864468
 lastUpdated:
 ---

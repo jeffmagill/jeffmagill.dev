@@ -2,7 +2,7 @@
 title: AI Discoverability — Structured Data Gives Rich Context to Clueless Crawlers
 description: Apparently chatbots are the new target audience for everything, and unfortunately they're not impressed by your fancy frontend UI.
 image: /images/blog/mobile-json.jpg
-tags: seo, microdata, ai, react
+tags: SEO, Microdata, AI, React
 created: 1749230700
 lastUpdated:
 ---

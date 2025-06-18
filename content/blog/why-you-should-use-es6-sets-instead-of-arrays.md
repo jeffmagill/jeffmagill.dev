@@ -9,7 +9,7 @@ lastUpdated:
 
 For too long, I defaulted to arrays and objects for most lists in JavaScript, they work and they're familiar. But sticking with arrays out of habit meant I was missing out on the advantages that Sets can provide. Looking deeper, I realized sets can make your code faster and easier to read, especially when you need unique values. Here are some practical benefits: 
 
-### Uniqueness
+### Uniqueness & Deduplication
 
 Arrays allow duplicates, which means you may need extra logic to handle repeat values. Sets on the other hand, guarantee that every value is unique—no manual steps for de-duplication are necessary. 
 
@@ -35,6 +35,32 @@ for (const tag of uniqueTags) {
   console.log(tag); // 'js', 'es6'
 }
 ```
+
+### Advanced Usage
+
+Using the spread operator and the filter method can help perform list manipulations or mathematical set operations :
+
+```js
+const a = new Set([1, 2, 3]);
+const b = new Set([2, 3, 4]);
+
+// Union
+const union = new Set([...a, ...b]); // Set {1, 2, 3, 4}
+
+// Intersection
+const intersection = new Set([...a].filter(x => b.has(x))); // Set {2, 3}
+
+// Difference
+const difference = new Set([...a].filter(x => !b.has(x))); // Set {1}
+```
+
+### Limitations
+
+While Sets offer unique advantages, arrays are still preferable in many scenarios:
+- **Index and Order:** Arrays maintain the order of elements and allow direct access by index (e.g., `arr[2]`). Sets do not support index-based access.
+- **Methods:** Arrays have set of methods like `map`, `filter`, `reduce`, and `sort` that are not available on Sets. If you need to transform or aggregate data, arrays are often more convenient.
+- **Serialization:** Arrays can be easily serialized to JSON, while Sets require conversion first.
+- **Compatibility:** Many libraries and APIs expect arrays, not Sets.
 
 ## The Closing Tag
 

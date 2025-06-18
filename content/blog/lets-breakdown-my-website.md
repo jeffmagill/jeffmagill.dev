@@ -2,7 +2,7 @@
 title: Let's Breakdown This Website's Tech Stack
 description: Here I will ramble about the tools and technologies I used to build this website.
 image: /images/blog/peter-pryharski-rusted-car-unsplash.jpg
-tags: react, nextjs, jamstack, tools
+tags: React, NextJS, JAMstack
 created: 1729914553
 lastUpdated:
 ---

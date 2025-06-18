@@ -2,7 +2,7 @@
 title: Crafting a Developer Website For Professional Growth
 description: Let's take a look at what makes an interesting, effective, professional developer website, with some advice from some engineering leaders.
 image: /images/blog/nick-morrison-desk-unsplash.jpg
-tags: career, portfolio
+tags: Career, Portfolio
 created: 1730118613
 lastUpdated:
 ---
