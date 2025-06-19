@@ -1,88 +1,84 @@
 ---
 title: When to Use ES6 Sets Instead of Arrays in JavaScript
-description: ES6 Sets are the right choice over traditional arrays for unique value storage and fast lookups, and why arrays remain essential for most list operations.
+description: Learn when to reach for ES6 Sets versus Arrays in JavaScript, with practical scenarios demonstrating where each shines.
 image: /images/blog/new-set-closeup.jpg
 tags: JavaScript, ES6, Sets, Arrays
 created: 1750255285
-lastUpdated: 1750275732
+lastUpdated: 
 ---
 
-If you've been writing JavaScript for a while, you probably reach for arrays by default when you need a list of things. They're familiar, flexible, and work for just about everything. But ES6 Sets provide an alternate collection that works best in in certain situations, like when uniqueness or large dataset performance is critical. Let's look closer at when it makes sense to use a Set instead of an array, and why both have their place in your projects.
+If you are like me, you often reach for arrays out of habit. They’re flexible, familiar, and perfect for most everyday tasks like rendering UI, keeping things in order, or working with duplicates. 
 
-### Uniqueness & Deduplication
+But sometimes we need to guarantee uniqueness as a requirement, or your app needs to check values in a huge list. That’s where ES6 Sets come in. Let's consider some real world examples of each, showing how to properly use them in your next project.
 
-Arrays allow duplicates, which means you may need extra logic to handle repeat values. Sets on the other hand, guarantee that every value is unique—no manual steps for de-duplication are necessary.
+## Tracking Unique Events with Sets
 
-```js
-const arr = ['apple', 'banana', 'apple'];
-const uniqueArr = [...new Set(arr)]; // [ 'apple', 'banana' ]
-
-const tags = new Set(['apple', 'banana', 'apple']);
-console.log([...tags]); // [ 'apple', 'banana' ]
-```
-
-### Easy Existence Checks & Iteration
-
-Checking if a value exists in an array (`arr.includes(value)`) is a linear operation that traverses and examines values, which can be slow for large lists. Sets use a hash-based structure, so lookup with `.has(value)` [is much quicker](https://github.com/anvaka/set-vs-object). 
-
-Iterating over a Set is just as easy as iterating over an array, but you're guaranteed to only see unique values.
+Suppose you’re building a notification or error logging system that needs to track which unique error codes have occurred, so you don’t repeatedly alert users about the same issue.
 
 ```js
-const uniqueTags = new Set(['js', 'es6', 'js']);
-for (const tag of uniqueTags) {
-	console.log(tag); // 'js', 'es6'
+const uniqueErrorCodes = new Set();
+
+function handleError(code) {
+  if (!uniqueErrorCodes.has(code)) {
+    uniqueErrorCodes.add(code);
+    // Show notification or log error
+    console.log(`New error: ${code}`);
+  }
 }
 ```
+### Why use a Set here?
 
-### Advanced Usage
+**Performance:** Set.has() offers lookups with a [specific complexity (O(1))(https://medium.com/analytics-vidhya/big-o-notation-time-complexity-in-javascript-f97f356de2c4)] lookups, so checking if an error code has already been seen is much faster than Array.includes(), which has O(n) complexity—especially as the number of error codes grows.
 
-Modern JavaScript (ES2023+) now includes built-in methods for set operations, making unions, intersections, and logic based filtering much simpler:
+**Uniqueness:** Sets automatically enforce uniqueness, so you never have to worry about duplicate error codes.
 
-```js
-const a = new Set([1, 2, 3]);
-const b = new Set([2, 3, 4]);
+**Scalability:** As your app grows and more error codes are tracked, Sets remain fast and efficient, while Arrays slow down with each additional check
 
-// Union
-const union = a.union(b); // Set {1, 2, 3, 4}
-
-// Intersection
-const intersection = a.intersection(b); // Set {2, 3}
-
-// Difference
-const difference = a.difference(b); // Set {1}
-```
-
-### Sets in Reactive State Management
-
-Sets are especially useful in reactive state management scenarios, such as with React's `useState` or similar hooks. When you need to track a collection of unique items (like selected IDs, toggled filters, or active tags), Sets simplify logic and improve performance for add/remove operations and existence checks.
-
-For example, toggling selection in a React component:
-
-```js
-const [selectedIds, setSelectedIds] = useState(new Set());
-
-function toggleId(id) {
-  setSelectedIds(prev => {
-    const next = new Set(prev);
-    if (next.has(id)) {
-      next.delete(id);
-    } else {
-      next.add(id);
-    }
-    return next;
-  });
-}
-```
-
-This approach ensures uniqueness, avoids array deduplication, and makes toggling efficient even for large sets of data.
-
-### Limitations
+### Limitations of Sets
 
 While Sets offer unique advantages, arrays are still preferable in many scenarios:
 
 - **Indexing & Ordering:** Arrays maintain the order of elements and allow direct access by index (e.g., `arr[2]`). Sets do not support index-based access.
 - **Advanced Methods:** Arrays have methods like `map`, `filter`, `reduce`, and `sort` that are not available on Sets. If you need to transform or aggregate data, arrays are often more convenient.
 - **Serialization & Compatibility:** Arrays can be easily serialized to JSON, while Sets require conversion first. Many libraries and APIs expect arrays, not Sets. Conversion adds brittle 'glue-code' to integrations.
+
+
+## Displaying Form Validation Errors with Arrays
+
+When building forms in React, it’s common to collect and display multiple validation errors to the user. The order of errors and their ability to be referenced by index (for accessibility or animation) is important—making Arrays the right choice:
+
+```jsx
+import React from 'react';
+
+const errors = [
+  "Email is required.",
+  "Password must be at least 8 characters.",
+  "Please accept the terms and conditions."
+];
+
+function ErrorList() {
+  return (
+    <ul className="error-list">
+      {errors.map((error, index) => (
+        <li key={index} className="error-item">
+          {error}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default ErrorList;
+```
+### Why use Arrays here?
+
+* The order of errors matters for user experience.
+
+* Arrays allow easy mapping and indexing for React keys.
+
+* Sets would lose duplicate errors and don’t guarantee order, which could confuse users.
+
+* Arrays are ideal for rendering ordered UI lists, such as form validation errors, notifications, or steps in a process, where order and duplicates may matter.
 
 ## The Closing Tag
 
