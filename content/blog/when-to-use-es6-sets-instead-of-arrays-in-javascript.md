@@ -82,7 +82,7 @@ export default ErrorList;
 
 ## The Closing Tag
 
-Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual manipulation. Reach for the right tool and you can produce code that’s both efficient and easy to understand.
+Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual manipulation. Reach for the right tool and you can produce code that’s both efficient and easy to work with.
 
 ---
 
