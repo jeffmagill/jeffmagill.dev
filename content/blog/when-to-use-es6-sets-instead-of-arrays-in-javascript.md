@@ -9,7 +9,7 @@ lastUpdated:
 
 If you are like me, you often reach for arrays out of habit. They’re flexible, familiar, and perfect for most everyday tasks like rendering UI, keeping things in order, or working with duplicates. 
 
-But sometimes we need to guarantee uniqueness as a requirement, or your app needs to check values in a huge list. That’s where ES6 Sets come in. Let's consider some real world examples of each, showing how to properly use them in your next project.
+But sometimes we need to guarantee uniqueness as a requirement, or check values in a huge list quickly. That’s where ES6 Sets come in. Let's consider some real world examples of both Sets and Arrays, and demonstrate how to properly use them in your next project.
 
 ## Tracking Unique Events with Sets
 
@@ -28,7 +28,7 @@ function handleError(code) {
 ```
 ### Why use a Set here?
 
-**Performance:** Set.has() offers lookups with a [specific complexity (O(1))(https://medium.com/analytics-vidhya/big-o-notation-time-complexity-in-javascript-f97f356de2c4)] lookups, so checking if an error code has already been seen is much faster than Array.includes(), which has O(n) complexity—especially as the number of error codes grows.
+**Performance:** `Set.has()` offers lookups with [static complexity (O(1))](https://medium.com/analytics-vidhya/big-o-notation-time-complexity-in-javascript-f97f356de2c4), so checking for a value is much faster than `Array.includes()`, which has dynamic O(n) complexity—based on the size of the collection.
 
 **Uniqueness:** Sets automatically enforce uniqueness, so you never have to worry about duplicate error codes.
 
@@ -45,7 +45,7 @@ While Sets offer unique advantages, arrays are still preferable in many scenario
 
 ## Displaying Form Validation Errors with Arrays
 
-When building forms in React, it’s common to collect and display multiple validation errors to the user. The order of errors and their ability to be referenced by index (for accessibility or animation) is important—making Arrays the right choice:
+When building forms in React, it’s common to collect and display multiple validation errors to the user. The order of errors and their ability to be referenced by index (for accessibility or animation) make Arrays the more suitable option here : 
 
 ```jsx
 import React from 'react';
@@ -82,7 +82,7 @@ export default ErrorList;
 
 ## The Closing Tag
 
-Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual manipulation. Reach for the right tool and you will produce code that's both efficient and clear.
+Sets are a valuable tool when you need to guarantee uniqueness or need fast lookups of very large lists. But the array remains the reigning champion of ordering, indexing, and manual manipulation. Reach for the right tool and you can produce code that’s both efficient and easy to understand.
 
 ---
 
