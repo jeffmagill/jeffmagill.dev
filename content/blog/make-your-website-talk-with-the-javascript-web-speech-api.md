@@ -19,40 +19,50 @@ Here's how I wired up a "listen" button that only appears if your browser suppor
 
 ```javascript
 function setupSpeechButton(contentSelector, buttonSelector) {
-  // Escape function if Web Speech API is not supported
+  // Escape this function if Web Speech API is not supported
   if (!('speechSynthesis' in window)) return;
 
   // Get associated elements
   const button = document.getElementById(buttonSelector);
   const content = document.getElementById(contentSelector);
 
-  button.style.display = 'inline-block';
-
-  // Get the first English voice
+  // Get the voice from document language
   function getPreferredVoice() {
+    const htmlLang = document.documentElement.lang || 'en';
     const voices = window.speechSynthesis.getVoices();
-    return voices.find(v => v.lang.startsWith('en')) || voices[0];
+    return voices.find(v => v.lang.startsWith(htmlLang)) || voices[0];
   }
 
   function speakContent() {
     window.speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(content.innerText);
-    utterance.lang = 'en-US';
+    
+    // get the document language
+    const htmlLang = document.documentElement.lang || 'en-US';
+    utterance.lang = htmlLang;
     utterance.rate = 1;
     utterance.pitch = 1;
 
     const voice = getPreferredVoice();
     if (voice) utterance.voice = voice;
 
-    utterance.onstart = () => button.disabled = true;
+    // toggle the button
+    utterance.onstart = () => {
+      button.disabled = true;
+      button.textContent = 'Stop';
+    };
+    utterance.onend = () => {
+      button.disabled = false;
+      button.textContent = 'Listen';
+    };
     utterance.onend = () => button.disabled = false;
 
     // Speak the content
     window.speechSynthesis.speak(utterance);
   }
 
-  // Some browsers load voices asynchronously
+  // For browsers that load voices asynchronously
   if (window.speechSynthesis.getVoices().length === 0) {
     window.speechSynthesis.onvoiceschanged = () => {
       button.addEventListener('click', speakContent);
@@ -65,7 +75,7 @@ function setupSpeechButton(contentSelector, buttonSelector) {
 setupSpeechButton('blog-content', 'listen-btn');
 ```
 
-_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see a React implementation that I used on [this site's blog](https://magill.dev), take a look at [this React component](https://github.com/andymagill/dev.magill.next/blob/master/app/components/blog/ListenButton.tsx) I created. 
+_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see the latest version of the React implementation that I used on [this site's blog](https://magill.dev), take a look at [this React component](https://github.com/andymagill/dev.magill.next/blob/master/app/components/blog/ListenButton.tsx). 
 
 ## Conclusion
 
@@ -77,6 +87,6 @@ Since Chatbots invaded the internet over the past year, voice synthesis and tran
 
 ## Related Links
 
-- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) - Comprehensive documentation and browser support information
-- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) - Detailed API reference for the speech synthesis functionality
-- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) - Best practices for accessible web applications
+- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) Comprehensive documentation and browser support information
+- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) Detailed API reference for the speech synthesis functionality
+- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) Best practices for accessible web applications
