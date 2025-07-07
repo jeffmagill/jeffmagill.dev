@@ -7,24 +7,24 @@ created: 1751579020
 lastUpdated: 
 ---
 
-If you don't know how to talk to a website, you are in for a real treat! I've spend enough time building and writing for my site that I have decided to make it easy for people to listen too. Enter the Web Speech API, the best browser feature that most users never asked for. 
+If you have never heard your website speak, you are in for a real treat! I've spend enough time building and writing for my own site that I have decided to make it easy for people to listen too. Enter the Web Speech API, the best browser feature that most users never asked for. 
 
 ## Why bother with a "listen" button?
 
-I added this feature for a couple reasons. First, I selfishly wanted to experiment and learn about the Web Speech API. Secondly, accessibility: not everyone reads the same way, and some folks rely on screen readers or just prefer listening. 
+I added this feature to [my blog](https://magill.dev) for a couple reasons. First, I selfishly wanted to experiment and learn about the Web Speech API. Secondly, accessibility: not everyone reads the same way, and some folks rely on screen readers or just prefer listening. 
 
 ## The code
 
-Here's how I wired up a "listen" button that only appears if your browser supports the Web Speech API. 
+Here's a reusable function that only runs when the API is supported
 
 ```javascript
 function setupSpeechButton(contentSelector, buttonSelector) {
-  // Escape this function if Web Speech API is not supported
-  if (!('speechSynthesis' in window)) return;
-
   // Get associated elements
   const button = document.getElementById(buttonSelector);
   const content = document.getElementById(contentSelector);
+
+  // Escape this function if Web Speech API is not supported, or associated elements are missing 
+  if (!window.speechSynthesis || !button || !content) return;
 
   // Get the voice from document language
   function getPreferredVoice() {
@@ -44,6 +44,7 @@ function setupSpeechButton(contentSelector, buttonSelector) {
     utterance.rate = 1;
     utterance.pitch = 1;
 
+    // Select the voice to use
     const voice = getPreferredVoice();
     if (voice) utterance.voice = voice;
 
@@ -75,9 +76,9 @@ function setupSpeechButton(contentSelector, buttonSelector) {
 setupSpeechButton('blog-content', 'listen-btn');
 ```
 
-_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see the latest version of the React implementation that I used on [this site's blog](https://magill.dev), take a look at [this React component](https://github.com/andymagill/dev.magill.next/blob/master/app/components/blog/ListenButton.tsx). 
+_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see the latest version of the React implementation that I used on my site, checkout this [React component](https://github.com/andymagill/dev.magill.next/blob/master/app/components/blog/ListenButton.tsx). 
 
-## Conclusion
+## Closing tag
 
 Adding a "listen" button with the Web Speech API is a simple way to make my blog more inclusive and engaging. It helps make my content more flexible for everyone, not just the visually impaired.
 
@@ -87,6 +88,9 @@ Since Chatbots invaded the internet over the past year, voice synthesis and tran
 
 ## Related Links
 
-- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) Comprehensive documentation and browser support information
-- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) Detailed API reference for the speech synthesis functionality
-- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) Best practices for accessible web applications
+- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+Comprehensive documentation and browser support information
+- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)
+Detailed API reference for the speech synthesis functionality
+- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
+Best practices for accessible web applications
