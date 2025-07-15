@@ -86,14 +86,8 @@ Since Chatbots invaded the internet over the past year, voice synthesis and tran
 
 ## Related Links
 
-- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
+- [Web Speech API - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) : Comprehensive documentation and browser support information
 
-Comprehensive documentation and browser support information
+- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis) : Detailed API reference for the speech synthesis functionality
 
-- [SpeechSynthesis Interface](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)
-
-Detailed API reference for the speech synthesis functionality
-
-- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)
-
-Best practices for accessible web applications
+- [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) : Best practices for accessible web applications
