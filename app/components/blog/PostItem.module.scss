@@ -11,20 +11,28 @@
 			align-items: center;
 		}
 
-		&:hover h3 {
-			text-decoration: underline;
+		&:hover {
+			h3 {
+				text-decoration: underline;
+			}
+			img {
+				border-color: var(--foreground);
+			}
 		}
 	}
 }
 
 .postThumb {
 	flex-basis: 33%;
-	aspect-ratio: 16/9;
 	overflow-y: hidden;
 
 	img {
 		width: 100%;
 		height: auto;
+		aspect-ratio: 16/9;
+		border: 1px solid var(--line-color);
+
+		transition: border-color 0.3s ease;
 	}
 }
 .postDetails {
