@@ -38,11 +38,9 @@ function setupSpeechButton(contentSelector, buttonSelector) {
 
 		const utterance = new SpeechSynthesisUtterance(content.innerText);
 
-		// get the document language
-		const htmlLang = document.documentElement.lang || 'en-US';
-		utterance.lang = htmlLang;
-		utterance.rate = 1;
-		utterance.pitch = 1;
+		// Specify the voice based on language
+		const voice = getPreferredVoice();
+		if (voice) utterance.voice = voice;
 
 		// Specify the voice based on language
 		const voice = getPreferredVoice();
