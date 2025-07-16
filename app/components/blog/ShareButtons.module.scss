@@ -35,10 +35,14 @@
 
 	> h3 {
 		margin-top: 0 !important;
-		margin-bottom: 0.75rem;
+		margin-bottom: 0 !important;
 		font-size: 1.25rem;
 		font-weight: 600;
 		color: var(--foreground);
+
+		& + p {
+			margin-top: 0 !important;
+		}
 	}
 
 	p {

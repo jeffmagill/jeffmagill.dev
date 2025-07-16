@@ -9,8 +9,6 @@
 import React from 'react';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { settings } from '@/utils/settings.mjs';
 import postService from '@/utils/PostService';
