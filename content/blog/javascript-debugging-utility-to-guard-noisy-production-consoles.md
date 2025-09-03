@@ -55,7 +55,7 @@ const logger = (() => {
 })();
 ```
 
-Notice I'm now using arrow functions to return the object methods, and I only production-guarded _debug_ logs, while _info_, _warn_, and _error_ remain active since they are typically useful for monitoring. Now I've got a solid, reusable logger I can use throughout my application.
+Notice I'm now using arrow functions to return the object methods, within an immediatly involking function so lazy me doesn't even need initalize it. Also, I only production-guarded _debug_ messages, while _info_, _warn_, and _error_ remain active since they are typically useful for monitoring. Now I've got a rock solid, reusable logger I can use throughout my application.
 
 ```javascript
 // Example usage:
@@ -71,23 +71,11 @@ Spending a little time to create a centralized logger, I've made my codebase cle
 
 ## References
 
-- Console API — MDN Web Docs  
+- **Console API** — MDN Web Docs  
   https://developer.mozilla.org/en-US/docs/Web/API/Console
 
-- process.env (Node.js) — Node.js Documentation  
+- **process.env (Node.js)** — Node.js Documentation  
   https://nodejs.org/api/process.html#processenv
 
-- Environment and Modes — Vite Docs (how env vars are exposed)  
-  https://vitejs.dev/guide/env-and-mode.html
-
-- DefinePlugin — webpack (how to inject NODE_ENV)  
-  https://webpack.js.org/plugins/define-plugin/
-
-- Logging best practices — The Twelve-Factor App (logs as event streams)  
+- **Logging best practices** — The Twelve-Factor App (logs as event streams)  
   https://12factor.net/logs
-
-- Winston — A popular Node.js logging library (structured logging)  
-  https://github.com/winstonjs/winston
-
-- Pino — Fast JSON logger for Node.js  
-  https://github.com/pinojs/pino
