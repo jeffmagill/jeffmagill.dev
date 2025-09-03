@@ -13,6 +13,7 @@ vi.mock('@/utils/PostService', () => ({
 	default: {
 		getPost: vi.fn(),
 		getSlugs: vi.fn(),
+		getPosts: vi.fn(),
 	},
 }));
 
@@ -89,6 +90,7 @@ const mockPost = {
 describe('Post page', () => {
 	beforeEach(() => {
 		vi.mocked(postService.getPost).mockReturnValue(mockPost);
+		vi.mocked(postService.getPosts).mockReturnValue([mockPost]);
 	});
 
 	it('renders post details and content', async () => {

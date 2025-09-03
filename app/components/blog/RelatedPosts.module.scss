@@ -1,0 +1,95 @@
+
+.container {
+	max-width: var(--blog-width);
+	padding: var(--gap);
+	margin: 1rem auto;
+	border-top: 1px solid #99999966;
+}
+
+.heading {
+	font-size: 1.25rem;
+	margin: 0 0 0.75rem 0;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 1.5rem;
+}
+
+.item {
+    flex-basis: 25%;
+	transition:
+		transform 180ms ease,
+		border-color 180ms ease;
+}
+
+.link {
+	display: flex;
+	gap: 0.75rem;
+	text-decoration: none;
+	color: inherit;
+	align-items: flex-start;
+    flex-direction: column;
+	outline: none;
+}
+
+.image {
+	width: 100%;
+	height: auto;
+    aspect-ratio: 16 / 9;
+	object-fit: cover;
+	display: block;
+	transition: transform 200ms ease,
+        border-color 200ms ease;
+    border: 1.5px solid transparent;
+}
+
+.title {
+	font-size: 0.88rem;
+	margin: 0 0 0.25rem 0;
+	transition:
+		color 160ms ease,
+		text-decoration 160ms ease;
+}
+
+/* Hover / focus states */
+.item:hover,
+.item:focus-within,
+.item:focus-visible {
+	transform: translateY(-0.25rem);
+}
+
+.item:hover .image,
+.item:focus-within .image,
+.link:focus .image {
+	transform: scale(1.04);
+    border: 1.5px solid var(--foreground) !important;
+}
+
+.link:hover .title,
+.link:focus .title,
+.item:focus-within .title {
+	text-decoration: underline;
+}
+
+/* Small screens: two columns using flex-wrap and 50% basis */
+@media (max-width: 640px) {
+	.list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.item {
+		flex-basis: 50%;
+		max-width: 50%;
+	}
+}
+@media (max-width: 480px) {
+	.list {
+		display: block;
+	}
+}

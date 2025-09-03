@@ -17,6 +17,7 @@ import Hero from '@/app/components/global/Hero';
 import PostDate from '@/app/components/blog/PostDate';
 import ShareButtons from '@/app/components/blog/ShareButtons';
 import ListenButton from '@/app/components/blog/ListenButton';
+import RelatedPosts from '@/app/components/blog/RelatedPosts';
 import styles from './page.module.scss';
 
 /**
@@ -141,7 +142,8 @@ export default async function Post(props: PostProps) {
 				<ShareButtons title={post.title} />
 			</article>
 
-			{/* TODO: add related posts component */}
+			{/* Related posts (SSG) */}
+			<RelatedPosts tags={post.tags} currentSlug={post.slug} />
 		</main>
 	);
 }
