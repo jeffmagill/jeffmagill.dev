@@ -68,3 +68,26 @@ logger.error("Goodbye World!");
 ## The Closing Tag
 
 Spending a little time to create a centralized logger, I've made my codebase cleaner and debugging life a lot easier. Now, I have a single place to control logging and maintain debugging consistency thoughout my application code. It's a simple change that helps improve the overall health of my projects.
+
+## References
+
+- Console API — MDN Web Docs  
+  https://developer.mozilla.org/en-US/docs/Web/API/Console
+
+- process.env (Node.js) — Node.js Documentation  
+  https://nodejs.org/api/process.html#processenv
+
+- Environment and Modes — Vite Docs (how env vars are exposed)  
+  https://vitejs.dev/guide/env-and-mode.html
+
+- DefinePlugin — webpack (how to inject NODE_ENV)  
+  https://webpack.js.org/plugins/define-plugin/
+
+- Logging best practices — The Twelve-Factor App (logs as event streams)  
+  https://12factor.net/logs
+
+- Winston — A popular Node.js logging library (structured logging)  
+  https://github.com/winstonjs/winston
+
+- Pino — Fast JSON logger for Node.js  
+  https://github.com/pinojs/pino
