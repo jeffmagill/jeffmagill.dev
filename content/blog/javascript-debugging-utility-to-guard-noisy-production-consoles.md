@@ -15,12 +15,12 @@ Creating a function that wraps `console.log()` gives us a single point of contro
 
 ```javascript
 class Logger {
-  log(message, ...optionalParams) {
-    if (process.env.NODE_ENV !== "production") {
-      const timestamp = new Date().toISOString();
-      console.log(`[${timestamp}]`, message, ...optionalParams);
-    }
-  }
+	log(message, ...optionalParams) {
+		if (process.env.NODE_ENV !== 'production') {
+			const timestamp = new Date().toISOString();
+			console.log(`[${timestamp}]`, message, ...optionalParams);
+		}
+	}
 }
 ```
 
@@ -32,26 +32,26 @@ If we want a truly useful logger, we should match the different levels of severi
 
 ```javascript
 const logger = (() => {
-  // Check the environment once
-  const isProd = process.env.NODE_ENV === "production";
+	// Check the environment once
+	const isProd = process.env.NODE_ENV === 'production';
 
-  // Return an object with methods for each log level
-  return {
-    debug: (message, ...optionalParams) => {
-      if (!isProd) {
-        console.debug("DEBUG:", message, ...optionalParams);
-      }
-    },
-    info: (message, ...optionalParams) => {
-      console.info("INFO:", message, ...optionalParams);
-    },
-    warn: (message, ...optionalParams) => {
-      console.warn("WARN:", message, ...optionalParams);
-    },
-    error: (message, ...optionalParams) => {
-      console.error("ERROR:", message, ...optionalParams);
-    },
-  };
+	// Return an object with methods for each log level
+	return {
+		debug: (message, ...optionalParams) => {
+			if (!isProd) {
+				console.debug('DEBUG:', message, ...optionalParams);
+			}
+		},
+		info: (message, ...optionalParams) => {
+			console.info('INFO:', message, ...optionalParams);
+		},
+		warn: (message, ...optionalParams) => {
+			console.warn('WARN:', message, ...optionalParams);
+		},
+		error: (message, ...optionalParams) => {
+			console.error('ERROR:', message, ...optionalParams);
+		},
+	};
 })();
 ```
 
@@ -59,10 +59,10 @@ Notice I'm now using arrow functions to return the object methods, within an imm
 
 ```javascript
 // Example usage:
-logger.info("Flooding Torpedo Tubes...");
-logger.debug("A secret value:", mySecretVariable);
+logger.info('Flooding Torpedo Tubes...');
+logger.debug('A secret value:', mySecretVariable);
 logger.warn("Don't touch that!");
-logger.error("Goodbye World!");
+logger.error('Goodbye World!');
 ```
 
 ## The Closing Tag
