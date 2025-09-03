@@ -5,7 +5,6 @@ import Image from 'next/image';
 import postService from '@/utils/PostService';
 import { Post as PostType } from '@/utils/types';
 import styles from './RelatedPosts.module.scss';
-import RelatedPostsReveal from './RelatedPostsReveal';
 
 interface RelatedPostsProps {
 	tags: string;
@@ -65,9 +64,8 @@ export default function RelatedPosts({
 
 	if (top.length === 0) return null;
 
-		return (
-			<RelatedPostsReveal className={styles.container}>
-				<aside>
+			return (
+				<aside className={styles.container} data-related-reveal>
 					<h2 className={styles.heading}>Related Articles</h2>
 					<ul className={styles.list}>
 						{top.map((p, i) => (
@@ -93,7 +91,22 @@ export default function RelatedPosts({
 							</li>
 						))}
 					</ul>
+
+					{/* Inline client script to toggle .visible when scrolled into view */}
+					<script
+						dangerouslySetInnerHTML={{
+							__html: `(() => {
+								try {
+									const el = document.querySelector('[data-related-reveal]');
+									if (!el || typeof IntersectionObserver === 'undefined') return;
+									const obs = new IntersectionObserver((entries, o) => {
+										entries.forEach(e => { if (e.isIntersecting) { el.classList.add('visible'); o.disconnect(); } });
+									}, {threshold: 0.12});
+									obs.observe(el);
+								} catch (e) { /* noop */ }
+							})();`,
+						}}
+					/>
 				</aside>
-			</RelatedPostsReveal>
-		);
+			);
 }
