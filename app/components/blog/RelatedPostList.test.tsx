@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import RelatedPostList from './RelatedPostList';
 import postService from '@/utils/PostService';
-import { vi } from 'vitest';
+import { vi, describe, beforeEach, test, expect } from 'vitest';
 
 vi.mock('@/utils/PostService', () => ({
 	default: {
@@ -25,8 +25,8 @@ describe('RelatedPostList', () => {
 		vi.mocked(postService.getSlugs).mockImplementation(() =>
 			posts.map((p) => p.slug)
 		);
-		vi.mocked(postService.getPost).mockImplementation((slug) =>
-			posts.find((p) => p.slug === slug)
+		vi.mocked(postService.getPost).mockImplementation(
+			(slug) => posts.find((p) => p.slug === slug) as any
 		);
 	});
 
@@ -56,8 +56,8 @@ describe('RelatedPostList', () => {
 		vi.mocked(postService.getSlugs).mockImplementation(() =>
 			postsFallback.map((p) => p.slug)
 		);
-		vi.mocked(postService.getPost).mockImplementation((slug) =>
-			postsFallback.find((p) => p.slug === slug)
+		vi.mocked(postService.getPost).mockImplementation(
+			(slug) => postsFallback.find((p) => p.slug === slug) as any
 		);
 
 		render(

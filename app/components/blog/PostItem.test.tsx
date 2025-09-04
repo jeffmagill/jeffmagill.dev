@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import PostItem from './PostItem';
+import { describe, test, expect } from 'vitest';
 
 describe('PostItem', () => {
 	test('renders post details and tags when tags is a string', () => {

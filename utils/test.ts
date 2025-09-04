@@ -28,9 +28,10 @@ if (typeof (globalThis as any).speechSynthesis === 'undefined') {
 
 // Minimal SpeechSynthesisUtterance constructor
 if (typeof (globalThis as any).SpeechSynthesisUtterance === 'undefined') {
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	// @ts-ignore
-	(globalThis as any).SpeechSynthesisUtterance = function (text?: string) {
+	(globalThis as any).SpeechSynthesisUtterance = function (
+		this: any,
+		text?: string
+	) {
 		this.text = text;
 		this.voice = undefined;
 		this.pitch = undefined;

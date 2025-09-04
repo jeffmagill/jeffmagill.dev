@@ -1,15 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import RelatedPosts from './RelatedPosts';
+import { describe, test, expect } from 'vitest';
 
 describe('RelatedPosts', () => {
 	test('renders children and defaults to visible when no IntersectionObserver', () => {
 		// Remove IntersectionObserver to simulate older browsers / server
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		const OriginalIO = (globalThis as any).IntersectionObserver;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
 		delete (globalThis as any).IntersectionObserver;
 
 		render(

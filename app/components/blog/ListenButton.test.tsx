@@ -1,25 +1,20 @@
+/// <reference types="vitest" />
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ListenButton from './ListenButton';
-import { vi } from 'vitest';
+import { vi, describe, beforeEach, test, expect } from 'vitest';
 
 describe('ListenButton', () => {
 	beforeEach(() => {
 		// Ensure a clean global state for each test
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete window.speechSynthesis;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete window.SpeechSynthesisUtterance;
+		delete (window as any).speechSynthesis;
+		delete (window as any).SpeechSynthesisUtterance;
 		vi.restoreAllMocks();
 	});
 
 	test('does not render when speechSynthesis is unsupported', () => {
 		// Ensure speechSynthesis is undefined
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete window.speechSynthesis;
+		delete (window as any).speechSynthesis;
 		render(<ListenButton text='hello world' />);
 		expect(screen.queryByRole('button')).toBeNull();
 	});
@@ -37,18 +32,17 @@ describe('ListenButton', () => {
 
 		const voices = [{ name: 'Google US English', lang: 'en-US' }];
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		window.speechSynthesis = {
+		(window as any).speechSynthesis = {
 			getVoices: () => voices,
 			speak: mockSpeak,
 			cancel: mockCancel,
 		} as any;
 
 		// Minimal fake constructor for SpeechSynthesisUtterance
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		window.SpeechSynthesisUtterance = function (text: string) {
+		(window as any).SpeechSynthesisUtterance = function (
+			this: any,
+			text: string
+		) {
 			this.text = text;
 			this.voice = undefined;
 			this.pitch = undefined;
@@ -90,17 +84,16 @@ describe('ListenButton', () => {
 			{ name: 'Google US English', lang: 'en-US' },
 		];
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		window.speechSynthesis = {
+		(window as any).speechSynthesis = {
 			getVoices: () => voices,
 			speak: mockSpeak,
 			cancel: mockCancel,
 		} as any;
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		window.SpeechSynthesisUtterance = function (text: string) {
+		(window as any).SpeechSynthesisUtterance = function (
+			this: any,
+			text: string
+		) {
 			this.text = text;
 			this.voice = undefined;
 			this.pitch = undefined;
