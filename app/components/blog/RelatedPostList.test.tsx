@@ -39,4 +39,18 @@ describe('RelatedPostList', () => {
   expect(items[0]).toHaveTextContent('B'); // title tie-breaker puts B before C
   expect(items[1]).toHaveTextContent('C');
   });
+  
+  test('renders fallback image when post image is missing', () => {
+    const postsFallback = [{ title: 'One', slug: 'one', tags: 'a', image: undefined }];
+    vi.mocked(postService.getPosts).mockImplementation(() => postsFallback as any);
+    vi.mocked(postService.getSlugs).mockImplementation(() => postsFallback.map((p) => p.slug));
+    vi.mocked(postService.getPost).mockImplementation((slug) => postsFallback.find((p) => p.slug === slug));
+
+    render(<RelatedPostList tags={'a'} currentSlug={undefined} maxResults={5} />);
+    const imgs = screen.getAllByRole('img');
+    // Should render an img; if component uses a fallback, it should be present
+    expect(imgs.length).toBeGreaterThanOrEqual(1);
+    const src = (imgs[0] as HTMLImageElement).src;
+    expect(src.length).toBeGreaterThan(0);
+  });
 });

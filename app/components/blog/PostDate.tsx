@@ -16,10 +16,17 @@
 const formatDate = (timestamp: string): string | null => {
 	if (!timestamp) return null;
 
-	return new Date(Number(timestamp) * 1000).toLocaleDateString('en-US', {
+	// Support either a Unix timestamp in seconds (numeric string) or an ISO timestamp.
+	const date = /^[0-9]+$/.test(timestamp)
+		? new Date(Number(timestamp) * 1000)
+		: new Date(timestamp);
+
+	// Use UTC timezone to make formatting deterministic in tests/environments.
+	return date.toLocaleDateString('en-US', {
 		year: 'numeric',
 		month: 'long',
 		day: 'numeric',
+		timeZone: 'UTC',
 	});
 };
 

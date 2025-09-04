@@ -38,6 +38,9 @@ describe('ProjectService', () => {
 
 		// Mock process.cwd to return a fixed path
 		vi.spyOn(process, 'cwd').mockReturnValue(mockCwd);
+
+		// Suppress console.error output for tests (we'll assert on the mock where needed)
+		vi.spyOn(console, 'error').mockImplementation(() => {});
 	});
 
 	describe('loadProjects', () => {
@@ -121,11 +124,6 @@ describe('ProjectService', () => {
 		});
 
 		it('should log error to console when exception occurs', async () => {
-			// Spy on console.error
-			const consoleErrorSpy = vi
-				.spyOn(console, 'error')
-				.mockImplementation(() => {});
-
 			// Setup mock to throw error
 			const fileError = new Error('File not found');
 			vi.spyOn(fs, 'readFile').mockRejectedValueOnce(fileError);
@@ -136,7 +134,7 @@ describe('ProjectService', () => {
 			);
 
 			// Verify console.error was called with the expected arguments
-			expect(consoleErrorSpy).toHaveBeenCalledWith(
+			expect((console.error as any)).toHaveBeenCalledWith(
 				'Error loading projects:',
 				fileError
 			);

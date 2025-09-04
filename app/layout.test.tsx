@@ -1,7 +1,8 @@
 // layout.test.tsx
 import React from 'react';
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import RootLayout from './layout';
 
 // Mock the imported components
@@ -32,42 +33,46 @@ vi.mock('next/font/google', () => ({
 
 describe('RootLayout', () => {
 	it('renders all essential layout components', () => {
-		render(
-			<RootLayout>
-				<div data-testid='page-content'>Page Content</div>
-			</RootLayout>
-		);
+			const markup = renderToStaticMarkup(
+				<RootLayout>
+					<div data-testid='page-content'>Page Content</div>
+				</RootLayout>
+			);
 
-		// Check if all the layout components are rendered
-		expect(screen.getByTestId('analytics-wrapper')).toBeInTheDocument();
-		expect(screen.getByTestId('error-boundary')).toBeInTheDocument();
-		expect(screen.getByTestId('header')).toBeInTheDocument();
-		expect(screen.getByTestId('footer')).toBeInTheDocument();
+			const doc = new DOMParser().parseFromString(markup, 'text/html');
 
-		// Check if the children are rendered
-		expect(screen.getByTestId('page-content')).toBeInTheDocument();
-		expect(screen.getByText('Page Content')).toBeInTheDocument();
+			// Check if all the layout components are rendered
+			expect(doc.querySelector('[data-testid="analytics-wrapper"]')).toBeTruthy();
+			expect(doc.querySelector('[data-testid="error-boundary"]')).toBeTruthy();
+			expect(doc.querySelector('[data-testid="header"]')).toBeTruthy();
+			expect(doc.querySelector('[data-testid="footer"]')).toBeTruthy();
+
+			// Check if the children are rendered
+			expect(doc.querySelector('[data-testid="page-content"]')).toBeTruthy();
+			expect(doc.body.textContent).toContain('Page Content');
 	});
 
 	it('renders HTML structure with correct language', () => {
-		const { container } = render(
-			<RootLayout>
-				<div>Content</div>
-			</RootLayout>
-		);
-
-		const html = container.querySelector('html');
-		expect(html).toHaveAttribute('lang', 'en');
+			const markup = renderToStaticMarkup(
+				<RootLayout>
+					<div>Content</div>
+				</RootLayout>
+			);
+			const doc = new DOMParser().parseFromString(markup, 'text/html');
+			const html = doc.querySelector('html');
+			expect(html).toBeTruthy();
+			expect(html?.getAttribute('lang')).toBe('en');
 	});
 
 	it('applies the font class to the body', () => {
-		const { container } = render(
-			<RootLayout>
-				<div>Content</div>
-			</RootLayout>
-		);
-
-		const body = container.querySelector('body');
-		expect(body).toHaveClass('mock-outfit-font');
+			const markup = renderToStaticMarkup(
+				<RootLayout>
+					<div>Content</div>
+				</RootLayout>
+			);
+			const doc = new DOMParser().parseFromString(markup, 'text/html');
+			const body = doc.querySelector('body');
+			expect(body).toBeTruthy();
+			expect(body?.classList.contains('mock-outfit-font')).toBeTruthy();
 	});
 });
