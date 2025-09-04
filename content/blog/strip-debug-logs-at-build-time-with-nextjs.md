@@ -45,7 +45,7 @@ Next time you build with this config, _console.log_, _console.debug_, and _conso
 ## When to pick which
 
 - Use the Next.js compiler removeConsole when you want absolute assurance that debug/log calls never reach production
-- Use a runtime-guarded logger when you require strict code consistency across enviroments, or want the ability to control debug logic dynamically. 
+- Use a runtime-guarded logger when you require strict code consistency across enviroments, or want the ability to control debug logic dynamically.
 
 ## Closing Tag
 
@@ -56,5 +56,5 @@ Both approaches are valid for different scenarios, and each developer will have 
 - **Console API** — MDN Web Docs  
   https://developer.mozilla.org/en-US/docs/Web/API/Console
 
-- **Next.js: Compiler** — removeConsole option 
+- **Next.js: Compiler** — removeConsole option
   https://nextjs.org/docs/advanced-features/compiler
