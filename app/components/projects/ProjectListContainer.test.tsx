@@ -5,31 +5,41 @@ import { vi } from 'vitest';
 
 // Mock ProjectService
 vi.mock('@/utils/projectService', () => ({
-  ProjectService: {
-    loadProjects: vi.fn(),
-  },
+	ProjectService: {
+		loadProjects: vi.fn(),
+	},
 }));
 
 describe('ProjectListContainer', () => {
-  test('renders projects when ProjectService.loadProjects succeeds', async () => {
-    const { ProjectService } = await import('@/utils/projectService');
-    // Provide a small dataset
-    vi.mocked(ProjectService.loadProjects).mockResolvedValue({ projects: [{ title: 'P1' }] });
+	test('renders projects when ProjectService.loadProjects succeeds', async () => {
+		const { ProjectService } = await import('@/utils/projectService');
+		// Provide a small dataset
+		vi.mocked(ProjectService.loadProjects).mockResolvedValue({
+			projects: [{ title: 'P1' }],
+		});
 
-    const el = await ProjectListContainer({ file: 'x.json', maxProjects: 1 } as any);
-    // Rendered result is a React element; verify it contains the project title
-    const { container } = render(el as any);
-    expect(container).toHaveTextContent('P1');
-  });
+		const el = await ProjectListContainer({
+			file: 'x.json',
+			maxProjects: 1,
+		} as any);
+		// Rendered result is a React element; verify it contains the project title
+		const { container } = render(el as any);
+		expect(container).toHaveTextContent('P1');
+	});
 
-  test('returns ErrorDisplay when loadProjects throws', async () => {
-    const { ProjectService } = await import('@/utils/projectService');
-    vi.mocked(ProjectService.loadProjects).mockRejectedValue(new Error('bad'));
+	test('returns ErrorDisplay when loadProjects throws', async () => {
+		const { ProjectService } = await import('@/utils/projectService');
+		vi.mocked(ProjectService.loadProjects).mockRejectedValue(new Error('bad'));
 
-    const el = await ProjectListContainer({ file: 'x.json', maxProjects: 1 } as any);
-    const { container } = render(el as any);
-    expect(container).toHaveTextContent('There was a problem loading projects.');
-  });
+		const el = await ProjectListContainer({
+			file: 'x.json',
+			maxProjects: 1,
+		} as any);
+		const { container } = render(el as any);
+		expect(container).toHaveTextContent(
+			'There was a problem loading projects.'
+		);
+	});
 });
 // ProjectListContainer.test.tsx
 import { describe, it, expect, vi, beforeEach } from 'vitest';

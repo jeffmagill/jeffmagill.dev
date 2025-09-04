@@ -44,7 +44,9 @@ describe('ShareButtons', () => {
 		expect(screen.getByText('Share This Post')).toBeInTheDocument();
 
 		// Verify the explanatory text
-		expect(screen.getByText(/If you found this post interesting/)).toBeInTheDocument();
+		expect(
+			screen.getByText(/If you found this post interesting/)
+		).toBeInTheDocument();
 
 		// Use a more general selector to find all share links
 		const links = container.querySelectorAll('a');
@@ -69,11 +71,26 @@ describe('ShareButtons', () => {
 		const redditLink = screen.getByText('Share on Reddit').closest('a');
 		const emailLink = screen.getByText('Share by Email').closest('a');
 
-		expect(fbLink).toHaveAttribute('href', `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`);
-		expect(linkedinLink).toHaveAttribute('href', `https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`);
-		expect(xLink).toHaveAttribute('href', `http://x.com/share?url=${currentUrl}&text=${encodedTitle}`);
-		expect(redditLink).toHaveAttribute('href', `https://reddit.com/submit?url=${currentUrl}&title=${encodedTitle}`);
-		expect(emailLink).toHaveAttribute('href', `mailto:?subject=${encodedTitle}&body=${currentUrl}`);
+		expect(fbLink).toHaveAttribute(
+			'href',
+			`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`
+		);
+		expect(linkedinLink).toHaveAttribute(
+			'href',
+			`https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}`
+		);
+		expect(xLink).toHaveAttribute(
+			'href',
+			`http://x.com/share?url=${currentUrl}&text=${encodedTitle}`
+		);
+		expect(redditLink).toHaveAttribute(
+			'href',
+			`https://reddit.com/submit?url=${currentUrl}&title=${encodedTitle}`
+		);
+		expect(emailLink).toHaveAttribute(
+			'href',
+			`mailto:?subject=${encodedTitle}&body=${currentUrl}`
+		);
 	});
 
 	it('renders share links with correct target and rel attributes', () => {

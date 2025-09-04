@@ -4,9 +4,7 @@ import '@testing-library/jest-dom/vitest';
 // Provide lightweight, overridable global mocks for browser APIs used in component tests.
 // Tests can still override these globals when they need to assert specific behaviour.
 // These are intentionally minimal to avoid coupling test behavior to real browser implementations.
-const fakeVoices = [
-	{ name: 'Google US English', lang: 'en-US' },
-];
+const fakeVoices = [{ name: 'Google US English', lang: 'en-US' }];
 
 // Minimal speechSynthesis mock
 if (typeof (globalThis as any).speechSynthesis === 'undefined') {

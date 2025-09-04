@@ -134,7 +134,7 @@ describe('ProjectService', () => {
 			);
 
 			// Verify console.error was called with the expected arguments
-			expect((console.error as any)).toHaveBeenCalledWith(
+			expect(console.error as any).toHaveBeenCalledWith(
 				'Error loading projects:',
 				fileError
 			);
