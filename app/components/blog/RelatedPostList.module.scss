@@ -3,11 +3,17 @@
 	padding: var(--gap);
 	margin: 1rem auto;
 	border-top: 1px solid #99999966;
+
+	&.visible .item {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
 }
 
 .heading {
 	font-size: 1.25rem;
 	margin: 0 0 0.75rem 0;
+    text-align: center;
 }
 
 .list {
@@ -81,12 +87,6 @@
 .link:focus .title,
 .item:focus-within .title {
 	text-decoration: underline;
-}
-
-/* When the wrapper gets .visible, reveal items sequentially */
-.visible .item {
-	opacity: 1;
-	transform: translateY(0) scale(1);
 }
 
 .item {

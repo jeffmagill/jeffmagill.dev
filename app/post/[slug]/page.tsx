@@ -18,6 +18,7 @@ import PostDate from '@/app/components/blog/PostDate';
 import ShareButtons from '@/app/components/blog/ShareButtons';
 import ListenButton from '@/app/components/blog/ListenButton';
 import RelatedPosts from '@/app/components/blog/RelatedPosts';
+import RelatedPostList from '@/app/components/blog/RelatedPostList';
 import styles from './page.module.scss';
 
 /**
@@ -142,8 +143,10 @@ export default async function Post(props: PostProps) {
 				<ShareButtons title={post.title} />
 			</article>
 
-			{/* Related posts (SSG) */}
-			<RelatedPosts tags={post.tags} currentSlug={post.slug} />
+			{/* Related posts (SSG + client reveal) */}
+			<RelatedPosts className={styles.related}>
+				<RelatedPostList tags={post.tags} currentSlug={post.slug} />
+			</RelatedPosts>
 		</main>
 	);
 }
