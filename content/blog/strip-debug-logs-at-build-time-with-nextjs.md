@@ -7,7 +7,7 @@ created: 1757001185
 lastUpdated:
 ---
 
-I never thought I would recommend anyone get into stripping, but sometimes you gotta to what you gotta do. If you really want clean logs and easier debugging, the simpliest solution might just be to remove debug calls during the build process. Instead of wrapping every `console.debug()` in guards at runtime, you can tell the Next.js compiler to strip them out when you create your production build.
+I never thought I would recommend anyone get into stripping, but sometimes you gotta to what you gotta do.My [last article](/post/javascript-debugging-utility-to-guard-noisy-production-consoles) described a tamer approach, runtime guarding of debug logs. But if you really want clean logs and easier debugging, the simpliest solution might just be to remove debug calls during the build process. Instead of wrapping every `console.debug()` in guards at runtime, you can tell the Next.js compiler to strip them out when you create your production build.
 
 ## Why build-time removal?
 
@@ -57,4 +57,4 @@ Both approaches are valid for different scenarios, and each developer will have 
   https://developer.mozilla.org/en-US/docs/Web/API/Console
 
 - **Next.js: Compiler** — removeConsole option 
-  https://nextjs.org/docs/advanced-features/compiler)
+  https://nextjs.org/docs/advanced-features/compiler
