@@ -64,32 +64,29 @@ export default function RelatedPostList({
 	if (top.length === 0) return null;
 
 	return (
-		<>
-			<h2 className={styles.heading}>Related Articles</h2>
-			<ul className={styles.list}>
-				{top.map((p, i) => (
-					<li
-						className={styles.item}
-						key={p.slug}
-						style={{ ['--index' as any]: i } as React.CSSProperties}
-					>
-						<Link href={`/post/${p.slug}/`} className={styles.link}>
-							<div className={styles.imageWrap}>
-								<Image
-									src={p.image || '/images/magill-dev-thumb.jpg'}
-									alt={`Preview of ${p.title}`}
-									width={72}
-									height={72}
-									className={styles.image}
-								/>
-							</div>
-							<div className={styles.content}>
-								<h3 className={styles.title}>{p.title}</h3>
-							</div>
-						</Link>
-					</li>
-				))}
-			</ul>
-		</>
+		<ul className={styles.list}>
+			{top.map((p, i) => (
+				<li
+					className={styles.item}
+					key={p.slug}
+					style={{ ['--index' as any]: i } as React.CSSProperties}
+				>
+					<Link href={`/post/${p.slug}/`} className={styles.link}>
+						<div className={styles.imageWrap}>
+							<Image
+								src={p.image || '/images/magill-dev-thumb.jpg'}
+								alt={`Preview of ${p.title}`}
+								width={72}
+								height={72}
+								className={styles.image}
+							/>
+						</div>
+						<div className={styles.content}>
+							<h3 className={styles.title}>{p.title}</h3>
+						</div>
+					</Link>
+				</li>
+			))}
+		</ul>
 	);
 }

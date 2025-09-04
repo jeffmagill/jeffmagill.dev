@@ -1,19 +1,15 @@
-.container {
-	max-width: var(--blog-width);
-	padding: var(--gap);
-	margin: 1rem auto;
-	border-top: 1px solid #99999966;
-
-	&.visible .item {
-		opacity: 1;
-		transform: translateY(0) scale(1);
-	}
+/* Export a module-scoped `visible` class so client wrapper can toggle it
+	(keeps compatibility with previous selectors which used `.visible .item`) */
+/* Reveal driven by the wrapper's data attribute: */
+[data-related-visible='1'] .item {
+	opacity: 1;
+	transform: translateY(0) scale(1);
 }
 
 .heading {
 	font-size: 1.25rem;
 	margin: 0 0 0.75rem 0;
-    text-align: center;
+	text-align: center;
 }
 
 .list {
@@ -91,7 +87,7 @@
 
 .item {
 	/* calculate per-item delay from index CSS var */
-	--reveal-delay: calc((var(--index, 0) * 80ms));
+	--reveal-delay: calc((var(--index, 0) * 150ms) + 1000ms);
 }
 
 /* Small screens: two columns using flex-wrap and 50% basis */
@@ -102,16 +98,16 @@
 }
 @media (max-width: 480px) {
 	.list {
-        flex-direction: column;
+		flex-direction: column;
 	}
 	.item {
 		flex-basis: 100%;
 	}
-    .link {
-        flex-direction: row;
+	.link {
+		flex-direction: row;
 
-        & > div {
-		 flex-basis: 50%;
-        }
-    }
+		& > div {
+			flex-basis: 50%;
+		}
+	}
 }

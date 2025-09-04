@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './RelatedPostList.module.scss';
+import styles from './RelatedPosts.module.scss';
 
 interface Props {
 	children: React.ReactNode;
@@ -39,11 +39,15 @@ export default function RelatedPosts({ children, className }: Props) {
 		return () => obs.disconnect();
 	}, []);
 
-	const wrapperClass =
-		`${styles.container} ${className ?? ''} ${visible ? styles.visible : ''}`.trim();
+	const wrapperClass = `${styles.container} ${className ?? ''}`.trim();
 
 	return (
-		<div ref={ref} className={wrapperClass}>
+		<div
+			ref={ref}
+			className={wrapperClass}
+			data-related-visible={visible ? '1' : '0'}
+		>
+			<h2 className={styles.heading}>Related Articles</h2>
 			{children}
 		</div>
 	);
