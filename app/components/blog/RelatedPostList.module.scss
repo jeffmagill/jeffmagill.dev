@@ -95,23 +95,23 @@
 }
 
 /* Small screens: two columns using flex-wrap and 50% basis */
-@media (max-width: 640px) {
-	.list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
+@media (max-width: 880px) {
 	.item {
 		flex-basis: 50%;
-		max-width: 50%;
 	}
 }
 @media (max-width: 480px) {
 	.list {
-		display: block;
+        flex-direction: column;
+	}
+	.item {
+		flex-basis: 100%;
 	}
     .link {
         flex-direction: row;
+
+        & > div {
+		 flex-basis: 50%;
+        }
     }
 }
