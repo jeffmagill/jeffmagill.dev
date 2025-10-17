@@ -11,7 +11,7 @@ import styles from './page.module.scss';
 
 const meta = {
 	title: 'Web Projects and Development Work - ' + settings.title,
-	description: 'A collection of projects and development work by Andrew Magill',
+	description: 'A collection of projects and development work by Jeff Magill',
 	url: `${settings.siteUrl}/projects/`,
 	image: settings.siteThumb,
 };

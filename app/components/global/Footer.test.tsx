@@ -13,7 +13,7 @@ vi.mock('./Navigation', () => ({
 // Mock the settings import
 vi.mock('@/utils/settings.mjs', () => ({
 	settings: {
-		title: 'Andrew Magill | Developer',
+		title: 'Jeff Magill | Developer',
 	},
 }));
 
@@ -44,7 +44,7 @@ describe('Footer', () => {
 	it('displays copyright information with current year', () => {
 		render(<Footer />);
 		expect(screen.getByText(/Copyright © 2025/)).toBeInTheDocument();
-		expect(screen.getByText(/Andrew Magill \| Developer/)).toBeInTheDocument();
+		expect(screen.getByText(/Jeff Magill \| Developer/)).toBeInTheDocument();
 	});
 
 	it('has correct styling', () => {

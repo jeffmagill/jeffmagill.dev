@@ -46,16 +46,16 @@ describe('Navigation', () => {
 
 		expect(links[3]).toHaveAttribute(
 			'href',
-			'/docs/andrew-magill-developer-resume.pdf'
+			'/docs/jeff-magill-developer-resume.pdf'
 		);
 		expect(links[3]).toHaveTextContent('Resume');
 
-		expect(links[4]).toHaveAttribute('href', '//github.com/andymagill');
+		expect(links[4]).toHaveAttribute('href', '//github.com/jeffmagill');
 		expect(links[4]).toHaveTextContent('GitHub');
 
 		expect(links[5]).toHaveAttribute(
 			'href',
-			'//www.linkedin.com/in/andrew-magill'
+			'//www.linkedin.com/in/jeff-magill'
 		);
 		expect(links[5]).toHaveTextContent('LinkedIn');
 	});

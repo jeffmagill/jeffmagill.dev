@@ -74,7 +74,7 @@ function setupSpeechButton(contentSelector, buttonSelector) {
 setupSpeechButton('blog-content', 'listen-btn');
 ```
 
-_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see the latest version of the React implementation that I used on my own site, checkout this [React component](https://github.com/andymagill/dev.magill.next/blob/master/app/components/blog/ListenButton.tsx).
+_ABRACADABRA!_ If the user's browser supports speech synthesis, a "listen" button is rendered. If not, nothing happens. To see the latest version of the React implementation that I used on my own site, checkout this [React component](https://github.com/jeffmagill/jeffmagill.dev/blob/master/app/components/blog/ListenButton.tsx).
 
 ## Closing tag
 

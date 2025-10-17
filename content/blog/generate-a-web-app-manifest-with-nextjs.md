@@ -55,7 +55,7 @@ Ready to get your hands dirty? Let’s dive into creating a [generated web app m
    }
    ```
 
-   The example code above uses placeholder content, but you can easily add logic to pull in details from elsewhere in your application. You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/app/manifest.ts) of this on github, where I use a `settings` object that was already available for other functionality.
+   The example code above uses placeholder content, but you can easily add logic to pull in details from elsewhere in your application. You can see my [latest implementation](https://github.com/jeffmagill/jeffmagill.dev/blob/master/app/manifest.ts) of this on github, where I use a `settings` object that was already available for other functionality.
 
    But wait, it gets even better—Next.js will _automagically_ detect your `manifest.ts` or `manifest.js` file and add the appropriate `<link>` tag to your HTML's `<head>`. It’s like magic, but without the rabbits and top hats.
 

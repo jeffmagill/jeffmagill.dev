@@ -52,7 +52,7 @@ export default function Home() {
 						{/* TODO: Create slideshow of Portraits  */}
 						{/* TODO: Add intro video */}
 						<Image
-							src='/images/portrait-andrew-magill.jpg'
+							src='/images/portrait-jeff-magill.jpg'
 							alt={settings.title}
 							className={`${styles.portrait} portrait`}
 							width={300}
@@ -63,13 +63,13 @@ export default function Home() {
 					{/* Homepage Intro */}
 					<div className={`${styles.homeIntro} homeIntro`}>
 						<h1>
-							<strong>Hey there, I’m Andrew&nbsp;Magill.</strong> I’m a
+							<strong>Hey there, I’m Jeff&nbsp;Magill.</strong> I’m a
 							web&nbsp;engineer with{' '}
-							<Link href='//www.linkedin.com/in/andrew-magill'>
+							<Link href='//www.linkedin.com/in/jeff-magill'>
 								deep&nbsp;experience
 							</Link>{' '}
 							building{' '}
-							<Link href='//github.com/andymagill'>
+							<Link href='//github.com/jeffmagill'>
 								custom&nbsp;websites & applications
 							</Link>
 							.
@@ -79,7 +79,7 @@ export default function Home() {
 							<Link href='/blog'>new&nbsp;challenges</Link> and interesting{' '}
 							opportunities. I built{' '}
 							<a href='/post/lets-breakdown-this-website'>this website</a>{' '}
-							<a href='//github.com/andymagill/dev.magill.next'>from scratch</a>{' '}
+							<a href='//github.com/jeffmagill/jeffmagill.dev'>from scratch</a>{' '}
 							to showcase{' '}
 							<Link href='/projects'>some of my&nbsp;best&nbsp;work</Link>.{' '}
 						</p>

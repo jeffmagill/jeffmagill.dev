@@ -60,7 +60,7 @@ const getPostFeed = (posts = []) => {
 export { getPostFeed };
 ```
 
-You can checkout my most recent version of that utility function in [this site's repo on GitHub](https://github.com/andymagill/dev.magill.next/blob/master/utils/feed.js). Someday I'll create a unit test for that function, pinky swear, but for now...
+You can checkout my most recent version of that utility function in [this site's repo on GitHub](https://github.com/jeffmagill/jeffmagill.dev/blob/master/utils/feed.js). Someday I'll create a unit test for that function, pinky swear, but for now...
 
 **Route the Feed**: Then, we can "feed" our blog data into an API route.tsx
 
@@ -76,7 +76,7 @@ export async function GET() {
 }
 ```
 
-_Easy peasy lemon squeezy_, as the kids like to say. You can see my [latest implementation](https://github.com/andymagill/dev.magill.next/blob/master/app/feed/%5Btype%5D/route.tsx) of this includes a [dynamic route segment](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes) to serve different versions of the post feed.
+_Easy peasy lemon squeezy_, as the kids like to say. You can see my [latest implementation](https://github.com/jeffmagill/jeffmagill.dev/blob/master/app/feed/%5Btype%5D/route.tsx) of this includes a [dynamic route segment](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes) to serve different versions of the post feed.
 
 **Build for Production**: Finally, lets run the build process to kick out the jams :
 

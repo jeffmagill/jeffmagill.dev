@@ -89,7 +89,7 @@ return <Markdown>{post.content}</Markdown>;
 
 As I continue to develop this website, I have a handful of exciting ideas to improve it further. My highest priority is to regularly publish [interesting and informative blog content](https://magill.dev/blog). I also hope to expand the [project section](https://magill.dev/projects) of the site, showcasing more of my work in greater detail.
 
-On the technical side, I'm looking to [enhance blogging functionality](https://github.com/andymagill/dev.magill.next/blob/master/ROADMAP.md) and UI. This might include features like improved search capabilities and tag-based filtering. For the project content, I'm exploring ways to create more engaging and dynamic presentations of my work.
+On the technical side, I'm looking to [enhance blogging functionality](https://github.com/jeffmagill/jeffmagill.dev/blob/master/ROADMAP.md) and UI. This might include features like improved search capabilities and tag-based filtering. For the project content, I'm exploring ways to create more engaging and dynamic presentations of my work.
 
 Building this website has been an interesting journey. The power and flexibility of modern web development tools has enabled me to carefully tailor the development and editing expereince. I'm curious where this site will take me, as I continue buiding it over the next few years.
 

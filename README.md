@@ -1,4 +1,4 @@
-# dev.magill.next
+# jeffmagill.dev
 
 # Intro
 
@@ -9,7 +9,7 @@ This project is a TypeScript/React/Next.JS portfolio and statically generated bl
 To install, follow these steps:
 
 1. Make sure you have Node.js version 14 or higher installed on your machine.
-2. Clone the repository: `git clone https://github.com/andymagill/dev.magill.next.git`
+2. Clone the repository: `git clone https://github.com/jeffmagill/jeffmagill.dev.git`
 3. Install the project dependencies: `npm install`
 
 ## Development
@@ -86,11 +86,11 @@ To install, follow these steps:
 2. Create a new branch: `git checkout -b feature-branch`
 3. Make your changes and commit them: `git commit -m 'Add new feature'`
 4. Push to the branch: `git push origin feature-branch`
-5. Create a [pull request on GitHub](https://github.com/andymagill/dev.magill.next/pulls).
+5. Create a [pull request on GitHub](https://github.com/jeffmagill/jeffmagill.dev/pulls).
 
 ### Creating Issues
 
-If you encounter a bug, have a feature request, or want to make a suggestion, please open an issue using the [GitHub Issues](https://github.com/andymagill/dev.magill.next/issues) page.
+If you encounter a bug, have a feature request, or want to make a suggestion, please open an issue using the [GitHub Issues](https://github.com/jeffmagill/jeffmagill.dev/issues) page.
 
 **When creating an issue:**
 

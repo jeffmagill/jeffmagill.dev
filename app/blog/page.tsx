@@ -12,7 +12,7 @@ import styles from './page.module.scss';
 const meta = {
 	title: 'Rants & Ramblings - ' + settings.title,
 	description:
-		'A Collection of Rants and Ramblings by web developer, Andrew Magill',
+		'A Collection of Rants and Ramblings by web developer, Jeff Magill',
 	url: `${settings.siteUrl}/blog/`,
 };
 
