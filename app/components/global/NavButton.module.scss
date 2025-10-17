@@ -34,7 +34,7 @@
 		display: none;
 	}
 	svg {
-		color: var(--alwaysWhite);
+		// color: var(--alwaysWhite);
 		transform: rotate(0deg);
 		transition: transform 0.25s;
 	}
@@ -61,10 +61,5 @@
 	~ nav {
 		background-color: var(--background);
 		color: var(--foreground);
-
-		@media (min-width: 640px) {
-			background: transparent;
-			color: var(--alwaysWhite);
-		}
 	}
 }

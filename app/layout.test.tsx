@@ -28,7 +28,7 @@ vi.mock('./components/global/Footer', () => ({
 
 // Mock the font
 vi.mock('next/font/google', () => ({
-	Outfit: () => ({ className: 'mock-outfit-font' }),
+	Fira_Sans: () => ({ className: 'mock-fira-sans-font' }),
 }));
 
 describe('RootLayout', () => {
@@ -73,6 +73,6 @@ describe('RootLayout', () => {
 		const doc = new DOMParser().parseFromString(markup, 'text/html');
 		const body = doc.querySelector('body');
 		expect(body).toBeTruthy();
-		expect(body?.classList.contains('mock-outfit-font')).toBeTruthy();
+		expect(body?.classList.contains('mock-fira-sans-font')).toBeTruthy();
 	});
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Hero.module.scss';
-import HeroAnimation from './HeroAnimation';
 
 //
 interface HeroProps {
@@ -11,7 +10,6 @@ const Hero: React.FC<HeroProps> = ({ children, className = '' }) => {
 	return (
 		<section className={`${styles.hero} hero ${className}`}>
 			<div className={`${styles.wrapper} wrapper`}>{children}</div>
-			<HeroAnimation />
 		</section>
 	);
 };
